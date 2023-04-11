@@ -5,16 +5,19 @@
   "private": true,
   "type": "module",
   "main": "dist/index.js",
-  "types": "dist/types/components/index.d.ts",
+  "types": "dist/lib/index.d.ts",
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "rollup -c ./rollup.config.mjs && npm run build:css",
-    "package": "npm run clean && npm run build",
+    "clean": "rm -rf ./dist",
+    "build:rollup": "rollup -c ./rollup.config.mjs && npm run build:css",
+    "package": "npm run clean && npm run build && npm run build:types && npm run build:css",
     "prepublishOnly": "npm run package",
     "build:vite": "npm run clean && vite build && npm run build:css",
+    "build": "node ./esbuild.mjs",
+    "build:types": "tsc --emitDeclarationOnly --declaration --project tsconfig.build.json",
     "build:css": "lightningcss --minify --bundle --targets '>= 0.25%' ./src/themes/default/root.css -o ./dist/root.css",
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -27,8 +30,7 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.js",
-      "types": "dist/types/components/index.d.ts"
+      "types": "./dist/lib/index.d.ts"
     },
     "./dist/root.css": "./dist/root.css"
   },
@@ -69,9 +71,11 @@
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
     "date-fns": "^2.29.3",
+    "esbuild": "^0.17.16",
     "fast-glob": "^3.2.12",
     "lightningcss": "^1.19.0",
     "lightningcss-cli": "^1.19.0",
+    "npm-dts": "^1.3.12",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

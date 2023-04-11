@@ -8,23 +8,22 @@ import terser from "@rollup/plugin-terser";
 import dts from "rollup-plugin-dts";
 import css from "rollup-plugin-import-css";
 import replace from "@rollup/plugin-replace";
-import { babel } from "@rollup/plugin-babel";
 import fg from "fast-glob";
 import { transform } from "lightningcss";
 
-const components = fg.sync(["src/components/*/**/index.ts"], {
+// import packageJson from "./package.json";
+
+const components = fg.sync(["src/components/*/index.ts"], {
   onlyFiles: true,
   ignore: [
     "src/components/index.ts",
-    "src/components/atoms/index.ts",
-    "src/components/molecules/index.ts",
-    "src/components/*/**/stories/*",
+    "src/components/*/stories/*",
   ],
   unique: true,
 });
 
 const plugins = [
-  resolve(),
+  //resolve(),
   commonjs(),
   terser(),
   css({
@@ -38,11 +37,6 @@ const plugins = [
   replace({
     "process.env.NODE_ENV": JSON.stringify("development"),
   }),
-  // babel({
-  //   extensions: [".ts", ".tsx"],
-  //   exclude: "node_modules/**",
-  //   babelHelpers: "bundled",
-  // }),
   external(),
 ];
 
@@ -50,22 +44,23 @@ const config = {
   input: path.resolve("src", "components/index.ts"),
   output: [
     {
-      dir: "dist",
+      format: 'esm',
       sourcemap: true,
-      format: "esm",
+      dir: 'dist',
+      preserveModules: true,
     },
-    {
-      dir: "dist",
-      sourcemap: true,
-      format: "cjs",
-    },
+    // {
+    //   dir: "dist",
+    //   sourcemap: true,
+    //   format: "cjs",
+    // },
   ],
   plugins: [
     ...plugins,
     typescript({
       tsconfig: "./tsconfig.build.json",
       declaration: true,
-      declarationDir: "dist/types",
+      declarationDir: "dist",
     }),
   ],
   external: ["react", "react-dom"],

@@ -5,8 +5,9 @@
     "lib": ["dom", "esnext"],
     "importHelpers": true,
     // output .d.ts declaration files for consumers
-    // "declaration": true,
-    // "declarationDir": "dist",
+    "declaration": true,
+    "declarationDir": "dist",
+    "outDir": "dist",
     "jsx": "react-jsx",
     "sourceMap": true,
     "strict": false,
@@ -18,7 +19,7 @@
     "emitDeclarationOnly": true,
     "rootDir": "src"
   },
-  "include": ["src/**/*"],
+  "include": ["src/lib/*"],
   "exclude": [
     "node_modules/*",
     "src/**/*.stories.tsx",
