@@ -20,7 +20,7 @@
     "removeComments": false,
     "baseUrl": ".",
     "paths": {
-      "uikit": ["src/components/*"]
+      "uikit": ["src/lib/*"]
     },
     "outDir": "dist/types",
     "typeRoots": ["node_modules/@types"]
