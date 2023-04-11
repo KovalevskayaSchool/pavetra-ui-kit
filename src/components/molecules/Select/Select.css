@@ -1,0 +1,59 @@
+.ks-select {
+  position: relative;
+  cursor: pointer;
+
+  --select-list-background-color: var(--color-white);
+  --select-item-hover-background-color: var(--color-opac-b-1);
+  --select-item-selected-background-color: var(--color-primary);
+  --select-border-color: var(--color-light-gray);
+}
+
+.ks-select__button.select__button--disabled {
+  cursor: not-allowed;
+}
+
+.ks-select__button {
+  display: grid;
+}
+
+.ks-select__button::-webkit-details-marker {
+  display: none;
+}
+
+.ks-select__icons {
+  display: flex;
+  color: var(--color-opac-b-8);
+}
+
+.ks-select__icon {
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-duration) ease-out;
+}
+
+.ks-select__icon[data-visible='true'] {
+  transform: rotate(180deg);
+}
+
+.ks-select__empty {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ks-select__clear {
+  width: 1.35rem;
+  height: 1.35rem;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: var(--border-radius-rounded);
+  color: var(--color-opac-b-9);
+}
+
+.ks-button.ks-select__button-clear:hover > * .ks-select__clear {
+  background-color: inherit;
+}

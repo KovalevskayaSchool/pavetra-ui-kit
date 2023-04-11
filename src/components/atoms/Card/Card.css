@@ -1,0 +1,13 @@
+.ks-card {
+  --bg-color-card: var(--color-white);
+
+  display: flex;
+  border-radius: var(--border-radius-l);
+  background-color: var(--bg-color-card);
+  width: 100%;
+}
+
+.ks-card__body {
+  padding: var(--space-1);
+  flex: 1 1 auto;
+}

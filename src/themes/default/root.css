@@ -1,0 +1,14 @@
+@import '../../theme/settings/colors.css';
+@import '../../theme/settings/fonts.css';
+@import '../../theme/settings/text.css';
+@import '../../theme/settings/variables.css';
+
+/* GENERIC */
+@import '../../theme/generic/reset.css';
+
+/*ELEMENTS */
+@import '../../theme/elements/button.css';
+@import '../../theme/elements/list.css';
+
+/* TODO EDIT */
+@import '../light/light.css';

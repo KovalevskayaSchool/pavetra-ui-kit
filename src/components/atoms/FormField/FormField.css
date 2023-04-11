@@ -1,0 +1,51 @@
+.ks-form-field {
+  position: relative;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.ks-form__row {
+  min-width: 0;
+}
+.ks-form__inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.ks-form-field__item {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+}
+.ks-input__error-border {
+  border-color: var(--color-danger);
+}
+
+.ks-form-field__label-wrapper {
+  display: inline-block;
+  flex-grow: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 0 2px;
+  white-space: initial;
+  text-align: start;
+}
+
+.ks-form-field__label {
+  display: flex;
+  flex-wrap: nowrap;
+  line-height: 1.2;
+}
+.ks-form-field__helper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.ks-form-field__error {
+  color: var(--color-danger);
+  font-size: 90%;
+}
+
+.ks-form__margin-offset {
+  margin-bottom: -20px;
+}

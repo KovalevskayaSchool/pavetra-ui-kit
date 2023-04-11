@@ -1,0 +1,7 @@
+:root {
+  color-scheme: light;
+  /* || GENERAL STYLES */
+  --global-background: #fafafa;
+  --global-foreground: var(--color-black);
+  --global-second-foreground: hsl(0, 0%, 15.7%);
+}

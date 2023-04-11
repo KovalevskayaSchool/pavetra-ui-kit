@@ -1,0 +1,362 @@
+.ks-button {
+  --button-inline-hover-background-color: var(--color-opac-b-2);
+  --button-inline-active-background-color: var(--color-opac-b-1);
+  --button-inline-disabled-background-color: var(--color-opac-b-5);
+  --button-inline-foreground-color: var(--color-black);
+
+  --button-primary-background-color: var(--color-primary);
+  --button-primary-foreground-color: var(--color-white);
+  --button-primary-disabled-background-color: var(--color-opac-p-10);
+  --button-primary-hover-background-color: var(--color-primary-dark);
+  --button-primary-active-background-color: var(--color-primary-light);
+
+  --button-danger-background-color: var(--color-danger);
+  --button-danger-hover-background-color: var(--color-pink);
+  --button-danger-active-background-color: var(--color-danger);
+  --button-danger-foreground-color: var(--color-danger);
+
+  --button-secondary-background-color: var(--color-opac-b-2);
+  --button-secondary-hover-background-color: var(--color-opac-b-3);
+  --button-secondary-active-background-color: var(--color-opac-b-2);
+  --button-secondary-disabled-background-color: var(--color-opac-b-1);
+  --button-secondary-disabled-foreground-color: var(--color-opac-b-10);
+
+  --button-ghost-background-color: transparent;
+  --button-ghost-foreground-color: var(--color-primary);
+  --button-ghost-hover-foreground-color: var(--color-primary-dark);
+  --button-ghost-active-foreground-color: var(--color-primary-light);
+  --button-ghost-disabled-foreground-color: var(--color-opac-p-10);
+
+  --button-link-hover-foreground-color: var(--color-opac-p-13);
+  --button-link-active-foreground-color: var(--color-opac-p-10);
+  --button-link-disabled-foreground-color: var(--color-opac-p-8);
+  --button-link-foreground-color: var(--color-primary);
+
+  --button-rounded-border-radius: 2rem;
+
+  --button-border-color: var(--color-blue);
+
+  display: inline-flex;
+  position: relative;
+
+  overflow: visible;
+
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 600;
+  user-select: none;
+  cursor: pointer;
+  white-space: nowrap;
+  border-width: 0;
+  z-index: 0;
+  color: inherit;
+  background-color: transparent;
+
+  transition: all var(--transition-duration) ease-out;
+
+  border-radius: var(--border-radius-base);
+  font-size: 0.8rem;
+  outline: none;
+  border: none;
+}
+
+.ks-button::-moz-focus-inner {
+  border: 0;
+}
+
+.ks-button:focus {
+  outline: none;
+}
+
+.ks-button:focus::before {
+  outline: none;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  border: 2px solid var(--button-border-color);
+  border-radius: 0.3rem;
+}
+
+.ks-button__container {
+  display: inline-block;
+  padding-left: 0.1667rem;
+  padding-right: 0.1667rem;
+}
+
+.ks-button__content {
+  padding-left: 0.6667rem;
+  padding-right: 0.6667rem;
+
+  flex-grow: 0;
+}
+
+.ks-button__content-with-icon {
+  padding-left: 0.133rem;
+}
+
+.ks-button__content-with-loading {
+  padding-left: 0.433rem;
+}
+
+.ks-button--loading {
+  font-size: inherit;
+  vertical-align: 0;
+}
+
+.ks-button__spin > svg {
+  color: inherit;
+}
+
+/* || ROUNDED */
+.ks-button--rounded {
+  border-radius: var(--button-rounded-border-radius);
+}
+
+.ks-button--rounded:focus::before {
+  outline: none;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  border: 2px solid var(--button-border-color);
+  border-radius: var(--button-rounded-border-radius);
+}
+
+/* || DANGER */
+.ks-button--danger {
+  background-color: var(--button-danger-background-color);
+}
+
+.ks-button--danger:hover,
+.ks-button--danger:active {
+  background-color: var(--button-danger-hover-background-color);
+}
+
+.ks-button-with-icon {
+  font-size: 1.25rem;
+
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.ks-button-with-icon.ks-button--large {
+  font-size: 1.95rem;
+  width: 2.625rem;
+  height: 2.625rem;
+}
+
+.ks-button-with-icon.ks-button--small {
+  font-size: 1rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.ks-button-with-icon.ks-button--medium {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+/* || SIZE */
+.ks-button--large {
+  height: 2.625rem;
+}
+
+.ks-button--small {
+  height: 2rem;
+}
+
+.ks-button--medium {
+  height: 2.25rem;
+}
+
+/* || ICON */
+
+.ks-button__icon {
+  display: flex;
+  font-size: 1.2rem;
+  align-items: center;
+}
+
+.ks-button-icon__container {
+  display: inline-flex;
+  align-items: center;
+  width: 2rem;
+}
+.ks-button-icon__inner {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.ks-button__spacer {
+  padding-bottom: 100%;
+}
+
+.ks-button-icon__layout > svg {
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  top: 0;
+  position: absolute;
+}
+
+.ks-button__icon-layout {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ks-button-icon__wrap-right {
+  padding-left: 0.6667rem;
+
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+}
+
+.ks-button-icon__wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* || VARIANTS */
+/* || PRIMARY */
+.ks-button--primary {
+  background-color: var(--button-primary-background-color);
+  color: var(--button-primary-foreground-color);
+}
+
+.ks-button--primary.ks-button--danger {
+  background-color: var(--button-danger-background-color);
+}
+
+.ks-button--primary.ks-button--danger:hover {
+  background-color: var(--button-danger-hover-background-color);
+}
+.ks-button--primary.ks-button--danger:active {
+  background-color: var(--button-danger-active-background-color);
+}
+
+.ks-button--primary:hover {
+  background-color: var(--button-primary-hover-background-color);
+}
+
+.ks-button--primary:active {
+  background-color: var(--button-primary-active-background-color);
+}
+
+.ks-button--primary:disabled {
+  color: var(--button-primary-foreground-color);
+  background-color: var(--button-primary-disabled-background-color);
+}
+
+/* || SECONDARY */
+.ks-button--secondary {
+  background-color: var(--button-secondary-background-color);
+}
+.ks-button--secondary:hover {
+  background-color: var(--button-secondary-hover-background-color);
+}
+.ks-button--secondary:active {
+  background-color: var(--button-secondary-active-background-color);
+}
+
+.ks-button--secondary:disabled {
+  color: var(--button-secondary-disabled-foreground-color);
+  background-color: var(--button-secondary-disabled-background-color);
+}
+
+/* || INLINE */
+.ks-button--inline {
+  background-color: transparent;
+  color: inherit;
+}
+
+.ks-button--inline.ks-button--danger {
+  background-color: transparent;
+  color: var(--button-danger-foreground-color);
+}
+
+.ks-button--inline:hover {
+  background-color: var(--button-inline-hover-background-color);
+}
+
+.ks-button--inline:active {
+  background-color: var(--button-inline-active-background-color);
+}
+
+.ks-button--inline:disabled {
+  color: var(--button-inline-disabled-background-color);
+  background-color: transparent;
+}
+
+/* || LINK */
+.ks-button--link {
+  background-color: transparent;
+  color: var(--button-link-foreground-color);
+}
+
+.ks-button--link.ks-button--danger {
+  background-color: transparent;
+  color: var(--button-danger-foreground-color);
+}
+
+.ks-button--link:hover {
+  color: var(--button-link-hover-foreground-color);
+}
+
+.ks-button--link:active {
+  color: var(--button-link-active-foreground-color);
+}
+
+.ks-button--link:disabled {
+  color: var(--button-link-disabled-foreground-color);
+}
+
+/* || GHOST */
+.ks-button--ghost {
+  background-color: var(--button-ghost-background-color);
+  color: var(--button-ghost-foreground-color);
+  border: 1px solid var(--button-ghost-foreground-color);
+}
+
+.ks-button--ghost.ks-button--danger {
+  background-color: var(--button-ghost-background-color);
+  color: var(--button-danger-foreground-color);
+  border: 1px solid var(--button-danger-background-color);
+}
+
+.ks-button--ghost.ks-button--danger:hover {
+  color: var(--button-danger-hover-background-color);
+  border: 1px solid var(--button-danger-hover-background-color);
+}
+
+.ks-button--ghost.ks-button--danger:active {
+  color: var(--button-danger-active-background-color);
+  border: 1px solid var(--button-danger-active-background-color);
+}
+
+.ks-button--ghost:hover {
+  color: var(--button-ghost-hover-foreground-color);
+  border-color: var(--button-ghost-hover-foreground-color);
+}
+
+.ks-button--ghost:active {
+  color: var(--button-ghost-active-foreground-color);
+  border-color: var(--button-ghost-active-foreground-color);
+}
+
+.ks-button--ghost:disabled {
+  color: var(--button-ghost-disabled-foreground-color);
+  border-color: var(--button-ghost-disabled-foreground-color);
+}

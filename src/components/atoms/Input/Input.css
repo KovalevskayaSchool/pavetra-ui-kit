@@ -1,0 +1,144 @@
+.ks-input {
+  --input-size-medium: 32px;
+  --input-size-large: 38px;
+  --input-size-small: 30px;
+
+  --input-not-active-background-color: var(--color-white);
+  --input-foreground-color: var(--global-foreground);
+  --input-disabled-foreground-color: var(--color-opac-b-5);
+  --input-disabled-background-color: var(--color-light-gray);
+  --input-background-color: var(--color-white);
+  --input-disabled-foreground-color: var(--color-gray);
+
+  --input-border-color: var(--border-separator-color);
+
+  position: relative;
+  display: flex;
+  border: 0.12rem solid var(--input-border-color);
+  text-align: inherit;
+
+  outline: none;
+  border-radius: var(--border-radius-base);
+  background-color: var(--input-not-active-background-color);
+  transition: all var(--transition-duration) ease-out;
+}
+
+.ks-input--error {
+  border-color: var(--color-danger);
+}
+
+.ks-input:hover {
+  border-color: var(--color-primary);
+}
+.ks-input:focus-within {
+  background-color: var(--input-background-color);
+}
+
+.ks-input__control {
+  text-align: inherit;
+  width: 100%;
+  outline: 0;
+  border: none;
+  background-color: transparent;
+  color: var(--input-foreground-color);
+}
+
+.ks-input__control--large {
+  height: var(--input-size-large);
+  font-size: 1rem;
+  padding: 0.35rem 1rem;
+}
+
+.ks-input__control--small {
+  height: var(--input-size-small);
+  font-size: 0.7rem;
+  padding: 0.27rem 0.9rem;
+}
+
+.ks-input__control--medium {
+  height: var(--input-size-medium);
+  padding: 0.3rem 1rem;
+}
+
+.ks-input__control:disabled,
+.ks-input__control[aria-disabled='true'] {
+  color: var(--input-disabled-foreground-color);
+  cursor: not-allowed;
+}
+
+.ks-input__control:placeholder {
+  color: var(--color-gray);
+}
+
+.ks-input__control.pd-r {
+  padding-left: 0;
+}
+
+.ks-input__control.pd-l {
+  padding-right: 0;
+}
+
+.ks-input[data-focus='true'] {
+  border-color: var(--color-primary);
+}
+
+.ks-input:active,
+.ks-input:focus {
+  border-color: var(--color-primary);
+}
+
+.ks-input__control[readonly] {
+  cursor: pointer;
+}
+
+.ks-input[aria-disabled='true'],
+.ks-input:disabled {
+  color: var(--input-disabled-foreground-color);
+  background-color: var(--input-disabled-background-color);
+  border-color: transparent;
+  cursor: not-allowed;
+}
+.ks-input__control:disabled {
+  cursor: not-allowed;
+}
+
+.ks-input__prefix-left {
+  left: 0;
+}
+
+.ks-input__prefix-right {
+  right: 0;
+}
+
+.ks-input__icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-width: 2rem;
+}
+
+.ks-textarea {
+  display: inline-flex;
+  width: fit-content;
+}
+
+.ks-textarea-control {
+  padding: 0.3rem 0.7rem;
+  border: 0.19rem solid transparent;
+  border-radius: var(--border-radius-base);
+  outline: none;
+  min-width: auto;
+  width: 100%;
+  min-height: 6rem;
+  color: var(--input-foreground-color);
+  resize: both;
+}
+
+.ks-textarea-control:focus-within {
+  background-color: var(--input-background-color);
+}
+
+.ks-textarea-control[data-resize='false'] {
+  resize: none;
+}
