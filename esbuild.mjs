@@ -1,11 +1,9 @@
 import path from "node:path";
 import esbuild from "esbuild";
 import fg from "fast-glob";
-import dts from "npm-dts";
+import cssModulesPlugin from 'esbuild-css-modules-plugin'
 
 import packageJson from "./package.json" assert { type: "json" };
-
-const { Generator } = dts;
 
 // let yourPlugin = {
 //   name: 'your-plugin',
@@ -32,33 +30,36 @@ async function build() {
     await esbuild
       .build({
         entryPoints: components,
-        outdir: "dist",
+        outdir: "dist/es",
         bundle: true,
         sourcemap: true,
         platform: "neutral", // for ESM
         minify: true,
-        splitting: true,
-        format: "esm",
+       // splitting: true,
+        format: "iife",
         define: { global: "window" },
         target: ["esnext"],
         external: Object.keys(packageJson.dependencies).concat(
           Object.keys(packageJson.peerDependencies)
         ),
+        plugins: [cssModulesPlugin()],
       })
       .catch(() => process.exit(1));
 
-    // cjs output bundle
-    //   await esbuild
-    //     .build({
-    //       entryPoints: ["src/lib/index.ts"],
-    //       outfile: "dist/cjs/index.cjs.js",
-    //       bundle: true,
-    //       sourcemap: true,
-    //       minify: true,
-    //       platform: "node",
-    //       target: ["node16"],
-    //     })
-    //     .catch(() => process.exit(1));
+   // cjs output bundle
+      // await esbuild
+      //   .build({
+      //     entryPoints: components,
+      // //    outfile: "dist/cjs/index.cjs.js",
+      //     outdir: "dist",
+      //     bundle: true,
+      //     sourcemap: true,
+      //     minify: true,
+      //     platform: "node",
+      //     target: ["node16"],
+      //     plugins: [cssModulesPlugin()],
+      //   })
+      //   .catch(() => process.exit(1));
 
     // await new Generator({
     //   entry: "src/lib/index.ts",
