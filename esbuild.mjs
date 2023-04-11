@@ -1,7 +1,7 @@
 import path from "node:path";
 import esbuild from "esbuild";
 import fg from "fast-glob";
-import cssModulesPlugin from 'esbuild-css-modules-plugin'
+import cssModulesPlugin from "esbuild-css-modules-plugin";
 
 import packageJson from "./package.json" assert { type: "json" };
 
@@ -16,27 +16,24 @@ import packageJson from "./package.json" assert { type: "json" };
 //   },
 // }
 
-const components = fg.sync(
-  ["src/lib/*/index.ts", "src/lib/index.ts"],
-  {
-    onlyFiles: true,
-    ignore: ["src/lib/*/stories/*"],
-    unique: true,
-  }
-);
+const components = fg.sync(["src/lib/*/index.ts", "src/lib/index.ts"], {
+  onlyFiles: true,
+  ignore: ["src/lib/*/stories/*"],
+  unique: true,
+});
 
 async function build() {
   try {
     await esbuild
       .build({
         entryPoints: components,
-        outdir: "dist/es",
+        outdir: "dist",
         bundle: true,
         sourcemap: true,
         platform: "neutral", // for ESM
         minify: true,
-       // splitting: true,
-        format: "iife",
+        splitting: true,
+        format: "esm",
         define: { global: "window" },
         target: ["esnext"],
         external: Object.keys(packageJson.dependencies).concat(
@@ -46,20 +43,20 @@ async function build() {
       })
       .catch(() => process.exit(1));
 
-   // cjs output bundle
-      // await esbuild
-      //   .build({
-      //     entryPoints: components,
-      // //    outfile: "dist/cjs/index.cjs.js",
-      //     outdir: "dist",
-      //     bundle: true,
-      //     sourcemap: true,
-      //     minify: true,
-      //     platform: "node",
-      //     target: ["node16"],
-      //     plugins: [cssModulesPlugin()],
-      //   })
-      //   .catch(() => process.exit(1));
+    // cjs output bundle
+    // await esbuild
+    //   .build({
+    //     entryPoints: components,
+    // //    outfile: "dist/cjs/index.cjs.js",
+    //     outdir: "dist",
+    //     bundle: true,
+    //     sourcemap: true,
+    //     minify: true,
+    //     platform: "node",
+    //     target: ["node16"],
+    //     plugins: [cssModulesPlugin()],
+    //   })
+    //   .catch(() => process.exit(1));
 
     // await new Generator({
     //   entry: "src/lib/index.ts",
