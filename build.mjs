@@ -50,7 +50,7 @@ async function build() {
     await esbuild
       .build({
         entryPoints: components,
-        outdir: "dist",
+        outdir: "dist/es",
         bundle: true,
         sourcemap: true,
         platform: "neutral", // for ESM

@@ -15,15 +15,12 @@ import { transform } from "lightningcss";
 
 const components = fg.sync(["src/lib/*/index.ts"], {
   onlyFiles: true,
-  ignore: [
-    "src/lib/index.ts",
-    "src/lib/*/stories/*",
-  ],
+  ignore: ["src/lib/index.ts", "src/lib/*/stories/*"],
   unique: true,
 });
 
 const plugins = [
-//  resolve(),
+  resolve(),
   commonjs(),
   terser(),
   css({
@@ -44,11 +41,16 @@ const config = {
   input: path.resolve("src", "lib/index.ts"),
   output: [
     {
-      format: 'esm',
+      format: "esm",
       sourcemap: true,
-      dir: 'dist',
-    //  preserveModules: true,
+      dir: "dist",
+      //  preserveModules: true,
     },
+    // {
+    //   format: 'cjs',
+    //   sourcemap: true,
+    //   dir: 'dist',
+    // },
     // {
     //   dir: "dist",
     //   sourcemap: true,
@@ -63,7 +65,16 @@ const config = {
       declarationDir: "dist",
     }),
   ],
-  external: ["react", "react-dom"],
+  external: [
+    "react",
+    "react-dom",
+    "classnames",
+    "react-aria",
+    "react-stately",
+    "@kovalevskayaschool/pavetra-icons",
+    "date-fns/*",
+    "react-popper",
+  ],
 };
 
 const mapCmp = components.reduce((acc, item) => {

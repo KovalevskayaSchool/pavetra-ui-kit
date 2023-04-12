@@ -1,6 +1,4 @@
 import {
-  createContext,
-  useContext,
   useState,
   forwardRef,
   useEffect,
@@ -8,7 +6,6 @@ import {
 import { useButton, useDatePicker } from 'react-aria';
 import { useDatePickerState } from 'react-stately';
 import cn from 'classnames';
-import { ru } from 'date-fns/locale';
 import { Locale } from 'date-fns/types';
 import format from 'date-fns/format';
 import {
@@ -16,8 +13,7 @@ import {
   CloseOutline,
 } from '@kovalevskayaschool/pavetra-icons';
 
-import type { PickerType, DatePickerEvent, PickerDay } from './DatePicker.d';
-import { type DatePickerContext as DatePickerContextProps } from './DatePicker.d';
+import type { PickerType, DatePickerEvent, PickerDay,  } from './DatePicker.d';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import { Popover } from '../Popover';
@@ -25,6 +21,7 @@ import { DatePickerBase } from './DatePickerBase';
 import { useDOMRef } from '../../utils/useDomRef';
 import { useFormField } from '../FormField/FormField';
 import { useControlled } from '../../utils/useControlled';
+import { DatePickerContext as DatePickerCtx } from './useDatePickerCtx';
 import './DatePicker.css';
 
 export interface DatePickerProps {
@@ -45,24 +42,6 @@ export interface DatePickerProps {
   a11yLabel?: string;
 }
 
-export const DatePickerContext = createContext<DatePickerContextProps>({
-  type: 'week',
-  date: new Date(),
-  events: [],
-  inline: false,
-  locale: ru,
-  value: null,
-  setValue: () => undefined,
-  setDate: () => undefined,
-  setWeek: () => undefined,
-  setYear: () => undefined,
-  setMonth: () => undefined,
-  disableDate: undefined,
-  selectedValue: null,
-  onDayClick: () => undefined,
-});
-
-export const useDatePickerCtx = () => useContext(DatePickerContext);
 
 export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
   (
@@ -215,11 +194,11 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       : '';
 
     return (
-      <DatePickerContext.Provider
+      <DatePickerCtx.Provider
         value={{
           ...props,
           inline,
-          locale: locale || ru,
+          locale: locale,
           type,
           selectedValue: valueDate,
           date,
@@ -234,7 +213,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
         }}
       >
         {renderContent()}
-      </DatePickerContext.Provider>
+      </DatePickerCtx.Provider>
     );
   }
 );

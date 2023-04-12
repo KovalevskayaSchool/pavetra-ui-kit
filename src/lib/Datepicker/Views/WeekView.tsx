@@ -10,7 +10,7 @@ import {
   ChevronRightOutline,
 } from '@kovalevskayaschool/pavetra-icons';
 
-import { useDatePickerCtx } from '../DatePicker';
+import { useDatePickerCtx } from '../useDatePickerCtx';
 import { DatePickerTemplate } from '../DatePickerTemplate';
 import { Button } from '../../Button';
 import { useWeekView } from './useWeekView';

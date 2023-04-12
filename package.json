@@ -16,7 +16,7 @@
     "package": "npm run clean && npm run build && npm run build:css",
     "prepublishOnly": "npm run package",
     "build:vite": "npm run clean && vite build && npm run build:css",
-    "build:es": "node ./build.mjs",
+    "build:es": "npm run build:types && node ./build.mjs",
     "build:types": "tsc --emitDeclarationOnly --declaration --project tsconfig.build.json",
     "build:css": "lightningcss --minify --bundle --targets '>= 0.25%' ./src/themes/default/root.css -o ./dist/root.css",
     "sb": "storybook dev -p 6006",
@@ -45,7 +45,6 @@
     "classnames": "^2.3.2",
     "react-aria": "^3.24.0",
     "react-popper": "^2.3.0",
-    "date-fns": "^2.29.3",
     "react-stately": "^3.22.0"
   },
   "devDependencies": {
@@ -73,6 +72,7 @@
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
+    "date-fns": "^2.29.3",
     "esbuild": "^0.17.16",
     "esbuild-css-modules-plugin": "^2.7.1",
     "fast-glob": "^3.2.12",

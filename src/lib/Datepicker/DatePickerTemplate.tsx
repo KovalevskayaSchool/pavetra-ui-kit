@@ -1,7 +1,8 @@
 import { FC, PropsWithChildren } from 'react';
 import cn from 'classnames';
 import { Card } from '../Card';
-import { useDatePickerCtx } from './DatePicker';
+
+import { useDatePickerCtx } from './useDatePickerCtx';
 
 interface DatePickerTemplateProps {
   navigation: React.ReactNode;
