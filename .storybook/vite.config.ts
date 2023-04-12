@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import lightningcss from 'vite-plugin-lightningcss';
 
 export default defineConfig({
@@ -9,6 +10,11 @@ export default defineConfig({
     },
   },
   plugins: [
+    react({
+      babel: {
+        plugins: ["@babel/plugin-syntax-import-assertions"]
+      }
+    }),
     lightningcss({
       browserslist: '>= 0.25%',
     }),

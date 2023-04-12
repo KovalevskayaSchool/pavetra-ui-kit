@@ -3,6 +3,7 @@ import { forwardRef, PropsWithChildren, ButtonHTMLAttributes } from 'react';
 import { AriaButtonProps } from 'react-aria';
 import cn from 'classnames';
 import { useDOMRef } from '../../utils/useDomRef';
+import './Button.css';
 
 interface ButtonProps extends AriaButtonProps {
   icon?: React.ReactNode;

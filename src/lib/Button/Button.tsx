@@ -4,7 +4,8 @@ import cn from 'classnames';
 import { Spin } from '../Spin';
 
 import { Button as Base, BaseProps } from './ButtonBase';
-import './Button.css';
+// @ts-ignore
+import styles from './Button.css';
 
 export interface ButtonProps extends BaseProps {
   loading?: boolean;

@@ -1,12 +1,12 @@
 import { forwardRef, isValidElement } from 'react';
 import cn from 'classnames';
+import { RadioGroupState } from 'react-stately';
 import { useRadio, useFocusRing } from 'react-aria';
 import type { AriaRadioProps } from 'react-aria';
 
 import { useRadioGroupContext } from './RadioGroup';
 import { useDOMRef } from '../../utils/useDomRef';
 import './Radio.css';
-import { RadioGroupState } from 'react-stately';
 
 interface Props extends AriaRadioProps {
   label?: string | React.ReactNode;

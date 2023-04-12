@@ -13,17 +13,17 @@ import { transform } from "lightningcss";
 
 // import packageJson from "./package.json";
 
-const components = fg.sync(["src/components/*/index.ts"], {
+const components = fg.sync(["src/lib/*/index.ts"], {
   onlyFiles: true,
   ignore: [
-    "src/components/index.ts",
-    "src/components/*/stories/*",
+    "src/lib/index.ts",
+    "src/lib/*/stories/*",
   ],
   unique: true,
 });
 
 const plugins = [
-  //resolve(),
+//  resolve(),
   commonjs(),
   terser(),
   css({
@@ -41,13 +41,13 @@ const plugins = [
 ];
 
 const config = {
-  input: path.resolve("src", "components/index.ts"),
+  input: path.resolve("src", "lib/index.ts"),
   output: [
     {
       format: 'esm',
       sourcemap: true,
       dir: 'dist',
-      preserveModules: true,
+    //  preserveModules: true,
     },
     // {
     //   dir: "dist",
@@ -145,7 +145,7 @@ const componentsConfigs = components.map((item) => {
 
 // const defaultConfig = {
 //   input: {
-//     index: path.resolve('src', 'components/index.ts'),
+//     index: path.resolve('src', 'lib/index.ts'),
 //     ...mapCmp,
 //   },
 //   output: [
@@ -158,7 +158,7 @@ const componentsConfigs = components.map((item) => {
 // };
 
 const configTypes = {
-  input: "dist/components/index.d.ts",
+  input: "dist/lib/index.d.ts",
   output: {
     file: "dist/index.d.ts",
     format: "esm",

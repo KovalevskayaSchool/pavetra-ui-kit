@@ -1,5 +1,6 @@
 import { HTMLAttributes, useMemo, forwardRef, useId } from 'react';
 import cn from 'classnames';
+
 import './Avatar.css';
 
 type AvatarSize = 'large' | 'medium' | 'small' | number;

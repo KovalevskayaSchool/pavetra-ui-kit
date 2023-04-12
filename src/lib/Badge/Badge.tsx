@@ -1,6 +1,6 @@
 import { forwardRef, PropsWithChildren } from 'react';
 import cn from 'classnames';
-import './Badge.css';
+import './Badge.css';;
 
 export interface BadgeProps {
   className?: string;

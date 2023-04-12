@@ -12,11 +12,11 @@
   "sideEffects": false,
   "scripts": {
     "clean": "rm -rf ./dist",
-    "build:rollup": "rollup -c ./rollup.config.mjs && npm run build:css",
-    "package": "npm run clean && npm run build && npm run build:types && npm run build:css",
+    "build": "rollup -c ./rollup.config.mjs && npm run build:css",
+    "package": "npm run clean && npm run build && npm run build:css",
     "prepublishOnly": "npm run package",
     "build:vite": "npm run clean && vite build && npm run build:css",
-    "build": "node ./esbuild.mjs",
+    "build:es": "node ./build.mjs",
     "build:types": "tsc --emitDeclarationOnly --declaration --project tsconfig.build.json",
     "build:css": "lightningcss --minify --bundle --targets '>= 0.25%' ./src/themes/default/root.css -o ./dist/root.css",
     "sb": "storybook dev -p 6006",
@@ -33,7 +33,7 @@
       "types": "./dist/lib/index.d.ts"
     },
     "./dist/root.css": "./dist/root.css",
-    "./dist/index.css": "./dist/index.css"
+    "./dist/bundle.css": "./dist/bundle.css"
   },
   "peerDependencies": {
     "react": ">=18.2.0",
@@ -45,10 +45,12 @@
     "classnames": "^2.3.2",
     "react-aria": "^3.24.0",
     "react-popper": "^2.3.0",
+    "date-fns": "^2.29.3",
     "react-stately": "^3.22.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
+    "@babel/plugin-syntax-import-assertions": "^7.20.0",
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.21.4",
@@ -71,7 +73,6 @@
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
-    "date-fns": "^2.29.3",
     "esbuild": "^0.17.16",
     "esbuild-css-modules-plugin": "^2.7.1",
     "fast-glob": "^3.2.12",

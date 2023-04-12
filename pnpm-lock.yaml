@@ -10,6 +10,9 @@ dependencies:
   classnames:
     specifier: ^2.3.2
     version: 2.3.2
+  date-fns:
+    specifier: ^2.29.3
+    version: 2.29.3
   react-aria:
     specifier: ^3.24.0
     version: 3.24.0(react-dom@18.2.0)(react@18.2.0)
@@ -24,6 +27,9 @@ devDependencies:
   '@babel/core':
     specifier: ^7.21.4
     version: 7.21.4
+  '@babel/plugin-syntax-import-assertions':
+    specifier: ^7.20.0
+    version: 7.20.0(@babel/core@7.21.4)
   '@babel/preset-env':
     specifier: ^7.21.4
     version: 7.21.4(@babel/core@7.21.4)
@@ -90,9 +96,6 @@ devDependencies:
   '@vitejs/plugin-react':
     specifier: ^3.1.0
     version: 3.1.0(vite@4.2.1)
-  date-fns:
-    specifier: ^2.29.3
-    version: 2.29.3
   esbuild:
     specifier: ^0.17.16
     version: 0.17.16
@@ -5239,7 +5242,7 @@ packages:
   /date-fns@2.29.3:
     resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
     engines: {node: '>=0.11'}
-    dev: true
+    dev: false
 
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
