@@ -38,3 +38,5 @@ export { Modal } from './Modal';
 export type { UseModalProps, ModalState } from './Modal';
 export { Select } from './Select';
 export type { SelectProps } from './Select';
+export { Pagination } from "./Pagination";
+export type { PaginationProps } from "./Pagination";
