@@ -1,0 +1,14 @@
+.ks-pagination {
+  display: inline-flex;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.ks-pagination__item {
+  margin-inline-end: 8px;
+}
+
+.ks-pagination__item > .ks-button {
+  width: 2.2rem;
+  height: 2.2rem;
+}
