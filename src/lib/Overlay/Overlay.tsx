@@ -26,7 +26,7 @@ export const Overlay = forwardRef<
   return (
     <FocusScope restoreFocus>
       <div
-        style={overlayProps.style}
+        style={{...overlayProps.style, position: "fixed", width: "100%"}}
         className={className}
         ref={overlayRef}
         role="dialog"

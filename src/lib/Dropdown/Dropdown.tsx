@@ -4,22 +4,22 @@ import {
   isValidElement,
   cloneElement,
   PropsWithChildren,
-} from 'react';
-import { useSelectState, SelectProps as SelectBaseProps } from 'react-stately';
-import { HiddenSelect, useButton, useFocusRing, useSelect } from 'react-aria';
+} from "react";
+import { useSelectState, SelectProps as SelectBaseProps } from "react-stately";
+import { HiddenSelect, useButton, useFocusRing, useSelect } from "react-aria";
 
-import { SelectMenu, type MenuItemProps } from '../SelectMenu';
+import { SelectMenu, type MenuItemProps } from "../SelectMenu";
 
-import { type Placement } from './Dropdown.d';
-import { Popover } from '../Popover';
-import { mapToAriaProps } from '../SelectMenu/map';
-import { useDOMRef } from '../../utils/useDomRef';
-import './Dropdown.css';
+import { type Placement } from "./Dropdown.d";
+import { Popover } from "../Popover";
+import { mapToAriaProps } from "../SelectMenu/map";
+import { useDOMRef } from "../../utils/useDomRef";
+import "./Dropdown.css";
 
 export interface DropdownProps
   extends Omit<
     SelectBaseProps<MenuItemProps>,
-    'items' | 'isDisabled' | 'isLoading' | 'children'
+    "items" | "isDisabled" | "isLoading" | "children"
   > {
   menu?: MenuItemProps[];
   onChange?: (value: string) => void;
@@ -56,14 +56,14 @@ export const Dropdown = forwardRef<
     ref
   ) => {
     const triggerRef = useDOMRef(ref);
-    const propsWithChildren = mapToAriaProps(menu, ariaLabel || '');
+    const propsWithChildren = mapToAriaProps(menu, ariaLabel || "");
     const state = useSelectState<MenuItemProps>({
       ...propsWithChildren,
       defaultSelectedKey: defaultValue,
       selectedKey: value,
       disabledKeys: menu
         .filter((item) => item.disabled)
-        .map((item) => item.id || ''),
+        .map((item) => item.id || ""),
       onSelectionChange(key) {
         return onChange?.(key.toString());
       },
@@ -77,9 +77,9 @@ export const Dropdown = forwardRef<
       {
         ...props,
         ...propsWithChildren,
-        'isDisabled': disabled,
-        'items': menu,
-        'aria-label': ariaLabel || 'select',
+        isDisabled: disabled,
+        items: menu,
+        "aria-label": ariaLabel || "select",
       },
       state,
       triggerRef
@@ -153,4 +153,4 @@ export const Dropdown = forwardRef<
 
 Dropdown.defaultProps = {};
 
-Dropdown.displayName = 'Dropdown';
+Dropdown.displayName = "Dropdown";
