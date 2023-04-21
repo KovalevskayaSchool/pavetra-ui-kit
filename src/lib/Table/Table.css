@@ -1,0 +1,36 @@
+.ks-table {
+  border-collapse: collapse;
+}
+
+.ks-table__row {
+  border-bottom: 1px solid rgb(216, 222, 228);
+}
+
+.ks-table__row--selected {
+  background-color: var(--color-opac-p-2);
+}
+
+.ks-table__table-data {
+  position: relative;
+  padding: 16px;
+  overflow-wrap: break-word;
+}
+
+.ks-table__table-data > .ks-checkbox {
+  display: inline-grid;
+}
+
+.ks-table__header-row {
+  background-color: var(--color-opac-b-1);
+  box-shadow: rgb(208, 215, 222) 0px -2px 0px inset,
+    rgb(208, 215, 222) 0px 1px 0px inset;
+  padding: 16px;
+}
+
+.ks-table__thead > tr:first-child > *:first-child {
+  border-start-start-radius: 8px;
+}
+
+.ks-table__thead > tr:first-child > *:last-child {
+  border-start-end-radius: 8px;
+}
