@@ -29,9 +29,9 @@ export const Button = forwardRef<
     ref
   ) => {
     const renderIcon = () => {
-      if (isValidElement(icon)) {
+      if (isValidElement(icon) && !loading) {
         if (children) {
-          return !loading ? (
+          return  (
             <div className="ks-button__icon">
               <div className="ks-button-icon__container">
                 <div className="ks-button-icon__inner">
@@ -42,7 +42,7 @@ export const Button = forwardRef<
                 </div>
               </div>
             </div>
-          ) : null;
+          );
         }
         return (
           <div className="ks-button-icon__wrap">
