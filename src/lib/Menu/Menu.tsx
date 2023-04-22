@@ -62,6 +62,7 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
     const { listBoxProps } = useListBox(
       {
         ...props,
+        "aria-label": props['aria-label'] || "menu",
         disallowEmptySelection,
         shouldSelectOnPressUp,
       },
