@@ -40,3 +40,5 @@ export { Select } from './Select';
 export type { SelectProps } from './Select';
 export { Pagination } from "./Pagination";
 export type { PaginationProps } from "./Pagination";
+export { Table } from './Table';
+export type { TableProps } from './Table';
