@@ -2,6 +2,7 @@ import { PropsWithChildren, forwardRef } from "react";
 import { useTable } from "react-aria";
 import { TableStateProps, useTableState } from "react-stately";
 import { CollectionChildren } from "@react-types/shared";
+import cn from 'classnames'
 
 import { useDOMRef } from "../../utils/useDomRef";
 
@@ -17,6 +18,7 @@ import "./Table.css";
 
 export interface TableProps extends TableStateProps<object> {
   a11yLabel?: string;
+  className?: string;
 }
 
 export const TableBase = forwardRef<
@@ -24,7 +26,7 @@ export const TableBase = forwardRef<
   PropsWithChildren<TableProps>
 >(
   (
-    { children, selectionBehavior, selectionMode, a11yLabel, ...props },
+    { children, selectionBehavior, selectionMode, a11yLabel, className, ...props },
     refForwarded
   ) => {
     const ref = useDOMRef(refForwarded);
@@ -45,7 +47,7 @@ export const TableBase = forwardRef<
     );
 
     return (
-      <table {...gridProps} className="ks-table" ref={ref}>
+      <table {...gridProps} className={cn("ks-table", className)} ref={ref}>
         <TableRowGroup type="thead">
           {collection.headerRows.map((headerRow) => {
             const headerChildNodes =
