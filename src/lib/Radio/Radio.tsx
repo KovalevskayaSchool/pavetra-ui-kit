@@ -46,10 +46,10 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
       <label
         {...focusProps}
         className={cn(className, 'ks-radio__wrapper', {
-          ['ks-radio--disabled']: isDisabled,
+          ['ks-radio_disabled']: isDisabled,
         })}
       >
-        <span className={cn({ ['ks-radio--checked']: inputProps.checked })}>
+        <span className={cn({ ['ks-radio_checked']: inputProps.checked })}>
           <input
             ref={ref}
             {...inputProps}

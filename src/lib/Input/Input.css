@@ -23,7 +23,7 @@
   transition: all var(--transition-duration) ease-out;
 }
 
-.ks-input--error {
+.ks-input_error {
   border-color: var(--color-danger);
 }
 
@@ -43,25 +43,25 @@
   color: var(--input-foreground-color);
 }
 
-.ks-input__control--large {
+.ks-input__control_large {
   height: var(--input-size-large);
   font-size: 1rem;
   padding: 0.35rem 1rem;
 }
 
-.ks-input__control--small {
+.ks-input__control_small {
   height: var(--input-size-small);
   font-size: 0.7rem;
   padding: 0.27rem 0.9rem;
 }
 
-.ks-input__control--medium {
+.ks-input__control_medium {
   height: var(--input-size-medium);
   padding: 0.3rem 1rem;
 }
 
 .ks-input__control:disabled,
-.ks-input__control[aria-disabled='true'] {
+.ks-input__control[aria-disabled="true"] {
   color: var(--input-disabled-foreground-color);
   cursor: not-allowed;
 }
@@ -78,7 +78,7 @@
   padding-right: 0;
 }
 
-.ks-input[data-focus='true'] {
+.ks-input[data-focus="true"] {
   border-color: var(--color-primary);
 }
 
@@ -91,7 +91,7 @@
   cursor: pointer;
 }
 
-.ks-input[aria-disabled='true'],
+.ks-input[aria-disabled="true"],
 .ks-input:disabled {
   color: var(--input-disabled-foreground-color);
   background-color: var(--input-disabled-background-color);
@@ -139,6 +139,6 @@
   background-color: var(--input-background-color);
 }
 
-.ks-textarea-control[data-resize='false'] {
+.ks-textarea-control[data-resize="false"] {
   resize: none;
 }

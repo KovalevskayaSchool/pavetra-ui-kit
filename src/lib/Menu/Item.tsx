@@ -32,9 +32,9 @@ export const Item: FC<MenuItemProps> = ({
   );
 
   const classNames = cn(className, 'ks-menu__item', {
-    ['ks-menu__item--selected']: isSelected,
-    ['ks-menu__item--active']: isFocusVisible,
-    ['ks-menu__item--disabled']: isDisabled,
+    ['ks-menu__item_selected']: isSelected,
+    ['ks-menu__item_active']: isFocusVisible,
+    ['ks-menu__item_disabled']: isDisabled,
   });
 
   const renderChildren = () => {

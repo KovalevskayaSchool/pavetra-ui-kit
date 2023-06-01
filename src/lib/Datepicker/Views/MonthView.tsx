@@ -62,11 +62,11 @@ export const MonthView: FC<MonthViewProps> = () => {
               <td
                 key={month.date.toString()}
                 className={cn('ks-picker-cell', {
-                  ['ks-picker-cell--today']: isSameMonth(
+                  ['ks-picker-cell_today']: isSameMonth(
                     month.date,
                     new Date()
                   ),
-                  ['ks-picker-cell--selected']: isDate(state.value)
+                  ['ks-picker-cell_selected']: isDate(state.value)
                     ? isSameMonth(month.date, selected)
                     : false,
                 })}

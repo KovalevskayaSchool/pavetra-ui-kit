@@ -84,7 +84,7 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
         ref={listBoxRef}
         {...listBoxProps}
         className={cn('ks-menu-nav', className, {
-          ['ks-menu-nav--horizontal']: mode === 'horizontal',
+          ['ks-menu-nav_horizontal']: mode === 'horizontal',
           ['ks-menu-nav--vertical']: mode === 'vertical',
         })}
       >

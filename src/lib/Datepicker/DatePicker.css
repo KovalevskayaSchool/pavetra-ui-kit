@@ -43,7 +43,7 @@
   position: relative;
 }
 
-.ks-picker--inline {
+.ks-picker_inline {
   box-shadow: none;
   width: fit-content;
 }
@@ -106,7 +106,7 @@
   height: 24px;
   transform: translateY(-50%);
   transition: all 0.3s;
-  content: '';
+  content: "";
 }
 
 .ks-picker-cell__inner {
@@ -124,16 +124,16 @@
   background-color: var(--grey-10);
 }
 
-.ks-picker-cell--not-current {
+.ks-picker-cell_not-current {
   background-color: var(--grey-100);
   color: var(--grey-300);
 }
 
-.ks-picker-cell--today {
+.ks-picker-cell_today {
   padding-top: 4px;
 }
 
-.ks-picker-cell--today {
+.ks-picker-cell_today {
   color: var(--color-primary);
   font-weight: 500;
 }
@@ -150,12 +150,12 @@
   font-weight: 500;
 }
 
-.ks-picker-cell.ks-picker-cell--selected {
+.ks-picker-cell.ks-picker-cell_selected {
   background-color: var(--color-primary);
   color: var(--color-white);
 }
 
-.ks-picker-cell--disabled {
+.ks-picker-cell_disabled {
   background-color: var(--grey-100);
   color: var(--grey-300);
 }

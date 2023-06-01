@@ -8,7 +8,7 @@
   --select-border-color: var(--color-light-gray);
 }
 
-.ks-select__button.select__button--disabled {
+.ks-select__button.select__button_disabled {
   cursor: not-allowed;
 }
 
@@ -31,7 +31,7 @@
   transition: all var(--transition-duration) ease-out;
 }
 
-.ks-select__icon[data-visible='true'] {
+.ks-select__icon[data-visible="true"] {
   transform: rotate(180deg);
 }
 

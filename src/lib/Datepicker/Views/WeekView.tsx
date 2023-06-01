@@ -82,13 +82,13 @@ export const WeekView: FC<WeekViewProps> = () => {
               <td
                 key={day.date.toString()}
                 className={cn('ks-picker-cell', {
-                  ['ks-picker-cell--not-current']: !day.isCurrentMonth,
-                  ['ks-picker-cell--today']: isToday(day.date),
-                  ['ks-picker-cell--selected']: isDate(state.value)
+                  ['ks-picker-cell_not-current']: !day.isCurrentMonth,
+                  ['ks-picker-cell_today']: isToday(day.date),
+                  ['ks-picker-cell_selected']: isDate(state.value)
                     ? isSameDay(day.date, selected)
                     : false,
                   ['ks-picker-cell__event']: !!hasEvent(day.date),
-                  ['ks-picker-cell--disabled']: state.disableDate?.(day.date),
+                  ['ks-picker-cell_disabled']: state.disableDate?.(day.date),
                 })}
                 onClick={() => handleDayClick(day)}
                 title={day.label}

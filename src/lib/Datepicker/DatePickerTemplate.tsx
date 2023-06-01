@@ -14,7 +14,7 @@ export const DatePickerTemplate: FC<
 > = ({ children, footer, navigation }) => {
   const { inline, type } = useDatePickerCtx();
   return (
-    <Card className={cn('ks-picker', { ['ks-picker--inline']: !!inline })}>
+    <Card className={cn('ks-picker', { ['ks-picker_inline']: !!inline })}>
       <div
         className={cn('ks-picker__container', {
           ['ks-picker__year']: type === 'year',

@@ -70,8 +70,8 @@ export const YearView: FC<YearViewProps> = () => {
               <td
                 key={year.date.toString()}
                 className={cn('ks-picker-cell', {
-                  ['ks-picker-cell--today']: isSameYear(year.date, new Date()),
-                  ['ks-picker-cell--selected']: isDate(state.value)
+                  ['ks-picker-cell_today']: isSameYear(year.date, new Date()),
+                  ['ks-picker-cell_selected']: isDate(state.value)
                     ? isSameYear(year.date, selected)
                     : false,
                 })}

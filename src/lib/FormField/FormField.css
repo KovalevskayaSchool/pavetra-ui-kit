@@ -41,6 +41,8 @@
   display: flex;
   flex-wrap: nowrap;
 }
+
+/* @TODO refactor to modificator
 .ks-form-field__error {
   color: var(--color-danger);
   font-size: 90%;

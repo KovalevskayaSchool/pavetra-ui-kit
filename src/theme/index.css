@@ -1,21 +1,7 @@
 @charset "utf-8";
 
 /* SETTINGS */
-@import 'settings/colors.css';
-@import 'settings/fonts.css';
-@import 'settings/text.css';
-@import 'settings/variables.css';
-@import 'settings/theme.css';
-
-/* TOOLS */
-
-/* GENERIC */
-@import 'generic/reset.css';
-
-/*ELEMENTS */
-@import 'elements/button.css';
-@import 'elements/list.css';
-
-/* OBJECTS */
-
-/* COMPONENTS */
+@import "settings/colors.css";
+@import "settings/text.css";
+@import "settings/variables.css";
+@import "settings/theme.css";

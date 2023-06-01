@@ -111,7 +111,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div
-        className={cn(className, 'ks-input', { ['ks-input--error']: isError })}
+        className={cn(className, 'ks-input', { ['ks-input_error']: isError })}
         data-focus={isFocusVisible || active}
         aria-disabled={disabled}
       >
@@ -130,9 +130,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               ['pd-r']: !!prefix,
               ['pd-l']: !!suffix,
 
-              ['ks-input__control--medium']: size === 'medium',
-              ['ks-input__control--large']: size === 'large',
-              ['ks-input__control--small']: size === 'small',
+              ['ks-input__control_medium']: size === 'medium',
+              ['ks-input__control_large']: size === 'large',
+              ['ks-input__control_small']: size === 'small',
             })}
             ref={ref}
             disabled={disabled}

@@ -81,7 +81,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
       >
         <div
           className={cn('ks-switch__text', {
-            ['ks-switch__text--checked']: !state.isSelected,
+            ['ks-switch__text_checked']: !state.isSelected,
           })}
           data-checked={!state.isSelected}
           onClick={handleToggleOff}
@@ -98,7 +98,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           </VisuallyHidden>
           <span
             className={cn('ks-switch__area', {
-              ['ks-switch__area--checked']: state.isSelected,
+              ['ks-switch__area_checked']: state.isSelected,
             })}
           >
             {isLoading && <Spin className="ks-switch__spin" size="small" />}
@@ -106,7 +106,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         </div>
         <div
           className={cn('ks-switch__text', {
-            ['ks-switch__text--checked']: state.isSelected,
+            ['ks-switch__text_checked']: state.isSelected,
           })}
           data-checked={state.isSelected}
           onClick={handleToggleOn}

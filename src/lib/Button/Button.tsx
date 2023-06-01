@@ -4,8 +4,7 @@ import cn from 'classnames';
 import { Spin } from '../Spin';
 
 import { Button as Base, BaseProps } from './ButtonBase';
-// @ts-ignore
-import styles from './Button.css';
+import './Button.css';
 
 export interface ButtonProps extends BaseProps {
   loading?: boolean;
@@ -53,7 +52,7 @@ export const Button = forwardRef<
 
       if (loading) {
         return (
-          <div className="ks-button__icon ks-button--loading">
+          <div className="ks-button__icon ks-button_loading">
             <div className="ks-button-icon__container">
               <div className="ks-button-icon__inner">
                 <div className="ks-button-icon__wrap ks-button-icon__wrap-right ks-button__icon-layout">

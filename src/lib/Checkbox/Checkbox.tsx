@@ -52,7 +52,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     return (
       <label
         className={cn(className, 'ks-checkbox', {
-          ['ks-checkbox---disabled']: disabled,
+          ['ks-checkbox_disabled']: disabled,
         })}
         {...focusProps}
       >
@@ -61,8 +61,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           className={cn(
             'ks-checkbox__input',
             {
-              ['ks-checkbox__input--checked']: state.isSelected,
-              ['ks-checkbox__input--focus']: isFocusVisible,
+              ['ks-checkbox__input_checked']: state.isSelected,
+              ['ks-checkbox__input_focus']: isFocusVisible,
             },
 
             className

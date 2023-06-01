@@ -57,23 +57,23 @@ export const Button = forwardRef<
     const classNames = cn(
       'ks-button',
       {
-        ['ks-button--rounded']: rounded,
+        ['ks-button_rounded']: rounded,
         ['ks-button-with-icon']: icon,
         /* SIZE */
-        ['ks-button--large']: size === 'large',
-        ['ks-button--medium']: size === 'medium',
-        ['ks-button--small']: size === 'small',
+        ['ks-button_large']: size === 'large',
+        ['ks-button_medium']: size === 'medium',
+        ['ks-button_small']: size === 'small',
         /* VARIANTS */
-        ['ks-button--primary']: variant === 'primary',
-        ['ks-button--secondary']: variant === 'secondary',
-        ['ks-button--inline']: variant === 'inline',
-        ['ks-button--ghost']: variant === 'ghost',
-        ['ks-button--link']: variant === 'link',
+        ['ks-button_primary']: variant === 'primary',
+        ['ks-button_secondary']: variant === 'secondary',
+        ['ks-button_inline']: variant === 'inline',
+        ['ks-button_ghost']: variant === 'ghost',
+        ['ks-button_link']: variant === 'link',
         /* DISABLED */
-        ['ks-button--disabled']: props.disabled,
+        ['ks-button_disabled']: props.disabled,
       },
       {
-        ['ks-button--danger']: danger,
+        ['ks-button_danger']: danger,
       },
       className
     );
