@@ -58,21 +58,20 @@ export const Button = forwardRef<
       'ks-button',
       {
         ['ks-button_rounded']: rounded,
-        ['ks-button-with-icon']: icon,
+        ['ks-button_icon']: !!icon,
         /* SIZE */
-        ['ks-button_large']: size === 'large',
-        ['ks-button_medium']: size === 'medium',
-        ['ks-button_small']: size === 'small',
+        ['ks-button_size_large']: size === 'large',
+        ['ks-button_size_medium']: size === 'medium',
+        ['ks-button_size_small']: size === 'small',
         /* VARIANTS */
-        ['ks-button_primary']: variant === 'primary',
-        ['ks-button_secondary']: variant === 'secondary',
-        ['ks-button_inline']: variant === 'inline',
-        ['ks-button_ghost']: variant === 'ghost',
-        ['ks-button_link']: variant === 'link',
+        ['ks-button_variant_primary']: variant === 'primary',
+        ['ks-button_variant_secondary']: variant === 'secondary',
+        ['ks-button_variant_inline']: variant === 'inline',
+        ['ks-button_variant_ghost']: variant === 'ghost',
+        ['ks-button_variant_link']: variant === 'link',
         /* DISABLED */
         ['ks-button_disabled']: props.disabled,
-      },
-      {
+        /* DANGER */
         ['ks-button_danger']: danger,
       },
       className
