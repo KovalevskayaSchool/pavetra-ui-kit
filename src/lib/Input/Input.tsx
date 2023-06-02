@@ -116,8 +116,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         aria-disabled={disabled}
       >
         {prefix && (
-          <div className="ks-input__prefix-left">
-            <div className="ks-input__icon-wrapper">{prefix}</div>
+          <div className="ks-input__affix_space_left">
+            <div className="ks-input__affix">{prefix}</div>
           </div>
         )}
         {!renderInput ? (
@@ -127,12 +127,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             readOnly={readOnly}
             onChange={handleChange}
             className={cn(['ks-input__control'], {
-              ['pd-r']: !!prefix,
-              ['pd-l']: !!suffix,
+              ['ks-input__control_space_r']: !!prefix,
+              ['ks-input__control_space_l']: !!suffix,
 
-              ['ks-input__control_medium']: size === 'medium',
-              ['ks-input__control_large']: size === 'large',
-              ['ks-input__control_small']: size === 'small',
+              ['ks-input__control_size_medium']: size === 'medium',
+              ['ks-input__control_size_large']: size === 'large',
+              ['ks-input__control_size_small']: size === 'small',
             })}
             ref={ref}
             disabled={disabled}
@@ -142,8 +142,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
 
         {suffix && (
-          <div className="ks-input__prefix-right">
-            <div className="ks-input__icon-wrapper">{suffix}</div>
+          <div className="ks-input__affix_space_right">
+            <div className="ks-input__affix">{suffix}</div>
           </div>
         )}
       </div>
