@@ -69,7 +69,7 @@ export const WeekView: FC<WeekViewProps> = () => {
         <tr>
           {weekDayLabels.map((weekday) => (
             <th key={weekday}>
-              <span className="ks-picker__week">{weekday}</span>
+              <span className="ks-datepicker__week">{weekday}</span>
             </th>
           ))}
         </tr>
@@ -81,19 +81,19 @@ export const WeekView: FC<WeekViewProps> = () => {
             {week.map((day) => (
               <td
                 key={day.date.toString()}
-                className={cn('ks-picker-cell', {
-                  ['ks-picker-cell_not-current']: !day.isCurrentMonth,
-                  ['ks-picker-cell_today']: isToday(day.date),
-                  ['ks-picker-cell_selected']: isDate(state.value)
+                className={cn('ks-datepicker__cell', {
+                  ['ks-datepicker__cell_not-current']: !day.isCurrentMonth,
+                  ['ks-datepicker__cell_today']: isToday(day.date),
+                  ['ks-datepicker__cell_selected']: isDate(state.value)
                     ? isSameDay(day.date, selected)
                     : false,
-                  ['ks-picker-cell__event']: !!hasEvent(day.date),
-                  ['ks-picker-cell_disabled']: state.disableDate?.(day.date),
+                  ['ks-datepicker__cell__event']: !!hasEvent(day.date),
+                  ['ks-datepicker__cell_disabled']: state.disableDate?.(day.date),
                 })}
                 onClick={() => handleDayClick(day)}
                 title={day.label}
               >
-                <div className="ks-picker-cell__inner">{day.dayOfMonth}</div>
+                <div className="ks-datepicker__cell-inner">{day.dayOfMonth}</div>
               </td>
             ))}
           </tr>

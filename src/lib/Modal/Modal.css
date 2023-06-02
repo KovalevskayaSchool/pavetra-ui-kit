@@ -42,7 +42,7 @@
   max-width: 36rem;
 }
 
-/* @TODO refactor to el
+/* @TODO refactor to el*/
 .modal__content .ks-card__body {
   padding: 1.1rem;
   display: flex;

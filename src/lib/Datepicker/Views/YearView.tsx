@@ -52,7 +52,7 @@ export const YearView: FC<YearViewProps> = () => {
             onClick={handlePrevYear}
             icon={<ChevronLeftOutline />}
           />
-          <div className="ks-picker__range">
+          <div className="ks-datepicker__range">
             {yearRange.start.getFullYear()} – {yearRange.end.getFullYear()}
           </div>
           <Button
@@ -69,15 +69,15 @@ export const YearView: FC<YearViewProps> = () => {
             {group.map((year) => (
               <td
                 key={year.date.toString()}
-                className={cn('ks-picker-cell', {
-                  ['ks-picker-cell_today']: isSameYear(year.date, new Date()),
-                  ['ks-picker-cell_selected']: isDate(state.value)
+                className={cn('ks-datepicker__cell', {
+                  ['ks-datepicker__cell_today']: isSameYear(year.date, new Date()),
+                  ['ks-datepicker__cell_selected']: isDate(state.value)
                     ? isSameYear(year.date, selected)
                     : false,
                 })}
                 onClick={() => handleClick(year)}
               >
-                <div className="ks-picker-cell__inner">{year.label}</div>
+                <div className="ks-datepicker__cell-inner">{year.label}</div>
               </td>
             ))}
           </tr>

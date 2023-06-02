@@ -122,17 +122,16 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       state.close();
     }
 
+    /*@TOOD refactor */
     const renderInputSufix = () => {
       if (allowClear) {
         return (
           <Button
             size="small"
             variant="inline"
-            className="ks-select__button-clear"
+            className="ks-datepicker__clear-button"
             icon={
-              <div className="ks-select__clear">
                 <CloseOutline />
-              </div>
             }
             onClick={handleClear}
           />
@@ -142,8 +141,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       return (
         <div
           aria-hidden="true"
-          className="ks-select__icon"
-          data-visible={state.isOpen}
+          className={cn("ks-datepicker__chevron-icon", { ["ks-datepicker__chevron-icon_toggled"]: state.isOpen })}
         >
           <ChevronDownOutline />
         </div>
@@ -156,11 +154,11 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       }
 
       return (
-        <div {...groupProps} className={cn(className, 'ks-date-time-picker')}>
+        <div {...groupProps} className={cn(className, 'ks-datepicker')}>
           <div
             ref={triggerRef}
             {...pressProps}
-            className="ks-data-time-picker__trigger"
+            className="ks-datepicker__trigger"
           >
             <Input
               readOnly
@@ -180,7 +178,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
               isOpen={state.isOpen}
               triggerRef={triggerRef}
             >
-              <div {...dialogProps} className="ks-datepicker__base">
+              <div {...dialogProps} className="ks-datepicker__poppover-content">
                 <DatePickerBase viewType={type} />
               </div>
             </Popover>

@@ -54,18 +54,16 @@ export const Item: FC<MenuItemProps> = ({
       className={cn(classNames)}
       title={label}
     >
-      <div className="ks-menu-item__wrapper">
-        <div className="ks-menu-item__content">
+      <div className="ks-menu__item-content">
           {item.props.icon && (
-            <div className="ks-menu-item__icon" data-icon="left" role="img">
+            <div className="ks-menu__icon" role="img">
               {item.props.icon}
             </div>
           )}
-          <span className="ks-menu-item__label-container">
+          <span className="ks-menu__label">
             {renderChildren()}
           </span>
         </div>
-      </div>
     </li>
   );
 };

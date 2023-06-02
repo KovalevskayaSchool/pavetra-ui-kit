@@ -1,53 +1,34 @@
 .ks-form-field {
+  --form-field-color-danger: var(--color-danger);
   position: relative;
   width: 100%;
   margin-bottom: 24px;
 }
 
-.ks-form__row {
-  min-width: 0;
-}
-.ks-form__inner {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-}
-.ks-form-field__item {
+.ks-form-field__content {
   display: flex;
   flex-direction: column;
   flex: 1 1 0;
   min-width: 0;
-}
-.ks-input__error-border {
-  border-color: var(--color-danger);
-}
-
-.ks-form-field__label-wrapper {
-  display: inline-block;
-  flex-grow: 0;
-  overflow: hidden;
-  margin: 0;
-  padding: 0 0 2px;
-  white-space: initial;
-  text-align: start;
 }
 
 .ks-form-field__label {
   display: flex;
   flex-wrap: nowrap;
   line-height: 1.2;
-}
-.ks-form-field__helper {
-  display: flex;
-  flex-wrap: nowrap;
+  padding: 0 0 2px;
+  overflow: hidden;
+  white-space: initial;
+  text-align: start;
 }
 
-/* @TODO refactor to modificator
 .ks-form-field__error {
-  color: var(--color-danger);
+  display: flex;
+  flex-wrap: nowrap;
+  color: var(--form-field-color-danger);
   font-size: 90%;
 }
 
-.ks-form__margin-offset {
+.ks-form-field__offset {
   margin-bottom: -20px;
 }

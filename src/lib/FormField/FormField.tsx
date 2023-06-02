@@ -50,26 +50,18 @@ export const FormField: FC<PropsWithChildren<FormFieldProps>> = ({
       }}
     >
       <div className="ks-form-field">
-        <div className="ks-form__row">
-          <div className="ks-form-field__label-wrapper">
-            <label {...labelProps} className="ks-form-field__label">
-              {label}
-            </label>
-          </div>
-          <div className="ks-form__inner">
-            <div className="ks-form-field__item">
-              {children}
-              {error && (
-                <div className="ks-form-field__helper">
-                  <span {...errorMessageProps} className="ks-form-field__error">
-                    {error || ''}
-                  </span>
-                </div>
-              )}
-            </div>
-          </div>
+        <label {...labelProps} className="ks-form-field__label">
+          {label}
+        </label>
+        <div className="ks-form-field__content">
+          {children}
+          {error && (
+            <span {...errorMessageProps} className="ks-form-field__error">
+              {error || ''}
+            </span>
+          )}
         </div>
-        {error && <div className="ks-form__margin-offset" />}
+        {error && <div className="ks-form-field__offset" />}
       </div>
     </FormFieldContext.Provider>
   );

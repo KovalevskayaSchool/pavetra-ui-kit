@@ -46,7 +46,7 @@ export const MonthView: FC<MonthViewProps> = () => {
             onClick={handlePrevYear}
             icon={<ChevronUpOutline />}
           />
-          <div className="ks-picker__range">{getYear(state.date)}</div>
+          <div className="ks-datepicker__range">{getYear(state.date)}</div>
           <Button
             variant="inline"
             onClick={handleNextYear}
@@ -61,18 +61,18 @@ export const MonthView: FC<MonthViewProps> = () => {
             {group.map((month) => (
               <td
                 key={month.date.toString()}
-                className={cn('ks-picker-cell', {
-                  ['ks-picker-cell_today']: isSameMonth(
+                className={cn('ks-datepicker__cell', {
+                  ['ks-datepicker__cell_today']: isSameMonth(
                     month.date,
                     new Date()
                   ),
-                  ['ks-picker-cell_selected']: isDate(state.value)
+                  ['ks-datepicker__cell_selected']: isDate(state.value)
                     ? isSameMonth(month.date, selected)
                     : false,
                 })}
                 onClick={() => handleClick(month)}
               >
-                <div className="ks-picker-cell__inner">{month.label}</div>
+                <div className="ks-datepicker__cell-inner">{month.label}</div>
               </td>
             ))}
           </tr>

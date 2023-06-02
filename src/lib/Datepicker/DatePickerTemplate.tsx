@@ -14,17 +14,17 @@ export const DatePickerTemplate: FC<
 > = ({ children, footer, navigation }) => {
   const { inline, type } = useDatePickerCtx();
   return (
-    <Card className={cn('ks-picker', { ['ks-picker_inline']: !!inline })}>
+    <Card className={cn('ks-datepicker', { ['ks-datepicker_mode_inline']: !!inline })}>
       <div
-        className={cn('ks-picker__container', {
-          ['ks-picker__year']: type === 'year',
-          ['ks-picker__month']: type === 'month',
+        className={cn('ks-datepicker__container', {
+          ['ks-datepicker__year']: type === 'year',
+          ['ks-datepicker__month']: type === 'month',
         })}
         tabIndex={0}
       >
-        <div className="ks-picker__nav">{navigation}</div>
-        <table className="ks-picker__content">{children}</table>
-        {footer && <div className="ks-picker__footer">{footer}</div>}
+        <div className="ks-datepicker__nav">{navigation}</div>
+        <table className="ks-datepicker__content">{children}</table>
+        {footer && <div className="ks-datepicker__footer">{footer}</div>}
       </div>
     </Card>
   );

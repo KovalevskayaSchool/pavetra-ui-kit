@@ -17,7 +17,7 @@
   overflow-wrap: break-word;
 }
 
-.ks-table__table-data > .ks-checkbox {
+.ks-table__checkbox {
   display: inline-grid;
 }
 

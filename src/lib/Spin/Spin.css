@@ -5,28 +5,29 @@
 }
 
 .ks-spin {
+  --color-spin: var(--color-primary);
   display: flex;
   align-items: center;
 }
 
-.ks-spin > svg {
+.ks-spin__control {
   display: inline-block;
 
-  color: var(--color-primary);
+  color: var(--color-spin);
   animation: fade-in 1s infinite linear;
 }
 
-.ks-spin_large {
+.ks-spin_size_large {
   width: 2rem;
   height: 2rem;
 }
 
-.ks-spin_medium {
+.ks-spin_size_medium {
   width: 1.6rem;
   height: 1.6rem;
 }
 
-.ks-spin_small {
+.ks-spin_size_small {
   width: 1rem;
   height: 1rem;
 }
