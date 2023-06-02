@@ -51,7 +51,7 @@ export const List = forwardRef<HTMLUListElement, MenuProps>(
       <ul
         ref={listBoxRef}
         {...listBoxProps}
-        className={cn('ks-listbox', 'ks-listbox__list', className)}
+        className={cn('ks-listbox', className)}
       >
         {renderItems()}
       </ul>

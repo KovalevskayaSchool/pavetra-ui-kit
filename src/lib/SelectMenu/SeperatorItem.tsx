@@ -18,7 +18,7 @@ export const SeperatorItem: FC<MenuItemProps> = ({ className, ...props }) => {
       ref={ref}
       {...props}
       {...separatorProps}
-      className={cn(className, 'ks-listbox-list__seperator')}
+      className={cn(className, 'ks-listbox__seperator')}
     />
   );
 };
