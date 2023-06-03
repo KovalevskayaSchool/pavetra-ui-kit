@@ -1,17 +1,24 @@
-import { useOverlayTrigger } from 'react-aria';
+import { DOMProps } from "@react-types/shared";
+import { AriaButtonProps, useOverlayTrigger } from "react-aria";
 import {
   useOverlayTriggerState,
   OverlayTriggerProps,
   OverlayTriggerState,
-} from 'react-stately';
+} from "react-stately";
 
 export type UseModalProps = Partial<OverlayTriggerProps>;
 export type ModalState = OverlayTriggerState;
 
-export const useModal = (props?: UseModalProps) => {
+export type UseModalResponse = {
+  state: OverlayTriggerState;
+  triggerProps: AriaButtonProps;
+  modalProps: DOMProps;
+};
+
+export const useModal = (props?: UseModalProps): UseModalResponse => {
   const state = useOverlayTriggerState(props || {});
   const { triggerProps: triggerStateProps, overlayProps } = useOverlayTrigger(
-    { type: 'dialog' },
+    { type: "dialog" },
     state
   );
 
