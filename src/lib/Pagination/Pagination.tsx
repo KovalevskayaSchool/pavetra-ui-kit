@@ -26,7 +26,7 @@ export interface PaginationProps {
 export const Pagination: FC<PaginationProps> = ({
   total,
   onChange,
-  defaultCurrent  = 1,
+  defaultCurrent = 1,
   pageSize = 10,
   siblingCount = 1,
   current,
@@ -73,6 +73,7 @@ export const Pagination: FC<PaginationProps> = ({
       >
         <Button
           onClick={onPrevious}
+          className="ks-pagination__button"
           variant="inline"
           disabled={currentPage === 1}
           icon={<ChevronLeftOutline />}
@@ -82,7 +83,7 @@ export const Pagination: FC<PaginationProps> = ({
         // If the pageItem is a DOT, render the DOTS unicode character
         if (pageNumber === DOTS) {
           return (
-            <li className="ks-pagination__item dots" key={`pag-dots-${pageNumber + i}`}>
+            <li className="ks-pagination__item" key={`pag-dots-${pageNumber + i}`}>
               &#8230;
             </li>
           );
@@ -97,6 +98,7 @@ export const Pagination: FC<PaginationProps> = ({
             key={`page-${pageNumber}`}
           >
             <Button
+              className="ks-pagination__button"
               onClick={() => handleChange(pageNumber)}
               variant={pageNumber === currentPage ? "ghost" : "inline"}
             >
@@ -112,6 +114,7 @@ export const Pagination: FC<PaginationProps> = ({
         <Button
           onClick={onNext}
           variant="inline"
+          className="ks-pagination__button"
           disabled={currentPage === lastPage}
           icon={<ChevronRightOutline />}
         />

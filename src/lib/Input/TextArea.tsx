@@ -12,7 +12,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, InputProps>(
       renderInput={({ ...inputProps }) => (
         <textarea
           {...inputProps}
-          className={cn('ks-textarea-control', inputProps.className)}
+          className={cn('ks-textarea__control', inputProps.className)}
         />
       )}
     />

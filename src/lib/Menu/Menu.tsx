@@ -75,7 +75,10 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
         item.props.type === 'divider' ? (
           <SeperatorItem key={item.key} />
         ) : (
-          <Item state={state} key={item.key} item={item} />
+          <Item state={state} key={item.key} item={item} className={cn({
+            ['ks-menu__item_mode_horizontal']: mode === 'horizontal',
+            ['ks-menu__item_mode_vertical']: mode === 'vertical',
+          })} />
         )
       );
 
@@ -83,9 +86,9 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
       <ul
         ref={listBoxRef}
         {...listBoxProps}
-        className={cn('ks-menu-nav', className, {
-          ['ks-menu-nav--horizontal']: mode === 'horizontal',
-          ['ks-menu-nav--vertical']: mode === 'vertical',
+        className={cn('ks-menu', className, {
+          ['ks-menu_mode_horizontal']: mode === 'horizontal',
+          ['ks-menu_mode_vertical']: mode === 'vertical',
         })}
       >
         {renderItems()}

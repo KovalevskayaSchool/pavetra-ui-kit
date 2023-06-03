@@ -8,7 +8,7 @@
   --select-border-color: var(--color-light-gray);
 }
 
-.ks-select__button.select__button--disabled {
+.ks-select__button_disabled {
   cursor: not-allowed;
 }
 
@@ -31,7 +31,7 @@
   transition: all var(--transition-duration) ease-out;
 }
 
-.ks-select__icon[data-visible='true'] {
+.ks-select__icon_toggled {
   transform: rotate(180deg);
 }
 
@@ -54,6 +54,6 @@
   color: var(--color-opac-b-9);
 }
 
-.ks-button.ks-select__button-clear:hover > * .ks-select__clear {
+.ks-select__button-clear:hover > * .ks-select__clear {
   background-color: inherit;
 }

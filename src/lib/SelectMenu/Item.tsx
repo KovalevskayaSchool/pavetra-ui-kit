@@ -43,10 +43,10 @@ export const Item: FC<MenuItemProps> = ({
     preventFocusOnPress: true,
   });
 
-  const classNames = cn(className, 'ks-listbox-list__item', {
-    ['ks-listbox-list__item--selected']: isSelected,
-    ['ks-listbox-list__item--active']: isFocusVisible,
-    ['ks-listbox-list__item--disabled']: isDisabled,
+  const classNames = cn(className, 'ks-listbox__item', {
+    ['ks-listbox__item_selected']: isSelected,
+    ['ks-listbox__item_active']: isFocusVisible,
+    ['ks-listbox__item_disabled']: isDisabled,
   });
 
   const renderChildren = () => {
@@ -66,13 +66,13 @@ export const Item: FC<MenuItemProps> = ({
       className={classNames}
       title={label}
     >
-      <div className="ks-listbox-item__content">
+      <div className="ks-listbox__item-content">
         {item.props.icon && (
-          <div className="ks-listbox-item__icon" data-icon="left" role="img">
+          <div className="ks-listbox__item-icon" data-icon="left" role="img">
             {item.props.icon}
           </div>
         )}
-        <span className="ks-listbox-item__label-container">
+        <span className="ks-listbox__label-item">
           {renderChildren()}
         </span>
       </div>

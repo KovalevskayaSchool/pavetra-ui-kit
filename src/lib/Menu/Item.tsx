@@ -32,9 +32,9 @@ export const Item: FC<MenuItemProps> = ({
   );
 
   const classNames = cn(className, 'ks-menu__item', {
-    ['ks-menu__item--selected']: isSelected,
-    ['ks-menu__item--active']: isFocusVisible,
-    ['ks-menu__item--disabled']: isDisabled,
+    ['ks-menu__item_selected']: isSelected,
+    ['ks-menu__item_active']: isFocusVisible,
+    ['ks-menu__item_disabled']: isDisabled,
   });
 
   const renderChildren = () => {
@@ -54,18 +54,16 @@ export const Item: FC<MenuItemProps> = ({
       className={cn(classNames)}
       title={label}
     >
-      <div className="ks-menu-item__wrapper">
-        <div className="ks-menu-item__content">
+      <div className="ks-menu__item-content">
           {item.props.icon && (
-            <div className="ks-menu-item__icon" data-icon="left" role="img">
+            <div className="ks-menu__icon" role="img">
               {item.props.icon}
             </div>
           )}
-          <span className="ks-menu-item__label-container">
+          <span className="ks-menu__label">
             {renderChildren()}
           </span>
         </div>
-      </div>
     </li>
   );
 };

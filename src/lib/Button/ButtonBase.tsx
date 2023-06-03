@@ -57,23 +57,22 @@ export const Button = forwardRef<
     const classNames = cn(
       'ks-button',
       {
-        ['ks-button--rounded']: rounded,
-        ['ks-button-with-icon']: icon,
+        ['ks-button_rounded']: rounded,
+        ['ks-button_icon']: !!icon,
         /* SIZE */
-        ['ks-button--large']: size === 'large',
-        ['ks-button--medium']: size === 'medium',
-        ['ks-button--small']: size === 'small',
+        ['ks-button_size_large']: size === 'large',
+        ['ks-button_size_medium']: size === 'medium',
+        ['ks-button_size_small']: size === 'small',
         /* VARIANTS */
-        ['ks-button--primary']: variant === 'primary',
-        ['ks-button--secondary']: variant === 'secondary',
-        ['ks-button--inline']: variant === 'inline',
-        ['ks-button--ghost']: variant === 'ghost',
-        ['ks-button--link']: variant === 'link',
+        ['ks-button_variant_primary']: variant === 'primary',
+        ['ks-button_variant_secondary']: variant === 'secondary',
+        ['ks-button_variant_inline']: variant === 'inline',
+        ['ks-button_variant_ghost']: variant === 'ghost',
+        ['ks-button_variant_link']: variant === 'link',
         /* DISABLED */
-        ['ks-button--disabled']: props.disabled,
-      },
-      {
-        ['ks-button--danger']: danger,
+        ['ks-button_disabled']: props.disabled,
+        /* DANGER */
+        ['ks-button_danger']: danger,
       },
       className
     );

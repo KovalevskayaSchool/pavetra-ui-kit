@@ -18,7 +18,7 @@
   cursor: pointer;
 }
 
-.ks-switch__text.ks-switch__text--checked {
+.ks-switch__text.ks-switch__text_checked {
   color: var(--switch-foreground-checked-color);
 }
 
@@ -37,7 +37,7 @@
   transition: all var(--transition-duration) ease-out;
 }
 
-.ks-switch__button[aria-checked='true'] {
+.ks-switch__button[aria-checked="true"] {
   background-color: var(--switch-background-checked-color);
 }
 
@@ -50,7 +50,7 @@
   background-color: var(--switch-background-unchecked-hover-color);
 }
 
-.ks-switch__button[aria-checked='true']:hover {
+.ks-switch__button[aria-checked="true"]:hover {
   background-color: var(--switch-background-checked-hover-color);
 }
 
@@ -77,13 +77,13 @@
   height: 12px;
 }
 
-.ks-switch__area.ks-switch__area--checked {
+.ks-switch__area.ks-switch__area_checked {
   inset-inline-start: calc(100% - 20px);
 }
 
 .ks-switch__area::before {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   bottom: 0;
   inset-inline-end: 0;

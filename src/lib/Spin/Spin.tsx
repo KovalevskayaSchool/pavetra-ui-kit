@@ -14,10 +14,10 @@ export const Spin = forwardRef<HTMLSpanElement, SpinProps>(
   ({ className, id, size, ...rest }, ref) => (
     <span ref={ref} id={id} className={cn(className, 'ks-spin')} {...rest}>
       <svg
-        className={cn({
-          ['ks-spin--large']: size === 'large',
-          ['ks-spin--medium']: size === 'default',
-          ['ks-spin--small']: size === 'small',
+        className={cn('ks-spin__control', {
+          ['ks-spin_size_large']: size === 'large',
+          ['ks-spin_size_medium']: size === 'default',
+          ['ks-spin_size_small']: size === 'small',
         })}
         viewBox="0 0 1024 1024"
         focusable="false"

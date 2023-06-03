@@ -151,8 +151,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       return (
         <div
           aria-hidden="true"
-          className="ks-select__icon"
-          data-visible={state.isOpen}
+          className={cn("ks-select__icon", { ["ks-select__icon_toggled"]: state.isOpen })}
         >
           <ChevronDownOutline />
         </div>
@@ -170,7 +169,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         <div
           {...(mergeProps(buttonProps) as any)}
           className={cn('ks-select__button', {
-            ['ks-select__button--disabled']: disabled,
+            ['ks-select__button_disabled']: disabled,
           })}
           ref={triggerRef}
         >

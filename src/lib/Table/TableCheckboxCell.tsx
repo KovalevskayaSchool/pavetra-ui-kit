@@ -13,7 +13,7 @@ export const TableCheckboxCell = ({ cell, state }) => {
   );
   return (
     <td {...gridCellProps} className="ks-table__table-data" ref={ref as any}>
-      <Checkbox {...checkboxProps} />
+      <Checkbox {...checkboxProps} className="ks-table__checkbox" />
     </td>
   );
 };

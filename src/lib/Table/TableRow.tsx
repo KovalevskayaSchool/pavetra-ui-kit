@@ -27,7 +27,7 @@ export const TableRow = forwardRef<
   return (
     <tr
       className={cn("ks-table__row", {
-        ['ks-table__row--selected']: isSelected
+        ['ks-table__row_selected']: isSelected
       })}
       {...mergeProps(rowProps, focusProps)}
       ref={ref}

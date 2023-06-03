@@ -37,6 +37,18 @@ export const Variants: Story = {
   }
 };
 
+export const size: Story = {
+  render: () => {
+    return (
+      <>
+        <Button disabled variant='primary' size='small'>Small</Button>
+        <Button disabled variant='primary'>Medium</Button>
+        <Button disabled variant='primary'size='large'>Large</Button>
+      </>
+    )
+  }
+};
+
 export const withLoading: Story = {
   render: () => {
     return (
