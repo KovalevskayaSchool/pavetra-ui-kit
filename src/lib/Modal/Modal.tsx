@@ -80,7 +80,6 @@ export const Modal: FC<PropsWithChildren<DialogProps>> = ({
                       <Button
                         onClick={onClose}
                         variant="inline"
-                        size="large"
                         tabIndex={0}
                         icon={<CloseOutline />}
                       />
