@@ -84,12 +84,6 @@
   border-radius: 0.3rem;
 }
 
-.ks-button_icon {
-  font-size: 1.25rem;
-  width: 2.25rem;
-  height: 2.25rem;
-}
-
 .ks-button_icon.ks-button_size_large {
   font-size: 1.95rem;
   width: 2.625rem;
@@ -102,6 +96,12 @@
 }
 
 .ks-button_icon.ks-button_size_medium {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.ks-button_icon {
+  font-size: 1.25rem;
   width: 2.25rem;
   height: 2.25rem;
 }
@@ -161,9 +161,13 @@
 /* || ICON */
 .ks-button__icon {
   display: flex;
-  font-size: 1.2rem;
   align-items: center;
   justify-content: center;
+  font-size: 1.2rem;
+}
+
+.ks-button__icon_standalone {
+  font-size: inherit;
 }
 
 /* || VARIANTS */

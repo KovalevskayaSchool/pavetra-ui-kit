@@ -33,7 +33,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       {
         ...props,
         'isDisabled': disabled,
-        'aria-label': !isValidElement(label) ? label?.toString() : '',
+        'aria-label': props['aria-label'] || (!isValidElement(label) ? label?.toString() : ''),
       },
       state,
       ref

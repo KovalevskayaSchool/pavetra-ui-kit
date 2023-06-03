@@ -1,4 +1,5 @@
 import React, { forwardRef, isValidElement, PropsWithChildren } from 'react';
+import cn from 'classnames';
 
 import { Spin } from '../Spin';
 
@@ -26,10 +27,11 @@ export const Button = forwardRef<
     },
     ref
   ) => {
+    const onlyIcon = !!icon && React.Children.count(children) === 0
     const renderIcon = () => {
       if (isValidElement(icon) || loading) {
         return (
-          <div className="ks-button__icon">
+          <div className={cn("ks-button__icon", { ['ks-button__icon_standalone']: onlyIcon })}>
             {loading ? <Spin className="ks-button__spin" /> : icon}
           </div>
         );
@@ -42,7 +44,7 @@ export const Button = forwardRef<
         ref={ref}
         {...props}
         rounded={rounded}
-        icon={!!icon && React.Children.count(children) === 0}
+        icon={onlyIcon}
         className={className}
         aria-busy={loading}
       >

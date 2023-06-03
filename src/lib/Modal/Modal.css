@@ -28,7 +28,6 @@
   display: flex;
   flex-direction: column;
   flex-shrink: 1;
-  padding: 0.3rem;
   margin: 5.2rem 0;
 
   outline: 0;
@@ -44,7 +43,6 @@
 
 /* @TODO refactor to el*/
 .modal__content .ks-card__body {
-  padding: 1.1rem;
   display: flex;
   flex-direction: column;
   row-gap: var(--space-1);

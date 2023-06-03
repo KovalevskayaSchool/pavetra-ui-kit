@@ -57,8 +57,8 @@ export const Button = forwardRef<
     const classNames = cn(
       'ks-button',
       {
-        ['ks-button_rounded']: rounded,
         ['ks-button_icon']: !!icon,
+        ['ks-button_rounded']: rounded,
         /* SIZE */
         ['ks-button_size_large']: size === 'large',
         ['ks-button_size_medium']: size === 'medium',
@@ -81,7 +81,7 @@ export const Button = forwardRef<
 
     if (href !== undefined) {
       return (
-        <a href={href} className={classNames} {...(props as any)}>
+        <a href={href} ref={ref} onMouseDown={handleMouseDown} className={classNames} {...(props as any)}>
           {children}
         </a>
       );

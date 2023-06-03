@@ -19,7 +19,7 @@ export const TableSelectAllCell = ({ column, state }) => {
     >
       {state.selectionManager.selectionMode === 'single'
         ? <VisuallyHidden>{checkboxProps['aria-label']}</VisuallyHidden>
-        : <Checkbox {...checkboxProps} />}
+        : <Checkbox {...checkboxProps} aria-label='all' />}
     </th>
   );
 }

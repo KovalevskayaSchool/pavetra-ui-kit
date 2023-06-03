@@ -41,9 +41,12 @@ export const size: Story = {
   render: () => {
     return (
       <>
-        <Button disabled variant='primary' size='small'>Small</Button>
-        <Button disabled variant='primary'>Medium</Button>
-        <Button disabled variant='primary'size='large'>Large</Button>
+        <Button disabled variant='primary' size='small' icon={<SunOutline />}>Small</Button>
+        <Button disabled variant='primary' icon={<SunOutline />}>Medium</Button>
+        <Button disabled variant='primary'size='large' icon={<SunOutline />}>Large</Button>
+        <Button variant='primary' rounded size='small' icon={<CloseOutline />} />
+        <Button variant='primary' rounded icon={<CloseOutline />} />
+        <Button variant='primary' rounded size='large' icon={<CloseOutline />} />
       </>
     )
   }
