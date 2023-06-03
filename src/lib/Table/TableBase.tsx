@@ -41,7 +41,7 @@ export const TableBase = forwardRef<
 
     const { collection } = state;
     const { gridProps } = useTable(
-      { ...props, "aria-label": a11yLabel },
+      { ...props, "aria-label": a11yLabel || "table" },
       state,
       ref
     );
