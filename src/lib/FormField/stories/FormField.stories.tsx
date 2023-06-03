@@ -7,6 +7,7 @@ import { Radio, RadioGroup } from '../../Radio';
 import { Checkbox } from '../../Checkbox';
 import { Select } from '../../Select';
 import { DatePicker } from '../../Datepicker';
+import { useState } from 'react';
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {
@@ -19,15 +20,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const ControlledComponent = () => {
+  const [username, setUsername] = useState('')
   return (
     <form>
-      <FormField name="email" label="Email">
+      {/* <FormField name="email" label="Email">
         <Input />
-      </FormField>
+      </FormField> */}
       <FormField
-        value="Username"
-        onChange={(value) => console.log(value, 'username')}
         name="username"
+        onChange={(value) => setUsername(value)}
+        value={username}
         label="Username"
         error="required"
       >
@@ -60,7 +62,7 @@ const ControlledComponent = () => {
           <Radio value="gender" label="Gender" />
         </RadioGroup>
       </FormField>
-      <FormField
+       <FormField
         onChange={(value) => console.log(value, 'checkbox')}
         name="checkbox"
         label="Checkbox"
@@ -103,7 +105,7 @@ const ControlledComponent = () => {
         error="required"
       >
         <DatePicker />
-      </FormField>
+      </FormField> 
     </form>
   );
 };

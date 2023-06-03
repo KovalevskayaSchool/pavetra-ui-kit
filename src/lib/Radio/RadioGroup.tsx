@@ -2,8 +2,6 @@ import { createContext, FC, PropsWithChildren, useContext } from 'react';
 import { useRadioGroupState, RadioGroupState } from 'react-stately';
 import { useRadioGroup, type AriaRadioGroupProps } from 'react-aria';
 
-import { useFormField } from '../FormField/FormField';
-
 const RadioContext = createContext<RadioGroupState | null>({
   isDisabled: false,
   selectedValue: '',
@@ -20,24 +18,14 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = ({
   onChange,
   ...props
 }) => {
-  const formField = useFormField();
-  const formProps = formField
-    ? {
-        ...formField.fieldProps,
-      }
-    : {};
+
   const state = useRadioGroupState({
     ...props,
-    onChange: (value) => {
-      formField?.onChange?.(value);
-      onChange?.(value);
-    },
+    onChange,
   });
   const { radioGroupProps } = useRadioGroup(
     {
       ...props,
-      ...formProps,
-      label: formProps?.['aria-label'],
     },
     state
   );

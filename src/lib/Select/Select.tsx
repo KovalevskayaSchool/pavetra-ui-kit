@@ -1,4 +1,4 @@
-import { FC, forwardRef } from 'react';
+import { forwardRef } from 'react';
 import cn from 'classnames';
 import { useSelectState, SelectProps as SelectBaseProps } from 'react-stately';
 import {
@@ -21,7 +21,6 @@ import { type Placement } from './Select.d';
 import { mapToAriaProps } from '../SelectMenu/map';
 import { Popover } from '../Popover';
 import { Button } from '../Button';
-import { useFormField } from '../FormField/FormField';
 import { useDOMRef } from '../../utils/useDomRef';
 import './Select.css';
 
@@ -66,7 +65,6 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     },
     ref
   ) => {
-    const formField = useFormField();
     const propsWithChildren = mapToAriaProps(menu, ariaLabel || '');
     const state = useSelectState<MenuItemProps>({
       ...propsWithChildren,
@@ -76,7 +74,6 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         .filter((item) => item.disabled)
         .map((item) => item.id || ''),
       onSelectionChange(key) {
-        formField?.onChange?.(key.toString());
         return onChange?.(key.toString());
       },
       onOpenChange() {

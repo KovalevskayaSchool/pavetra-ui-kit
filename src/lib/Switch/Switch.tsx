@@ -5,7 +5,6 @@ import { useToggleState } from 'react-stately';
 import { useFocusRing, useSwitch, VisuallyHidden } from 'react-aria';
 
 import { Spin } from '../Spin';
-import { useFormField } from '../FormField/FormField';
 import { useDOMRef } from '../../utils/useDomRef';
 import './Switch.css';
 
@@ -30,19 +29,9 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     },
     refForwarded
   ) => {
-    const formField = useFormField();
-    const formProps = formField
-      ? {
-          ...formField.fieldProps,
-        }
-      : {};
     const state = useToggleState({
       ...props,
-
-      onChange: (value) => {
-        formField?.onChange?.(value);
-        onChange?.(value);
-      },
+      onChange,
     });
     const ref = useDOMRef(refForwarded);
 
@@ -50,7 +39,6 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     const { inputProps } = useSwitch(
       {
         ...props,
-        ...formProps,
         isDisabled: disabled,
       },
       state,
@@ -76,7 +64,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     return (
       <div
         className={cn(className, 'ks-switch', {
-          ['ks-switch---disabled']: isDisabled,
+          ['ks-switch_disabled']: isDisabled,
         })}
       >
         <div
@@ -89,7 +77,9 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           {disagreeText}
         </div>
         <div
-          className="ks-switch__button"
+          className={cn(className, "ks-switch__button", {
+            ['ks-switch__button_disabled']: isDisabled,
+          })}
           onClick={handleToggle}
           aria-checked={state.isSelected}
         >

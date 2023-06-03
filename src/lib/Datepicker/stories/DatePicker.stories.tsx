@@ -29,7 +29,7 @@ const ControlledComponent = () => {
         marginTop: 50,
       }}
     >
-      <DatePicker selectedValue={value} onDayClick={handleChange} />
+      <DatePicker selectedValue={value} onChange={handleChange} />
       <Button onClick={() => setValue(null)}>Reset</Button>
     </div>
   );
