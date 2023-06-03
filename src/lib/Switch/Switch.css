@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.ks-switch_disabled {
+  opacity: 0.65;
+}
+
 .ks-switch__text.ks-switch__text_checked {
   color: var(--switch-foreground-checked-color);
 }
@@ -54,7 +58,7 @@
   background-color: var(--switch-background-checked-hover-color);
 }
 
-.ks-switch__button:disabled {
+.ks-switch__button_disabled {
   opacity: 0.65;
 }
 

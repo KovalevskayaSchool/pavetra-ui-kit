@@ -2,7 +2,6 @@ import { cloneElement, isValidElement, forwardRef, ReactNode } from 'react';
 import cn from 'classnames';
 import { AriaTextFieldProps, mergeProps, useFocusRing } from 'react-aria';
 import { useTextField } from 'react-aria';
-import { useFormField } from '../FormField/FormField';
 import { useDOMRef } from '../../utils/useDomRef';
 
 import './Input.css';
@@ -55,13 +54,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     refForwarded
   ) => {
     const ref = useDOMRef(refForwarded);
-    const formField = useFormField();
     const {
       inputProps: { onChange: onTextFieldChange, ...inputProps },
     } = useTextField(
       {
         ...props,
-        'value': formField?.value?.toString() || value,
+        'value': value,
         'isDisabled': disabled,
         'isReadOnly': readOnly,
         'isRequired': required,
@@ -74,7 +72,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const handleChange = (e: React.FocusEvent<HTMLInputElement>) => {
       onTextFieldChange?.(e);
-      formField?.onChange?.(e.target.value);
     };
 
     const renderInputOverlay = () => {
@@ -103,11 +100,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       return null;
     };
 
-    const ariaProps = formField
-      ? mergeProps(inputProps, focusProps, formField.fieldProps)
-      : mergeProps(inputProps, focusProps);
+    const ariaProps = mergeProps(inputProps, focusProps);
 
-    const isError = error || formField?.error;
+    const isError = error;
 
     return (
       <div

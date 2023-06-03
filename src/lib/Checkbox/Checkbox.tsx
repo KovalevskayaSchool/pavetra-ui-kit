@@ -6,7 +6,6 @@ import {
   useFocusRing,
   mergeProps,
 } from 'react-aria';
-import { useFormField } from '../FormField/FormField';
 
 import cn from 'classnames';
 import { useDOMRef } from '../../utils/useDomRef';
@@ -22,18 +21,9 @@ export type CheckboxProps = Props;
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ className, label, disabled, onChange, ...props }, refForwarded) => {
-    const formField = useFormField();
-    const formProps = formField
-      ? {
-          ...formField.fieldProps,
-        }
-      : {};
     const state = useToggleState({
       ...props,
-      onChange: (value) => {
-        formField?.onChange?.(value);
-        onChange?.(value);
-      },
+      onChange,
     });
 
     const { focusProps, isFocusVisible } = useFocusRing();
@@ -67,7 +57,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
             className
           )}
-          {...mergeProps(inputProps, formProps)}
+          {...mergeProps(inputProps)}
         />
 
         <span data-disabled={disabled}>{label}</span>

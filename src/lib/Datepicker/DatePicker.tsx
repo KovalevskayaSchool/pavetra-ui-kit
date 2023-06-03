@@ -19,7 +19,6 @@ import { Button } from '../Button';
 import { Popover } from '../Popover';
 import { DatePickerBase } from './DatePickerBase';
 import { useDOMRef } from '../../utils/useDomRef';
-import { useFormField } from '../FormField/FormField';
 import { useControlled } from '../../utils/useControlled';
 import { DatePickerContext as DatePickerCtx } from './useDatePickerCtx';
 import './DatePicker.css';
@@ -36,7 +35,7 @@ export interface DatePickerProps {
   defaultValue?: Date;
   allowClear?: boolean;
   open?: boolean;
-  onDayClick?: (day: PickerDay) => void;
+  onChange?: (day: PickerDay) => void;
   dateFormat?: string;
   disabled?: boolean;
   a11yLabel?: string;
@@ -55,7 +54,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       locale,
       inline = false,
       disabled,
-      onDayClick,
+      onChange,
       dateFormat = 'yyyy-MM-dd',
       a11yLabel,
       ...props
@@ -64,7 +63,6 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
   ) => {
     const [type, setType] = useState<PickerType>('week');
     const [date, setDate] = useState<Date>(new Date());
-    const formField = useFormField();
     const triggerRef = useDOMRef<HTMLDivElement>(ref);
 
     const [valueDate, setValueDate] = useControlled(
@@ -76,11 +74,9 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       isOpen: open,
       isDisabled: disabled,
     });
-    const formProps = formField?.labelProps || {};
     const { groupProps, fieldProps, buttonProps, dialogProps } = useDatePicker(
       {
-        'aria-label': formProps?.['aria-label'] || a11yLabel || 'Datepicker',
-        'aria-describedby': formProps?.['aria-describedby'] || '',
+        'aria-label': a11yLabel || 'Datepicker'
       },
       state,
       triggerRef
@@ -116,8 +112,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
     }
 
     function handleDayClick(day: PickerDay) {
-      formField?.onChange?.(day as never);
-      onDayClick?.(day);
+      onChange?.(day);
       if (inline) return;
       state.close();
     }
