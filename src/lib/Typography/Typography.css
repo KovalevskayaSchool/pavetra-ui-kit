@@ -1,21 +1,29 @@
 .ks-h1 {
   font-size: 3.125rem;
   font-weight: bold;
+  padding: 0;
+  margin: 0;
 }
 
 .ks-h2 {
   font-size: 2.083rem;
   font-weight: bold;
+  padding: 0;
+  margin: 0;
 }
 
 .ks-h3 {
   font-weight: bold;
   font-size: 1.875rem;
+  padding: 0;
+  margin: 0;
 }
 
 .ks-h4 {
   font-size: 1.33rem;
   font-weight: bold;
+  padding: 0;
+  margin: 0;
 }
 
 .ks-caption {
