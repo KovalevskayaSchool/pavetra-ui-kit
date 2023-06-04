@@ -1,4 +1,5 @@
 import path from "node:path";
+import { fileURLToPath } from 'node:url';
 
 import typescript from "@rollup/plugin-typescript";
 import resolve from "@rollup/plugin-node-resolve";
@@ -6,10 +7,14 @@ import commonjs from "@rollup/plugin-commonjs";
 import external from "rollup-plugin-peer-deps-external";
 import terser from "@rollup/plugin-terser";
 import dts from "rollup-plugin-dts";
-import css from "rollup-plugin-import-css";
 import replace from "@rollup/plugin-replace";
+import postcss from 'rollup-plugin-postcss'
 import fg from "fast-glob";
-import { transform } from "lightningcss";
+
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 
 // import packageJson from "./package.json";
 
@@ -23,13 +28,10 @@ const plugins = [
   resolve(),
   commonjs(),
   terser(),
-  css({
-    transform: (css) =>
-      transform({
-        code: Buffer.from(css),
-        minify: true,
-      }).code.toString(),
-    filename: "[name].css",
+  postcss({
+    config: {
+      path: path.join(__dirname, "./postcss.config.cjs"),
+    }
   }),
   replace({
     "process.env.NODE_ENV": JSON.stringify("development"),

@@ -3,7 +3,6 @@ import fs from "node:fs";
 import esbuild from "esbuild";
 import fg from "fast-glob";
 import cssModulesPlugin from "esbuild-css-modules-plugin";
-import { transform } from "lightningcss";
 import packageJson from "./package.json" assert { type: "json" };
 
 // let yourPlugin = {
@@ -16,7 +15,11 @@ import packageJson from "./package.json" assert { type: "json" };
 //     })
 //   },
 // }
+/*
 
+    "build:es": "npm run build:types && node ./build.mjs",
+    "build:types": "tsc --emitDeclarationOnly --declaration --project tsconfig.build.json",
+*/
 const cssPlugin = {
   name: "css",
   setup(build) {

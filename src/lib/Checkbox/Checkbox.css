@@ -58,7 +58,7 @@
   border-color: var(--checkbox-color);
 }
 
-.ks-checkbox__input:disabled {
+.ks-checkbox__input_disabled {
   opacity: 0.65;
 }
 

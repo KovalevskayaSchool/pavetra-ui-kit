@@ -79,6 +79,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         <div
           className={cn(className, "ks-switch__button", {
             ['ks-switch__button_disabled']: isDisabled,
+            ['ks-switch__button_checked']: state.isSelected,
           })}
           onClick={handleToggle}
           aria-checked={state.isSelected}

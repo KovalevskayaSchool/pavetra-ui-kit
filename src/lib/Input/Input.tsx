@@ -1,17 +1,17 @@
-import { cloneElement, isValidElement, forwardRef, ReactNode } from 'react';
-import cn from 'classnames';
-import { AriaTextFieldProps, mergeProps, useFocusRing } from 'react-aria';
-import { useTextField } from 'react-aria';
-import { useDOMRef } from '../../utils/useDomRef';
+import { cloneElement, isValidElement, forwardRef, ReactNode } from "react";
+import cn from "classnames";
+import { AriaTextFieldProps, mergeProps, useFocusRing } from "react-aria";
+import { useTextField } from "react-aria";
+import { useDOMRef } from "../../utils/useDomRef";
 
-import './Input.css';
+import "./Input.css";
 
 type OverlayFunc<P> = (props: P) => React.ReactElement<P>;
 
-type TSize = 'medium' | 'large' | 'small';
+type TSize = "medium" | "large" | "small";
 
 export interface InputNative
-  extends Omit<AriaTextFieldProps, 'prefix' | 'size'> {
+  extends Omit<AriaTextFieldProps, "prefix" | "size"> {
   prefix?: ReactNode;
   suffix?: ReactNode;
   size?: TSize;
@@ -27,9 +27,9 @@ export interface InputNative
 
 type RenderProps = {
   renderInput?:
-    | React.Component<Omit<InputNative, 'onChange'>>
-    | React.FC<Omit<InputNative, 'onChange'>>
-    | OverlayFunc<Omit<InputNative, 'onChange'>>;
+    | React.Component<Omit<InputNative, "onChange">>
+    | React.FC<Omit<InputNative, "onChange">>
+    | OverlayFunc<Omit<InputNative, "onChange">>;
 };
 
 export type InputProps = InputNative & RenderProps;
@@ -45,8 +45,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       active,
       suffix,
       error,
-      label = 'Input',
-      size = 'medium',
+      label = "Input",
+      size = "medium",
       required,
       readOnly,
       ...props
@@ -59,11 +59,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     } = useTextField(
       {
         ...props,
-        'value': value,
-        'isDisabled': disabled,
-        'isReadOnly': readOnly,
-        'isRequired': required,
-        'aria-label': label,
+        value: value,
+        isDisabled: disabled,
+        isReadOnly: readOnly,
+        isRequired: required,
+        "aria-label": label,
       },
       ref
     );
@@ -81,15 +81,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         suffix,
         disabled,
         onChange: handleChange,
-        className: cn(['ks-input__control'], {
-          ['pd-r']: !!prefix,
-          ['pd-l']: !!suffix,
+        className: cn(["ks-input__control"], {
+          ["pd-r"]: !!prefix,
+          ["pd-l"]: !!suffix,
         }),
         ...focusProps,
         ...props,
         ref,
       };
-      if (typeof renderInput === 'function') {
+      if (typeof renderInput === "function") {
         return renderInput(propsOverlay);
       }
 
@@ -106,8 +106,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div
-        className={cn(className, 'ks-input', { ['ks-input_error']: isError })}
-        data-focus={isFocusVisible || active}
+        className={cn(className, "ks-input", {
+          ["ks-input_error"]: isError,
+          ["ks-input_disabled"]: disabled,
+          ["ks-input_focus"]: isFocusVisible || active,
+        })}
         aria-disabled={disabled}
       >
         {prefix && (
@@ -121,13 +124,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             {...props}
             readOnly={readOnly}
             onChange={handleChange}
-            className={cn(['ks-input__control'], {
-              ['ks-input__control_space_r']: !!prefix,
-              ['ks-input__control_space_l']: !!suffix,
+            className={cn(["ks-input__control"], {
+              ["ks-input__control_space_r"]: !!prefix,
+              ["ks-input__control_space_l"]: !!suffix,
 
-              ['ks-input__control_size_medium']: size === 'medium',
-              ['ks-input__control_size_large']: size === 'large',
-              ['ks-input__control_size_small']: size === 'small',
+              ["ks-input__control_size_medium"]: size === "medium",
+              ["ks-input__control_size_large"]: size === "large",
+              ["ks-input__control_size_small"]: size === "small",
+              ["ks-input__control_readonly"]: readOnly,
+              ["ks-input__control_disabled"]: disabled,
             })}
             ref={ref}
             disabled={disabled}
@@ -146,4 +151,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = 'Input';
+Input.displayName = "Input";

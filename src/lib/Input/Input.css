@@ -38,6 +38,27 @@
   background-color: var(--input-background-color);
 }
 
+.ks-input_focus {
+  border-color: var(--input-active-border-color);
+}
+
+.ks-input:active,
+.ks-input:focus {
+  border-color: var(--input-active-border-color);
+}
+
+.ks-input.ks-input_disabled {
+  color: var(--input-disabled-foreground-color);
+  background-color: var(--input-disabled-background-color);
+  border-color: transparent;
+  cursor: not-allowed;
+}
+
+.ks-input__control_disabled {
+  color: var(--input-disabled-foreground-color);
+  cursor: not-allowed;
+}
+
 .ks-input__control {
   text-align: inherit;
   width: 100%;
@@ -65,12 +86,6 @@
   padding: 0.3rem 1rem;
 }
 
-.ks-input__control:disabled,
-.ks-input__control[aria-disabled="true"] {
-  color: var(--input-disabled-foreground-color);
-  cursor: not-allowed;
-}
-
 .ks-input__control:placeholder {
   color: var(--input-color-placeholder);
 }
@@ -83,28 +98,8 @@
   padding-right: 0;
 }
 
-.ks-input[data-focus="true"] {
-  border-color: var(--input-active-border-color);
-}
-
-.ks-input:active,
-.ks-input:focus {
-  border-color: var(--input-active-border-color);
-}
-
-.ks-input__control[readonly] {
+.ks-input__control_readonly {
   cursor: pointer;
-}
-
-.ks-input[aria-disabled="true"],
-.ks-input:disabled {
-  color: var(--input-disabled-foreground-color);
-  background-color: var(--input-disabled-background-color);
-  border-color: transparent;
-  cursor: not-allowed;
-}
-.ks-input__control:disabled {
-  cursor: not-allowed;
 }
 
 .ks-input__affix_space_left {
