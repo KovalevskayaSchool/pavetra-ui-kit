@@ -8,11 +8,6 @@
   --color-spin: var(--color-primary);
   display: flex;
   align-items: center;
-}
-
-.ks-spin__control {
-  display: inline-block;
-
   color: var(--color-spin);
   animation: fade-in 1s infinite linear;
 }

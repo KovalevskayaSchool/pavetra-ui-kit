@@ -129,7 +129,7 @@
   padding-inline: 0.85rem;
 }
 
-.ks-button__spin > svg {
+.ks-button__spin {
   color: inherit;
 }
 
