@@ -1,17 +1,23 @@
-import { Children, forwardRef, PropsWithChildren, ButtonHTMLAttributes, isValidElement } from 'react';
+import {
+  Children,
+  forwardRef,
+  PropsWithChildren,
+  ButtonHTMLAttributes,
+  isValidElement,
+} from "react";
 
-import { AriaButtonProps } from 'react-aria';
-import cn from 'classnames';
-import { Spin } from '../Spin';
+import { AriaButtonProps } from "react-aria";
+import cn from "classnames";
+import { Spin } from "../Spin";
 
-import { useDOMRef } from '../../utils/useDomRef';
-import './Button.css';
+import { useDOMRef } from "../../utils/useDomRef";
+import "./Button.css";
 
 interface BaseProps extends AriaButtonProps {
   icon?: React.ReactNode;
   rounded?: boolean;
-  size?: 'small' | 'medium' | 'large';
-  variant?: 'primary' | 'secondary' | 'inline' | 'ghost' | 'link';
+  size?: "small" | "medium" | "large";
+  variant?: "primary" | "secondary" | "inline" | "ghost" | "link";
   danger?: boolean;
   href?: string;
   loading?: boolean;
@@ -30,9 +36,9 @@ export const Button = forwardRef<
       icon,
       danger = false,
       rounded,
-      size = 'medium',
+      size = "medium",
       href,
-      variant = 'secondary',
+      variant = "secondary",
       onMouseDown,
       loading,
       ...props
@@ -41,7 +47,7 @@ export const Button = forwardRef<
   ) => {
     const ref = useDOMRef(refButton);
 
-    const onlyIcon = !!icon && Children.count(children) === 0
+    const onlyIcon = !!icon && Children.count(children) === 0;
 
     // const { buttonProps } = useButton(
     //   {
@@ -61,24 +67,24 @@ export const Button = forwardRef<
     };
 
     const classNames = cn(
-      'ks-button',
+      "ks-button",
       {
-        ['ks-button_icon']: !!onlyIcon,
-        ['ks-button_rounded']: rounded,
+        ["ks-button_icon"]: !!onlyIcon,
+        ["ks-button_rounded"]: rounded,
         /* SIZE */
-        ['ks-button_size_large']: size === 'large',
-        ['ks-button_size_medium']: size === 'medium',
-        ['ks-button_size_small']: size === 'small',
+        ["ks-button_size_large"]: size === "large",
+        ["ks-button_size_medium"]: size === "medium",
+        ["ks-button_size_small"]: size === "small",
         /* VARIANTS */
-        ['ks-button_variant_primary']: variant === 'primary',
-        ['ks-button_variant_secondary']: variant === 'secondary',
-        ['ks-button_variant_inline']: variant === 'inline',
-        ['ks-button_variant_ghost']: variant === 'ghost',
-        ['ks-button_variant_link']: variant === 'link',
+        ["ks-button_variant_primary"]: variant === "primary",
+        ["ks-button_variant_secondary"]: variant === "secondary",
+        ["ks-button_variant_inline"]: variant === "inline",
+        ["ks-button_variant_ghost"]: variant === "ghost",
+        ["ks-button_variant_link"]: variant === "link",
         /* DISABLED */
-        ['ks-button_disabled']: props.disabled,
+        ["ks-button_disabled"]: props.disabled,
         /* DANGER */
-        ['ks-button_danger']: danger,
+        ["ks-button_danger"]: danger,
       },
       className
     );
@@ -93,26 +99,31 @@ export const Button = forwardRef<
         );
       }
       return null;
-    };
+    }
 
     function renderContent() {
       return (
-        <div className='ks-button__container'>
+        <div className="ks-button__container">
           {renderIcon()}
           {children}
         </div>
-      )
+      );
     }
 
     if (href !== undefined) {
       return (
-        <a ref={ref} {...(props as any)} href={href} onMouseDown={handleMouseDown} className={classNames} aria-busy={loading}>
+        <a
+          ref={ref}
+          {...(props as any)}
+          href={href}
+          onMouseDown={handleMouseDown}
+          className={classNames}
+          aria-busy={loading}
+        >
           {renderContent()}
         </a>
       );
     }
-
-
 
     return (
       <button
@@ -126,8 +137,6 @@ export const Button = forwardRef<
       </button>
     );
   }
-
 );
 
-
-Button.displayName = 'Button';
+Button.displayName = "Button";
