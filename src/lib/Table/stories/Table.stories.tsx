@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { TrashOutline } from "@kovalevskayaschool/pavetra-icons";
 
 import { Table, Selection } from "..";
 import { Typography } from "../../Typography";
@@ -161,11 +162,79 @@ export const Sort: Story = {
 
 // RESIZE
 
-// PAGINATION
-export const Pagination: Story = {
+let actionColumns = [
+  { name: "Name", key: "name" },
+  { name: "Type", key: "type" },
+  { name: "Date Modified", key: "date" },
+  {
+    name: "Actions",
+    key: "actions",
+    render: (item, columnKey) => {
+      return <Button icon={<TrashOutline />} variant="link" danger onClick={() => console.log(item)}>Remove</Button>;
+    },
+  },
+];
+
+let actionRows = [
+  {
+    id: 1,
+    name: "Games",
+    date: "6/7/2020",
+    type: "File folder",
+    actions: "act",
+  },
+  {
+    id: 2,
+    name: "Program Files",
+    date: "4/7/2021",
+    type: "File folder",
+    actions: "act",
+  },
+  {
+    id: 3,
+    name: "bootmgr",
+    date: "11/20/2010",
+    type: "System file",
+    actions: "act",
+  },
+  {
+    id: 4,
+    name: "log.txt",
+    date: "1/18/2016",
+    type: "Text Document",
+    actions: 'ddd',
+  },
+  {
+    id: 5,
+    name: "log.txt",
+    date: "1/18/2016",
+    type: "Text Document",
+    actions: 'second',
+  },
+];
+
+const ActionsComponent = () => {
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set([2]));
+
+  return (
+    <div style={{ display: "flex" }}>
+      <div>
+        <Table
+          dataSource={actionRows}
+          columns={actionColumns}
+          onSelectionChange={setSelectedKeys}
+          selectedKeys={selectedKeys}
+        />
+      </div>
+    </div>
+  );
+};
+
+export const Actions: Story = {
   args: {
-    dataSource: rows,
-    columns: columnsWithSort,
+    dataSource: actionRows,
+    columns: actionColumns,
     pagination: true,
   },
+  render: ActionsComponent,
 };
