@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import {
   Cell,
   Column,
@@ -11,7 +11,6 @@ import { useDOMRef } from "../../utils/useDomRef";
 
 import { TableBase } from "./TableBase";
 import { Card } from "../Card";
-import { Pagination } from "../Pagination";
 import "./Table.css";
 
 export interface TableProps extends TableStateProps<object> {
@@ -23,6 +22,11 @@ export interface TableProps extends TableStateProps<object> {
 export const Table = forwardRef<HTMLTableElement, TableProps>(
   ({ dataSource, columns, pagination, ...props }, refForwarded) => {
     const ref = useDOMRef(refForwarded);
+
+    const mapColumn = useMemo(
+      () => columns?.reduce((map, col) => map.set(col.key, col), new Map()),
+      [columns]
+    );
 
     return (
       <Card>
@@ -36,11 +40,18 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
           </TableHeader>
           <TableBody items={dataSource}>
             {(item) => (
-              <Row>{(columnKey) => <Cell>{item[columnKey]}</Cell>}</Row>
+              <Row>
+                {(columnKey) => {
+                  const content = item[columnKey];
+
+                  const col = mapColumn.get(columnKey);
+                  const value = col.render?.(item, columnKey) || content;
+                  return <Cell>{value}</Cell>;
+                }}
+              </Row>
             )}
           </TableBody>
         </TableBase>
-        {pagination && <Pagination total={50} current={1}/>}
       </Card>
     );
   }
