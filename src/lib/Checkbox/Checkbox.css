@@ -16,7 +16,7 @@
   height: 16px;
 
   border: 1px solid var(--checkbox-background-checked-color);
-  border-radius: var(--border-radius-s);
+  border-radius: 0.31rem;
 
   outline: none;
   cursor: pointer;
@@ -68,7 +68,7 @@
   border-width: 2px;
 }
 
-.ks-checkbox__input + span {
+.ks-checkbox__label {
   padding-inline-start: 8px;
   padding-inline-end: 8px;
   line-height: 0.9714285714285714;

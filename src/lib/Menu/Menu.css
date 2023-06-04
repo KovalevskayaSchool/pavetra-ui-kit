@@ -110,11 +110,3 @@
   font-weight: 500;
   overflow-wrap: break-word;
 }
-
-/* @TODO refactor to el*/
-.ks-menu__label a::before {
-  position: absolute;
-  inset: 0;
-  background-color: transparent;
-  content: "";
-}

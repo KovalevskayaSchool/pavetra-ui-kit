@@ -5,8 +5,7 @@
   user-select: none;
 }
 
-/* @TODO refactor to */
-.ks-avatar > image {
+.ks-avatar__image {
   overflow: hidden;
 }
 

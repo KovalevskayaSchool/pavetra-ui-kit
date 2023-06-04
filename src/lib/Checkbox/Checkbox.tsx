@@ -61,7 +61,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           {...mergeProps(inputProps)}
         />
 
-        <span data-disabled={disabled}>{label}</span>
+        <span data-disabled={disabled} className='ks-checkbox__label'>{label}</span>
       </label>
     );
   }
