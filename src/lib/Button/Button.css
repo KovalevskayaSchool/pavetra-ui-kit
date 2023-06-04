@@ -62,6 +62,7 @@
   margin: 0;
   box-sizing: border-box;
   appearance: none;
+  color: oklab(40% 0.001236 0.0039);
 }
 
 .ks-button::-moz-focus-inner {
@@ -72,7 +73,7 @@
   outline: none;
 }
 
-.ks-button:focus::before {
+.ks-button:focus-visible::before {
   outline: none;
   position: absolute;
   z-index: -1;
@@ -83,6 +84,22 @@
   content: "";
   border: 2px solid var(--button-border-color);
   border-radius: 0.3rem;
+}
+
+/* || SIZE */
+.ks-button_size_large {
+  font-size: 1rem;
+  height: 2.625rem;
+}
+
+.ks-button_size_small {
+  font-size: 0.7rem;
+  height: 2rem;
+}
+
+.ks-button_size_medium {
+  font-size: 0.8rem;
+  height: 2.25rem;
 }
 
 .ks-button_icon.ks-button_size_large {
@@ -108,7 +125,7 @@
 .ks-button__container {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   padding-inline: 0.85rem;
 }
 
@@ -122,15 +139,6 @@
 }
 
 .ks-button_rounded:focus::before {
-  outline: none;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  content: "";
-  border: 2px solid var(--button-border-color);
   border-radius: var(--button-rounded-border-radius);
 }
 
@@ -142,22 +150,6 @@
 .ks-button_danger:hover,
 .ks-button_danger:active {
   background-color: var(--button-danger-hover-background-color);
-}
-
-/* || SIZE */
-.ks-button_size_large {
-  font-size: 1rem;
-  height: 2.625rem;
-}
-
-.ks-button_size_small {
-  font-size: 0.7rem;
-  height: 2rem;
-}
-
-.ks-button_size_medium {
-  font-size: 0.8rem;
-  height: 2.25rem;
 }
 
 /* || ICON */

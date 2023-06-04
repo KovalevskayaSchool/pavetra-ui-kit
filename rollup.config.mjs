@@ -8,6 +8,7 @@ import terser from "@rollup/plugin-terser";
 import dts from "rollup-plugin-dts";
 import css from "rollup-plugin-import-css";
 import replace from "@rollup/plugin-replace";
+import postcss from 'rollup-plugin-postcss'
 import fg from "fast-glob";
 import { transform } from "lightningcss";
 
@@ -23,6 +24,7 @@ const plugins = [
   resolve(),
   commonjs(),
   terser(),
+  postcss(),
   css({
     transform: (css) =>
       transform({
