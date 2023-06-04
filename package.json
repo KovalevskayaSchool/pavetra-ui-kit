@@ -1,6 +1,6 @@
 {
   "name": "@kovalevskayaschool/pavetra",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ui kit for school",
   "private": true,
   "type": "module",
@@ -12,10 +12,10 @@
   "sideEffects": false,
   "scripts": {
     "clean": "rm -rf ./dist",
-    "build": "cross-env NODE_ENV=production npm-run-all build:*",
+    "build": "cross-env NODE_ENV=production npm-run-all clean build:*",
     "build:rollup": " rollup -c ./rollup.config.mjs",
     "build:css": "postcss ./src/themes/default/root.css --config ./postcss.config.cjs  -o ./dist/root.css -m",
-    "package": "npm run clean && npm run build && npm run build:css",
+    "package": "npm run build",
     "prepublishOnly": "npm run package",
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build"

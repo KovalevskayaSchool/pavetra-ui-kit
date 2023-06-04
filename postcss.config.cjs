@@ -12,8 +12,6 @@ let plugins = [
   require("@csstools/postcss-oklab-function"),
 ];
 
-console.log(process.env.NODE_ENV)
-
 if (process.env.NODE_ENV === "production") {
   plugins = [...plugins, ...prodPlugins]
 }

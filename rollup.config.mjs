@@ -31,7 +31,9 @@ const plugins = [
   postcss({
     config: {
       path: path.join(__dirname, "./postcss.config.cjs"),
-    }
+    },
+    extract: true,
+    extract: path.resolve('dist/bundle.css')
   }),
   replace({
     "process.env.NODE_ENV": JSON.stringify("development"),
