@@ -1,15 +1,23 @@
-import React, { forwardRef, isValidElement, PropsWithChildren } from 'react';
-import cn from 'classnames';
+import { Children, forwardRef, PropsWithChildren, ButtonHTMLAttributes, isValidElement } from 'react';
 
+import { AriaButtonProps } from 'react-aria';
+import cn from 'classnames';
 import { Spin } from '../Spin';
 
-import { Button as Base, BaseProps } from './ButtonBase';
+import { useDOMRef } from '../../utils/useDomRef';
 import './Button.css';
 
-export interface ButtonProps extends BaseProps {
+interface BaseProps extends AriaButtonProps {
+  icon?: React.ReactNode;
+  rounded?: boolean;
+  size?: 'small' | 'medium' | 'large';
+  variant?: 'primary' | 'secondary' | 'inline' | 'ghost' | 'link';
+  danger?: boolean;
+  href?: string;
   loading?: boolean;
-  component?: string | React.ElementType;
 }
+
+export type ButtonProps = BaseProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = forwardRef<
   HTMLButtonElement,
@@ -18,20 +26,68 @@ export const Button = forwardRef<
   (
     {
       children,
-      rounded = false,
-      loading,
-      icon,
-      component = Base,
       className,
+      icon,
+      danger = false,
+      rounded,
+      size = 'medium',
+      href,
+      variant = 'secondary',
+      onMouseDown,
+      loading,
       ...props
     },
-    ref
+    refButton
   ) => {
-    const onlyIcon = !!icon && React.Children.count(children) === 0
-    const renderIcon = () => {
+    const ref = useDOMRef(refButton);
+
+    const onlyIcon = !!icon && Children.count(children) === 0
+
+    // const { buttonProps } = useButton(
+    //   {
+    //     ...props,
+    //     isDisabled: props.disabled,
+    //     onPress: props.onClick,
+    //   },
+    //   ref
+    // );
+
+    const handleMouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (navigator.userAgent.match(/safari/i)) {
+        event.preventDefault();
+      }
+
+      onMouseDown?.(event);
+    };
+
+    const classNames = cn(
+      'ks-button',
+      {
+        ['ks-button_icon']: !!onlyIcon,
+        ['ks-button_rounded']: rounded,
+        /* SIZE */
+        ['ks-button_size_large']: size === 'large',
+        ['ks-button_size_medium']: size === 'medium',
+        ['ks-button_size_small']: size === 'small',
+        /* VARIANTS */
+        ['ks-button_variant_primary']: variant === 'primary',
+        ['ks-button_variant_secondary']: variant === 'secondary',
+        ['ks-button_variant_inline']: variant === 'inline',
+        ['ks-button_variant_ghost']: variant === 'ghost',
+        ['ks-button_variant_link']: variant === 'link',
+        /* DISABLED */
+        ['ks-button_disabled']: props.disabled,
+        /* DANGER */
+        ['ks-button_danger']: danger,
+      },
+      className
+    );
+
+    // const { onClick: onButtonClick, ...restButtonProps } = buttonProps;
+    function renderIcon() {
       if (isValidElement(icon) || loading) {
         return (
-          <div className={cn("ks-button__icon", { ['ks-button__icon_standalone']: onlyIcon })}>
+          <div className="ks-button__icon">
             {loading ? <Spin className="ks-button__spin" /> : icon}
           </div>
         );
@@ -39,24 +95,39 @@ export const Button = forwardRef<
       return null;
     };
 
-    return (
-      <Base
-        ref={ref}
-        {...props}
-        rounded={rounded}
-        icon={onlyIcon}
-        className={className}
-        aria-busy={loading}
-      >
-        <div
-          className='ks-button__container'
-        >
+    function renderContent() {
+      return (
+        <div className='ks-button__container'>
           {renderIcon()}
           {children}
         </div>
-      </Base>
+      )
+    }
+
+    if (href !== undefined) {
+      return (
+        <a ref={ref} {...(props as any)} href={href} onMouseDown={handleMouseDown} className={classNames} aria-busy={loading}>
+          {renderContent()}
+        </a>
+      );
+    }
+
+
+
+    return (
+      <button
+        ref={ref}
+        {...props}
+        aria-busy={loading}
+        onMouseDown={handleMouseDown}
+        className={classNames}
+      >
+        {renderContent()}
+      </button>
     );
   }
+
 );
+
 
 Button.displayName = 'Button';

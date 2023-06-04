@@ -39,8 +39,6 @@
   display: inline-flex;
   position: relative;
 
-  overflow: visible;
-
   justify-content: center;
   align-items: center;
 
@@ -60,7 +58,10 @@
   outline: none;
   border: none;
   text-decoration: none;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  appearance: none;
 }
 
 .ks-button::-moz-focus-inner {
@@ -85,7 +86,6 @@
 }
 
 .ks-button_icon.ks-button_size_large {
-  font-size: 1.95rem;
   width: 2.625rem;
   height: 2.625rem;
 }
@@ -101,7 +101,6 @@
 }
 
 .ks-button_icon {
-  font-size: 1.25rem;
   width: 2.25rem;
   height: 2.25rem;
 }
@@ -110,7 +109,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding-inline: 0.5267rem;
+  padding-inline: 0.85rem;
 }
 
 .ks-button__spin > svg {
@@ -147,14 +146,17 @@
 
 /* || SIZE */
 .ks-button_size_large {
+  font-size: 1rem;
   height: 2.625rem;
 }
 
 .ks-button_size_small {
+  font-size: 0.7rem;
   height: 2rem;
 }
 
 .ks-button_size_medium {
+  font-size: 0.8rem;
   height: 2.25rem;
 }
 
@@ -163,11 +165,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-}
-
-.ks-button__icon_standalone {
-  font-size: inherit;
+  font-size: 150%;
 }
 
 /* || VARIANTS */
@@ -196,7 +194,7 @@
   background-color: var(--button-primary-active-background-color);
 }
 
-.ks-button_variant_primary:disabled {
+.ks-button_disabled.ks-button_variant_primary {
   color: var(--button-primary-foreground-color);
   background-color: var(--button-primary-disabled-background-color);
 }
@@ -212,7 +210,7 @@
   background-color: var(--button-secondary-active-background-color);
 }
 
-.ks-button_variant_secondary:disabled {
+.ks-button_disabled.ks-button_variant_secondary {
   color: var(--button-secondary-disabled-foreground-color);
   background-color: var(--button-secondary-disabled-background-color);
 }
@@ -236,7 +234,7 @@
   background-color: var(--button-inline-active-background-color);
 }
 
-.ks-button_variant_inline:disabled {
+.ks-button_disabled.ks-button_variant_inline {
   color: var(--button-inline-disabled-background-color);
   background-color: transparent;
 }
@@ -260,7 +258,7 @@
   color: var(--button-link-active-foreground-color);
 }
 
-.ks-button_variant_link:disabled {
+.ks-button_disabled.ks-button_variant_link {
   color: var(--button-link-disabled-foreground-color);
 }
 
@@ -297,7 +295,7 @@
   border-color: var(--button-ghost-active-foreground-color);
 }
 
-.ks-button_variant_ghost:disabled {
+.ks-button_disabled.ks-button_variant_ghost {
   color: var(--button-ghost-disabled-foreground-color);
   border-color: var(--button-ghost-disabled-foreground-color);
 }
