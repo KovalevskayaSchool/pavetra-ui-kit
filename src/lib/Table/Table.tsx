@@ -10,7 +10,7 @@ import {
 import { useDOMRef } from "../../utils/useDomRef";
 
 import { TableBase } from "./TableBase";
-import { Card } from "../Card";
+import { Box } from "../Box";
 import "./Table.css";
 
 export interface TableProps extends TableStateProps<object> {
@@ -29,7 +29,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
     );
 
     return (
-      <Card>
+      <Box>
         <TableBase ref={ref} {...props}>
           <TableHeader columns={columns}>
             {(column) => (
@@ -52,7 +52,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
             )}
           </TableBody>
         </TableBase>
-      </Card>
+      </Box>
     );
   }
 );

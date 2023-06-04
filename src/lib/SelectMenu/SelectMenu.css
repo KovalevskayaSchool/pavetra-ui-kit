@@ -23,9 +23,13 @@
   overscroll-behavior: contain;
   padding: 0.25rem;
   scroll-margin: 0.5rem;
+  box-sizing: border-box;
+}
+
+.ks-listbox__list {
   list-style: none;
   margin: 0;
-  box-sizing: border-box;
+  padding: 0;
 }
 
 .ks-listbox__item {
@@ -40,7 +44,7 @@
   color: inherit;
   border-radius: var(--border-radius-base);
 
-  padding: 5px 12px;
+  padding: 0.6rem 0.8rem;
   cursor: pointer;
 }
 

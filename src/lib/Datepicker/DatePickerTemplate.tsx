@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
 import cn from 'classnames';
-import { Card } from '../Card';
+import { Box } from '../Box';
 
 import { useDatePickerCtx } from './useDatePickerCtx';
 
@@ -14,7 +14,7 @@ export const DatePickerTemplate: FC<
 > = ({ children, footer, navigation }) => {
   const { inline, type } = useDatePickerCtx();
   return (
-    <Card className={cn('ks-datepicker', { ['ks-datepicker_mode_inline']: !!inline })}>
+    <Box className={cn('ks-datepicker', { ['ks-datepicker_mode_inline']: !!inline })}>
       <div
         className={cn('ks-datepicker__container', {
           ['ks-datepicker__year']: type === 'year',
@@ -26,6 +26,6 @@ export const DatePickerTemplate: FC<
         <table className="ks-datepicker__content">{children}</table>
         {footer && <div className="ks-datepicker__footer">{footer}</div>}
       </div>
-    </Card>
+    </Box>
   );
 };
