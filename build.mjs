@@ -15,7 +15,11 @@ import packageJson from "./package.json" assert { type: "json" };
 //     })
 //   },
 // }
+/*
 
+    "build:es": "npm run build:types && node ./build.mjs",
+    "build:types": "tsc --emitDeclarationOnly --declaration --project tsconfig.build.json",
+*/
 const cssPlugin = {
   name: "css",
   setup(build) {
