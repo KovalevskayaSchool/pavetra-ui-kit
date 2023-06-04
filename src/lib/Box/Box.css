@@ -1,0 +1,6 @@
+.ks-box {
+  --bg-color-box: var(--color-white);
+  border-radius: var(--border-radius-l);
+  background-color: var(--bg-color-box);
+  box-sizing: border-box;
+}

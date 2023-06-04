@@ -1,14 +1,15 @@
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 
-import cn from 'classnames';
-import { SelectState } from 'react-stately';
-import { useListBox, AriaListBoxOptions } from 'react-aria';
+import cn from "classnames";
+import { SelectState } from "react-stately";
+import { useListBox, AriaListBoxOptions } from "react-aria";
 
-import { Item } from './Item';
-import { SeperatorItem } from './SeperatorItem';
-import { type MenuItemProps } from './Menu';
-import { useDOMRef } from '../../utils/useDomRef';
-import './SelectMenu.css';
+import { Item } from "./Item";
+import { SeperatorItem } from "./SeperatorItem";
+import { type MenuItemProps } from "./Menu";
+import { Box } from "../Box";
+import { useDOMRef } from "../../utils/useDomRef";
+import "./SelectMenu.css";
 
 export interface MenuProps extends AriaListBoxOptions<MenuItemProps> {
   className?: string;
@@ -40,7 +41,7 @@ export const List = forwardRef<HTMLUListElement, MenuProps>(
 
     const renderItems = () =>
       [...Array.from(state.collection)]?.map((item) =>
-        item.props.type === 'divider' ? (
+        item.props.type === "divider" ? (
           <SeperatorItem key={item.key} />
         ) : (
           <Item state={state} key={item.key} item={item} />
@@ -48,13 +49,11 @@ export const List = forwardRef<HTMLUListElement, MenuProps>(
       );
 
     return (
-      <ul
-        ref={listBoxRef}
-        {...listBoxProps}
-        className={cn('ks-listbox', className)}
-      >
-        {renderItems()}
-      </ul>
+      <Box className={cn("ks-listbox", className)}>
+        <ul ref={listBoxRef} {...listBoxProps} className="ks-listbox__list">
+          {renderItems()}
+        </ul>
+      </Box>
     );
   }
 );

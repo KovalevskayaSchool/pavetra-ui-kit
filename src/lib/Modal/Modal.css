@@ -39,13 +39,8 @@
   min-width: 24.5rem;
 
   max-width: 36rem;
-}
-
-/* @TODO refactor to el*/
-.modal__content .ks-card__body {
-  display: flex;
-  flex-direction: column;
   row-gap: var(--space-1);
+  padding: var(--space-1);
 }
 
 .modal__overlay {

@@ -11,9 +11,9 @@ import { CloseOutline } from '@kovalevskayaschool/pavetra-icons';
 
 import { Portal } from '../Portal';
 import { Button } from '../Button';
-import { Card } from '../Card';
-
+import { Box } from '../Box';
 import { Typography } from '../Typography';
+
 import './Modal.css';
 
 export interface DialogProps extends AriaModalOverlayProps {
@@ -67,7 +67,7 @@ export const Modal: FC<PropsWithChildren<DialogProps>> = ({
             <div className={cn(className, 'modal__container')}>
               <div className="modal__overlay" />
               <div className="modal__wrapper" {...underlayProps}>
-                <Card
+                <Box
                   id={id}
                   ref={ref}
                   tabIndex={-1}
@@ -90,7 +90,7 @@ export const Modal: FC<PropsWithChildren<DialogProps>> = ({
                   </div>
                   <div className="modal__body">{children}</div>
                   {footerChildren}
-                </Card>
+                </Box>
               </div>
             </div>
           </Overlay>
