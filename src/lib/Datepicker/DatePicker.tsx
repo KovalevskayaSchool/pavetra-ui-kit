@@ -1,27 +1,23 @@
-import {
-  useState,
-  forwardRef,
-  useEffect,
-} from 'react';
-import { useButton, useDatePicker } from 'react-aria';
-import { useDatePickerState } from 'react-stately';
-import cn from 'classnames';
-import { Locale } from 'date-fns/types';
-import format from 'date-fns/format';
+import { useState, forwardRef, useEffect } from "react";
+import { useButton, useDatePicker } from "react-aria";
+import { useDatePickerState } from "react-stately";
+import cn from "classnames";
+import { Locale } from "date-fns/types";
+import format from "date-fns/format";
 import {
   ChevronDownOutline,
   CloseOutline,
-} from '@kovalevskayaschool/pavetra-icons';
+} from "@kovalevskayaschool/pavetra-icons";
 
-import type { PickerType, DatePickerEvent, PickerDay,  } from './DatePicker.d';
-import { Input } from '../Input';
-import { Button } from '../Button';
-import { Popover } from '../Popover';
-import { DatePickerBase } from './DatePickerBase';
-import { useDOMRef } from '../../utils/useDomRef';
-import { useControlled } from '../../utils/useControlled';
-import { DatePickerContext as DatePickerCtx } from './useDatePickerCtx';
-import './DatePicker.css';
+import type { PickerType, DatePickerEvent, PickerDay } from "./DatePicker.d";
+import { Input } from "../Input";
+import { Button } from "../Button";
+import { Popover } from "../Popover";
+import { DatePickerBase } from "./DatePickerBase";
+import { useDOMRef } from "../../utils/useDomRef";
+import { useControlled } from "../../utils/useControlled";
+import { DatePickerContext as DatePickerCtx } from "./useDatePickerCtx";
+import "./DatePicker.css";
 
 export interface DatePickerProps {
   type?: PickerType;
@@ -41,7 +37,6 @@ export interface DatePickerProps {
   a11yLabel?: string;
 }
 
-
 export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
   (
     {
@@ -55,13 +50,13 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       inline = false,
       disabled,
       onChange,
-      dateFormat = 'yyyy-MM-dd',
+      dateFormat = "yyyy-MM-dd",
       a11yLabel,
       ...props
     },
     ref
   ) => {
-    const [type, setType] = useState<PickerType>('week');
+    const [type, setType] = useState<PickerType>("week");
     const [date, setDate] = useState<Date>(new Date());
     const triggerRef = useDOMRef<HTMLDivElement>(ref);
 
@@ -76,7 +71,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
     });
     const { groupProps, fieldProps, buttonProps, dialogProps } = useDatePicker(
       {
-        'aria-label': a11yLabel || 'Datepicker'
+        "aria-label": a11yLabel || "Datepicker",
       },
       state,
       triggerRef
@@ -84,7 +79,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
     const { buttonProps: pressProps } = useButton(
       {
         ...buttonProps,
-        'aria-label': a11yLabel || 'Datepicker',
+        "aria-label": a11yLabel || "Datepicker",
       },
       triggerRef
     );
@@ -96,15 +91,15 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
     }, [valueDate]);
 
     function handleChangeMonth() {
-      setType('month');
+      setType("month");
     }
 
     function handleChangeYear() {
-      setType('year');
+      setType("year");
     }
 
     function handleChangeWeek() {
-      setType('week');
+      setType("week");
     }
 
     function handleClear() {
@@ -125,9 +120,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
             size="small"
             variant="inline"
             className="ks-datepicker__clear-button"
-            icon={
-                <CloseOutline />
-            }
+            icon={<CloseOutline />}
             onClick={handleClear}
           />
         );
@@ -136,7 +129,9 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       return (
         <div
           aria-hidden="true"
-          className={cn("ks-datepicker__chevron-icon", { ["ks-datepicker__chevron-icon_toggled"]: state.isOpen })}
+          className={cn("ks-datepicker__chevron-icon", {
+            ["ks-datepicker__chevron-icon_toggled"]: state.isOpen,
+          })}
         >
           <ChevronDownOutline />
         </div>
@@ -149,7 +144,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       }
 
       return (
-        <div {...groupProps} className={cn(className, 'ks-datepicker')}>
+        <div {...groupProps} className={cn(className, "ks-datepicker")}>
           <div
             ref={triggerRef}
             {...pressProps}
@@ -158,8 +153,8 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
             <Input
               readOnly
               id={fieldProps.id}
-              aria-describedby={fieldProps['aria-describedby']}
-              aria-label={fieldProps['aria-label']}
+              aria-describedby={fieldProps["aria-describedby"]}
+              aria-label={fieldProps["aria-label"]}
               value={inputValue}
               disabled={disabled}
               active={state.isOpen}
@@ -184,7 +179,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
 
     const inputValue = valueDate
       ? format(valueDate, dateFormat, { locale })
-      : '';
+      : "";
 
     return (
       <DatePickerCtx.Provider

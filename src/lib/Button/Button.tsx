@@ -103,10 +103,10 @@ export const Button = forwardRef<
 
     function renderContent() {
       return (
-        <div className="ks-button__container">
+        <span className="ks-button__content">
           {renderIcon()}
           {children}
-        </div>
+        </span>
       );
     }
 
@@ -130,6 +130,7 @@ export const Button = forwardRef<
         ref={ref}
         {...props}
         aria-busy={loading}
+        disabled={props.disabled}
         onMouseDown={handleMouseDown}
         className={classNames}
       >

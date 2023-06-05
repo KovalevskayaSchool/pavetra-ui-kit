@@ -1,21 +1,21 @@
-import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { CalendarOutline, SunOutline } from '@kovalevskayaschool/pavetra-icons';
+import { useState } from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { CalendarOutline, SunOutline } from "@kovalevskayaschool/pavetra-icons";
 
-import { Menu } from '..';
+import { Menu } from "..";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {
-  title: 'DateView/Menu',
+  title: "DateView/Menu",
   component: Menu,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Menu>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 const ControlledComponent = () => {
-  const [value, setValue] = useState('test-2');
+  const [value, setValue] = useState("test-2");
 
   function handleChange(value: string) {
     setValue(value);
@@ -37,11 +37,14 @@ const ControlledComponent = () => {
           selectedKey={value}
           onChange={handleChange}
           menu={[
-            { id: 'test-1', label: 'Profile', icon: <SunOutline /> },
-            { id: 'test-2', label: 'Settings', icon: <CalendarOutline /> },
-            { id: 'test-3', label: 'Schedule', disabled: true },
-            { type: 'divider' },
-            { id: 'test-4', label: 'Lessons' },
+            { id: "test-1", label: "Profile", icon: <SunOutline /> },
+            { id: "test-2", label: "Settings", icon: <CalendarOutline /> },
+            { id: "test-3", label: "Schedule", disabled: true },
+            { type: "divider" },
+            {
+              id: "test-4",
+              label: <div onClick={() => console.log("PROFILE")}>Профиль</div>,
+            },
           ]}
         />
       </div>
@@ -55,11 +58,11 @@ export const Controlled: Story = {
 
 export const Horizontal: Story = {
   args: {
-    mode: 'horizontal',
+    mode: "horizontal",
     menu: [
-      { id: 'test-1', label: 'Test 1' },
-      { id: 'test-2', label: 'Test 2' },
-      { id: 'test-3', label: 'Test 4' },
+      { id: "test-1", label: "Test 1" },
+      { id: "test-2", label: "Test 2" },
+      { id: "test-3", label: "Test 4" },
     ],
   },
 };

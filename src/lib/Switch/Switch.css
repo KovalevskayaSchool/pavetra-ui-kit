@@ -93,7 +93,7 @@
 
 .ks-switch__spin {
   position: relative;
-  top: 2px;
+  inset: 1px;
   vertical-align: top;
   justify-content: center;
 }

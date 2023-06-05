@@ -8,11 +8,11 @@ import {
 import { useSelectState, SelectProps as SelectBaseProps } from "react-stately";
 import { HiddenSelect, useButton, useFocusRing, useSelect } from "react-aria";
 
-import { SelectMenu, type MenuItemProps } from "../SelectMenu";
+import { ListBox, type MenuItemProps } from "../ListBox";
 
 import { type Placement } from "./Dropdown.d";
 import { Popover } from "../Popover";
-import { mapToAriaProps } from "../SelectMenu/map";
+import { mapToAriaProps } from "../ListBox/map";
 import { useDOMRef } from "../../utils/useDomRef";
 import "./Dropdown.css";
 
@@ -109,7 +109,7 @@ export const Dropdown = forwardRef<
 
     const renderItems = () => {
       return (
-        <SelectMenu
+        <ListBox
           ref={listboxRef}
           {...menuProps}
           disallowEmptySelection={true}

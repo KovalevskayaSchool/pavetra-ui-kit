@@ -1,12 +1,12 @@
-import { forwardRef, isValidElement } from 'react';
-import cn from 'classnames';
-import { RadioGroupState } from 'react-stately';
-import { useRadio, useFocusRing } from 'react-aria';
-import type { AriaRadioProps } from 'react-aria';
+import { forwardRef, isValidElement, useState } from "react";
+import cn from "classnames";
+import { RadioGroupState } from "react-stately";
+import { useRadio, useFocusRing } from "react-aria";
+import type { AriaRadioProps } from "react-aria";
 
-import { useRadioGroupContext } from './RadioGroup';
-import { useDOMRef } from '../../utils/useDomRef';
-import './Radio.css';
+import { useRadioGroupContext } from "./RadioGroup";
+import { useDOMRef } from "../../utils/useDomRef";
+import "./Radio.css";
 
 interface Props extends AriaRadioProps {
   label?: string | React.ReactNode;
@@ -17,18 +17,19 @@ export type RadioProps = Props;
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
   ({ value, isDisabled, label, className, ...restProps }, refForwarded) => {
+    const [active, setActive] = useState(false);
     const ref = useDOMRef(refForwarded);
 
     const { focusProps, isFocusVisible } = useFocusRing();
     const radioProps = { ...restProps };
-    const groupContext = useRadioGroupContext() || {}                                                                                                                                             ;
+    const groupContext = useRadioGroupContext() || {};
 
     const { inputProps } = useRadio(
       {
         ...radioProps,
         value,
         isDisabled,
-        'aria-label': !isValidElement(label) ? label?.toString() : 'Radio',
+        "aria-label": !isValidElement(label) ? label?.toString() : "Radio",
       },
       groupContext as RadioGroupState,
       ref
@@ -42,28 +43,38 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
       inputProps.onChange?.(e);
     };
 
+    function handleMouseEnter() {
+      setActive(true);
+    }
+
+    function handleMouseLeave() {
+      setActive(false);
+    }
+
     return (
       <label
-        {...focusProps}
-        className={cn(className, 'ks-radio__wrapper', {
-          ['ks-radio_disabled']: isDisabled,
-        })}
+        className={cn("ks-radio__container", className)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        <span className={cn({ ['ks-radio_checked']: inputProps.checked })}>
+        <span
+          className={cn("ks-radio", {
+            ["ks-radio_disabled"]: isDisabled,
+            ["ks-radio_checked"]: inputProps.checked,
+            ["ks-radio_focus"]: isFocusVisible,
+            ["ks-radio_active"]: active,
+          })}
+        >
           <input
             ref={ref}
             {...inputProps}
             {...focusProps}
+            className="ks-radio__control"
+            checked={inputProps.checked}
+            disabled={isDisabled}
             onChange={handleChange}
             type="radio"
-            className="ks-radio__control"
             value={value}
-            checked={inputProps.checked}
-          />
-          <span
-            className={cn('ks-radio-inner', {
-              ['ks-radio-inner--focus']: isFocusVisible,
-            })}
           />
         </span>
         <span className="ks-radio__label">{label}</span>
@@ -72,4 +83,4 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
   }
 );
 
-Radio.displayName = 'Radio';
+Radio.displayName = "Radio";

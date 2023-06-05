@@ -15,10 +15,10 @@ import {
 
 import { Input } from '../Input/Input';
 import { Spin } from '../Spin';
-import { SelectMenu, type MenuItemProps } from '../SelectMenu';
+import { ListBox, type MenuItemProps } from '../ListBox';
 
 import { type Placement } from './Select.d';
-import { mapToAriaProps } from '../SelectMenu/map';
+import { mapToAriaProps } from '../ListBox/map';
 import { Popover } from '../Popover';
 import { Button } from '../Button';
 import { useDOMRef } from '../../utils/useDomRef';
@@ -121,7 +121,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         );
       }
 
-      return <SelectMenu {...menuProps} state={state} />;
+      return <ListBox {...menuProps} state={state} />;
     };
 
     const renderInputSufix = () => {

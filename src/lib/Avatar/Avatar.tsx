@@ -94,6 +94,7 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
                 y="0"
                 height="100%"
                 width="100%"
+                className='ks-avatar__image'
                 xlinkHref={imageSrc}
                 preserveAspectRatio="xMidYMid slice"
               ></image>
@@ -134,7 +135,7 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
       <svg
         ref={ref}
         aria-hidden="true"
-        className={cn(className, 'ks-avatar')}
+        className={cn('ks-avatar', className)}
         data-visualcompletion="ignore-dynamic"
         role="none"
         style={{ height: `${sizeSVG * 2}px`, width: `${sizeSVG * 2}px` }}
@@ -150,6 +151,7 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
               y="0"
               height="100%"
               width="100%"
+              className='ks-avatar__image'
               xlinkHref={imageSrc}
               style={{ height: `${sizeSVG * 2}px`, width: `${sizeSVG * 2}px` }}
               preserveAspectRatio="xMidYMid slice"
