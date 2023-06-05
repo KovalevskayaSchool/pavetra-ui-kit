@@ -48,12 +48,11 @@
   border-collapse: collapse;
   text-align: center;
   width: 252px;
+  height: 100%;
 }
 
-.ks-datepicker__year > *.ks-datepicker__content {
-  height: 264px;
-}
-.ks-datepicker__month > *.ks-datepicker__content {
+.ks-datepicker__month,
+.ks-datepicker__year {
   height: 264px;
 }
 
@@ -164,11 +163,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  border-radius: var(--border-radius-rounded);
   color: var(--color-opac-b-9);
-}
-
-.ks-datepicker__clear-button:hover > * .ks-datepicker__icon-clear {
-  background-color: inherit;
 }

@@ -31,6 +31,8 @@
   transition: var(--transition);
   background-color: var(--menu-item-bg-color);
   border-radius: var(--border-radius-base);
+
+  outline: none;
 }
 
 .ks-menu__item_active,

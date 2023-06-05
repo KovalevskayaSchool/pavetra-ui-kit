@@ -46,6 +46,7 @@
 
   padding: 0.6rem 0.8rem;
   cursor: pointer;
+  outline: none;
 }
 
 .ks-listbox__item:focus-visible,
@@ -57,8 +58,7 @@
 
 .ks-listbox__item:active,
 .ks-listbox__item_active,
-.ks-listbox__item_selected,
-.ks-listbox__item[aria-selected="true"] {
+.ks-listbox__item_selected {
   background-color: var(--listbox-item-selected-background-color);
   color: var(--color-white);
 }

@@ -68,9 +68,9 @@ export const Item: FC<MenuItemProps> = ({
     >
       <div className="ks-listbox__item-content">
         {item.props.icon && (
-          <div className="ks-listbox__item-icon" data-icon="left" role="img">
+          <span className="ks-listbox__item-icon" role="img">
             {item.props.icon}
-          </div>
+          </span>
         )}
         <span className="ks-listbox__label-item">
           {renderChildren()}

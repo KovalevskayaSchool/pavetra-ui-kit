@@ -1,15 +1,11 @@
-.dropdown {
+.ks-dropdown {
   cursor: pointer;
-
-  --select-item-background-color: var(--color-white);
-  --select-item-hover-background-color: var(--color-opac-b-1);
-  --select-border-color: var(--color-light-gray);
 }
 
-.dropdown__button {
+.ks-dropdown__button {
   display: grid;
 }
 
-.dropdown__button::-webkit-details-marker {
+.ks-dropdown__button::-webkit-details-marker {
   display: none;
 }

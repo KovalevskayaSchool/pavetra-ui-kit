@@ -86,6 +86,11 @@
   border-radius: 0.3rem;
 }
 
+.ks-button_disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
 /* || SIZE */
 .ks-button_size_large {
   font-size: 1rem;
@@ -122,10 +127,10 @@
   height: 2.25rem;
 }
 
-.ks-button__container {
+.ks-button__content {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   padding-inline: 0.85rem;
 }
 

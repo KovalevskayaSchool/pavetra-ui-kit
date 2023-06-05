@@ -20,7 +20,6 @@ export const DatePickerTemplate: FC<
           ['ks-datepicker__year']: type === 'year',
           ['ks-datepicker__month']: type === 'month',
         })}
-        tabIndex={0}
       >
         <div className="ks-datepicker__nav">{navigation}</div>
         <table className="ks-datepicker__content">{children}</table>

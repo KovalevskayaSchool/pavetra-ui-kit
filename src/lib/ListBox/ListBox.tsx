@@ -9,14 +9,14 @@ import { SeperatorItem } from "./SeperatorItem";
 import { type MenuItemProps } from "./Menu";
 import { Box } from "../Box";
 import { useDOMRef } from "../../utils/useDomRef";
-import "./SelectMenu.css";
+import "./ListBox.css";
 
 export interface MenuProps extends AriaListBoxOptions<MenuItemProps> {
   className?: string;
   state: SelectState<MenuItemProps>;
 }
 
-export const List = forwardRef<HTMLUListElement, MenuProps>(
+export const ListBox = forwardRef<HTMLUListElement, MenuProps>(
   (
     {
       className,
