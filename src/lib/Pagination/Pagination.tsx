@@ -83,7 +83,7 @@ export const Pagination: FC<PaginationProps> = ({
         // If the pageItem is a DOT, render the DOTS unicode character
         if (pageNumber === DOTS) {
           return (
-            <li className="ks-pagination__item" key={`pag-dots-${pageNumber + i}`}>
+            <li className="ks-pagination__item ks-pagination__item_dots" key={`pag-dots-${pageNumber + i}`}>
               &#8230;
             </li>
           );
