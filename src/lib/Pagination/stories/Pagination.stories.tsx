@@ -18,6 +18,12 @@ export const Default: Story = {
     },
 };
 
+export const NoPagination: Story = {
+    args: {
+        total: 5,
+    },
+};
+
 
 
 

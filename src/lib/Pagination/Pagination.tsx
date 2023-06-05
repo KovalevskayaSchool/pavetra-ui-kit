@@ -41,9 +41,9 @@ export const Pagination: FC<PaginationProps> = ({
   });
 
   // If there are less than 2 times in pagination range we shall not render the component
-  if (current === 0 || paginationRange.length < 2) {
-    return null;
-  }
+  // if (current === 0 || paginationRange.length < 2) {
+  //   return null;
+  // }
 
   const onNext = () => {
     const page = currentPage ? currentPage : defaultCurrent
