@@ -18,10 +18,14 @@
 
   box-sizing: border-box;
   position: relative;
+}
+.ks-datepicker__view {
+  box-shadow: none;
+  width: fit-content;
   padding: var(--space-s);
 }
 
-.ks-datepicker_mode_inline {
+.ks-datepicker__view_mode_inline {
   box-shadow: none;
   width: fit-content;
 }

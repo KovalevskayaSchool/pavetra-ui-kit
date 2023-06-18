@@ -30,7 +30,8 @@ export const FormField: FC<PropsWithChildren<FormFieldProps>> = ({
       return cloneElement(children as React.ReactElement<any>, {
         ...fieldProps,
         onChange,
-        value
+        value,
+        error
       });
     }
     return null;

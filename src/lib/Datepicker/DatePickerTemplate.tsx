@@ -14,7 +14,7 @@ export const DatePickerTemplate: FC<
 > = ({ children, footer, navigation }) => {
   const { inline, type } = useDatePickerCtx();
   return (
-    <Box className={cn('ks-datepicker', { ['ks-datepicker_mode_inline']: !!inline })}>
+    <Box className={cn('ks-datepicker__view', { ['ks-datepicker__view_mode_inline']: !!inline })}>
       <div
         className={cn('ks-datepicker__container', {
           ['ks-datepicker__year']: type === 'year',
