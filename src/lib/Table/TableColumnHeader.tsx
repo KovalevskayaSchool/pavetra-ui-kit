@@ -1,6 +1,8 @@
 import { PropsWithChildren, forwardRef } from "react";
 import { Node, TableState } from "react-stately";
 import { mergeProps, useFocusRing, useTableColumnHeader } from "react-aria";
+import cn from "classnames";
+
 import { useDOMRef } from "../../utils/useDomRef";
 
 interface TableColumnHeaderProps {
@@ -27,21 +29,20 @@ export const TableColumnHeader = forwardRef<
       {...mergeProps(columnHeaderProps, focusProps)}
       ref={ref}
     >
-      {column.rendered}
-      {column.props.allowsSorting && (
-        <span
-          aria-hidden="true"
-          style={{
-            padding: "0 2px",
-            visibility:
-              state.sortDescriptor?.column === column.key
-                ? "visible"
-                : "hidden",
-          }}
-        >
-          {arrowIcon}
-        </span>
-      )}
+      <div className="ks-table__header-row-inner">
+        <span className="ks-table__header-text">{column.rendered}</span>
+        {column.props.allowsSorting && (
+          <span
+            aria-hidden="true"
+            className={cn("ks-table__header-sort", {
+              ["ks-table__header-sort_visibility_visible"]:
+                state.sortDescriptor?.column === column.key,
+            })}
+          >
+            {arrowIcon}
+          </span>
+        )}
+      </div>
     </th>
   );
 });

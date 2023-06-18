@@ -23,9 +23,9 @@
 
 .ks-table__header-row {
   background-color: var(--color-opac-b-1);
-  box-shadow: rgb(208, 215, 222) 0px -2px 0px inset,
-    rgb(208, 215, 222) 0px 1px 0px inset;
+  border-block-end: 1px solid var(--border-separator);
   padding: 16px;
+  text-align: start;
 }
 
 .ks-table__thead > tr:first-child > *:first-child {
@@ -34,4 +34,27 @@
 
 .ks-table__thead > tr:first-child > *:last-child {
   border-start-end-radius: 8px;
+}
+
+.ks-table__header-text {
+  display: flex;
+}
+
+.ks-table__header-sort {
+  padding: 0 2px;
+  visibility: hidden;
+}
+
+.ks-table__header-sort_visibility_visible {
+  visibility: visible;
+}
+
+.ks-table__header-row-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.ks-table__header-row:not(:last-child) > .ks-table__header-row-inner {
+  border-inline-end: 1px solid var(--border-separator);
 }
