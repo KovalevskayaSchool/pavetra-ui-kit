@@ -44,3 +44,5 @@ export { Table } from './Table';
 export type { TableProps } from './Table';
 export {Box} from './Box'
 export type { BoxProps } from './Box'
+export { confirmDialog } from "./Confirm";
+export type { ConfirmFuncProps } from "./Confirm";

@@ -66,4 +66,5 @@
 
 .modal__header {
   margin-right: 44px;
+  min-height: 14px;
 }
