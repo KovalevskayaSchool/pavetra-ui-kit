@@ -44,6 +44,7 @@ export interface SelectProps
   allowClear?: boolean;
   name?: string;
   label?: string;
+  error?:  boolean | string | null;
 }
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(
@@ -61,6 +62,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       disabled,
       loading,
       allowClear,
+      error,
       ...props
     },
     ref
@@ -175,6 +177,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             readOnly
             {...(focusProps as any)}
             disabled={disabled}
+            error={!!error}
             value={state.selectedItem?.rendered?.toString() || ''}
             active={state.isOpen || isFocusVisible}
             suffix={renderInputSufix()}

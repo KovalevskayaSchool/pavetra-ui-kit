@@ -34,6 +34,7 @@ export interface DatePickerProps {
   onChange?: (day: PickerDay) => void;
   dateFormat?: string;
   disabled?: boolean;
+  error?: boolean | string | null;
   a11yLabel?: string;
 }
 
@@ -52,6 +53,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       onChange,
       dateFormat = "yyyy-MM-dd",
       a11yLabel,
+      error,
       ...props
     },
     ref
@@ -159,6 +161,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
               disabled={disabled}
               active={state.isOpen}
               suffix={renderInputSufix()}
+              error={!!error}
             />
           </div>
 
