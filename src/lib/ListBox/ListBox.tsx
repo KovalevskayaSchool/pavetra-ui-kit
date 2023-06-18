@@ -7,7 +7,6 @@ import { useListBox, AriaListBoxOptions } from "react-aria";
 import { Item } from "./Item";
 import { SeperatorItem } from "./SeperatorItem";
 import { type MenuItemProps } from "./Menu";
-import { Box } from "../Box";
 import { useDOMRef } from "../../utils/useDomRef";
 import "./ListBox.css";
 
@@ -49,11 +48,9 @@ export const ListBox = forwardRef<HTMLUListElement, MenuProps>(
       );
 
     return (
-      <Box className={cn("ks-listbox", className)}>
-        <ul ref={listBoxRef} {...listBoxProps} className="ks-listbox__list">
+        <ul ref={listBoxRef} {...listBoxProps} className={cn("ks-listbox", className)}>
           {renderItems()}
         </ul>
-      </Box>
     );
   }
 );

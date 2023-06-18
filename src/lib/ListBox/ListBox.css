@@ -1,35 +1,10 @@
 .ks-listbox {
-  position: relative;
-  cursor: pointer;
-
-  --listbox-list-background-color: var(--color-white);
   --listbox-item-hover-background-color: var(--color-opac-b-1);
   --listbox-item-selected-background-color: var(--color-primary);
-  --listbox-border-color: var(--color-light-gray);
-
-  position: relative;
-  box-shadow: var(--shadow-elevation);
-  z-index: 50;
-  background-color: var(--listbox-list-background-color);
-
-  border-radius: var(--border-radius-base);
-
-  width: 100%;
-
-  border: 1px solid var(--listbox-border-color);
-
-  max-height: min(var(--popover-available-height, 300px), 300px);
-  overflow: auto;
-  overscroll-behavior: contain;
-  padding: 0.25rem;
-  scroll-margin: 0.5rem;
-  box-sizing: border-box;
-}
-
-.ks-listbox__list {
   list-style: none;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .ks-listbox__item {
@@ -70,7 +45,6 @@
 
 .ks-listbox__item_disabled.ks-listbox__item:hover {
   cursor: not-allowed;
-  background-color: var(--listbox-list-background-color);
   color: var(--color-opac-b-5);
 }
 

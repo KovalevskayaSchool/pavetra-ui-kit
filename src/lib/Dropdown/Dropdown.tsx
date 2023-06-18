@@ -12,6 +12,7 @@ import { ListBox, type MenuItemProps } from "../ListBox";
 
 import { type Placement } from "./Dropdown.d";
 import { Popover } from "../Popover";
+import { Box } from "../Box";
 import { mapToAriaProps } from "../ListBox/map";
 import { useDOMRef } from "../../utils/useDomRef";
 import "./Dropdown.css";
@@ -109,13 +110,15 @@ export const Dropdown = forwardRef<
 
     const renderItems = () => {
       return (
-        <ListBox
-          ref={listboxRef}
-          {...menuProps}
-          disallowEmptySelection={true}
-          shouldSelectOnPressUp={true}
-          state={state}
-        />
+        <Box className="ks-dropdown__poppover">
+          <ListBox
+            ref={listboxRef}
+            {...menuProps}
+            disallowEmptySelection={true}
+            shouldSelectOnPressUp={true}
+            state={state}
+          />
+        </Box>
       );
     };
 

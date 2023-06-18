@@ -30,6 +30,7 @@ const ControlledComponent = () => {
                 <Select
                     label="Controlled"
                     value={value}
+                    onOpenChange={(isOpen) => console.log('onOpenChange', isOpen)}
                     onChange={handleChange}
                     menu={[
                         { id: 'test-1', label: 'Test 1', },
@@ -85,6 +86,8 @@ export const Clear: Story = {
 
 export const Empty: Story = {
     args: {
-        menu: []
+        menu: [],
+        onClick:() => console.log('onClick'),
+        onOpenChange:() => console.log('onOpenChange')
     },
 };

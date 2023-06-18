@@ -8,6 +8,32 @@
   --select-border-color: var(--color-light-gray);
 }
 
+.ks-select__poppover {
+  position: relative;
+  cursor: pointer;
+
+  --select-list-background-color: var(--color-white);
+  --select-list-border-color: var(--color-light-gray);
+
+  position: relative;
+  box-shadow: var(--shadow-elevation);
+  z-index: 50;
+  background-color: var(--select-list-background-color);
+
+  border-radius: var(--border-radius-base);
+
+  width: 100%;
+
+  border: 1px solid var(--select-list-border-color);
+
+  max-height: min(var(--popover-available-height, 300px), 300px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 0.25rem;
+  scroll-margin: 0.5rem;
+  box-sizing: border-box;
+}
+
 .ks-select__button_disabled {
   cursor: not-allowed;
 }
