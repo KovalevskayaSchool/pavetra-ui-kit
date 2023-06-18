@@ -1,38 +1,41 @@
-import { forwardRef } from 'react';
-import cn from 'classnames';
-import { useSelectState, SelectProps as SelectBaseProps } from 'react-stately';
+import { forwardRef } from "react";
+import cn from "classnames";
+import { useSelectState, SelectProps as SelectBaseProps } from "react-stately";
 import {
   HiddenSelect,
   useButton,
   useSelect,
   mergeProps,
   useFocusRing,
-} from 'react-aria';
+} from "react-aria";
 import {
   ChevronDownOutline,
   CloseOutline,
-} from '@kovalevskayaschool/pavetra-icons';
+} from "@kovalevskayaschool/pavetra-icons";
 
-import { Input } from '../Input/Input';
-import { Spin } from '../Spin';
-import { ListBox, type MenuItemProps } from '../ListBox';
+import { Input } from "../Input/Input";
+import { Spin } from "../Spin";
+import { Box } from "../Box";
+import { ListBox, type MenuItemProps } from "../ListBox";
 
-import { type Placement } from './Select.d';
-import { mapToAriaProps } from '../ListBox/map';
-import { Popover } from '../Popover';
-import { Button } from '../Button';
-import { useDOMRef } from '../../utils/useDomRef';
-import './Select.css';
+import { type Placement } from "./Select.d";
+import { mapToAriaProps } from "../ListBox/map";
+import { Popover } from "../Popover";
+import { Button } from "../Button";
+import { useDOMRef } from "../../utils/useDomRef";
+import "./Select.css";
 
 export interface SelectProps
   extends Omit<
     SelectBaseProps<MenuItemProps>,
-    'items' | 'isDisabled' | 'isLoading' | 'children'
+    "items" | "isDisabled" | "isLoading" | "children"
   > {
   menu?: MenuItemProps[];
   onChange?: (value: string) => void;
   onClose?: () => void;
   onOpen?: () => void;
+  onOpenChange?: (isOpen: boolean) => void;
+  onClick?: () => void;
   placement?: Placement;
   value?: string;
   placeholder?: string;
@@ -44,7 +47,7 @@ export interface SelectProps
   allowClear?: boolean;
   name?: string;
   label?: string;
-  error?:  boolean | string | null;
+  error?: boolean | string | null;
 }
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(
@@ -55,6 +58,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       onChange,
       onClose,
       onOpen,
+      onOpenChange,
       placeholder,
       className,
       value,
@@ -63,24 +67,31 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       loading,
       allowClear,
       error,
+      onClick,
       ...props
     },
     ref
   ) => {
-    const propsWithChildren = mapToAriaProps(menu, ariaLabel || '');
+    const defaultMenu = [
+      {
+        id: "empty",
+        label: "Empty",
+      },
+    ];
+    const childrenMenu = menu.length > 0 ? menu : defaultMenu;
+
+    const propsWithChildren = mapToAriaProps(childrenMenu, ariaLabel || "");
     const state = useSelectState<MenuItemProps>({
       ...propsWithChildren,
       defaultSelectedKey: defaultValue,
       selectedKey: value,
       disabledKeys: menu
         .filter((item) => item.disabled)
-        .map((item) => item.id || ''),
+        .map((item) => item.id || ""),
       onSelectionChange(key) {
         return onChange?.(key.toString());
       },
-      onOpenChange() {
-        return onOpen?.();
-      },
+      onOpenChange,
     });
 
     const triggerRef = useDOMRef(ref);
@@ -88,9 +99,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       {
         ...props,
         ...propsWithChildren,
-        'isDisabled': disabled,
-        'items': menu,
-        'aria-label': ariaLabel || 'select',
+        isDisabled: disabled,
+        items: menu,
+        "aria-label": ariaLabel || "select",
       },
       state,
       triggerRef
@@ -105,25 +116,33 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     }
 
     function handleClear() {
-      state.setSelectedKey('');
+      state.setSelectedKey("");
     }
 
     const renderItems = () => {
       if (!Array.isArray(menu) || menu.length === 0) {
-        return <div className="ks-select__empty">Нет данных</div>;
+        return (
+          <Box className="ks-select__poppover">
+            <div className="ks-select__empty">Нет данных</div>
+          </Box>
+        );
       }
 
       if (loading) {
         return (
-          <div className="ks-select__list">
+          <Box className="ks-select__poppover">
             <div className="ks-select__empty">
               <Spin size="large" />
             </div>
-          </div>
+          </Box>
         );
       }
 
-      return <ListBox {...menuProps} state={state} />;
+      return (
+        <Box className="ks-select__poppover">
+          <ListBox {...menuProps} state={state} />
+        </Box>
+      );
     };
 
     const renderInputSufix = () => {
@@ -150,7 +169,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       return (
         <div
           aria-hidden="true"
-          className={cn("ks-select__icon", { ["ks-select__icon_toggled"]: state.isOpen })}
+          className={cn("ks-select__icon", {
+            ["ks-select__icon_toggled"]: state.isOpen,
+          })}
         >
           <ChevronDownOutline />
         </div>
@@ -158,7 +179,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     };
 
     return (
-      <div className={cn('ks-select', className)} {...props}>
+      <div className={cn("ks-select", className)} {...props}>
         <HiddenSelect
           state={state}
           triggerRef={triggerRef}
@@ -167,8 +188,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         />
         <div
           {...(mergeProps(buttonProps) as any)}
-          className={cn('ks-select__button', {
-            ['ks-select__button_disabled']: disabled,
+          className={cn("ks-select__button", {
+            ["ks-select__button_disabled"]: disabled,
           })}
           ref={triggerRef}
         >
@@ -178,9 +199,10 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             {...(focusProps as any)}
             disabled={disabled}
             error={!!error}
-            value={state.selectedItem?.rendered?.toString() || ''}
+            value={state.selectedItem?.rendered?.toString() || ""}
             active={state.isOpen || isFocusVisible}
             suffix={renderInputSufix()}
+            onClick={onClick}
           />
         </div>
         {state.isOpen && (
@@ -197,4 +219,4 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
   }
 );
 
-Select.displayName = 'Select';
+Select.displayName = "Select";
