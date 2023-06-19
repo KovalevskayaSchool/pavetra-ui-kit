@@ -18,6 +18,7 @@ const ControlledComponent = () => {
   const [value, setValue] = useState("test-2");
 
   function handleChange(value: string) {
+    console.log('menu onChange', value)
     setValue(value);
   }
 
@@ -44,6 +45,11 @@ const ControlledComponent = () => {
             {
               id: "test-4",
               label: <div onClick={() => console.log("PROFILE")}>Профиль</div>,
+            },
+            {
+              id: "test-5",
+              disabled: true,
+              label: <a href="#" onClick={() => console.log("PROFILE")}>Link</a>,
             },
           ]}
         />
