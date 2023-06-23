@@ -1,4 +1,4 @@
-import { FC, createElement, PropsWithChildren } from 'react';
+import { createElement, PropsWithChildren } from 'react';
 import cn from 'classnames';
 
 interface CaptionProps {
@@ -9,17 +9,17 @@ interface CaptionProps {
   href?: string;
 }
 
-export const Caption: FC<PropsWithChildren<CaptionProps>> = ({
+export function Caption({
   children,
   className,
   as = 'span',
   ...rest
-}) => {
+}: PropsWithChildren<CaptionProps>) {
   return createElement(
     as,
     {
       ...rest,
-      className: cn(className, 'ks-caption'),
+      className: cn('ks-caption', className),
     },
     children
   );

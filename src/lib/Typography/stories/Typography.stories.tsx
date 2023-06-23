@@ -1,6 +1,6 @@
-import { useState } from 'react';
+
 import type { Meta, StoryObj } from '@storybook/react';
-// import '../../../../theme/index.css'
+import './test.css'
 
 import { Typography } from '..';
 
@@ -30,6 +30,7 @@ export const Title: Story = {
 export const Caption: Story = {
     render: () => (
         <>
+            <Typography.Caption className='test-caption'>styled Caption</Typography.Caption>
             <Typography.Caption>Caption</Typography.Caption>
         </>
     )

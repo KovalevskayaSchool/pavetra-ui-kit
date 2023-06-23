@@ -26,7 +26,7 @@
   margin: 0;
 }
 
-.ks-caption {
+:where(.ks-caption) {
   --caption-foreground-color: var(--color-opac-b-8);
 
   font-size: var(--font-size-m);
