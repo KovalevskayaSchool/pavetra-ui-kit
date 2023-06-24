@@ -27,7 +27,7 @@ export interface DatePickerProps {
   events?: DatePickerEvent[];
   disableDate?: ((date: Date) => boolean) | undefined;
   className?: string;
-  selectedValue?: Date | null | undefined;
+  value?: Date | null | undefined;
   defaultValue?: Date;
   allowClear?: boolean;
   open?: boolean;
@@ -45,7 +45,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       allowClear,
       open,
       events = [],
-      selectedValue,
+      value,
       defaultValue,
       locale,
       inline = false,
@@ -62,10 +62,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
     const [date, setDate] = useState<Date>(new Date());
     const triggerRef = useDOMRef<HTMLDivElement>(ref);
 
-    const [valueDate, setValueDate] = useControlled(
-      selectedValue,
-      defaultValue
-    );
+    const [valueDate, setValueDate] = useControlled(value, defaultValue);
 
     const state = useDatePickerState({
       isOpen: open,
@@ -82,6 +79,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       {
         ...buttonProps,
         "aria-label": a11yLabel || "Datepicker",
+        isDisabled: disabled
       },
       triggerRef
     );
@@ -112,6 +110,13 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       onChange?.(day);
       if (inline) return;
       state.close();
+    }
+
+    function handleClick(event) {
+      if (disabled) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
     }
 
     /*@TOOD refactor */
@@ -146,12 +151,13 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       }
 
       return (
-        <div {...groupProps} className={cn(className, "ks-datepicker")}>
-          <div
-            ref={triggerRef}
-            {...pressProps}
-            className="ks-datepicker__trigger"
-          >
+        <div
+          {...groupProps}
+          className={cn(className, "ks-datepicker")}
+          onClick={handleClick}
+        >
+          <div ref={triggerRef} 
+          {...pressProps} className="ks-datepicker__trigger">
             <Input
               readOnly
               id={fieldProps.id}

@@ -6,7 +6,7 @@ export interface FormFieldProps extends Omit<AriaFieldProps, 'errorMessage'> {
   error?: boolean | string | null;
   label?: string;
   name?: string;
-  value?: string | number | undefined | null | boolean;
+  value?: string | number | undefined | null | boolean | Date;
   onChange?: (value: string | boolean | number | undefined) => void;
 }
 
@@ -28,6 +28,7 @@ export const FormField: FC<PropsWithChildren<FormFieldProps>> = ({
   const renderChildren = () => {
     if (children && isValidElement(children)) {
       return cloneElement(children as React.ReactElement<any>, {
+        ...props,
         ...fieldProps,
         onChange,
         value,

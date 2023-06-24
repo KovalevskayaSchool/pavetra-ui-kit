@@ -20,7 +20,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const ControlledComponent = () => {
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState<any>('')
   return (
     <form>
       {/* <FormField name="email" label="Email">
@@ -100,6 +100,7 @@ const ControlledComponent = () => {
       </FormField>
       <FormField
         onChange={(value) => console.log(value, 'DatePicker')}
+        value={new Date()}
         name="DatePicker"
         label="DatePicker"
         error="required"
