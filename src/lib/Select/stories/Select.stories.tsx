@@ -16,7 +16,8 @@ type Story = StoryObj<typeof meta>;
 const ControlledComponent = () => {
     const [value, setValue] = useState('test-2')
 
-    function handleChange(value: string) {
+    function handleChange(value: string, item) {
+        console.log('change', {value, item})
         setValue(value)
     }
 

@@ -2,7 +2,10 @@
   --form-field-color-danger: var(--color-danger);
   position: relative;
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
+  gap: 0.1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .ks-form-field__content {

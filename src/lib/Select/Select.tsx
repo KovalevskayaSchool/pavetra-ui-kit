@@ -31,7 +31,7 @@ export interface SelectProps
     "items" | "isDisabled" | "isLoading" | "children"
   > {
   menu?: MenuItemProps[];
-  onChange?: (value: string) => void;
+  onChange?: (value: string, item: MenuItemProps) => void;
   onClose?: () => void;
   onOpen?: () => void;
   onOpenChange?: (isOpen: boolean) => void;
@@ -89,7 +89,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         .filter((item) => item.disabled)
         .map((item) => item.id || ""),
       onSelectionChange(key) {
-        return onChange?.(key.toString());
+        const id = key.toString()
+        const menuItem = menu.find((item) => item.id === id) as MenuItemProps
+        return onChange?.(id, menuItem);
       },
       onOpenChange,
     });
