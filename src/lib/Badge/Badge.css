@@ -12,7 +12,7 @@
 
   overflow: hidden;
   position: absolute;
-  top: 0;
+  inset-block-start: 4px;
   inset-inline-end: 0;
   transform: translate(50%, -50%);
   transform-origin: 100% 0%;
@@ -24,7 +24,7 @@
 
   white-space: nowrap;
   text-align: center;
-  z-index: auto;
+  z-index: 1;
   min-width: 20px;
   height: 20px;
 }

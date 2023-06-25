@@ -49,6 +49,7 @@ export const YearView: FC<YearViewProps> = () => {
         <>
           <Button
             variant="inline"
+            type="button"
             onClick={handlePrevYear}
             icon={<ChevronLeftOutline />}
           />
@@ -57,6 +58,7 @@ export const YearView: FC<YearViewProps> = () => {
           </div>
           <Button
             variant="inline"
+            type="button"
             onClick={handleNextYear}
             icon={<ChevronRightOutline />}
           />

@@ -43,12 +43,14 @@ export const MonthView: FC<MonthViewProps> = () => {
         <>
           <Button
             variant="inline"
+            type="button"
             onClick={handlePrevYear}
             icon={<ChevronUpOutline />}
           />
           <div className="ks-datepicker__range">{getYear(state.date)}</div>
           <Button
             variant="inline"
+            type="button"
             onClick={handleNextYear}
             icon={<ChevronDownOutline />}
           />
