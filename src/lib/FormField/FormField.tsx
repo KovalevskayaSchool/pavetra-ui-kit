@@ -40,9 +40,9 @@ export const FormField: FC<PropsWithChildren<FormFieldProps>> = ({
 
   return (
     <div className="ks-form-field">
-      <label {...labelProps} className="ks-form-field__label">
+      {label && <label {...labelProps} className="ks-form-field__label">
         {label}
-      </label>
+      </label>}
       <div className="ks-form-field__content">
         {renderChildren()}
         {error && (

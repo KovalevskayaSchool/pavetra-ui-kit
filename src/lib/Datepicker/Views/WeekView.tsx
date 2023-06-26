@@ -61,7 +61,7 @@ export const WeekView: FC<WeekViewProps> = () => {
       }
       footer={
         <>
-          <Button variant="inline" onClick={onPresentMonth}>
+          <Button type="button" variant="inline" onClick={onPresentMonth}>
             Сегодня
           </Button>
         </>

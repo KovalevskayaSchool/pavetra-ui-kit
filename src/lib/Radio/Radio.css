@@ -60,6 +60,7 @@
   content: "";
 }
 
+.ks-radio__label_disabled,
 .ks-radio_disabled {
   cursor: not-allowed;
   opacity: 0.65;
