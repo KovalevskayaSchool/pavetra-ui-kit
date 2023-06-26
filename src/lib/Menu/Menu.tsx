@@ -23,6 +23,7 @@ export interface MenuProps
   selectedKey?: string;
   onChange?: (key: string) => void;
   mode?: 'horizontal' | 'vertical';
+  type?: 'listbox' | 'menu'
 }
 
 export const Menu = forwardRef<HTMLUListElement, MenuProps>(
@@ -36,6 +37,7 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
       selectedKey,
       onChange,
       mode = 'vertical',
+      type = 'menu',
       ...props
     },
     refForwarded
@@ -76,8 +78,8 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
           <SeperatorItem key={item.key} />
         ) : (
           <Item state={state} key={item.key} item={item} className={cn({
-            ['ks-menu__item_mode_horizontal']: mode === 'horizontal',
-            ['ks-menu__item_mode_vertical']: mode === 'vertical',
+            ['ks-menu__item_mode_horizontal']: mode === 'horizontal' && type !== 'listbox',
+            ['ks-menu__item_mode_vertical']: mode === 'vertical' && type !== 'listbox',
           })} />
         )
       );

@@ -72,3 +72,15 @@ export const Horizontal: Story = {
     ],
   },
 };
+
+
+export const Listbox: Story = {
+  args: {
+    type: 'listbox',
+    menu: [
+      { id: "test-1", label: "Test 1" },
+      { id: "test-2", label: "Test 2" },
+      { id: "test-3", label: "Test 4" },
+    ],
+  },
+};
