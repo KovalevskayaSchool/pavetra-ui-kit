@@ -24,7 +24,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
     const radioProps = { ...restProps };
     const groupContext = useRadioGroupContext() || {};
 
-    const { inputProps } = useRadio(
+    const { inputProps, isDisabled: disabled } = useRadio(
       {
         ...radioProps,
         value,
@@ -59,7 +59,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
       >
         <span
           className={cn("ks-radio", {
-            ["ks-radio_disabled"]: isDisabled,
+            ["ks-radio_disabled"]: disabled,
             ["ks-radio_checked"]: inputProps.checked,
             ["ks-radio_focus"]: isFocusVisible,
             ["ks-radio_active"]: active,
@@ -71,13 +71,19 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
             {...focusProps}
             className="ks-radio__control"
             checked={inputProps.checked}
-            disabled={isDisabled}
+            disabled={disabled}
             onChange={handleChange}
             type="radio"
             value={value}
           />
         </span>
-        <span className="ks-radio__label">{label}</span>
+        <span
+          className={cn("ks-radio__label", {
+            ["ks-radio__label_disabled"]: disabled,
+          })}
+        >
+          {label}
+        </span>
       </label>
     );
   }
