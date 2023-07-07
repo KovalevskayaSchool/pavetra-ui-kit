@@ -80,6 +80,6 @@
   line-height: 1;
 }
 
-.ks-radio__group {
+:where(.ks-radio__group) {
   display: inline-block;
 }

@@ -1,20 +1,21 @@
-import { FC, PropsWithChildren, useRef } from 'react';
+import { FC, PropsWithChildren, useRef } from "react";
 import {
   Overlay,
   useModalOverlay,
   AriaModalOverlayProps,
   useDialog,
-} from 'react-aria';
-import { OverlayTriggerState } from 'react-stately';
-import cn from 'classnames';
-import { CloseOutline } from '@kovalevskayaschool/pavetra-icons';
+} from "react-aria";
+import { OverlayTriggerState } from "react-stately";
+import cn from "classnames";
+import { CloseOutline } from "@kovalevskayaschool/pavetra-icons";
+import { OverlayTriggerStateModal } from "./useModal";
 
-import { Portal } from '../Portal';
-import { Button } from '../Button';
-import { Box } from '../Box';
-import { Typography } from '../Typography';
+import { Portal } from "../Portal";
+import { Button } from "../Button";
+import { Box } from "../Box";
+import { Typography } from "../Typography";
 
-import './Modal.css';
+import "./Modal.css";
 
 export interface DialogProps extends AriaModalOverlayProps {
   footerChildren?: React.ReactNode;
@@ -24,7 +25,7 @@ export interface DialogProps extends AriaModalOverlayProps {
   closableButton?: boolean;
   className?: string;
   id?: string;
-  state: OverlayTriggerState;
+  state: OverlayTriggerStateModal;
 }
 
 export const Modal: FC<PropsWithChildren<DialogProps>> = ({
@@ -48,7 +49,7 @@ export const Modal: FC<PropsWithChildren<DialogProps>> = ({
       isKeyboardDismissDisabled,
       ...props,
     },
-    state,
+    state as OverlayTriggerState,
     ref
   );
   const { dialogProps, titleProps } = useDialog(
@@ -64,7 +65,7 @@ export const Modal: FC<PropsWithChildren<DialogProps>> = ({
       {state.isOpen && (
         <Portal>
           <Overlay>
-            <div className={cn(className, 'modal__container')}>
+            <div className={cn(className, "modal__container")}>
               <div className="modal__overlay" />
               <div className="modal__wrapper" {...underlayProps}>
                 <Box
