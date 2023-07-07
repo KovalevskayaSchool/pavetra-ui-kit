@@ -1,24 +1,25 @@
-import { createContext, FC, PropsWithChildren, useContext } from 'react';
-import { useRadioGroupState, RadioGroupState } from 'react-stately';
-import { useRadioGroup, type AriaRadioGroupProps } from 'react-aria';
+import { createContext, FC, PropsWithChildren, useContext } from "react";
+import { useRadioGroupState, RadioGroupState } from "react-stately";
+import { useRadioGroup, type AriaRadioGroupProps } from "react-aria";
+import cn from "classnames";
 
 const RadioContext = createContext<RadioGroupState | null>({
   isDisabled: false,
-  selectedValue: '',
+  selectedValue: "",
   setSelectedValue: (_: string) => undefined,
 } as RadioGroupState);
 
 // #TODO Omit
-export type RadioGroupProps = AriaRadioGroupProps;
+export type RadioGroupProps = AriaRadioGroupProps & { className?: string };
 
 export const useRadioGroupContext = () => useContext(RadioContext);
 
 export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = ({
   children,
   onChange,
+  className,
   ...props
 }) => {
-
   const state = useRadioGroupState({
     ...props,
     onChange,
@@ -31,7 +32,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = ({
   );
 
   return (
-    <div {...radioGroupProps} className="ks-radio__group">
+    <div {...radioGroupProps} className={cn(className, "ks-radio__group")}>
       <RadioContext.Provider value={state}>{children}</RadioContext.Provider>
     </div>
   );

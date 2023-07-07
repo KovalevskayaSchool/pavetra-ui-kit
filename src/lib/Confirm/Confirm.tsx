@@ -7,17 +7,18 @@ import "./Confirm.css";
 
 export interface ConfirmFuncProps {
   onClose?: () => void;
-  close?: Function
-  content?: React.ReactNode | string,
-  onOk?: Function,
-  onCancel?: Function,
-  title?: string,
-  okText?: string,
-  cancelText?: string,
-  okType?: "regular" | "danger",
+  close?: Function;
+  content?: React.ReactNode | string | Function;
+  footer?: React.ReactNode | Function;
+  onOk?: Function;
+  onCancel?: Function;
+  title?: string;
+  okText?: string;
+  cancelText?: string;
+  okType?: "regular" | "danger";
 }
 
-export function confirmDialog(props: ConfirmFuncProps) {
+export const confirmDialog = (props: ConfirmFuncProps) =>  {
   const div = document.createElement("div");
 
   const root = ReactDOM.createRoot(div);
@@ -42,24 +43,25 @@ export function confirmDialog(props: ConfirmFuncProps) {
   };
 }
 
-export function Confirm({
+export const Confirm = ({
   onClose,
   close,
   content,
+  footer,
   onOk,
   onCancel,
   title,
   okText = "Ok",
   cancelText = "Cancel",
   okType = "regular",
-}: ConfirmFuncProps) {
+}: ConfirmFuncProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const modal = useModal({
     defaultOpen: true,
   });
 
   function onInternalClose(...args) {
-    close?.(...args)
+    close?.(...args);
     modal.state.close();
   }
 
@@ -79,7 +81,7 @@ export function Confirm({
         }
       );
     } else {
-      onInternalClose()
+      onInternalClose();
     }
   }
 
@@ -88,23 +90,37 @@ export function Confirm({
     onInternalClose();
   }
 
+  const contentComponent = typeof content === "function" ? content() : content;
+  const footerComponent = typeof footer === "function" ? footer() : footer;
+
   return (
-    <Modal {...modal} onClose={onClose} headerLabel={title} closableButton={false}>
+    <Modal
+      {...modal}
+      onClose={onClose}
+      headerLabel={title}
+      closableButton={false}
+    >
       <div className="confirm__modal">
-        {content ? <div className="confirm__content">{content}</div> : null}
-        <div className="confirm__actions">
-          <Button variant="ghost" onClick={handleCancel}>
-            {cancelText}
-          </Button>
-          <Button
-            loading={isLoading}
-            danger={okType === "danger"}
-            variant="primary"
-            onClick={handleAction}
-          >
-            {okText}
-          </Button>
-        </div>
+        {contentComponent ? (
+          <div className="confirm__content">{contentComponent}</div>
+        ) : null}
+        {!footerComponent ? (
+          <div className="confirm__actions">
+            <Button variant="ghost" onClick={handleCancel}>
+              {cancelText}
+            </Button>
+            <Button
+              loading={isLoading}
+              danger={okType === "danger"}
+              variant="primary"
+              onClick={handleAction}
+            >
+              {okText}
+            </Button>
+          </div>
+        ) : (
+          footerComponent
+        )}
       </div>
     </Modal>
   );
