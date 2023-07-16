@@ -33,6 +33,12 @@ export const WeekView: FC<WeekViewProps> = () => {
     hasEvent,
   } = useWeekView(state);
 
+  function getEvent(dayDate) {
+    const value = state.eventsMap.get(format(dayDate, "yyyy-MM-dd"));
+
+    return !!value;
+  }
+
   return (
     <DatePickerTemplate
       navigation={
@@ -93,12 +99,13 @@ export const WeekView: FC<WeekViewProps> = () => {
                   ["ks-datepicker__cell_disabled"]: state.disableDate?.(
                     day.date
                   ),
+                  ["ks-datepicker__cell_event"]: getEvent(day.date),
                 })}
                 onClick={() => handleDayClick(day)}
                 title={day.label}
               >
                 <div className="ks-datepicker__cell-inner">
-                  {day.dayOfMonth}
+                  {state.renderCell?.(day.date, day.dayOfMonth) || day.dayOfMonth}
                 </div>
               </td>
             ))}

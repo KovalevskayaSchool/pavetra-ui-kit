@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-import { Modal, useModal } from "../Modal";
+import { Modal, UseModalResponse, useModal } from "../Modal";
 import { Button } from "../";
 import "./Confirm.css";
 
@@ -18,7 +18,13 @@ export interface ConfirmFuncProps {
   okType?: "regular" | "danger";
 }
 
-export const confirmDialog = (props: ConfirmFuncProps) =>  {
+const ConfirmContext = createContext<(props: ConfirmFuncProps) => void>(
+  (props: ConfirmFuncProps) => null
+);
+
+export const useConfirm = () => useContext(ConfirmContext);
+
+export const confirmDialog = (props: ConfirmFuncProps) => {
   const div = document.createElement("div");
 
   const root = ReactDOM.createRoot(div);
@@ -41,7 +47,7 @@ export const confirmDialog = (props: ConfirmFuncProps) =>  {
   return {
     close,
   };
-}
+};
 
 export const Confirm = ({
   onClose,
@@ -54,15 +60,16 @@ export const Confirm = ({
   okText = "Ok",
   cancelText = "Cancel",
   okType = "regular",
-}: ConfirmFuncProps) => {
+  modal,
+}: ConfirmFuncProps & { modal: UseModalResponse }) => {
+  const internalModal = modal || useModal({
+    defaultOpen: true
+  })
   const [isLoading, setIsLoading] = useState(false);
-  const modal = useModal({
-    defaultOpen: true,
-  });
 
   function onInternalClose(...args) {
     close?.(...args);
-    modal.state.close();
+    internalModal.state.close();
   }
 
   function handleAction() {
@@ -95,7 +102,7 @@ export const Confirm = ({
 
   return (
     <Modal
-      {...modal}
+      {...internalModal}
       onClose={onClose}
       headerLabel={title}
       closableButton={false}
@@ -123,5 +130,32 @@ export const Confirm = ({
         )}
       </div>
     </Modal>
+  );
+};
+
+export function ConfirmProvider({ children }) {
+  const modal = useModal();
+  const [confirmProps, setConfirmProps] = useState<ConfirmFuncProps>({
+    okText: "Ok",
+    cancelText: "Cancel",
+    okType: "regular",
+  });
+
+  function callConfirm(props: ConfirmFuncProps) {
+    setConfirmProps(props);
+    modal.state.open();
+  }
+
+  function close() {
+    setConfirmProps({});
+  }
+
+  return (
+    <ConfirmContext.Provider value={callConfirm}>
+      {children}
+      {modal.state.isOpen ? (
+        <Confirm {...confirmProps} modal={modal} onClose={close} />
+      ) : null}
+    </ConfirmContext.Provider>
   );
 }

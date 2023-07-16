@@ -1,15 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { confirmDialog } from "..";
-import { Confirm } from "../Confirm";
+import { Confirm, ConfirmProvider, useConfirm } from "../Confirm";
 import { Button } from "../../Button";
-import {Radio, RadioGroup} from "../../"
+import { Radio, RadioGroup } from "../../";
 import { useState } from "react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {
   title: "Controls/Confirm",
-  component: Confirm,
   tags: ["autodocs"],
 } satisfies Meta<typeof Confirm>;
 
@@ -71,7 +70,7 @@ export const Danger: Story = {
   render: ConfirmProps,
 };
 
-function TestContent({ onChange, value }) {
+const TestContent = ({ onChange, value }) => {
   return (
     <RadioGroup onChange={onChange} value={value} label="test">
       <Radio value="all" label="All" />
@@ -136,4 +135,48 @@ function ConfirmTitle() {
 export const Title: Story = {
   args: {},
   render: ConfirmTitle,
+};
+
+// CONTEXT
+function ConfirmStory() {
+  const [value, setValue] = useState("single");
+  const confirmApp = useConfirm();
+
+  const onFetch = () => new Promise((res) => setTimeout(() => res("Ok"), 500));
+
+  const submit = () => {
+    console.log({ value });
+    return onFetch();
+  };
+  return (
+    <>
+      {value}
+      <Button
+        onClick={() =>
+          confirmApp({
+            title: "Context app title?",
+            content: <TestContent value={value} onChange={setValue} />,
+            onOk: submit,
+            onCancel() {
+              console.log("Cancel");
+            },
+          })
+        }
+      >
+        Open
+      </Button>
+    </>
+  );
+}
+function ConfirmContextStory() {
+  return (
+    <ConfirmProvider>
+      <ConfirmStory />
+    </ConfirmProvider>
+  );
+}
+
+export const Context: Story = {
+  args: {},
+  render: ConfirmContextStory,
 };

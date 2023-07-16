@@ -1,2 +1,2 @@
-export { confirmDialog } from "./Confirm";
+export { confirmDialog, ConfirmProvider, useConfirm } from "./Confirm";
 export type { ConfirmFuncProps } from "./Confirm";

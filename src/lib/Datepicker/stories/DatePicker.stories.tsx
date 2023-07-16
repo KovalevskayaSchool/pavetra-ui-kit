@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { DatePicker, PickerDay } from '..';
 import { Button } from '../../Button';
+import isToday from 'date-fns/isToday';
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {
@@ -29,7 +30,7 @@ const ControlledComponent = () => {
         marginTop: 50,
       }}
     >
-      <DatePicker value={value} onChange={handleChange} />
+      <DatePicker value={value} onChange={handleChange} renderCell={(date, label) => isToday(date) ? <div>today</div> : label} />
       <Button onClick={() => setValue(null)}>Reset</Button>
     </div>
   );

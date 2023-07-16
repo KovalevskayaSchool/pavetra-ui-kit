@@ -1,8 +1,8 @@
-import { Locale } from 'date-fns';
+import { Locale } from "date-fns";
 
 export type PickerDay = {
   label: string;
-  dayOfMonth: number;
+  dayOfMonth: string;
   isCurrentMonth: boolean;
   date: Date;
   event: DatePickerEvent | undefined;
@@ -18,7 +18,7 @@ export type PickerYear = {
   date: Date;
 };
 
-export type PickerType = 'month' | 'week' | 'year';
+export type PickerType = "month" | "week" | "year";
 
 export type DatePickerContext = {
   type: PickerType;
@@ -33,7 +33,9 @@ export type DatePickerContext = {
   setDate: (data: Date) => void;
   inline: boolean;
   events: DatePickerEvent[];
+  eventsMap: Map<string, DatePickerEvent>;
   disableDate?: ((date: Date) => boolean) | undefined;
+  renderCell?: (date: Date, dayOfMonth: string) => void;
   onDayClick?: (day: PickerDay) => void;
 };
 

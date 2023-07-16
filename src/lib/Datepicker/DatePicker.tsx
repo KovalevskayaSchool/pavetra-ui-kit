@@ -1,4 +1,4 @@
-import { useState, forwardRef, useEffect } from "react";
+import { useState, forwardRef, useEffect, useMemo } from "react";
 import { useButton, useDatePicker } from "react-aria";
 import { useDatePickerState } from "react-stately";
 import cn from "classnames";
@@ -26,6 +26,7 @@ export interface DatePickerProps {
   inline?: boolean;
   events?: DatePickerEvent[];
   disableDate?: ((date: Date) => boolean) | undefined;
+  renderCell?: (date: Date, dayOfMonth: string) => void;
   className?: string;
   value?: Date | null | undefined;
   defaultValue?: Date;
@@ -79,7 +80,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       {
         ...buttonProps,
         "aria-label": a11yLabel || "Datepicker",
-        isDisabled: disabled
+        isDisabled: disabled,
       },
       triggerRef
     );
@@ -156,8 +157,11 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
           className={cn(className, "ks-datepicker")}
           onClick={handleClick}
         >
-          <div ref={triggerRef} 
-          {...pressProps} className="ks-datepicker__trigger">
+          <div
+            ref={triggerRef}
+            {...pressProps}
+            className="ks-datepicker__trigger"
+          >
             <Input
               readOnly
               id={fieldProps.id}
@@ -190,6 +194,13 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       ? format(valueDate, dateFormat, { locale })
       : "";
 
+    const eventsMap = useMemo(() =>
+      events.reduce(
+        (map, event) => map.set(format(event.date, "yyyy-MM-dd"), event),
+        new Map<string, DatePickerEvent>()
+      ), [events]
+    );
+
     return (
       <DatePickerCtx.Provider
         value={{
@@ -201,6 +212,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
           date,
           value: valueDate,
           events,
+          eventsMap,
           setDate,
           setMonth: handleChangeMonth,
           setYear: handleChangeYear,

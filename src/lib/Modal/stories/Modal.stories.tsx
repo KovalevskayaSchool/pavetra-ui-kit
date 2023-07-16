@@ -15,10 +15,21 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const ControlledComponent = () => {
-  const modal = useModal();
+  const modal = useModal({
+    onOpenChange(isOpen) {
+      if (!isOpen) {
+        console.log("close");
+      }
+    },
+  });
 
   function handleOpen() {
     modal.state.open({ test: "value" });
+  }
+
+  function handleClose() {
+    console.log("close");
+    modal.state.close();
   }
 
   return (
@@ -34,7 +45,7 @@ const ControlledComponent = () => {
         headerLabel="Test modal state"
         isDismissable
         state={modal.state}
-        onClose={() => modal.state.close()}
+        onClose={handleClose}
       >
         <div>
           <form>
