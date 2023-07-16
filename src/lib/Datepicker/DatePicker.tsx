@@ -126,6 +126,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
         return (
           <Button
             size="small"
+            type="button"
             variant="inline"
             className="ks-datepicker__clear-button"
             icon={<CloseOutline />}

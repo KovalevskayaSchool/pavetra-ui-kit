@@ -51,7 +51,6 @@ export const FormField: FC<PropsWithChildren<FormFieldProps>> = ({
           </span>
         )}
       </div>
-      {error && <div className="ks-form-field__offset" />}
     </div>
   );
 };

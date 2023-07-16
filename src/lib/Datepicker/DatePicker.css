@@ -168,3 +168,8 @@
   align-items: center;
   color: var(--color-opac-b-9);
 }
+
+.ks-datepicker__cell_event {
+  background-color: var(--date-picker-selected-background);
+  color: var(--date-picker-selected-color);
+}
