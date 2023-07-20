@@ -29,6 +29,7 @@ const plugins = [
   commonjs(),
   terser(),
   postcss({
+    modules: true,
     config: {
       path: path.join(__dirname, "./postcss.config.cjs"),
     },

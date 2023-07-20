@@ -39,6 +39,11 @@ import {
     MoonOutline,
     MoreHorizontalOutline,
     RefreshOutline,
+    CalendarEmptyOutline,
+    CalendarPlusOutline,
+    CheckVerifiedOutline,
+    ChevronLeftDoubleOutline,
+    ChevronRightDoubleOutline
 } from '@kovalevskayaschool/pavetra-icons'
 
 
@@ -96,7 +101,12 @@ const icons = [
     MessageCircleOutline,
     MoonOutline,
     MoreHorizontalOutline,
-    RefreshOutline
+    RefreshOutline,
+    CalendarEmptyOutline,
+    CalendarPlusOutline,
+    CheckVerifiedOutline,
+    ChevronLeftDoubleOutline,
+    ChevronRightDoubleOutline
 ]
 export const Default: Story = {
     render: () => (

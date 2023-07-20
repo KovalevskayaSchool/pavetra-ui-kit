@@ -11,7 +11,7 @@ import cn from "classnames";
 import { Spin } from "../Spin";
 
 import { useDOMRef } from "../../utils/useDomRef";
-import "./Button.css";
+import styles from './Button.module.css'
 
 interface BaseProps extends AriaButtonProps {
   icon?: React.ReactNode;
@@ -67,24 +67,24 @@ export const Button = forwardRef<
     };
 
     const classNames = cn(
-      "ks-button",
+      styles["button"],
       {
-        ["ks-button_icon"]: !!onlyIcon,
-        ["ks-button_rounded"]: rounded,
+        [styles["button_icon"]]: !!onlyIcon,
+        [styles["button_rounded"]]: rounded,
         /* SIZE */
-        ["ks-button_size_large"]: size === "large",
-        ["ks-button_size_medium"]: size === "medium",
-        ["ks-button_size_small"]: size === "small",
+        [styles["button_size_large"]]: size === "large",
+        [styles["button_size_medium"]]: size === "medium",
+        [styles["button_size_small"]]: size === "small",
         /* VARIANTS */
-        ["ks-button_variant_primary"]: variant === "primary",
-        ["ks-button_variant_secondary"]: variant === "secondary",
-        ["ks-button_variant_inline"]: variant === "inline",
-        ["ks-button_variant_ghost"]: variant === "ghost",
-        ["ks-button_variant_link"]: variant === "link",
+        [styles["button_variant_primary"]]: variant === "primary",
+        [styles["button_variant_secondary"]]: variant === "secondary",
+        [styles["button_variant_inline"]]: variant === "inline",
+        [styles["button_variant_ghost"]]: variant === "ghost",
+        [styles["button_variant_link"]]: variant === "link",
         /* DISABLED */
-        ["ks-button_disabled"]: props.disabled,
+        [styles["button_disabled"]]: props.disabled,
         /* DANGER */
-        ["ks-button_danger"]: danger,
+        [styles["button_danger"]]: danger,
       },
       className
     );
@@ -93,8 +93,8 @@ export const Button = forwardRef<
     function renderIcon() {
       if (isValidElement(icon) || loading) {
         return (
-          <div className="ks-button__icon">
-            {loading ? <Spin className="ks-button__spin" /> : icon}
+          <div className={styles["button__icon"]}>
+            {loading ? <Spin className={styles["button__spin"]} /> : icon}
           </div>
         );
       }
@@ -103,7 +103,7 @@ export const Button = forwardRef<
 
     function renderContent() {
       return (
-        <span className="ks-button__content">
+        <span className={styles["button__content"]}>
           {renderIcon()}
           {children}
         </span>
