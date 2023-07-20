@@ -1,0 +1,28 @@
+@keyframes fade-in {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.spin {
+  --color-spin: var(--color-primary);
+  display: flex;
+  align-items: center;
+  color: var(--color-spin);
+  animation: fade-in 1s infinite linear;
+}
+
+.spin_size_large {
+  width: 2rem;
+  height: 2rem;
+}
+
+.spin_size_medium {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.spin_size_small {
+  width: 1rem;
+  height: 1rem;
+}

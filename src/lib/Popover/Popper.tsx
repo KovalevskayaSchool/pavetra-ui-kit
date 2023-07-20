@@ -4,7 +4,7 @@ import type { AriaPopoverProps } from 'react-aria';
 import { usePopper } from 'react-popper';
 
 import { Overlay } from '../Overlay';
-import './Popover.css';
+import cl from './Popover.module.css';
 
 interface PopoverProps
   extends Omit<AriaPopoverProps, 'popoverRef'>,
@@ -48,7 +48,7 @@ export const Popover: FC<PropsWithChildren<PopoverProps>> = ({
         ref={setPopperElement}
         style={{ ...styles.popper, minWidth: width, width: 'fit-content' }}
         {...attributes.popper}
-        className="ks-popover"
+        className={cl["popover"]}
       >
         {children}
       </div>

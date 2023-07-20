@@ -14,7 +14,8 @@ import { TableCell } from "./TableCell";
 import { TableSelectAllCell } from "./TableSelectAllCell";
 import { TableCheckboxCell } from "./TableCheckboxCell";
 
-import "./Table.css";
+
+import styles from "./Table.module.css";
 
 export interface TableProps extends TableStateProps<object> {
   a11yLabel?: string;
@@ -47,7 +48,7 @@ export const TableBase = forwardRef<
     );
 
     return (
-      <table {...gridProps} className={cn("ks-table", className)} ref={ref}>
+      <table {...gridProps} className={cn(styles["table"], className)} ref={ref}>
         <TableRowGroup type="thead">
           {collection.headerRows.map((headerRow) => {
             const headerChildNodes =

@@ -1,5 +1,6 @@
 import { createElement, PropsWithChildren } from 'react';
 import cn from 'classnames';
+import styles from '../Typography.module.css'
 
 interface CaptionProps {
   className?: string;
@@ -19,7 +20,7 @@ export function Caption({
     as,
     {
       ...rest,
-      className: cn('ks-caption', className),
+      className: cn(styles['caption'], className),
     },
     children
   );

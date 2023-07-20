@@ -4,6 +4,8 @@ import { Node, TableState } from "react-stately";
 import { mergeProps, useFocusRing, useTableRow } from "react-aria";
 import { useDOMRef } from "../../utils/useDomRef";
 
+import styles from "./Table.module.css";
+
 interface TableRowProps {
   state: TableState<object>;
   item: Node<object>;
@@ -26,8 +28,8 @@ export const TableRow = forwardRef<
 
   return (
     <tr
-      className={cn("ks-table__row", {
-        ['ks-table__row_selected']: isSelected
+      className={cn(styles["table__row"], {
+        [styles['table__row_selected']]: isSelected
       })}
       {...mergeProps(rowProps, focusProps)}
       ref={ref}

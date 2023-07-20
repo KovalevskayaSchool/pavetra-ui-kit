@@ -6,7 +6,7 @@ import type { AriaRadioProps } from "react-aria";
 
 import { useRadioGroupContext } from "./RadioGroup";
 import { useDOMRef } from "../../utils/useDomRef";
-import "./Radio.css";
+import styles from "./Radio.module.css";
 
 interface Props extends AriaRadioProps {
   label?: string | React.ReactNode;
@@ -53,23 +53,23 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
 
     return (
       <label
-        className={cn("ks-radio__container", className)}
+        className={cn(styles["radio__container"], className)}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <span
-          className={cn("ks-radio", {
-            ["ks-radio_disabled"]: disabled,
-            ["ks-radio_checked"]: inputProps.checked,
-            ["ks-radio_focus"]: isFocusVisible,
-            ["ks-radio_active"]: active,
+          className={cn(styles["radio"], {
+            [styles["radio_disabled"]]: disabled,
+            [styles["radio_checked"]]: inputProps.checked,
+            [styles["radio_focus"]]: isFocusVisible,
+            [styles["radio_active"]]: active,
           })}
         >
           <input
             ref={ref}
             {...inputProps}
             {...focusProps}
-            className="ks-radio__control"
+            className={styles["radio__control"]}
             checked={inputProps.checked}
             disabled={disabled}
             onChange={handleChange}
@@ -78,8 +78,8 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
           />
         </span>
         <span
-          className={cn("ks-radio__label", {
-            ["ks-radio__label_disabled"]: disabled,
+          className={cn(styles["radio__label"], {
+            [styles["radio__label_disabled"]]: disabled,
           })}
         >
           {label}

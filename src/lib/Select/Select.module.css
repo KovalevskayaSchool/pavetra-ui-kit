@@ -1,0 +1,85 @@
+.select {
+  position: relative;
+  cursor: pointer;
+
+  --select-list-background-color: var(--color-white);
+  --select-item-hover-background-color: var(--color-opac-b-1);
+  --select-item-selected-background-color: var(--color-primary);
+  --select-border-color: var(--color-light-gray);
+}
+
+.select__poppover {
+  position: relative;
+  cursor: pointer;
+
+  --select-list-background-color: var(--color-white);
+  --select-list-border-color: var(--color-light-gray);
+
+  position: relative;
+  box-shadow: var(--shadow-elevation);
+  z-index: 50;
+  background-color: var(--select-list-background-color);
+
+  border-radius: var(--border-radius-base);
+
+  width: 100%;
+
+  border: 1px solid var(--select-list-border-color);
+
+  max-height: min(var(--popover-available-height, 300px), 300px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 0.25rem;
+  scroll-margin: 0.5rem;
+  box-sizing: border-box;
+}
+
+.select__button_disabled {
+  cursor: not-allowed;
+}
+
+.select__button {
+  display: grid;
+}
+
+.select__button::-webkit-details-marker {
+  display: none;
+}
+
+.select__icons {
+  display: flex;
+  color: var(--color-opac-b-8);
+}
+
+.select__icon {
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-duration) ease-out;
+}
+
+.select__icon_toggled {
+  transform: rotate(180deg);
+}
+
+.select__empty {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select__clear {
+  width: 1.35rem;
+  height: 1.35rem;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: var(--border-radius-rounded);
+  color: var(--color-opac-b-9);
+}
+
+.select__button-clear:hover > * .select__clear {
+  background-color: inherit;
+}

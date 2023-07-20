@@ -17,7 +17,7 @@ import { DatePickerBase } from "./DatePickerBase";
 import { useDOMRef } from "../../utils/useDomRef";
 import { useControlled } from "../../utils/useControlled";
 import { DatePickerContext as DatePickerCtx } from "./useDatePickerCtx";
-import "./DatePicker.css";
+import styles from "./DatePicker.module.css";
 
 export interface DatePickerProps {
   type?: PickerType;
@@ -128,7 +128,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
             size="small"
             type="button"
             variant="inline"
-            className="ks-datepicker__clear-button"
+            className={styles["datepicker__clear-button"]}
             icon={<CloseOutline />}
             onClick={handleClear}
           />
@@ -138,8 +138,8 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       return (
         <div
           aria-hidden="true"
-          className={cn("ks-datepicker__chevron-icon", {
-            ["ks-datepicker__chevron-icon_toggled"]: state.isOpen,
+          className={cn(styles["datepicker__chevron-icon"], {
+            [styles["datepicker__chevron-icon_toggled"]]: state.isOpen,
           })}
         >
           <ChevronDownOutline />
@@ -155,13 +155,13 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       return (
         <div
           {...groupProps}
-          className={cn(className, "ks-datepicker")}
+          className={cn(className, styles["datepicker"])}
           onClick={handleClick}
         >
           <div
             ref={triggerRef}
             {...pressProps}
-            className="ks-datepicker__trigger"
+            className={styles["datepicker__trigger"]}
           >
             <Input
               readOnly
@@ -182,7 +182,10 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
               isOpen={state.isOpen}
               triggerRef={triggerRef}
             >
-              <div {...dialogProps} className="ks-datepicker__poppover-content">
+              <div
+                {...dialogProps}
+                className={styles["datepicker__poppover-content"]}
+              >
                 <DatePickerBase viewType={type} />
               </div>
             </Popover>
@@ -195,11 +198,13 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       ? format(valueDate, dateFormat, { locale })
       : "";
 
-    const eventsMap = useMemo(() =>
-      events.reduce(
-        (map, event) => map.set(format(event.date, "yyyy-MM-dd"), event),
-        new Map<string, DatePickerEvent>()
-      ), [events]
+    const eventsMap = useMemo(
+      () =>
+        events.reduce(
+          (map, event) => map.set(format(event.date, "yyyy-MM-dd"), event),
+          new Map<string, DatePickerEvent>()
+        ),
+      [events]
     );
 
     return (

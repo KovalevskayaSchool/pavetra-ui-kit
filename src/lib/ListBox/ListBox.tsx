@@ -8,7 +8,7 @@ import { Item } from "./Item";
 import { SeperatorItem } from "./SeperatorItem";
 import { type MenuItemProps } from "./Menu";
 import { useDOMRef } from "../../utils/useDomRef";
-import "./ListBox.css";
+import styles from "./ListBox.module.css";
 
 export interface MenuProps extends AriaListBoxOptions<MenuItemProps> {
   className?: string;
@@ -48,7 +48,7 @@ export const ListBox = forwardRef<HTMLUListElement, MenuProps>(
       );
 
     return (
-        <ul ref={listBoxRef} {...listBoxProps} className={cn("ks-listbox", className)}>
+        <ul ref={listBoxRef} {...listBoxProps} className={cn(styles["listbox"], className)}>
           {renderItems()}
         </ul>
     );

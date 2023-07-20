@@ -2,6 +2,7 @@ import { createContext, FC, PropsWithChildren, useContext } from "react";
 import { useRadioGroupState, RadioGroupState } from "react-stately";
 import { useRadioGroup, type AriaRadioGroupProps } from "react-aria";
 import cn from "classnames";
+import styles from "./Radio.module.css";
 
 const RadioContext = createContext<RadioGroupState | null>({
   isDisabled: false,
@@ -32,7 +33,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = ({
   );
 
   return (
-    <div {...radioGroupProps} className={cn(className, "ks-radio__group")}>
+    <div {...radioGroupProps} className={cn(className, styles["radio__group"])}>
       <RadioContext.Provider value={state}>{children}</RadioContext.Provider>
     </div>
   );

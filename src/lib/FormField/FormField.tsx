@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren, cloneElement, isValidElement } from 'react';
 import { useField, AriaFieldProps } from 'react-aria';
-import './FormField.css';
+import styles from './FormField.module.css';
 
 export interface FormFieldProps extends Omit<AriaFieldProps, 'errorMessage'> {
   error?: boolean | string | null;
@@ -39,14 +39,14 @@ export const FormField: FC<PropsWithChildren<FormFieldProps>> = ({
   };
 
   return (
-    <div className="ks-form-field">
-      {label && <label {...labelProps} className="ks-form-field__label">
+    <div className={styles["form-field"]}>
+      {label && <label {...labelProps} className={styles["form-field__label"]}>
         {label}
       </label>}
-      <div className="ks-form-field__content">
+      <div className={styles["form-field__content"]}>
         {renderChildren()}
         {error && (
-          <span {...errorMessageProps} className="ks-form-field__error">
+          <span {...errorMessageProps} className={styles["form-field__error"]}>
             {error || ''}
           </span>
         )}

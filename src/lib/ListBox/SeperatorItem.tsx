@@ -2,6 +2,8 @@ import { FC, useRef } from 'react';
 import cn from 'classnames';
 import { useSeparator } from 'react-aria';
 
+import styles from './ListBox.module.css'
+
 export interface MenuItemProps {
   className?: string;
 }
@@ -18,7 +20,7 @@ export const SeperatorItem: FC<MenuItemProps> = ({ className, ...props }) => {
       ref={ref}
       {...props}
       {...separatorProps}
-      className={cn(className, 'ks-listbox__seperator')}
+      className={cn(className, styles["listbox__seperator"])}
     />
   );
 };

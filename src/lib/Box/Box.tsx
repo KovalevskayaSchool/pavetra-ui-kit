@@ -7,7 +7,7 @@ import {
 } from "react";
 import cn from "classnames";
 
-import "./Box.css";
+import styles from "./Box.module.css";
 
 export interface BoxProps extends Partial<HTMLAttributes<HTMLDivElement>> {
   ref?: Ref<HTMLElement>;
@@ -18,7 +18,11 @@ export const Box = forwardRef<HTMLElement, PropsWithChildren<BoxProps>>(
   ({ className, children, as = "div", ...props }, ref) => {
     const Component = as;
     return (
-      <Component ref={ref} {...props} className={cn("ks-box", className)}>
+      <Component
+        ref={ref}
+        {...props}
+        className={cn(styles["box"], className)}
+      >
         {children}
       </Component>
     );

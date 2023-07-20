@@ -142,6 +142,12 @@ const buildComponent = ({ inputFile, name }) => {
     ],
     plugins: [
       ...plugins,
+      // postcss({
+      //   modules: true,
+      //   config: {
+      //     path: path.join(__dirname, "./postcss.config.cjs"),
+      //   },
+      // }),
       typescript({
         tsconfig: "./tsconfig.build.json",
         // declaration: true,

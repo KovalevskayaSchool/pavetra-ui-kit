@@ -1,7 +1,6 @@
 import React, { FC, forwardRef, PropsWithChildren } from 'react';
 
 import { Title } from './Title';
-import './Typography.css';
 
 export interface OriginTypography {
   className?: string;

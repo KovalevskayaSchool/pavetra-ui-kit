@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import cn from "classnames";
-import "./Spin.css";
+import styles from "./Spin.module.css";
 
 export type TSpinSize = "large" | "default" | "small";
 export interface SpinProps {
@@ -14,11 +14,15 @@ export const Spin = forwardRef<SVGSVGElement, SpinProps>(
     <svg
       ref={ref}
       {...rest}
-      className={cn("ks-spin", {
-        ["ks-spin_size_large"]: size === "large",
-        ["ks-spin_size_medium"]: size === "default",
-        ["ks-spin_size_small"]: size === "small",
-      }, className)}
+      className={cn(
+        styles["spin"],
+        {
+          [styles["spin_size_large"]]: size === "large",
+          [styles["spin_size_medium"]]: size === "default",
+          [styles["spin_size_small"]]: size === "small",
+        },
+        className
+      )}
       viewBox="0 0 1024 1024"
       focusable="false"
       data-icon="loading"

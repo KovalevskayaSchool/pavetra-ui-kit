@@ -15,7 +15,7 @@ import { Button } from "../Button";
 import { Box } from "../Box";
 import { Typography } from "../Typography";
 
-import "./Modal.css";
+import styles from "./Modal.module.css";
 
 export interface DialogProps extends AriaModalOverlayProps {
   footerChildren?: React.ReactNode;
@@ -65,19 +65,19 @@ export const Modal: FC<PropsWithChildren<DialogProps>> = ({
       {state.isOpen && (
         <Portal>
           <Overlay>
-            <div className={cn(className, "modal__container")}>
-              <div className="modal__overlay" />
-              <div className="modal__wrapper" {...underlayProps}>
+            <div className={cn(className, styles["modal__container"])}>
+              <div className={styles["modal__overlay"]} />
+              <div className={styles["modal__wrapper"]} {...underlayProps}>
                 <Box
                   id={id}
                   ref={ref}
                   tabIndex={-1}
-                  className="modal__content"
+                  className={styles["modal__content"]}
                   {...modalProps}
                   {...dialogProps}
                 >
                   {closableButton && (
-                    <div className="modal__close-button">
+                    <div className={styles["modal__close-button"]}>
                       <Button
                         onClick={onClose}
                         variant="inline"
@@ -86,10 +86,10 @@ export const Modal: FC<PropsWithChildren<DialogProps>> = ({
                       />
                     </div>
                   )}
-                  <div className="modal__header" {...titleProps}>
+                  <div className={styles["modal__header"]} {...titleProps}>
                     <Typography.Title level={4}>{headerLabel}</Typography.Title>
                   </div>
-                  <div className="modal__body">{children}</div>
+                  <div className={styles["modal__body"]}>{children}</div>
                   {footerChildren}
                 </Box>
               </div>

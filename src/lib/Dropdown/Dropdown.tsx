@@ -15,7 +15,7 @@ import { Popover } from "../Popover";
 import { Box } from "../Box";
 import { mapToAriaProps } from "../ListBox/map";
 import { useDOMRef } from "../../utils/useDomRef";
-import "./Dropdown.css";
+import styles from "./Dropdown.module.css";
 
 export interface DropdownProps
   extends Omit<
@@ -110,7 +110,7 @@ export const Dropdown = forwardRef<
 
     const renderItems = () => {
       return (
-        <Box className="ks-dropdown__poppover">
+        <Box className={styles["dropdown__poppover"]}>
           <ListBox
             ref={listboxRef}
             {...menuProps}

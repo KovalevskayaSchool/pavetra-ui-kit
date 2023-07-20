@@ -3,6 +3,7 @@ import { useTableCell, useTableSelectionCheckbox } from "react-aria";
 import { FocusableElement } from "@react-types/shared";
 
 import { Checkbox } from "../Checkbox";
+import styles from "./Table.module.css";
 
 export const TableCheckboxCell = ({ cell, state }) => {
   const ref = useRef<FocusableElement | null>(null);
@@ -12,8 +13,16 @@ export const TableCheckboxCell = ({ cell, state }) => {
     state
   );
   return (
-    <td {...gridCellProps} className="ks-table__table-data" ref={ref as any}>
-      <Checkbox {...checkboxProps} aria-label="checkbox" className="ks-table__checkbox" />
+    <td
+      {...gridCellProps}
+      className={styles["table__table-data"]}
+      ref={ref as any}
+    >
+      <Checkbox
+        {...checkboxProps}
+        aria-label="checkbox"
+        className={styles["table__checkbox"]}
+      />
     </td>
   );
 };

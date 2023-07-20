@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 
 import { Modal, UseModalResponse, useModal } from "../Modal";
 import { Button } from "../";
-import "./Confirm.css";
+import styles from "./Confirm.module.css";
 
 export interface ConfirmFuncProps {
   onClose?: () => void;
@@ -107,12 +107,12 @@ export const Confirm = ({
       headerLabel={title}
       closableButton={false}
     >
-      <div className="confirm__modal">
+      <div className={styles["confirm__modal"]}>
         {contentComponent ? (
-          <div className="confirm__content">{contentComponent}</div>
+          <div className={styles["confirm__content"]}>{contentComponent}</div>
         ) : null}
         {!footerComponent ? (
-          <div className="confirm__actions">
+          <div className={styles["confirm__actions"]}>
             <Button variant="ghost" onClick={handleCancel}>
               {cancelText}
             </Button>

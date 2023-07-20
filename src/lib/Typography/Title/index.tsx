@@ -1,6 +1,8 @@
 import React, { FC, forwardRef, PropsWithChildren } from 'react';
 import cn from 'classnames';
 
+import styles from '../Typography.module.css'
+
 export interface TTitle extends Partial<React.HTMLAttributes<HTMLHtmlElement>> {
   className?: string;
   ref?: React.Ref<HTMLSpanElement>;
@@ -29,29 +31,29 @@ export const Title: FC<PropsWithChildren<TTitle>> = forwardRef(
     const getLevel = (level = 1) => {
       switch (level) {
         case 1: {
-          return 'ks-h1';
+          return 'h1';
         }
         case 2: {
-          return 'ks-h2';
+          return 'h2';
         }
         case 3: {
-          return 'ks-h3';
+          return 'h3';
         }
         case 4: {
-          return 'ks-h4';
+          return 'h4';
         }
         // case 5: {
         //   return cx(styles.h1)
         // }
         default:
-          return 'ks-h1';
+          return 'h1';
       }
     };
     return rc(
       getHTMLTag(),
       {
         ref,
-        className: cn(getLevel(level), className),
+        className: cn(styles[getLevel(level)], className),
         id,
         ...rest,
       },

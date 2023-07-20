@@ -4,7 +4,7 @@ import { AriaTextFieldProps, mergeProps, useFocusRing } from "react-aria";
 import { useTextField } from "react-aria";
 import { useDOMRef } from "../../utils/useDomRef";
 
-import "./Input.css";
+import styles from "./Input.module.css";
 
 type OverlayFunc<P> = (props: P) => React.ReactElement<P>;
 
@@ -81,7 +81,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         suffix,
         disabled,
         onChange: handleChange,
-        className: cn(["ks-input__control"], {
+        className: cn(styles["input__control"], {
           ["pd-r"]: !!prefix,
           ["pd-l"]: !!suffix,
         }),
@@ -106,16 +106,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div
-        className={cn(className, "ks-input", {
-          ["ks-input_error"]: isError,
-          ["ks-input_disabled"]: disabled,
-          ["ks-input_focus"]: isFocusVisible || active,
+        className={cn(className, styles["input"], {
+          [styles["input_error"]]: isError,
+          [styles["input_disabled"]]: disabled,
+          [styles["input_focus"]]: isFocusVisible || active,
         })}
         aria-disabled={disabled}
       >
         {prefix && (
-          <div className="ks-input__affix_space_left">
-            <div className="ks-input__affix">{prefix}</div>
+          <div className={styles["input__affix_space_left"]}>
+            <div className={styles["input__affix"]}>{prefix}</div>
           </div>
         )}
         {!renderInput ? (
@@ -124,15 +124,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             {...props}
             readOnly={readOnly}
             onChange={handleChange}
-            className={cn(["ks-input__control"], {
-              ["ks-input__control_space_r"]: !!prefix,
-              ["ks-input__control_space_l"]: !!suffix,
+            className={cn(styles["input__control"], {
+              [styles["input__control_space_r"]]: !!prefix,
+              [styles["input__control_space_l"]]: !!suffix,
 
-              ["ks-input__control_size_medium"]: size === "medium",
-              ["ks-input__control_size_large"]: size === "large",
-              ["ks-input__control_size_small"]: size === "small",
-              ["ks-input__control_readonly"]: readOnly,
-              ["ks-input__control_disabled"]: disabled,
+              [styles["input__control_size_medium"]]: size === "medium",
+              [styles["input__control_size_large"]]: size === "large",
+              [styles["input__control_size_small"]]: size === "small",
+              [styles["input__control_readonly"]]: readOnly,
+              [styles["input__control_disabled"]]: disabled,
             })}
             ref={ref}
             disabled={disabled}
@@ -142,8 +142,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
 
         {suffix && (
-          <div className="ks-input__affix_space_right">
-            <div className="ks-input__affix">{suffix}</div>
+          <div className={styles["input__affix_space_right"]}>
+            <div className={styles["input__affix"]}>{suffix}</div>
           </div>
         )}
       </div>

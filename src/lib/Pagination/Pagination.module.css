@@ -1,0 +1,23 @@
+.pagination {
+  display: inline-flex;
+  text-align: center;
+  vertical-align: middle;
+  list-style: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination__item {
+  margin-inline-end: 8px;
+}
+
+.pagination__button {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.pagination__item_dots {
+  display: flex;
+  align-items: end;
+}

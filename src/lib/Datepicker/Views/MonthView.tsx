@@ -1,20 +1,21 @@
-import { FC } from 'react';
-import cn from 'classnames';
-import isDate from 'date-fns/isDate';
-import getYear from 'date-fns/getYear';
-import subYears from 'date-fns/subYears';
-import addYears from 'date-fns/addYears';
-import isSameMonth from 'date-fns/isSameMonth';
+import { FC } from "react";
+import cn from "classnames";
+import isDate from "date-fns/isDate";
+import getYear from "date-fns/getYear";
+import subYears from "date-fns/subYears";
+import addYears from "date-fns/addYears";
+import isSameMonth from "date-fns/isSameMonth";
 import {
   ChevronDownOutline,
   ChevronUpOutline,
-} from '@kovalevskayaschool/pavetra-icons';
+} from "@kovalevskayaschool/pavetra-icons";
 
-import { useDatePickerCtx } from '../useDatePickerCtx';
-import { DatePickerTemplate } from '../DatePickerTemplate';
-import { Button } from '../../Button';
-import type { PickerMonth } from '../DatePicker.d';
-import { getGroupedBy, getMonths, MONTHS_QUARTER_LENGTH } from '../util';
+import { useDatePickerCtx } from "../useDatePickerCtx";
+import { DatePickerTemplate } from "../DatePickerTemplate";
+import { Button } from "../../Button";
+import type { PickerMonth } from "../DatePicker.d";
+import { getGroupedBy, getMonths, MONTHS_QUARTER_LENGTH } from "../util";
+import styles from "../DatePicker.module.css";
 
 export interface MonthViewProps {}
 
@@ -47,7 +48,9 @@ export const MonthView: FC<MonthViewProps> = () => {
             onClick={handlePrevYear}
             icon={<ChevronUpOutline />}
           />
-          <div className="ks-datepicker__range">{getYear(state.date)}</div>
+          <div className={styles["datepicker__range"]}>
+            {getYear(state.date)}
+          </div>
           <Button
             variant="inline"
             type="button"
@@ -63,18 +66,20 @@ export const MonthView: FC<MonthViewProps> = () => {
             {group.map((month) => (
               <td
                 key={month.date.toString()}
-                className={cn('ks-datepicker__cell', {
-                  ['ks-datepicker__cell_today']: isSameMonth(
+                className={cn(styles["datepicker__cell"], {
+                  [styles["datepicker__cell_today"]]: isSameMonth(
                     month.date,
                     new Date()
                   ),
-                  ['ks-datepicker__cell_selected']: isDate(state.value)
+                  [styles["datepicker__cell_selected"]]: isDate(state.value)
                     ? isSameMonth(month.date, selected)
                     : false,
                 })}
                 onClick={() => handleClick(month)}
               >
-                <div className="ks-datepicker__cell-inner">{month.label}</div>
+                <div className={styles["datepicker__cell-inner"]}>
+                  {month.label}
+                </div>
               </td>
             ))}
           </tr>

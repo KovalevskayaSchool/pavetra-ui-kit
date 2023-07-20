@@ -8,7 +8,7 @@ import {
 import { Button } from "../Button";
 
 import { useControlled } from "../../utils/useControlled";
-import "./Pagination.css";
+import styles from "./Pagination.module.css";
 
 const DOTS = "...";
 
@@ -32,7 +32,10 @@ export const Pagination: FC<PaginationProps> = ({
   current,
   className,
 }) => {
-  const [currentPage, setCurrentPage, isControlled] = useControlled(current, defaultCurrent);
+  const [currentPage, setCurrentPage, isControlled] = useControlled(
+    current,
+    defaultCurrent
+  );
   const paginationRange = usePagination({
     currentPage,
     totalCount: total,
@@ -46,14 +49,14 @@ export const Pagination: FC<PaginationProps> = ({
   // }
 
   const onNext = () => {
-    const page = currentPage ? currentPage : defaultCurrent
+    const page = currentPage ? currentPage : defaultCurrent;
     const nextPage = page + 1;
     onChange?.(nextPage);
     setCurrentPage(nextPage);
   };
 
   const onPrevious = () => {
-    const page = currentPage ? currentPage : defaultCurrent
+    const page = currentPage ? currentPage : defaultCurrent;
     const nextPage = page - 1;
     onChange?.(nextPage);
     setCurrentPage(nextPage);
@@ -62,18 +65,16 @@ export const Pagination: FC<PaginationProps> = ({
   const handleChange = (page) => {
     onChange?.(page);
     setCurrentPage(page);
-  }
+  };
 
   const lastPage = paginationRange[paginationRange.length - 1];
   return (
-    <ul className={cn("ks-pagination", className)}>
+    <ul className={cn(styles["pagination"], className)}>
       {/* Left navigation arrow */}
-      <li
-        className={cn("ks-pagination__item")}
-      >
+      <li className={cn(styles["pagination__item"])}>
         <Button
           onClick={onPrevious}
-          className="ks-pagination__button"
+          className={styles["pagination__button"]}
           variant="inline"
           disabled={currentPage === 1}
           icon={<ChevronLeftOutline />}
@@ -83,7 +84,13 @@ export const Pagination: FC<PaginationProps> = ({
         // If the pageItem is a DOT, render the DOTS unicode character
         if (pageNumber === DOTS) {
           return (
-            <li className="ks-pagination__item ks-pagination__item_dots" key={`pag-dots-${pageNumber + i}`}>
+            <li
+              className={cn(
+                styles["pagination__item"],
+                styles["pagination__item_dots"]
+              )}
+              key={`pag-dots-${pageNumber + i}`}
+            >
               &#8230;
             </li>
           );
@@ -92,13 +99,13 @@ export const Pagination: FC<PaginationProps> = ({
         // Render our Page Pills
         return (
           <li
-            className={cn("ks-pagination__item", {
+            className={cn(styles["pagination__item"], {
               selected: pageNumber === current,
             })}
             key={`page-${pageNumber}`}
           >
             <Button
-              className="ks-pagination__button"
+              className={styles["pagination__button"]}
               onClick={() => handleChange(pageNumber)}
               variant={pageNumber === currentPage ? "ghost" : "inline"}
             >
@@ -108,13 +115,11 @@ export const Pagination: FC<PaginationProps> = ({
         );
       })}
       {/*  Right Navigation arrow */}
-      <li
-        className={cn("ks-pagination__item")}
-      >
+      <li className={cn(styles["pagination__item"])}>
         <Button
           onClick={onNext}
           variant="inline"
-          className="ks-pagination__button"
+          className={styles["pagination__button"]}
           disabled={currentPage === lastPage}
           icon={<ChevronRightOutline />}
         />

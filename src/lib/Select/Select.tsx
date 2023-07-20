@@ -23,7 +23,7 @@ import { mapToAriaProps } from "../ListBox/map";
 import { Popover } from "../Popover";
 import { Button } from "../Button";
 import { useDOMRef } from "../../utils/useDomRef";
-import "./Select.css";
+import styles from "./Select.module.css";
 
 export interface SelectProps
   extends Omit<
@@ -89,8 +89,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         .filter((item) => item.disabled)
         .map((item) => item.id || ""),
       onSelectionChange(key) {
-        const id = key.toString()
-        const menuItem = menu.find((item) => item.id === id) as MenuItemProps
+        const id = key.toString();
+        const menuItem = menu.find((item) => item.id === id) as MenuItemProps;
         return onChange?.(id, menuItem);
       },
       onOpenChange,
@@ -124,16 +124,16 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     const renderItems = () => {
       if (!Array.isArray(menu) || menu.length === 0) {
         return (
-          <Box className="ks-select__poppover">
-            <div className="ks-select__empty">Нет данных</div>
+          <Box className={styles["select__poppover"]}>
+            <div className={styles["select__empty"]}>Нет данных</div>
           </Box>
         );
       }
 
       if (loading) {
         return (
-          <Box className="ks-select__poppover">
-            <div className="ks-select__empty">
+          <Box className={styles["select__poppover"]}>
+            <div className={styles["select__empty"]}>
               <Spin size="large" />
             </div>
           </Box>
@@ -141,7 +141,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       }
 
       return (
-        <Box className="ks-select__poppover">
+        <Box className={styles["select__poppover"]}>
           <ListBox {...menuProps} state={state} />
         </Box>
       );
@@ -157,9 +157,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
           <Button
             size="small"
             variant="inline"
-            className="ks-select__button-clear"
+            className={styles["select__button-clear"]}
             icon={
-              <div className="ks-select__clear">
+              <div className={styles["select__clear"]}>
                 <CloseOutline />
               </div>
             }
@@ -171,8 +171,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       return (
         <div
           aria-hidden="true"
-          className={cn("ks-select__icon", {
-            ["ks-select__icon_toggled"]: state.isOpen,
+          className={cn(styles["select__icon"], {
+            [styles["select__icon_toggled"]]: state.isOpen,
           })}
         >
           <ChevronDownOutline />
@@ -181,7 +181,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     };
 
     return (
-      <div className={cn("ks-select", className)} {...props}>
+      <div className={cn(styles["select"], className)} {...props}>
         <HiddenSelect
           state={state}
           triggerRef={triggerRef}
@@ -190,8 +190,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         />
         <div
           {...(mergeProps(buttonProps) as any)}
-          className={cn("ks-select__button", {
-            ["ks-select__button_disabled"]: disabled,
+          className={cn(styles["select__button"], {
+            [styles["select__button_disabled"]]: disabled,
           })}
           ref={triggerRef}
         >

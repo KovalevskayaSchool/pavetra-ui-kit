@@ -14,6 +14,7 @@ import { useDatePickerCtx } from "../useDatePickerCtx";
 import { DatePickerTemplate } from "../DatePickerTemplate";
 import { Button } from "../../Button";
 import { useWeekView } from "./useWeekView";
+import styles from "../DatePicker.module.css";
 
 export interface WeekViewProps {}
 
@@ -77,7 +78,7 @@ export const WeekView: FC<WeekViewProps> = () => {
         <tr>
           {weekDayLabels.map((weekday) => (
             <th key={weekday}>
-              <span className="ks-datepicker__week">{weekday}</span>
+              <span className={styles["datepicker__week"]}>{weekday}</span>
             </th>
           ))}
         </tr>
@@ -89,22 +90,22 @@ export const WeekView: FC<WeekViewProps> = () => {
             {week.map((day) => (
               <td
                 key={day.date.toString()}
-                className={cn("ks-datepicker__cell", {
-                  ["ks-datepicker__cell_not-current"]: !day.isCurrentMonth,
-                  ["ks-datepicker__cell_today"]: isToday(day.date),
-                  ["ks-datepicker__cell_selected"]: isDate(state.value)
+                className={cn(styles["datepicker__cell"], {
+                  [styles["datepicker__cell_not-current"]]: !day.isCurrentMonth,
+                  [styles["datepicker__cell_today"]]: isToday(day.date),
+                  [styles["datepicker__cell_selected"]]: isDate(state.value)
                     ? isSameDay(day.date, selected)
                     : false,
-                  ["ks-datepicker__cell__event"]: !!hasEvent(day.date),
-                  ["ks-datepicker__cell_disabled"]: state.disableDate?.(
+                  [styles["datepicker__cell__event"]]: !!hasEvent(day.date),
+                  [styles["datepicker__cell_disabled"]]: state.disableDate?.(
                     day.date
                   ),
-                  ["ks-datepicker__cell_event"]: getEvent(day.date),
+                  [styles["datepicker__cell_event"]]: getEvent(day.date),
                 })}
                 onClick={() => handleDayClick(day)}
                 title={day.label}
               >
-                <div className="ks-datepicker__cell-inner">
+                <div className={styles["datepicker__cell-inner"]}>
                   {state.renderCell?.(day.date, day.dayOfMonth) || day.dayOfMonth}
                 </div>
               </td>

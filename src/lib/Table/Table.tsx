@@ -11,7 +11,6 @@ import { useDOMRef } from "../../utils/useDomRef";
 
 import { TableBase } from "./TableBase";
 import { Box } from "../Box";
-import "./Table.css";
 
 export interface TableProps extends TableStateProps<object> {
   dataSource?: any[];

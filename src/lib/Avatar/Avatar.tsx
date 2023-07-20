@@ -1,9 +1,9 @@
-import { HTMLAttributes, useMemo, forwardRef, useId } from 'react';
-import cn from 'classnames';
+import { HTMLAttributes, useMemo, forwardRef, useId } from "react";
+import cn from "classnames";
 
-import './Avatar.css';
+import styles from "./Avatar.module.css";
 
-type AvatarSize = 'large' | 'medium' | 'small' | number;
+type AvatarSize = "large" | "medium" | "small" | number;
 
 export interface AvatarProps extends HTMLAttributes<SVGElement> {
   className?: string;
@@ -11,7 +11,7 @@ export interface AvatarProps extends HTMLAttributes<SVGElement> {
   imageSrc?: string | null;
   avatarColor?: string | null;
   size?: AvatarSize;
-  shape?: 'circle' | 'rect';
+  shape?: "circle" | "rect";
   ref?: React.Ref<SVGSVGElement> | null;
   svgChildren?: React.ReactNode;
 }
@@ -25,36 +25,36 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
       name,
       imageSrc,
       avatarColor,
-      shape = 'circle',
+      shape = "circle",
       ...props
     },
     ref
   ) => {
     const getName = (value: string | undefined): string[] => {
-      if (!value || value.trim() === '') {
-        return [''];
+      if (!value || value.trim() === "") {
+        return [""];
       }
-      const [firstName, lastName] = value.trim().split(' ');
+      const [firstName, lastName] = value.trim().split(" ");
 
-      const firstChar = firstName && firstName.length > 0 ? firstName[0] : '';
-      const lastChar = lastName && lastName.length > 0 ? lastName[0] : '';
+      const firstChar = firstName && firstName.length > 0 ? firstName[0] : "";
+      const lastChar = lastName && lastName.length > 0 ? lastName[0] : "";
 
       return [firstChar.toUpperCase(), lastChar.toLocaleUpperCase()];
     };
 
     const getSize = (value: AvatarSize | undefined) => {
-      if (typeof value === 'number') {
+      if (typeof value === "number") {
         return value;
       }
 
       switch (value) {
-        case 'large': {
+        case "large": {
           return 36;
         }
-        case 'medium': {
+        case "medium": {
           return 26;
         }
-        case 'small': {
+        case "small": {
           return 20;
         }
         default: {
@@ -70,7 +70,7 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
       return (
         <svg
           ref={ref}
-          className={cn(className, 'ks-avatar')}
+          className={cn(className, styles["avatar"])}
           fill="none"
           viewBox={`0 0 171 171`}
           style={{ width: `${sizeSVG * 2}px` }}
@@ -94,7 +94,7 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
                 y="0"
                 height="100%"
                 width="100%"
-                className='ks-avatar__image'
+                className={styles["avatar__image"]}
                 xlinkHref={imageSrc}
                 preserveAspectRatio="xMidYMid slice"
               ></image>
@@ -105,8 +105,8 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
               width="171"
               height="171"
               data-fill={!imageSrc}
-              className="ks-avatar__rect"
-              fill={!imageSrc ? String(avatarColor || 'gray') : 'none'}
+              className={styles["avatar__rect"]}
+              fill={!imageSrc ? String(avatarColor || "gray") : "none"}
             />
             <g>
               {!imageSrc && (
@@ -119,7 +119,7 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
                   textAnchor="middle"
                   dy=".3em"
                 >
-                  {nameSVG.join('')}
+                  {nameSVG.join("")}
                 </text>
               )}
             </g>
@@ -128,14 +128,14 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
         </svg>
       );
     };
-    if (shape === 'rect') {
+    if (shape === "rect") {
       return renderSecond();
     }
     return (
       <svg
         ref={ref}
         aria-hidden="true"
-        className={cn('ks-avatar', className)}
+        className={cn(styles["avatar"], className)}
         data-visualcompletion="ignore-dynamic"
         role="none"
         style={{ height: `${sizeSVG * 2}px`, width: `${sizeSVG * 2}px` }}
@@ -151,7 +151,7 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
               y="0"
               height="100%"
               width="100%"
-              className='ks-avatar__image'
+              className={styles["avatar__image"]}
               xlinkHref={imageSrc}
               style={{ height: `${sizeSVG * 2}px`, width: `${sizeSVG * 2}px` }}
               preserveAspectRatio="xMidYMid slice"
@@ -162,8 +162,8 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
             cy={sizeSVG}
             r={sizeSVG}
             data-fill={!imageSrc}
-            className="ks-avatar__circle"
-            fill={!imageSrc ? String(avatarColor || 'gray') : 'none'}
+            className={styles["avatar__circle"]}
+            fill={!imageSrc ? String(avatarColor || "gray") : "none"}
           ></circle>
           <g>
             {!imageSrc && (
@@ -177,7 +177,7 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
                 textAnchor="middle"
                 dy=".3em"
               >
-                {nameSVG.join('')}
+                {nameSVG.join("")}
               </text>
             )}
           </g>
@@ -189,4 +189,4 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
   }
 );
 
-Avatar.displayName = 'Avatar';
+Avatar.displayName = "Avatar";

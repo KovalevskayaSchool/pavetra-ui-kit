@@ -1,10 +1,11 @@
-import { cloneElement, FC, isValidElement, useRef } from 'react';
-import cn from 'classnames';
-import type { Node } from '@react-types/shared';
-import type { ListState } from 'react-stately';
-import { useFocusRing, useOption, mergeProps } from 'react-aria';
+import { cloneElement, FC, isValidElement, useRef } from "react";
+import cn from "classnames";
+import type { Node } from "@react-types/shared";
+import type { ListState } from "react-stately";
+import { useFocusRing, useOption, mergeProps } from "react-aria";
 
-import { type MenuItemProps as MenuItemElProps } from './Menu.d';
+import { type MenuItemProps as MenuItemElProps } from "./Menu.d";
+import styles from "./Menu.module.css";
 
 export interface MenuItemProps {
   className?: string;
@@ -22,7 +23,7 @@ export const Item: FC<MenuItemProps> = ({
   const ref = useRef<HTMLLIElement | null>(null);
   const refLink = useRef<HTMLLinkElement | null>(null);
   const { isFocusVisible, focusProps } = useFocusRing();
-  const label = !isValidElement(item.rendered) ? item.rendered?.toString() : '';
+  const label = !isValidElement(item.rendered) ? item.rendered?.toString() : "";
   const { optionProps, isDisabled, isSelected } = useOption(
     {
       key: item.key,
@@ -31,10 +32,10 @@ export const Item: FC<MenuItemProps> = ({
     ref
   );
 
-  const classNames = cn(className, 'ks-menu__item', {
-    ['ks-menu__item_selected']: isSelected,
-    ['ks-menu__item_active']: isFocusVisible,
-    ['ks-menu__item_disabled']: isDisabled,
+  const classNames = cn(className, styles["menu__item"], {
+    [styles["menu__item_selected"]]: isSelected,
+    [styles["menu__item_active"]]: isFocusVisible,
+    [styles["menu__item_disabled"]]: isDisabled,
   });
 
   const renderChildren = () => {
@@ -54,16 +55,14 @@ export const Item: FC<MenuItemProps> = ({
       className={cn(classNames)}
       title={label}
     >
-      <div className="ks-menu__item-content">
-          {item.props.icon && (
-            <div className="ks-menu__icon" role="img">
-              {item.props.icon}
-            </div>
-          )}
-          <span className="ks-menu__label">
-            {renderChildren()}
-          </span>
-        </div>
+      <div className={styles["menu__item-content"]}>
+        {item.props.icon && (
+          <div className={styles["menu__icon"]} role="img">
+            {item.props.icon}
+          </div>
+        )}
+        <span className={styles["menu__label"]}>{renderChildren()}</span>
+      </div>
     </li>
   );
 };

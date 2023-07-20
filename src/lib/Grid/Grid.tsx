@@ -6,7 +6,7 @@ import {
 } from "react";
 import cn from "classnames";
 
-import "./grid.css";
+import styles from "./Grid.module.css";
 
 interface GridProps extends Partial<HTMLAttributes<HTMLDivElement>> {
   ref?: Ref<HTMLDivElement>;
@@ -22,7 +22,7 @@ export interface ColProps extends GridProps {
 
 const Row = forwardRef<HTMLDivElement, PropsWithChildren<RowProps>>(
   ({ gutter, children, className, ...props }, ref) => {
-    const rowClass = gutter ? "row-with-gutter" : "row";
+    const rowClass = gutter ? styles["row-with-gutter"] : styles["row"];
 
     return (
       <div ref={ref} {...props} className={cn(rowClass, className)}>
@@ -34,7 +34,7 @@ const Row = forwardRef<HTMLDivElement, PropsWithChildren<RowProps>>(
 
 const Col = forwardRef<HTMLDivElement, PropsWithChildren<ColProps>>(
   ({ span, children, className, ...props }, ref) => {
-    const colClass = `col col-${span}`;
+    const colClass = `${styles['col']} ${styles[`col-${span}`]}`;
 
     return (
       <div ref={ref} {...props} className={cn(colClass, className)}>

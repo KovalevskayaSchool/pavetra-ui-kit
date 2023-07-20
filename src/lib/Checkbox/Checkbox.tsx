@@ -1,15 +1,15 @@
-import React, { forwardRef, isValidElement } from 'react';
-import { useToggleState } from 'react-stately';
+import React, { forwardRef, isValidElement } from "react";
+import { useToggleState } from "react-stately";
 import {
   useCheckbox,
   AriaCheckboxProps,
   useFocusRing,
   mergeProps,
-} from 'react-aria';
+} from "react-aria";
 
-import cn from 'classnames';
-import { useDOMRef } from '../../utils/useDomRef';
-import './Checkbox.css';
+import cn from "classnames";
+import { useDOMRef } from "../../utils/useDomRef";
+import styles from "./Checkbox.module.css";
 
 interface Props extends AriaCheckboxProps {
   label?: string | React.ReactNode;
@@ -32,8 +32,10 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const { inputProps } = useCheckbox(
       {
         ...props,
-        'isDisabled': disabled,
-        'aria-label': props['aria-label'] || (!isValidElement(label) ? label?.toString() : ''),
+        isDisabled: disabled,
+        "aria-label":
+          props["aria-label"] ||
+          (!isValidElement(label) ? label?.toString() : ""),
       },
       state,
       ref
@@ -41,19 +43,19 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
     return (
       <label
-        className={cn(className, 'ks-checkbox', {
-          ['ks-checkbox_disabled']: disabled,
+        className={cn(className, styles["checkbox"], {
+          [styles["checkbox_disabled"]]: disabled,
         })}
         {...focusProps}
       >
         <input
           ref={ref}
           className={cn(
-            'ks-checkbox__input',
+            styles["checkbox__input"],
             {
-              ['ks-checkbox__input_checked']: state.isSelected,
-              ['ks-checkbox__input_focus']: isFocusVisible,
-              ['ks-checkbox__input_disabled']: disabled,
+              [styles["checkbox__input_checked"]]: state.isSelected,
+              [styles["checkbox__input_focus"]]: isFocusVisible,
+              [styles["checkbox__input_disabled"]]: disabled,
             },
 
             className
@@ -61,10 +63,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           {...mergeProps(inputProps)}
         />
 
-        <span data-disabled={disabled} className='ks-checkbox__label'>{label}</span>
+        <span data-disabled={disabled} className={styles["checkbox__label"]}>
+          {label}
+        </span>
       </label>
     );
   }
 );
 
-Checkbox.displayName = 'Checkbox';
+Checkbox.displayName = "Checkbox";

@@ -1,12 +1,12 @@
-import { forwardRef } from 'react';
-import cn from 'classnames';
-import { AriaSwitchProps } from 'react-aria';
-import { useToggleState } from 'react-stately';
-import { useFocusRing, useSwitch, VisuallyHidden } from 'react-aria';
+import { forwardRef } from "react";
+import cn from "classnames";
+import { AriaSwitchProps } from "react-aria";
+import { useToggleState } from "react-stately";
+import { useFocusRing, useSwitch, VisuallyHidden } from "react-aria";
 
-import { Spin } from '../Spin';
-import { useDOMRef } from '../../utils/useDomRef';
-import './Switch.css';
+import { Spin } from "../Spin";
+import { useDOMRef } from "../../utils/useDomRef";
+import styles from "./Switch.module.css";
 
 export interface SwitchProps extends AriaSwitchProps {
   label?: string;
@@ -63,13 +63,13 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
 
     return (
       <div
-        className={cn(className, 'ks-switch', {
-          ['ks-switch_disabled']: isDisabled,
+        className={cn(className, styles["switch"], {
+          [styles["switch_disabled"]]: isDisabled,
         })}
       >
         <div
-          className={cn('ks-switch__text', {
-            ['ks-switch__text_checked']: !state.isSelected,
+          className={cn(styles["switch__text"], {
+            [styles["switch__text_checked"]]: !state.isSelected,
           })}
           data-checked={!state.isSelected}
           onClick={handleToggleOff}
@@ -77,9 +77,9 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           {disagreeText}
         </div>
         <div
-          className={cn(className, "ks-switch__button", {
-            ['ks-switch__button_disabled']: isDisabled,
-            ['ks-switch__button_checked']: state.isSelected,
+          className={cn(className, styles["switch__button"], {
+            [styles["switch__button_disabled"]]: isDisabled,
+            [styles["switch__button_checked"]]: state.isSelected,
           })}
           onClick={handleToggle}
           aria-checked={state.isSelected}
@@ -88,16 +88,18 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             <input {...inputProps} {...focusProps} ref={ref} />
           </VisuallyHidden>
           <span
-            className={cn('ks-switch__area', {
-              ['ks-switch__area_checked']: state.isSelected,
+            className={cn(styles["switch__area"], {
+              [styles["switch__area_checked"]]: state.isSelected,
             })}
           >
-            {isLoading && <Spin className="ks-switch__spin" size="small" />}
+            {isLoading && (
+              <Spin className={styles["switch__spin"]} size="small" />
+            )}
           </span>
         </div>
         <div
-          className={cn('ks-switch__text', {
-            ['ks-switch__text_checked']: state.isSelected,
+          className={cn(styles["switch__text"], {
+            [styles["switch__text_checked"]]: state.isSelected,
           })}
           data-checked={state.isSelected}
           onClick={handleToggleOn}
@@ -109,4 +111,4 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
   }
 );
 
-Switch.displayName = 'Switch';
+Switch.displayName = "Switch";

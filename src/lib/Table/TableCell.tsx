@@ -3,6 +3,8 @@ import { Node, TableState } from "react-stately";
 import { mergeProps, useFocusRing, useTableCell } from "react-aria";
 import { useDOMRef } from "../../utils/useDomRef";
 
+import styles from "./Table.module.css";
+
 interface TableCellProps {
   state: TableState<object>;
   cell: Node<object>;
@@ -17,7 +19,7 @@ export const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
     return (
       <td
         {...mergeProps(gridCellProps, focusProps)}
-        className="ks-table__table-data"
+        className={styles["table__table-data"]}
         ref={ref}
       >
         {cell.rendered}

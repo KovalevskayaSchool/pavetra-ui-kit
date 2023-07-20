@@ -20,6 +20,7 @@ import {
   YEAR_QUARTER_LENGTH,
   YEAR_RANGE_LENGTH,
 } from '../util';
+import styles from "../DatePicker.module.css";
 
 export interface YearViewProps {}
 
@@ -53,7 +54,7 @@ export const YearView: FC<YearViewProps> = () => {
             onClick={handlePrevYear}
             icon={<ChevronLeftOutline />}
           />
-          <div className="ks-datepicker__range">
+          <div className={styles["datepicker__range"]}>
             {yearRange.start.getFullYear()} – {yearRange.end.getFullYear()}
           </div>
           <Button
@@ -71,15 +72,15 @@ export const YearView: FC<YearViewProps> = () => {
             {group.map((year) => (
               <td
                 key={year.date.toString()}
-                className={cn('ks-datepicker__cell', {
-                  ['ks-datepicker__cell_today']: isSameYear(year.date, new Date()),
-                  ['ks-datepicker__cell_selected']: isDate(state.value)
+                className={cn(styles["datepicker__cell"], {
+                  [styles["datepicker__cell_today"]]: isSameYear(year.date, new Date()),
+                  [styles["datepicker__cell_selected"]]: isDate(state.value)
                     ? isSameYear(year.date, selected)
                     : false,
                 })}
                 onClick={() => handleClick(year)}
               >
-                <div className="ks-datepicker__cell-inner">{year.label}</div>
+                <div className={styles["datepicker__cell-inner"]}>{year.label}</div>
               </td>
             ))}
           </tr>

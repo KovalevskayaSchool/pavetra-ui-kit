@@ -10,7 +10,7 @@ import { type MenuItemProps } from './Menu.d';
 import { useDOMRef } from '../../utils/useDomRef';
 import { mapToAriaProps } from './map';
 
-import './Menu.css';
+import styles from './Menu.module.css';
 
 export interface MenuProps
   extends Omit<
@@ -78,8 +78,8 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
           <SeperatorItem key={item.key} />
         ) : (
           <Item state={state} key={item.key} item={item} className={cn({
-            ['ks-menu__item_mode_horizontal']: mode === 'horizontal' && type !== 'listbox',
-            ['ks-menu__item_mode_vertical']: mode === 'vertical' && type !== 'listbox',
+            [styles['menu__item_mode_horizontal']]: mode === 'horizontal' && type !== 'listbox',
+            [styles['menu__item_mode_vertical']]: mode === 'vertical' && type !== 'listbox',
           })} />
         )
       );
@@ -88,9 +88,9 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
       <ul
         ref={listBoxRef}
         {...listBoxProps}
-        className={cn('ks-menu', className, {
-          ['ks-menu_mode_horizontal']: mode === 'horizontal',
-          ['ks-menu_mode_vertical']: mode === 'vertical',
+        className={cn(styles['menu'], className, {
+          [styles['menu_mode_horizontal']]: mode === 'horizontal',
+          [styles['menu_mode_vertical']]: mode === 'vertical',
         })}
       >
         {renderItems()}
