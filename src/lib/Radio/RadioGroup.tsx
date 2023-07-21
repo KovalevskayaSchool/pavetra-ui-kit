@@ -33,7 +33,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = ({
   );
 
   return (
-    <div {...radioGroupProps} className={cn(className, styles["radio__group"])}>
+    <div {...radioGroupProps} className={cn(styles["radio__group"], className)}>
       <RadioContext.Provider value={state}>{children}</RadioContext.Provider>
     </div>
   );

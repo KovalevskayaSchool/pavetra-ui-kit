@@ -1,6 +1,6 @@
 {
   "name": "@kovalevskayaschool/pavetra",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "ui kit for school",
   "private": true,
   "type": "module",
@@ -18,7 +18,9 @@
     "package": "npm run build",
     "prepublishOnly": "npm run package",
     "sb": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "format": "prettier --write --cache .",
+    "prepare": "husky install"
   },
   "repository": {
     "url": "git://github.com/KovalevskayaSchool/pavetra-ui.git"
@@ -32,6 +34,14 @@
     },
     "./dist/root.css": "./dist/root.css",
     "./dist/bundle.css": "./dist/bundle.css"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": "pnpm run format"
   },
   "peerDependencies": {
     "react": ">=18.2.0",
@@ -79,6 +89,8 @@
     "esbuild": "^0.18.4",
     "esbuild-css-modules-plugin": "^2.7.1",
     "fast-glob": "^3.3.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.26",
     "postcss-cli": "^10.1.0",

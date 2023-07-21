@@ -1,12 +1,12 @@
-import addYears from 'date-fns/addYears';
-import getYear from 'date-fns/getYear';
-import startOfYear from 'date-fns/startOfYear';
-import subYears from 'date-fns/subYears';
-import addDays from 'date-fns/addDays';
-import addMonths from 'date-fns/addMonths';
-import format from 'date-fns/format';
-import startOfWeek from 'date-fns/startOfWeek';
-import type { PickerMonth, PickerYear } from './DatePicker.d';
+import addYears from "date-fns/addYears";
+import getYear from "date-fns/getYear";
+import startOfYear from "date-fns/startOfYear";
+import subYears from "date-fns/subYears";
+import addDays from "date-fns/addDays";
+import addMonths from "date-fns/addMonths";
+import format from "date-fns/format";
+import startOfWeek from "date-fns/startOfWeek";
+import type { PickerMonth, PickerYear } from "./DatePicker.d";
 
 export const DAYS_OF_WEEK_LENGTH = 7;
 export const MONTHS_LENGTH = 12;
@@ -26,7 +26,7 @@ export const getGroupedBy = <T>(data: T[], groupCount = 0): T[][] => {
 
 export function getWeekNameLabels(locale: Locale) {
   return [...new Array(DAYS_OF_WEEK_LENGTH)].map((day, index) =>
-    format(addDays(startOfWeek(new Date(), { weekStartsOn: 1 }), index), 'EE', {
+    format(addDays(startOfWeek(new Date(), { weekStartsOn: 1 }), index), "EE", {
       locale,
     })
   );
@@ -38,7 +38,7 @@ export function getMonths(
 ): PickerMonth[] {
   const startRange = startOfYear(start);
   return [...new Array(MONTHS_LENGTH)].map((_, index) => ({
-    label: format(addMonths(startRange, index), 'LLLL', { locale }),
+    label: format(addMonths(startRange, index), "LLLL", { locale }),
     date: addMonths(startRange, index),
   }));
 }

@@ -3,7 +3,7 @@ type ItemProps = {
   label?: string | React.ReactNode;
   disabled?: boolean;
   icon?: React.ReactNode;
-  type?: 'divider' | 'item';
+  type?: "divider" | "item";
 };
 
 export type MenuItemProps = ItemProps;

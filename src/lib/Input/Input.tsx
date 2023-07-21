@@ -106,11 +106,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div
-        className={cn(className, styles["input"], {
-          [styles["input_error"]]: isError,
-          [styles["input_disabled"]]: disabled,
-          [styles["input_focus"]]: isFocusVisible || active,
-        })}
+        className={cn(
+          styles["input"],
+          {
+            [styles["input_error"]]: isError,
+            [styles["input_disabled"]]: disabled,
+            [styles["input_focus"]]: isFocusVisible || active,
+          },
+          className
+        )}
         aria-disabled={disabled}
       >
         {prefix && (

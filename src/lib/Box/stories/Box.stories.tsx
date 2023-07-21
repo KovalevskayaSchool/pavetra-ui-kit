@@ -17,7 +17,7 @@ export const Default: Story = {
   args: {},
   render: () => {
     return (
-      <div style={{background: '#e9e39e', padding: '30px'}}>
+      <div style={{ background: "#e9e39e", padding: "30px" }}>
         <Box>content</Box>
       </div>
     );
@@ -28,7 +28,7 @@ export const As: Story = {
   args: {},
   render: () => {
     return (
-      <div style={{background: '#e9e39e', padding: '30px'}}>
+      <div style={{ background: "#e9e39e", padding: "30px" }}>
         <Box as="main">content</Box>
       </div>
     );

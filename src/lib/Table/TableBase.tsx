@@ -2,7 +2,7 @@ import { PropsWithChildren, forwardRef } from "react";
 import { useTable } from "react-aria";
 import { TableStateProps, useTableState } from "react-stately";
 import { CollectionChildren } from "@react-types/shared";
-import cn from 'classnames'
+import cn from "classnames";
 
 import { useDOMRef } from "../../utils/useDomRef";
 
@@ -13,7 +13,6 @@ import { TableRow } from "./TableRow";
 import { TableCell } from "./TableCell";
 import { TableSelectAllCell } from "./TableSelectAllCell";
 import { TableCheckboxCell } from "./TableCheckboxCell";
-
 
 import styles from "./Table.module.css";
 
@@ -27,7 +26,14 @@ export const TableBase = forwardRef<
   PropsWithChildren<TableProps>
 >(
   (
-    { children, selectionBehavior, selectionMode, a11yLabel, className, ...props },
+    {
+      children,
+      selectionBehavior,
+      selectionMode,
+      a11yLabel,
+      className,
+      ...props
+    },
     refForwarded
   ) => {
     const ref = useDOMRef(refForwarded);
@@ -48,7 +54,11 @@ export const TableBase = forwardRef<
     );
 
     return (
-      <table {...gridProps} className={cn(styles["table"], className)} ref={ref}>
+      <table
+        {...gridProps}
+        className={cn(styles["table"], className)}
+        ref={ref}
+      >
         <TableRowGroup type="thead">
           {collection.headerRows.map((headerRow) => {
             const headerChildNodes =

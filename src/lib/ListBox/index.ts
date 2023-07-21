@@ -1,6 +1,6 @@
-import { ListBox as List } from './ListBox';
-import type { MenuProps as MenuBaseProps } from './ListBox';
-import { Item } from './Item';
+import { ListBox as List } from "./ListBox";
+import type { MenuProps as MenuBaseProps } from "./ListBox";
+import { Item } from "./Item";
 
 export type SelectMenuProps = typeof List & {
   Item: typeof Item;
@@ -8,11 +8,11 @@ export type SelectMenuProps = typeof List & {
 
 const ListBox = List as SelectMenuProps;
 
-Item.displayName = 'ListBoxItem';
-ListBox.displayName = 'ListBox';
+Item.displayName = "ListBoxItem";
+ListBox.displayName = "ListBox";
 
 ListBox.Item = Item;
 
 export { ListBox };
 export type { MenuBaseProps };
-export type { MenuItemProps } from './Menu';
+export type { MenuItemProps } from "./Menu";

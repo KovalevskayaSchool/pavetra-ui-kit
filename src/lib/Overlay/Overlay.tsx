@@ -1,7 +1,7 @@
-import { forwardRef, PropsWithChildren } from 'react';
-import { FocusScope, AriaOverlayProps } from 'react-aria';
-import { DismissButton, useOverlay } from 'react-aria';
-import { useDOMRef } from '../../utils/useDomRef';
+import { forwardRef, PropsWithChildren } from "react";
+import { FocusScope, AriaOverlayProps } from "react-aria";
+import { DismissButton, useOverlay } from "react-aria";
+import { useDOMRef } from "../../utils/useDomRef";
 
 export interface OverlayProps extends AriaOverlayProps {
   className?: string;
@@ -26,7 +26,12 @@ export const Overlay = forwardRef<
   return (
     <FocusScope restoreFocus>
       <div
-        style={{...overlayProps.style, position: "fixed", width: "100%", zIndex: 999}}
+        style={{
+          ...overlayProps.style,
+          position: "fixed",
+          width: "100%",
+          zIndex: 999,
+        }}
         className={className}
         ref={overlayRef}
         role="dialog"

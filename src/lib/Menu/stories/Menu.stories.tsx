@@ -18,7 +18,7 @@ const ControlledComponent = () => {
   const [value, setValue] = useState("test-2");
 
   function handleChange(value: string) {
-    console.log('menu onChange', value)
+    console.log("menu onChange", value);
     setValue(value);
   }
 
@@ -49,7 +49,11 @@ const ControlledComponent = () => {
             {
               id: "test-5",
               disabled: true,
-              label: <a href="#" onClick={() => console.log("PROFILE")}>Link</a>,
+              label: (
+                <a href="#" onClick={() => console.log("PROFILE")}>
+                  Link
+                </a>
+              ),
             },
           ]}
         />
@@ -73,10 +77,9 @@ export const Horizontal: Story = {
   },
 };
 
-
 export const Listbox: Story = {
   args: {
-    type: 'listbox',
+    type: "listbox",
     menu: [
       { id: "test-1", label: "Test 1" },
       { id: "test-2", label: "Test 2" },

@@ -1,32 +1,31 @@
 .row {
-    display: grid;
-    grid-template-columns: repeat(24, 1fr);
-    grid-gap: 8px;
-  }
-  
-  .row-with-gutter {
-    display: grid;
-    grid-template-columns: repeat(24, 1fr);
-    grid-gap: 16px;
-    margin: -8px;
-  }
-  
-  .col {
-    grid-column: span 1;
-    padding: 8px;
-  }
-  
-  .col-1 {
-    grid-column: span 1;
-  }
-  
-  .col-2 {
-    grid-column: span 2;
-  }
-  
-  /* ... Add more col-x classes for different spans ... */
-  
-  .col-24 {
-    grid-column: span 24;
-  }
-  
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  grid-gap: 8px;
+}
+
+.row-with-gutter {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  grid-gap: 16px;
+  margin: -8px;
+}
+
+.col {
+  grid-column: span 1;
+  padding: 8px;
+}
+
+.col-1 {
+  grid-column: span 1;
+}
+
+.col-2 {
+  grid-column: span 2;
+}
+
+/* ... Add more col-x classes for different spans ... */
+
+.col-24 {
+  grid-column: span 24;
+}

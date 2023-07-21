@@ -1,6 +1,6 @@
-import { createElement, PropsWithChildren } from 'react';
-import cn from 'classnames';
-import styles from '../Typography.module.css'
+import { createElement, PropsWithChildren } from "react";
+import cn from "classnames";
+import styles from "../Typography.module.css";
 
 interface CaptionProps {
   className?: string;
@@ -13,17 +13,17 @@ interface CaptionProps {
 export function Caption({
   children,
   className,
-  as = 'span',
+  as = "span",
   ...rest
 }: PropsWithChildren<CaptionProps>) {
   return createElement(
     as,
     {
       ...rest,
-      className: cn(styles['caption'], className),
+      className: cn(styles["caption"], className),
     },
     children
   );
-};
+}
 
-Caption.displayName = 'Caption';
+Caption.displayName = "Caption";

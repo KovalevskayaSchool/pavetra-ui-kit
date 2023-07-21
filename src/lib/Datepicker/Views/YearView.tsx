@@ -1,25 +1,25 @@
-import { FC, useMemo } from 'react';
-import cn from 'classnames';
-import isDate from 'date-fns/isDate';
-import subYears from 'date-fns/subYears';
-import addYears from 'date-fns/addYears';
-import isSameYear from 'date-fns/isSameYear';
+import { FC, useMemo } from "react";
+import cn from "classnames";
+import isDate from "date-fns/isDate";
+import subYears from "date-fns/subYears";
+import addYears from "date-fns/addYears";
+import isSameYear from "date-fns/isSameYear";
 import {
   ChevronLeftOutline,
   ChevronRightOutline,
-} from '@kovalevskayaschool/pavetra-icons';
+} from "@kovalevskayaschool/pavetra-icons";
 
-import { useDatePickerCtx } from '../useDatePickerCtx';
-import { DatePickerTemplate } from '../DatePickerTemplate';
-import { Button } from '../../Button';
-import type { PickerYear } from '../DatePicker.d';
+import { useDatePickerCtx } from "../useDatePickerCtx";
+import { DatePickerTemplate } from "../DatePickerTemplate";
+import { Button } from "../../Button";
+import type { PickerYear } from "../DatePicker.d";
 import {
   getGroupedBy,
   getRangeYears,
   getYears,
   YEAR_QUARTER_LENGTH,
   YEAR_RANGE_LENGTH,
-} from '../util';
+} from "../util";
 import styles from "../DatePicker.module.css";
 
 export interface YearViewProps {}
@@ -73,14 +73,19 @@ export const YearView: FC<YearViewProps> = () => {
               <td
                 key={year.date.toString()}
                 className={cn(styles["datepicker__cell"], {
-                  [styles["datepicker__cell_today"]]: isSameYear(year.date, new Date()),
+                  [styles["datepicker__cell_today"]]: isSameYear(
+                    year.date,
+                    new Date()
+                  ),
                   [styles["datepicker__cell_selected"]]: isDate(state.value)
                     ? isSameYear(year.date, selected)
                     : false,
                 })}
                 onClick={() => handleClick(year)}
               >
-                <div className={styles["datepicker__cell-inner"]}>{year.label}</div>
+                <div className={styles["datepicker__cell-inner"]}>
+                  {year.label}
+                </div>
               </td>
             ))}
           </tr>

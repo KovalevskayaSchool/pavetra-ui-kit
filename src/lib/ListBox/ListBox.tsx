@@ -48,9 +48,13 @@ export const ListBox = forwardRef<HTMLUListElement, MenuProps>(
       );
 
     return (
-        <ul ref={listBoxRef} {...listBoxProps} className={cn(styles["listbox"], className)}>
-          {renderItems()}
-        </ul>
+      <ul
+        ref={listBoxRef}
+        {...listBoxProps}
+        className={cn(styles["listbox"], className)}
+      >
+        {renderItems()}
+      </ul>
     );
   }
 );

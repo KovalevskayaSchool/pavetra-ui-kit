@@ -4,7 +4,7 @@ import {
   RefObject,
   useImperativeHandle,
   useRef,
-} from 'react';
+} from "react";
 
 export type DOMRef<T extends HTMLElement = HTMLElement> = Ref<DOMRefValue<T>>;
 

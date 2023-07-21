@@ -13,7 +13,7 @@ let plugins = [
 ];
 
 if (process.env.NODE_ENV === "production") {
-  plugins = [...plugins, ...prodPlugins]
+  plugins = [...plugins, ...prodPlugins];
 }
 
 const config = {

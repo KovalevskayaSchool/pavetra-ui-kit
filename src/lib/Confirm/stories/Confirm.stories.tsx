@@ -77,7 +77,7 @@ const TestContent = ({ onChange, value }) => {
       <Radio value="single" label="single" />
     </RadioGroup>
   );
-}
+};
 
 function ConfirmContentProps() {
   const onFetch = () => new Promise((res) => setTimeout(() => res("Ok"), 500));

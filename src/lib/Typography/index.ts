@@ -1,7 +1,7 @@
-import { Title } from './Title';
-import { Caption } from './Caption';
-import { Paragraph } from './Paragraph';
-import { Control } from './Typography';
+import { Title } from "./Title";
+import { Caption } from "./Caption";
+import { Paragraph } from "./Paragraph";
+import { Control } from "./Typography";
 
 export type TypographyProps = typeof Control & {
   Title: typeof Title;

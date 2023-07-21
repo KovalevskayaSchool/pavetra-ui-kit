@@ -1,0 +1,7 @@
+packages/*/CHANGELOG.md
+packages/*/coverage/*
+dist/
+temp/
+pnpm-lock.yaml
+pnpm-workspace.yaml
+

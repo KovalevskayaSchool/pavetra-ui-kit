@@ -12,7 +12,7 @@ export interface CardProps {
 
 export const Card = forwardRef<HTMLDivElement, PropsWithChildren<CardProps>>(
   ({ className, children, title, icon, action, ...props }, ref) => (
-    <div ref={ref} {...props} className={cn(className, styles["card"])}>
+    <div ref={ref} {...props} className={cn(styles["card"], className)}>
       {title && (
         <div className={styles["card__header"]}>
           <div className={styles["card__wrap-title"]}>

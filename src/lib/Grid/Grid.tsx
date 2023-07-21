@@ -1,9 +1,4 @@
-import {
-  forwardRef,
-  HTMLAttributes,
-  PropsWithChildren,
-  Ref,
-} from "react";
+import { forwardRef, HTMLAttributes, PropsWithChildren, Ref } from "react";
 import cn from "classnames";
 
 import styles from "./Grid.module.css";
@@ -34,7 +29,7 @@ const Row = forwardRef<HTMLDivElement, PropsWithChildren<RowProps>>(
 
 const Col = forwardRef<HTMLDivElement, PropsWithChildren<ColProps>>(
   ({ span, children, className, ...props }, ref) => {
-    const colClass = `${styles['col']} ${styles[`col-${span}`]}`;
+    const colClass = `${styles["col"]} ${styles[`col-${span}`]}`;
 
     return (
       <div ref={ref} {...props} className={cn(colClass, className)}>

@@ -11,7 +11,7 @@ import cn from "classnames";
 import { Spin } from "../Spin";
 
 import { useDOMRef } from "../../utils/useDomRef";
-import styles from './Button.module.css'
+import styles from "./Button.module.css";
 
 interface BaseProps extends AriaButtonProps {
   icon?: React.ReactNode;

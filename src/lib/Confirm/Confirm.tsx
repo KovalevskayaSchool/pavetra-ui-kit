@@ -62,9 +62,11 @@ export const Confirm = ({
   okType = "regular",
   modal,
 }: ConfirmFuncProps & { modal: UseModalResponse }) => {
-  const internalModal = modal || useModal({
-    defaultOpen: true
-  })
+  const internalModal =
+    modal ||
+    useModal({
+      defaultOpen: true,
+    });
   const [isLoading, setIsLoading] = useState(false);
 
   function onInternalClose(...args) {

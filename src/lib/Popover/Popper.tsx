@@ -1,13 +1,13 @@
-import { FC, PropsWithChildren, useState } from 'react';
-import { AriaOverlayProps } from 'react-aria';
-import type { AriaPopoverProps } from 'react-aria';
-import { usePopper } from 'react-popper';
+import { FC, PropsWithChildren, useState } from "react";
+import { AriaOverlayProps } from "react-aria";
+import type { AriaPopoverProps } from "react-aria";
+import { usePopper } from "react-popper";
 
-import { Overlay } from '../Overlay';
-import cl from './Popover.module.css';
+import { Overlay } from "../Overlay";
+import cl from "./Popover.module.css";
 
 interface PopoverProps
-  extends Omit<AriaPopoverProps, 'popoverRef'>,
+  extends Omit<AriaPopoverProps, "popoverRef">,
     AriaOverlayProps {
   children: React.ReactNode;
   className?: string;
@@ -28,10 +28,10 @@ export const Popover: FC<PropsWithChildren<PopoverProps>> = ({
     props.triggerRef.current,
     popperElement,
     {
-      placement: 'bottom-start',
+      placement: "bottom-start",
       modifiers: [
         {
-          name: 'offset',
+          name: "offset",
           options: {
             offset: [0, 5],
           },
@@ -46,7 +46,7 @@ export const Popover: FC<PropsWithChildren<PopoverProps>> = ({
     <Overlay className={className} isOpen={isOpen} onClose={onClose}>
       <div
         ref={setPopperElement}
-        style={{ ...styles.popper, minWidth: width, width: 'fit-content' }}
+        style={{ ...styles.popper, minWidth: width, width: "fit-content" }}
         {...attributes.popper}
         className={cl["popover"]}
       >

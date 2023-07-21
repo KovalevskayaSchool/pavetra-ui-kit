@@ -1,21 +1,20 @@
 .avatar {
-    text-align: inherit;
-    vertical-align: bottom;
-    overflow: hidden;
-    user-select: none;
-  }
-  
-  .avatar__image {
-    overflow: hidden;
-  }
-  
-  .avatar__rect {
-    stroke-width: 2px;
-    stroke: var(--color-opac-w-4);
-  }
-  
-  .avatar__circle {
-    stroke-width: 2px;
-    stroke: var(--color-opac-w-4);
-  }
-  
+  text-align: inherit;
+  vertical-align: bottom;
+  overflow: hidden;
+  user-select: none;
+}
+
+.avatar__image {
+  overflow: hidden;
+}
+
+.avatar__rect {
+  stroke-width: 2px;
+  stroke: var(--color-opac-w-4);
+}
+
+.avatar__circle {
+  stroke-width: 2px;
+  stroke: var(--color-opac-w-4);
+}

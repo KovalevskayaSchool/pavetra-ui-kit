@@ -65,7 +65,7 @@ export const Modal: FC<PropsWithChildren<DialogProps>> = ({
       {state.isOpen && (
         <Portal>
           <Overlay>
-            <div className={cn(className, styles["modal__container"])}>
+            <div className={cn(styles["modal__container"], className)}>
               <div className={styles["modal__overlay"]} />
               <div className={styles["modal__wrapper"]} {...underlayProps}>
                 <Box

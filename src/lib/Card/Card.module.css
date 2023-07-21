@@ -12,10 +12,10 @@
 }
 
 .card__header {
-    display: flex;
-    border-block-end: 1px solid var(--border-separator);
-    padding-block-end: var(--space-1);
-    justify-content: space-between;
+  display: flex;
+  border-block-end: 1px solid var(--border-separator);
+  padding-block-end: var(--space-1);
+  justify-content: space-between;
 }
 
 .card__body {
@@ -23,17 +23,17 @@
 }
 
 .card__wrap-title {
-    display: flex;
-    align-items: center;
-    column-gap: 0.5rem;
-    font-weight: bold;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  font-weight: bold;
 }
 
 .card__title {
-    font-size: 120%;
+  font-size: 120%;
 }
 
 .card__icon {
-    font-size: 150%;
-    display: flex;
+  font-size: 150%;
+  display: flex;
 }

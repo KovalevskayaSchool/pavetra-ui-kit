@@ -43,23 +43,22 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
     return (
       <label
-        className={cn(className, styles["checkbox"], {
-          [styles["checkbox_disabled"]]: disabled,
-        })}
+        className={cn(
+          styles["checkbox"],
+          {
+            [styles["checkbox_disabled"]]: disabled,
+          },
+          className
+        )}
         {...focusProps}
       >
         <input
           ref={ref}
-          className={cn(
-            styles["checkbox__input"],
-            {
-              [styles["checkbox__input_checked"]]: state.isSelected,
-              [styles["checkbox__input_focus"]]: isFocusVisible,
-              [styles["checkbox__input_disabled"]]: disabled,
-            },
-
-            className
-          )}
+          className={cn(styles["checkbox__input"], {
+            [styles["checkbox__input_checked"]]: state.isSelected,
+            [styles["checkbox__input_focus"]]: isFocusVisible,
+            [styles["checkbox__input_disabled"]]: disabled,
+          })}
           {...mergeProps(inputProps)}
         />
 

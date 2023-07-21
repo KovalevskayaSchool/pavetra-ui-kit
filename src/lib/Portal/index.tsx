@@ -1,14 +1,14 @@
-import { FC, PropsWithChildren } from 'react';
-import ReactDOM from 'react-dom';
+import { FC, PropsWithChildren } from "react";
+import ReactDOM from "react-dom";
 
-const portalId = 'portals';
+const portalId = "portals";
 
 function getOrCreateSelector(id: string) {
   const selector = document.querySelector(`#${id}`);
   if (!selector) {
     const bodyEl = document.querySelector(`body`);
-    const el = document.createElement('div');
-    el.setAttribute('id', id);
+    const el = document.createElement("div");
+    el.setAttribute("id", id);
     bodyEl?.appendChild(el);
     return el;
   }

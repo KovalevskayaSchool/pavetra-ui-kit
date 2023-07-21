@@ -18,11 +18,7 @@ export const Box = forwardRef<HTMLElement, PropsWithChildren<BoxProps>>(
   ({ className, children, as = "div", ...props }, ref) => {
     const Component = as;
     return (
-      <Component
-        ref={ref}
-        {...props}
-        className={cn(styles["box"], className)}
-      >
+      <Component ref={ref} {...props} className={cn(styles["box"], className)}>
         {children}
       </Component>
     );

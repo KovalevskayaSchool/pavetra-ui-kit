@@ -10,7 +10,7 @@ export interface BadgeProps {
 export const Badge = forwardRef<HTMLSpanElement, PropsWithChildren<BadgeProps>>(
   ({ className, count = 0, children, ...props }, ref) => {
     return (
-      <span ref={ref} className={cn(className, styles["badge"])} {...props}>
+      <span ref={ref} className={cn(styles["badge"], className)} {...props}>
         {count > 0 && (
           <sup className={styles["badge__counter"]}>
             <span className={styles["badge__label"]}>{count.toString()}</span>

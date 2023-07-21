@@ -1,16 +1,16 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from "react";
 
-import format from 'date-fns/format';
-import subMonths from 'date-fns/subMonths';
-import subDays from 'date-fns/subDays';
-import addMonths from 'date-fns/addMonths';
-import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import getDaysInMonth from 'date-fns/getDaysInMonth';
-import startOfMonth from 'date-fns/startOfMonth';
-import isSameDay from 'date-fns/isSameDay';
+import format from "date-fns/format";
+import subMonths from "date-fns/subMonths";
+import subDays from "date-fns/subDays";
+import addMonths from "date-fns/addMonths";
+import lastDayOfMonth from "date-fns/lastDayOfMonth";
+import getDaysInMonth from "date-fns/getDaysInMonth";
+import startOfMonth from "date-fns/startOfMonth";
+import isSameDay from "date-fns/isSameDay";
 
-import type { DatePickerContext, PickerDay } from '../DatePicker.d';
-import { getGroupedBy, getWeekNameLabels, DAYS_OF_WEEK_LENGTH } from '../util';
+import type { DatePickerContext, PickerDay } from "../DatePicker.d";
+import { getGroupedBy, getWeekNameLabels, DAYS_OF_WEEK_LENGTH } from "../util";
 
 const INITIAL_YEAR = new Date().getFullYear();
 const INITIAL_MONTH = new Date().getMonth();
@@ -68,7 +68,7 @@ export const useWeekView = (state: DatePickerContext) => {
   }): PickerDay {
     const date = new Date(year, Number(month), dayNumber);
     return {
-      label: format(date, 'yyyy-MM-dd', { locale }),
+      label: format(date, "yyyy-MM-dd", { locale }),
       dayOfMonth,
       isCurrentMonth,
       date,

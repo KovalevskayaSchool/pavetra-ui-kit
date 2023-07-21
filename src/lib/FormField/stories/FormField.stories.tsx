@@ -1,26 +1,26 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { FormField } from '..';
-import { Input } from '../../Input';
-import { Switch } from '../../Switch';
-import { Radio, RadioGroup } from '../../Radio';
-import { Checkbox } from '../../Checkbox';
-import { Select } from '../../Select';
-import { DatePicker } from '../../Datepicker';
-import { useState } from 'react';
+import { FormField } from "..";
+import { Input } from "../../Input";
+import { Switch } from "../../Switch";
+import { Radio, RadioGroup } from "../../Radio";
+import { Checkbox } from "../../Checkbox";
+import { Select } from "../../Select";
+import { DatePicker } from "../../Datepicker";
+import { useState } from "react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {
-  title: 'Forms/FormField',
+  title: "Forms/FormField",
   component: FormField,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof FormField>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 const ControlledComponent = () => {
-  const [username, setUsername] = useState<any>('')
+  const [username, setUsername] = useState<any>("");
   return (
     <form>
       {/* <FormField name="email" label="Email">
@@ -36,7 +36,7 @@ const ControlledComponent = () => {
         <Input />
       </FormField>
       <FormField
-        onChange={(value) => console.log(value, 'password')}
+        onChange={(value) => console.log(value, "password")}
         name="password"
         label="Password"
         error="required"
@@ -44,7 +44,7 @@ const ControlledComponent = () => {
         <Input.Password />
       </FormField>
       <FormField
-        onChange={(value) => console.log(value, 'textarea')}
+        onChange={(value) => console.log(value, "textarea")}
         name="textarea"
         label="Description"
         error="required"
@@ -52,7 +52,7 @@ const ControlledComponent = () => {
         <Input.TextArea />
       </FormField>
       <FormField
-        onChange={(value) => console.log(value, 'radiogroup')}
+        onChange={(value) => console.log(value, "radiogroup")}
         name="mode"
         label="Mode"
         error="required"
@@ -62,8 +62,8 @@ const ControlledComponent = () => {
           <Radio value="gender" label="Gender" />
         </RadioGroup>
       </FormField>
-       <FormField
-        onChange={(value) => console.log(value, 'checkbox')}
+      <FormField
+        onChange={(value) => console.log(value, "checkbox")}
         name="checkbox"
         label="Checkbox"
         error="required"
@@ -71,7 +71,7 @@ const ControlledComponent = () => {
         <Checkbox value="name" label="Today" />
       </FormField>
       <FormField
-        onChange={(value) => console.log(value, 'switch')}
+        onChange={(value) => console.log(value, "switch")}
         name="switch"
         label="Switch"
         error="required"
@@ -79,7 +79,7 @@ const ControlledComponent = () => {
         <Switch />
       </FormField>
       <FormField
-        onChange={(value) => console.log(value, 'select')}
+        onChange={(value) => console.log(value, "select")}
         name="select"
         label="Select"
         error="required"
@@ -87,26 +87,26 @@ const ControlledComponent = () => {
         <Select
           menu={[
             {
-              id: 'text',
-              label: 'Jack',
+              id: "text",
+              label: "Jack",
             },
 
             {
-              id: 'alex',
-              label: 'Alex',
+              id: "alex",
+              label: "Alex",
             },
           ]}
         />
       </FormField>
       <FormField
-        onChange={(value) => console.log(value, 'DatePicker')}
+        onChange={(value) => console.log(value, "DatePicker")}
         value={new Date()}
         name="DatePicker"
         label="DatePicker"
         error="required"
       >
         <DatePicker />
-      </FormField> 
+      </FormField>
     </form>
   );
 };

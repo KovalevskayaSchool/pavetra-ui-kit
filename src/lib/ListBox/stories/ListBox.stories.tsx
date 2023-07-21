@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import { useState } from "react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { ListBox } from '..';
-import { useSelect } from 'react-aria';
+import { ListBox } from "..";
+import { useSelect } from "react-aria";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {
-  title: 'Controls/ListBox',
+  title: "Controls/ListBox",
   component: ListBox,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof ListBox>;
 
 export default meta;
@@ -26,10 +26,8 @@ const ControlledComponent = () => {
   //   state,
   //   triggerRef
   // );
-
   //   return <ListBox state={}  />
-}
-
+};
 
 // export const Default: Story = {
 //   render: ControlledComponent

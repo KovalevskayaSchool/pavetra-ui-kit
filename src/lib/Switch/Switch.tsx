@@ -63,9 +63,13 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
 
     return (
       <div
-        className={cn(className, styles["switch"], {
-          [styles["switch_disabled"]]: isDisabled,
-        })}
+        className={cn(
+          styles["switch"],
+          {
+            [styles["switch_disabled"]]: isDisabled,
+          },
+          className
+        )}
       >
         <div
           className={cn(styles["switch__text"], {

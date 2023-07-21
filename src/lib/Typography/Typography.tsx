@@ -1,6 +1,6 @@
-import React, { FC, forwardRef, PropsWithChildren } from 'react';
+import React, { FC, forwardRef, PropsWithChildren } from "react";
 
-import { Title } from './Title';
+import { Title } from "./Title";
 
 export interface OriginTypography {
   className?: string;

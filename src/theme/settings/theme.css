@@ -1,22 +1,22 @@
 :root {
-	color-scheme: light;
-	/* || GENERAL STYLES */
-	--global-background: #fafafa;
-	--global-foreground: var(--color-black);
-	--global-second-foreground: hsl(0, 0%, 15.7%);
+  color-scheme: light;
+  /* || GENERAL STYLES */
+  --global-background: #fafafa;
+  --global-foreground: var(--color-black);
+  --global-second-foreground: hsl(0, 0%, 15.7%);
 
-	/* || HEADER */
-	--bg-header: var(--color-light-gray);
+  /* || HEADER */
+  --bg-header: var(--color-light-gray);
 
-	/* || FOOTER */
-	--bg-footer: var(--color-light-gray);
+  /* || FOOTER */
+  --bg-footer: var(--color-light-gray);
 
-	/* || BUTTON GHOST */
-	--fg-button: hsl(0, 0%, 25.9%);
-	--fg-button-hover: hsl(0, 0%, 15.7%);
-	--bg-button-hover: hsl(0, 0%, 86.7%);
+  /* || BUTTON GHOST */
+  --fg-button: hsl(0, 0%, 25.9%);
+  --fg-button-hover: hsl(0, 0%, 15.7%);
+  --bg-button-hover: hsl(0, 0%, 86.7%);
 
-	/* || SEPARATOR */
-	--border-separator-color: var(--color-opac-b-3);
-	--border-separator: var(--color-opac-b-3);
+  /* || SEPARATOR */
+  --border-separator-color: var(--color-opac-b-3);
+  --border-separator: var(--color-opac-b-3);
 }

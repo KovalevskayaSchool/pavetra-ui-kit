@@ -10,8 +10,9 @@ import {
 export type UseModalProps = Partial<OverlayTriggerProps>;
 export type ModalState = OverlayTriggerState;
 
-export interface OverlayTriggerStateModal extends Omit<OverlayTriggerState, 'open'>  {
-  open: (values?: any) => void
+export interface OverlayTriggerStateModal
+  extends Omit<OverlayTriggerState, "open"> {
+  open: (values?: any) => void;
 }
 
 export type UseModalResponse = {
@@ -36,13 +37,13 @@ export const useModal = (props?: UseModalProps): UseModalResponse => {
   };
 
   function open(values) {
-    setData(values)
+    setData(values);
     stateModal.open();
   }
 
   function close() {
     stateModal.close();
-    setData(null)
+    setData(null);
   }
 
   const state = { ...stateModal, open, close };

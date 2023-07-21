@@ -1,4 +1,9 @@
-export { Modal } from './Modal';
-export { useModal } from './useModal';
-export type { DialogProps } from './Modal';
-export type { UseModalProps, ModalState, UseModalResponse, OverlayTriggerStateModal } from './useModal';
+export { Modal } from "./Modal";
+export { useModal } from "./useModal";
+export type { DialogProps } from "./Modal";
+export type {
+  UseModalProps,
+  ModalState,
+  UseModalResponse,
+  OverlayTriggerStateModal,
+} from "./useModal";

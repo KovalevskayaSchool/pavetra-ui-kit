@@ -1,5 +1,5 @@
 import path from "node:path";
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath } from "node:url";
 
 import typescript from "@rollup/plugin-typescript";
 import resolve from "@rollup/plugin-node-resolve";
@@ -8,9 +8,8 @@ import external from "rollup-plugin-peer-deps-external";
 import terser from "@rollup/plugin-terser";
 import dts from "rollup-plugin-dts";
 import replace from "@rollup/plugin-replace";
-import postcss from 'rollup-plugin-postcss'
+import postcss from "rollup-plugin-postcss";
 import fg from "fast-glob";
-
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -34,7 +33,7 @@ const plugins = [
       path: path.join(__dirname, "./postcss.config.cjs"),
     },
     extract: true,
-    extract: path.resolve('dist/bundle.css')
+    extract: path.resolve("dist/bundle.css"),
   }),
   replace({
     "process.env.NODE_ENV": JSON.stringify("development"),

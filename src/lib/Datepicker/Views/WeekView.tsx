@@ -106,7 +106,8 @@ export const WeekView: FC<WeekViewProps> = () => {
                 title={day.label}
               >
                 <div className={styles["datepicker__cell-inner"]}>
-                  {state.renderCell?.(day.date, day.dayOfMonth) || day.dayOfMonth}
+                  {state.renderCell?.(day.date, day.dayOfMonth) ||
+                    day.dayOfMonth}
                 </div>
               </td>
             ))}

@@ -1,5 +1,5 @@
 import { PropsWithChildren, forwardRef } from "react";
-import cn from 'classnames'
+import cn from "classnames";
 import { Node, TableState } from "react-stately";
 import { mergeProps, useFocusRing, useTableRow } from "react-aria";
 import { useDOMRef } from "../../utils/useDomRef";
@@ -29,7 +29,7 @@ export const TableRow = forwardRef<
   return (
     <tr
       className={cn(styles["table__row"], {
-        [styles['table__row_selected']]: isSelected
+        [styles["table__row_selected"]]: isSelected,
       })}
       {...mergeProps(rowProps, focusProps)}
       ref={ref}

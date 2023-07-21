@@ -155,7 +155,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       return (
         <div
           {...groupProps}
-          className={cn(className, styles["datepicker"])}
+          className={cn(styles["datepicker"], className)}
           onClick={handleClick}
         >
           <div

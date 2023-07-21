@@ -1,8 +1,8 @@
-import { forwardRef, useState } from 'react';
-import { EyeOutline, EyeOffOutline } from '@kovalevskayaschool/pavetra-icons';
+import { forwardRef, useState } from "react";
+import { EyeOutline, EyeOffOutline } from "@kovalevskayaschool/pavetra-icons";
 
-import { Button } from '../Button';
-import { Input, type InputProps } from './Input';
+import { Button } from "../Button";
+import { Input, type InputProps } from "./Input";
 
 export const Password = forwardRef<HTMLInputElement, InputProps>(
   ({ ...props }, ref) => {
@@ -16,7 +16,7 @@ export const Password = forwardRef<HTMLInputElement, InputProps>(
       <Input
         ref={ref}
         {...props}
-        type={show ? 'text' : 'password'}
+        type={show ? "text" : "password"}
         suffix={
           <Button
             variant="inline"
@@ -30,4 +30,4 @@ export const Password = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Password.displayName = 'Password';
+Password.displayName = "Password";

@@ -70,7 +70,7 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
       return (
         <svg
           ref={ref}
-          className={cn(className, styles["avatar"])}
+          className={cn(styles["avatar"], className)}
           fill="none"
           viewBox={`0 0 171 171`}
           style={{ width: `${sizeSVG * 2}px` }}

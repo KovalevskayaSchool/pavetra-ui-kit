@@ -170,7 +170,16 @@ let actionColumns = [
     name: "Actions",
     key: "actions",
     render: (item, columnKey) => {
-      return <Button icon={<TrashOutline />} variant="link" danger onClick={() => console.log(item)}>Remove</Button>;
+      return (
+        <Button
+          icon={<TrashOutline />}
+          variant="link"
+          danger
+          onClick={() => console.log(item)}
+        >
+          Remove
+        </Button>
+      );
     },
   },
 ];
@@ -202,14 +211,14 @@ let actionRows = [
     name: "log.txt",
     date: "1/18/2016",
     type: "Text Document",
-    actions: 'ddd',
+    actions: "ddd",
   },
   {
     id: 5,
     name: "log.txt",
     date: "1/18/2016",
     type: "Text Document",
-    actions: 'second',
+    actions: "second",
   },
 ];
 

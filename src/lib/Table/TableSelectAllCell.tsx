@@ -1,5 +1,9 @@
-import { useRef } from 'react';
-import {useTableColumnHeader, useTableSelectAllCheckbox, VisuallyHidden} from 'react-aria';
+import { useRef } from "react";
+import {
+  useTableColumnHeader,
+  useTableSelectAllCheckbox,
+  VisuallyHidden,
+} from "react-aria";
 import { Checkbox } from "../Checkbox";
 
 import styles from "./Table.module.css";
@@ -19,9 +23,11 @@ export const TableSelectAllCell = ({ column, state }) => {
       ref={ref}
       className={styles["table__header-row"]}
     >
-      {state.selectionManager.selectionMode === 'single'
-        ? <VisuallyHidden>{checkboxProps['aria-label']}</VisuallyHidden>
-        : <Checkbox {...checkboxProps} aria-label='all' />}
+      {state.selectionManager.selectionMode === "single" ? (
+        <VisuallyHidden>{checkboxProps["aria-label"]}</VisuallyHidden>
+      ) : (
+        <Checkbox {...checkboxProps} aria-label="all" />
+      )}
     </th>
   );
-}
+};
