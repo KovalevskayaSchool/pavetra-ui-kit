@@ -1,5 +1,6 @@
 .card {
   --bg-color-card: var(--color-white);
+
   display: flex;
   flex-direction: column;
   border-radius: var(--border-radius-l);

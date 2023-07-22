@@ -56,11 +56,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const imageSrc =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Rembrandt_Self-portrait_%28Kenwood%29.jpg/800px-Rembrandt_Self-portrait_%28Kenwood%29.jpg";
-
-// More on writing stories with args: https://storybook.js.org/docs/7.0/react/writing-stories/args
-
 const icons = [
   Whatsapp,
   EditOutline,

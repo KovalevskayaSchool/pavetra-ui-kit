@@ -32,8 +32,8 @@
   display: table;
   width: 5.7142857142857135px;
   height: 9.142857142857142px;
-  border: 2px solid #fff;
-  border-top-color: rgb(255, 255, 255);
+  border: 2px solid var(--checkbox-color);
+  border-top-color: var(--checkbox-color);
   border-top-style: solid;
   border-top-width: 2px;
   border-top: 0;

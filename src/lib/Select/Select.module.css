@@ -6,14 +6,14 @@
   --select-item-hover-background-color: var(--color-opac-b-1);
   --select-item-selected-background-color: var(--color-primary);
   --select-border-color: var(--color-light-gray);
+  --select-list-background-color: var(--color-white);
+  --select-list-border-color: var(--color-light-gray);
 }
 
 .select__poppover {
   position: relative;
   cursor: pointer;
 
-  --select-list-background-color: var(--color-white);
-  --select-list-border-color: var(--color-light-gray);
 
   position: relative;
   box-shadow: var(--shadow-elevation);
