@@ -1,20 +1,21 @@
 .card {
-  --bg-color-card: var(--color-white);
+  --card-bg-color: var(--color-white);
+  --card-border-radius:  var(--border-radius-l);
 
   display: flex;
   flex-direction: column;
-  border-radius: var(--border-radius-l);
-  background-color: var(--bg-color-card);
+  border-radius: var(--card-border-radius);
+  background-color: var(--card-bg-color);
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid var(--border-separator);
+  border: 0.063rem solid var(--border-separator);
   padding: var(--space-1);
   gap: 1rem;
 }
 
 .card__header {
   display: flex;
-  border-block-end: 1px solid var(--border-separator);
+  border-block-end: 0.063rem solid var(--border-separator);
   padding-block-end: var(--space-1);
   justify-content: space-between;
 }

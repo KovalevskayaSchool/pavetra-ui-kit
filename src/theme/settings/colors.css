@@ -19,7 +19,10 @@
   --color-light-black: oklch(28.15% 0.005 67.63);
   --color-pink: oklch(63.9% 0.214 356.74);
   --color-green: oklch(80.77% 0.18 160.38);
+  --color-fern: oklch(69.13% 0.144 158.23);
+  --color-coral: oklch(69.13% 0.186 17.6);
   --color-blue: oklch(69.91% 0.16 254.81);
+  --color-orange: oklch(83.18% 0.162 86.33);
 
   --color-gray: oklch(66.7% 0.031 248.3);
   --color-light-gray: oklch(94.51% 0.005 247.88);

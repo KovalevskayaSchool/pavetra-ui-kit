@@ -81,7 +81,7 @@
 
 .datepicker__cell::before {
   position: absolute;
-  top: 50%;
+  inset-block-start: 50%;
   inset-inline-start: 0;
   inset-inline-end: 0;
   z-index: 1;
@@ -114,7 +114,7 @@
 .datepicker__cell_today {
   color: var(--date-picker-color-today);
   font-weight: 500;
-  padding-top: 4px;
+  padding-block-start: 4px;
 }
 
 .datepicker__week {

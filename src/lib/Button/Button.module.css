@@ -77,12 +77,9 @@
   outline: none;
   position: absolute;
   z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   content: "";
-  border: 2px solid var(--button-border-color);
+  border: 0.125rem solid var(--button-border-color);
   border-radius: 0.3rem;
 }
 
@@ -130,7 +127,7 @@
 .button__content {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   padding-inline: 0.85rem;
 }
 
@@ -263,23 +260,23 @@
 .button_variant_ghost {
   background-color: var(--button-ghost-background-color);
   color: var(--button-ghost-foreground-color);
-  border: 1px solid var(--button-ghost-foreground-color);
+  border: 0.063rem solid var(--button-ghost-foreground-color);
 }
 
 .button_variant_ghost.button_danger {
   background-color: var(--button-ghost-background-color);
   color: var(--button-danger-foreground-color);
-  border: 1px solid var(--button-danger-background-color);
+  border: 0.063rem solid var(--button-danger-background-color);
 }
 
 .button_variant_ghost.button_danger:hover {
   color: var(--button-danger-hover-background-color);
-  border: 1px solid var(--button-danger-hover-background-color);
+  border: 0.063rem solid var(--button-danger-hover-background-color);
 }
 
 .button_variant_ghost.button_danger:active {
   color: var(--button-danger-active-background-color);
-  border: 1px solid var(--button-danger-active-background-color);
+  border: 0.063rem solid var(--button-danger-active-background-color);
 }
 
 .button_variant_ghost:hover {

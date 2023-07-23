@@ -29,12 +29,12 @@
 .switch__button {
   position: relative;
   display: inline-block;
-  width: 44px;
-  line-height: 22px;
-  min-width: 44px;
-  height: 22px;
-  margin: 0 8px;
-  border-radius: 9999px;
+  width: 2.75rem;
+  line-height: 1.375rem;
+  min-width: 2.75rem;
+  height: 1.375rem;
+  margin: 0 0.5rem;
+  border-radius: var(--border-radius-rounded);
   overflow: hidden;
   cursor: pointer;
   background-color: var(--switch-background-unchecked-color);
@@ -46,8 +46,8 @@
 }
 
 .switch__button:focus.switch__button:focus-visible {
-  outline: 2px solid var(--color-blue);
-  outline-offset: 1px;
+  outline: 0.125rem solid var(--color-blue);
+  outline-offset: 0.063rem;
   transition: outline-offset 0s, outline 0s;
 }
 .switch__button:hover {
@@ -67,33 +67,29 @@
   cursor: pointer;
   background-color: var(--switch-area-background-color);
   border-radius: var(--border-radius-rounded);
-  top: 2px;
-  inset-inline-start: 2px;
+  inset-block-start: 0.125rem;
+  inset-inline-start: 0.125rem;
   transition: background-color 0.2s ease;
-  border-radius: 9999px;
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   transition: all 0.2s ease-in-out;
 }
 
 .switch__area.switch__area_checked {
-  inset-inline-start: calc(100% - 20px);
+  inset-inline-start: calc(100% - 1.25rem);
 }
 
 .switch__area::before {
   position: absolute;
   content: "";
-  top: 0;
-  bottom: 0;
-  inset-inline-end: 0;
-  inset-inline-start: 0;
+  inset: 0;
 }
 
 /* SPIN */
 
 .switch__spin {
   position: relative;
-  inset: 1px;
+  inset: 0.063rem;
   vertical-align: top;
   justify-content: center;
 }

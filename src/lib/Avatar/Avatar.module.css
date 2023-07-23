@@ -11,11 +11,11 @@
 }
 
 .avatar__rect {
-  stroke-width: 2px;
+  stroke-width: 0.125rem;
   stroke: var(--avatar-stroke-color);
 }
 
 .avatar__circle {
-  stroke-width: 2px;
+  stroke-width: 0.125rem;
   stroke: var(--avatar-stroke-color);
 }

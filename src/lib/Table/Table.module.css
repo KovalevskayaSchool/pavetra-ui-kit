@@ -4,7 +4,7 @@
 }
 
 .table__row {
-  border-bottom: 1px solid rgb(216, 222, 228);
+  border-block-end: 1px solid rgb(216, 222, 228);
 }
 
 .table__row_selected {

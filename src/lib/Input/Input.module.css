@@ -1,7 +1,7 @@
 .input {
-  --input-size-medium: 32px;
-  --input-size-large: 38px;
-  --input-size-small: 30px;
+  --input-size-medium: 2rem;
+  --input-size-large: 2.375rem;
+  --input-size-small: 1.875rem;
 
   --input-not-active-background-color: var(--color-white);
   --input-foreground-color: var(--global-foreground);
@@ -91,11 +91,11 @@
 }
 
 .input__control.input__control_space_r {
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .input__control.input__control_space_l {
-  padding-right: 0;
+  padding-inline-end: 0;
 }
 
 .input__control_readonly {
@@ -103,11 +103,11 @@
 }
 
 .input__affix_space_left {
-  left: 0;
+  inset-inline-start: 0;
 }
 
 .input__affix_space_right {
-  right: 0;
+  inset-inline-end: 0;
 }
 
 .input__affix {
