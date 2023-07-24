@@ -51,6 +51,8 @@
   margin-block-start: 3.4rem;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+
+  overflow: hidden;
 }
 
 .modal__overlay {
@@ -65,6 +67,7 @@
 .modal__body {
   display: flex;
   flex: 1 auto;
+  overflow: hidden;
 }
 
 .modal__close-button {
