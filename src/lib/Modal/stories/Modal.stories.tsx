@@ -61,3 +61,53 @@ const ControlledComponent = () => {
 export const Default: Story = {
   render: ControlledComponent,
 };
+
+
+const FullComponent = () => {
+  const modal = useModal({
+    onOpenChange(isOpen) {
+      if (!isOpen) {
+        console.log("close");
+      }
+    },
+  });
+
+  function handleOpen() {
+    modal.state.open({ test: "value" });
+  }
+
+  function handleClose() {
+    modal.state.close();
+  }
+
+  return (
+    <>
+      <Button {...modal.triggerProps} onClick={handleOpen}>
+        Show modal
+      </Button>
+      <Button {...modal.triggerProps} onClick={() => modal.state.close()}>
+        Close
+      </Button>
+      <Modal
+        {...modal.modalProps}
+        fullScreen={true}
+        headerLabel="Test modal state"
+        isDismissable
+        state={modal.state}
+        onClose={handleClose}
+      >
+        <div>
+          <form>
+            <Input value={modal.data?.test} />
+            <Button variant="primary">Submit</Button>
+          </form>
+        </div>
+      </Modal>
+    </>
+  );
+};
+
+
+export const Full: Story = {
+  render: FullComponent,
+};

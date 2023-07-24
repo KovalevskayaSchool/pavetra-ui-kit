@@ -101,6 +101,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       {
         ...props,
         ...propsWithChildren,
+        defaultSelectedKey: defaultValue,
+        selectedKey: value,
         isDisabled: disabled,
         items: menu,
         "aria-label": ariaLabel || "select",

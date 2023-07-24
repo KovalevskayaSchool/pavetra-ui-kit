@@ -22,6 +22,7 @@ export interface DialogProps extends AriaModalOverlayProps {
   headerLabel?: string | React.ReactNode;
   onClose?: () => void;
   closable?: boolean;
+  fullScreen?: boolean;
   closableButton?: boolean;
   className?: string;
   id?: string;
@@ -39,6 +40,7 @@ export const Modal: FC<PropsWithChildren<DialogProps>> = ({
   id,
   isDismissable,
   isKeyboardDismissDisabled,
+  fullScreen,
   ...props
 }) => {
   const ref = useRef(null);
@@ -72,7 +74,9 @@ export const Modal: FC<PropsWithChildren<DialogProps>> = ({
                   id={id}
                   ref={ref}
                   tabIndex={-1}
-                  className={styles["modal__content"]}
+                  className={cn(styles["modal__content"], {
+                    [styles["modal__content_full"]]: fullScreen,
+                  })}
                   {...modalProps}
                   {...dialogProps}
                 >
