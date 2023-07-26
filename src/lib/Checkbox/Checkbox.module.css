@@ -14,7 +14,7 @@
 
   width: 1rem;
   height: 1rem;
-
+  margin: 0;
   border: 0.063rem solid var(--checkbox-background-checked-color);
   border-radius: 0.31rem;
 
