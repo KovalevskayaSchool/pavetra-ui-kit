@@ -62,7 +62,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           {...mergeProps(inputProps)}
         />
 
-        <span data-disabled={disabled} className={styles["checkbox__label"]}>
+        <span className={styles["checkbox__label"]}>
           {label}
         </span>
       </label>

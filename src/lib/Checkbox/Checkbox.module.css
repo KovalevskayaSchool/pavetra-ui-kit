@@ -1,10 +1,15 @@
 .checkbox {
   --checkbox-background-checked-color: var(--color-primary);
   --checkbox-color: var(--color-white);
+  --checkbox-fg-color-disabled: var(--color-opac-b-10);
 
   display: inline-flex;
   align-items: flex-end;
   cursor: pointer;
+}
+
+.checkbox_disabled {
+  color: var(--checkbox-fg-color-disabled);
 }
 
 .checkbox__input {
@@ -14,7 +19,7 @@
 
   width: 1rem;
   height: 1rem;
-
+  margin: 0;
   border: 0.063rem solid var(--checkbox-background-checked-color);
   border-radius: 0.31rem;
 
@@ -71,5 +76,5 @@
 .checkbox__label {
   padding-inline-start: 0.5rem;
   padding-inline-end: 0.5rem;
-  line-height: 0.9714285714285714;
+  line-height: 0.6714285714285714;
 }
