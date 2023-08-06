@@ -18,4 +18,5 @@ export type Placement =
 export type DataItemType = {
   id: string;
   label: string | React.ReactNode;
+  disabled?: boolean;
 };
