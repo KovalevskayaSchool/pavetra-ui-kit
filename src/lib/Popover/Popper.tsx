@@ -1,9 +1,10 @@
-import { FC, PropsWithChildren, useState } from "react";
-import { AriaOverlayProps } from "react-aria";
-import type { AriaPopoverProps } from "react-aria";
-import { usePopper } from "react-popper";
+import { forwardRef } from "react";
+import { OverlayTriggerState } from "react-stately";
+import { usePopover, DismissButton, Overlay } from "react-aria";
+import type { AriaPopoverProps, AriaOverlayProps } from "react-aria";
 
-import { Overlay } from "../Overlay";
+import { useDOMRef } from "../../utils/useDomRef";
+
 import cl from "./Popover.module.css";
 
 interface PopoverProps
@@ -11,47 +12,45 @@ interface PopoverProps
     AriaOverlayProps {
   children: React.ReactNode;
   className?: string;
+  state: OverlayTriggerState;
 }
 
-export const Popover: FC<PropsWithChildren<PopoverProps>> = ({
-  children,
-  offset = 5,
-  className,
-  onClose,
-  isOpen,
-  ...props
-}) => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  );
-  const { styles, attributes } = usePopper(
-    props.triggerRef.current,
-    popperElement,
-    {
-      placement: "bottom-start",
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 5],
-          },
-        },
-      ],
-    }
-  );
+export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
+  (
+    { children, className, state, isNonModal, ...props },
+    refForwarded
+  ) => {
+    const popoverRef = useDOMRef(refForwarded);
 
-  const width = props.triggerRef.current?.getBoundingClientRect().width || 0;
+    const { popoverProps, underlayProps } = usePopover(
+      {
+        ...props,
+        popoverRef,
+        placement: 'bottom start',
+        offset: 5 
+      },
+      state
+    );
 
-  return (
-    <Overlay className={className} isOpen={isOpen} onClose={onClose}>
-      <div
-        ref={setPopperElement}
-        style={{ ...styles.popper, minWidth: width, width: "fit-content" }}
-        {...attributes.popper}
-        className={cl["popover"]}
-      >
-        {children}
-      </div>
-    </Overlay>
-  );
-};
+    const width = props.triggerRef.current?.getBoundingClientRect().width || 0;
+
+    return (
+      <Overlay>
+        {!isNonModal && <div {...underlayProps} className="fixed inset-0" />}
+        <div
+          ref={popoverRef}
+          {...popoverProps}
+          style={{
+            ...popoverProps.style,
+            minWidth: width,
+            width: "fit-content",
+          }}
+        >
+          {!isNonModal && <DismissButton onDismiss={state.close} />}
+          {children}
+          <DismissButton onDismiss={state.close} />
+        </div>
+      </Overlay>
+    );
+  }
+);

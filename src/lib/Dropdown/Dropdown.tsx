@@ -10,11 +10,13 @@ import { HiddenSelect, useButton, useFocusRing, useSelect } from "react-aria";
 
 import { ListBox, type MenuItemProps } from "../ListBox";
 
-import { type Placement } from "./Dropdown.d";
 import { Popover } from "../Popover";
-import { Box } from "../Box";
 import { mapToAriaProps } from "../ListBox/map";
+import { Box } from "../Box";
 import { useDOMRef } from "../../utils/useDomRef";
+
+import { type Placement } from "./Dropdown.d";
+
 import styles from "./Dropdown.module.css";
 
 export interface DropdownProps
@@ -129,10 +131,10 @@ export const Dropdown = forwardRef<
 
       return (
         <Popover
-          onClose={handleClose}
           isOpen={state.isOpen}
           triggerRef={triggerRef}
           className={className}
+          state={state}
         >
           {renderItems()}
         </Popover>

@@ -1,36 +1,21 @@
-.select {
-  position: relative;
-  cursor: pointer;
-
+:root {
   --select-list-background-color: var(--color-white);
+  --select-list-border-color: var(--color-light-gray);
   --select-item-hover-background-color: var(--color-opac-b-1);
   --select-item-selected-background-color: var(--color-primary);
   --select-border-color: var(--color-light-gray);
-  --select-list-background-color: var(--color-white);
-  --select-list-border-color: var(--color-light-gray);
+}
+.select {
+  cursor: pointer;
 }
 
 .select__poppover {
-  position: relative;
-  cursor: pointer;
-
-
-  position: relative;
   box-shadow: var(--shadow-elevation);
-  z-index: 50;
   background-color: var(--select-list-background-color);
-
+  border: 1px solid var(--select-list-border-color);
   border-radius: var(--border-radius-base);
 
-  width: 100%;
-
-  border: 1px solid var(--select-list-border-color);
-
-  max-height: min(var(--popover-available-height, 300px), 300px);
-  overflow: auto;
-  overscroll-behavior: contain;
   padding: 0.25rem;
-  scroll-margin: 0.5rem;
   box-sizing: border-box;
 }
 

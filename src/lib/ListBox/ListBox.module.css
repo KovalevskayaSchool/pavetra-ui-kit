@@ -1,10 +1,15 @@
-.listbox {
+:root {
   --listbox-item-hover-background-color: var(--color-opac-b-1);
   --listbox-item-selected-background-color: var(--color-primary);
+}
+
+.listbox {
   list-style: none;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: auto;
+  max-height: 18rem;
 }
 
 .listbox__item {
@@ -31,11 +36,18 @@
   color: inherit;
 }
 
-.listbox__item:active,
-.listbox__item_active,
-.listbox__item_selected {
+.listbox__item_focused {
   background-color: var(--listbox-item-selected-background-color);
   color: var(--color-white);
+}
+
+.listbox__item:active,
+.listbox__item_active {
+  background-color: var(--listbox-item-selected-background-color);
+  color: var(--color-white);
+}
+.listbox__item_selected {
+  color: var(--listbox-item-selected-background-color);
 }
 
 .listbox__item_disabled {
@@ -69,6 +81,12 @@
   inset: 0;
   background-color: transparent;
   content: "";
+}
+.listbox__label-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 
 .listbox__seperator {

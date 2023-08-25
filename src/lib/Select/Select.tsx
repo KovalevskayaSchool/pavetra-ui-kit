@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import cn from "classnames";
 import { useSelectState, SelectProps as SelectBaseProps } from "react-stately";
 import {
@@ -16,13 +16,15 @@ import {
 import { Input } from "../Input/Input";
 import { Spin } from "../Spin";
 import { Box } from "../Box";
+import { Button } from "../Button";
+import { Popover } from "../Popover";
 import { ListBox, type MenuItemProps } from "../ListBox";
+import { mapToAriaProps } from "../ListBox/map";
+
+import { useDOMRef } from "../../utils/useDomRef";
 
 import { type Placement } from "./Select.d";
-import { mapToAriaProps } from "../ListBox/map";
-import { Popover } from "../Popover";
-import { Button } from "../Button";
-import { useDOMRef } from "../../utils/useDomRef";
+
 import styles from "./Select.module.css";
 
 export interface SelectProps
@@ -81,9 +83,11 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     const childrenMenu = menu.length > 0 ? menu : defaultMenu;
 
     const propsWithChildren = mapToAriaProps(childrenMenu, ariaLabel || "");
-    const state = useSelectState<MenuItemProps>({
+    let state = useSelectState<MenuItemProps>({
       ...propsWithChildren,
+      autoFocus: true,
       defaultSelectedKey: defaultValue,
+      isDisabled: disabled,
       selectedKey: value,
       disabledKeys: menu
         .filter((item) => item.disabled)
@@ -95,29 +99,48 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       },
       onOpenChange,
     });
-
-    const triggerRef = useDOMRef(ref);
-    const { triggerProps, menuProps } = useSelect(
+    const popoverRef = useRef<HTMLDivElement>(null);
+    const listBoxRef = useRef<HTMLUListElement>(null);
+    const triggerRef = useDOMRef(null);
+    let { triggerProps, menuProps } = useSelect(
       {
         ...props,
-        ...propsWithChildren,
-        defaultSelectedKey: defaultValue,
-        selectedKey: value,
         isDisabled: disabled,
-        items: menu,
         "aria-label": ariaLabel || "select",
+        autoFocus: true,
       },
       state,
       triggerRef
     );
 
-    const { buttonProps } = useButton(triggerProps, triggerRef);
+    let { buttonProps } = useButton(triggerProps, triggerRef);
     const { isFocusVisible, focusProps } = useFocusRing();
 
-    function handleClose() {
-      onClose?.();
-      state.close();
-    }
+    useEffect(() => {
+      if (
+        state.isOpen &&
+        popoverRef.current &&
+        triggerRef.current &&
+        listBoxRef.current
+      ) {
+        let listBox = listBoxRef.current;
+        let popoverNode = popoverRef.current;
+        let selectedItem = listBox.querySelector(
+          "[aria-selected=true]"
+        ) as HTMLElement;
+        let popoverRect = popoverNode.getBoundingClientRect();
+        if (selectedItem) {
+          const selectedItemRect = selectedItem.getBoundingClientRect();
+          if (selectedItemRect.bottom > popoverRect.bottom) {
+            listBox.scrollTop = Math.abs(
+              selectedItem.offsetTop -
+                popoverRect.height +
+                selectedItemRect.height
+            );
+          }
+        }
+      }
+    }, [state.isOpen]);
 
     function handleClear() {
       state.setSelectedKey("");
@@ -143,9 +166,12 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       }
 
       return (
-        <Box className={styles["select__poppover"]}>
-          <ListBox {...menuProps} state={state} />
-        </Box>
+        <ListBox
+          className={styles["select__poppover"]}
+          state={state}
+          ref={listBoxRef}
+          {...menuProps}
+        />
       );
     };
 
@@ -183,7 +209,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     };
 
     return (
-      <div className={cn(styles["select"], className)} {...props}>
+      <div ref={ref} className={cn(styles["select"], className)} {...props}>
         <HiddenSelect
           state={state}
           triggerRef={triggerRef}
@@ -191,11 +217,11 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
           name={props.name}
         />
         <div
-          {...(mergeProps(buttonProps) as any)}
+          ref={triggerRef}
+          {...mergeProps(buttonProps)}
           className={cn(styles["select__button"], {
             [styles["select__button_disabled"]]: disabled,
           })}
-          ref={triggerRef}
         >
           <Input
             placeholder={placeholder}
@@ -206,14 +232,14 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             value={state.selectedItem?.rendered?.toString() || ""}
             active={state.isOpen || isFocusVisible}
             suffix={renderInputSufix()}
-            onClick={onClick}
           />
         </div>
         {state.isOpen && (
           <Popover
-            onClose={handleClose}
             isOpen={state.isOpen}
             triggerRef={triggerRef}
+            state={state}
+            ref={popoverRef}
           >
             {renderItems()}
           </Popover>
