@@ -1,4 +1,4 @@
-.datepicker {
+:root {
   --date-picker-foreground: var(--global-foreground);
   --date-picker-background: var(--global-background);
   --date-picker-highlight-border: var(--border-separator-color);
@@ -15,7 +15,8 @@
   --date-picker-cell-event-bg-color: var(--color-opac-p-13);
 
   --date-picker-size-day: 24px;
-
+}
+.datepicker {
   box-sizing: border-box;
   position: relative;
 }
@@ -70,6 +71,7 @@
   position: relative;
   min-width: var(--date-picker-size-day);
   font-weight: 400;
+  font-size: 80%;
   padding: 4px 0;
   cursor: pointer;
 
@@ -99,7 +101,9 @@
   height: var(--date-picker-size-day);
   line-height: var(--date-picker-size-day);
   border-radius: 4px;
-  transition: background 0.2s, border 0.2s;
+  transition:
+    background 0.2s,
+    border 0.2s;
 }
 
 .datepicker__cell:hover {

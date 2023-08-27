@@ -178,9 +178,9 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
 
           {state.isOpen && (
             <Popover
-              onClose={state.close}
               isOpen={state.isOpen}
               triggerRef={triggerRef}
+              state={state}
             >
               <div
                 {...dialogProps}

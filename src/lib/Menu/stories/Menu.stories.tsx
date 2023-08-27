@@ -37,6 +37,7 @@ const ControlledComponent = () => {
           label="Controlled"
           selectedKey={value}
           onChange={handleChange}
+          className="test"
           menu={[
             { id: "test-1", label: "Profile", icon: <SunOutline /> },
             { id: "test-2", label: "Settings", icon: <CalendarOutline /> },

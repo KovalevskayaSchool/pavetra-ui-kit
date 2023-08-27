@@ -72,8 +72,10 @@
 }
 
 .listbox__label-item {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 75%;
+  word-spacing: -0.25rem;
+  letter-spacing: -0.05rem;
+  font-weight: normal;
 }
 
 .listbox__label-item a::after {

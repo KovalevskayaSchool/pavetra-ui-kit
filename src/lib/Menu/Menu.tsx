@@ -101,7 +101,7 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
             [styles["menu_mode_horizontal"]]: mode === "horizontal",
             [styles["menu_mode_vertical"]]: mode === "vertical",
           },
-          className
+          className,
         )}
       >
         {renderItems()}
