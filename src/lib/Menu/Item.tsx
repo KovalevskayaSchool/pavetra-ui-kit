@@ -57,7 +57,12 @@ export const Item: FC<MenuItemProps> = ({
     >
       <div className={styles["menu__item-content"]}>
         {item.props.icon && (
-          <div className={styles["menu__icon"]} role="img">
+          <div
+            className={cn(styles["menu__icon"], {
+              [styles["menu__icon_selected"]]: isSelected,
+            })}
+            role="img"
+          >
             {item.props.icon}
           </div>
         )}

@@ -106,6 +106,10 @@
   font-size: 1.3rem;
 }
 
+.menu__icon_selected {
+  color: var(--menu-divider-bg-color);
+}
+
 .menu__label {
   white-space: nowrap;
   overflow: hidden;
