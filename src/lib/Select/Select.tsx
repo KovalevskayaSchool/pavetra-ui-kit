@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useRef } from "react";
+import { ReactNode, forwardRef, useRef } from "react";
 import cn from "classnames";
 import { useSelectState, SelectProps as SelectBaseProps } from "react-stately";
 import {
@@ -22,6 +22,7 @@ import { ListBox, type MenuItemProps } from "../ListBox";
 import { mapToAriaProps } from "../ListBox/map";
 
 import { useDOMRef } from "../../utils/useDomRef";
+import { useScrollSelectFocus } from "../../utils/useScrollSelectFocus";
 
 import { type Placement } from "./Select.d";
 
@@ -50,6 +51,7 @@ export interface SelectProps
   name?: string;
   label?: string;
   error?: boolean | string | null;
+  dropdownChildren?: () => ReactNode;
 }
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(
@@ -70,6 +72,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       allowClear,
       error,
       onClick,
+      dropdownChildren,
       ...props
     },
     ref
@@ -99,9 +102,10 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       },
       onOpenChange,
     });
+    const selectRef = useDOMRef(ref)
     const popoverRef = useRef<HTMLDivElement>(null);
     const listBoxRef = useRef<HTMLUListElement>(null);
-    const triggerRef = useDOMRef(null);
+    const triggerRef = useRef(null);
     let { triggerProps, menuProps } = useSelect(
       {
         ...props,
@@ -116,31 +120,12 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     let { buttonProps } = useButton(triggerProps, triggerRef);
     const { isFocusVisible, focusProps } = useFocusRing();
 
-    useEffect(() => {
-      if (
-        state.isOpen &&
-        popoverRef.current &&
-        triggerRef.current &&
-        listBoxRef.current
-      ) {
-        let listBox = listBoxRef.current;
-        let popoverNode = popoverRef.current;
-        let selectedItem = listBox.querySelector(
-          "[aria-selected=true]"
-        ) as HTMLElement;
-        let popoverRect = popoverNode.getBoundingClientRect();
-        if (selectedItem) {
-          const selectedItemRect = selectedItem.getBoundingClientRect();
-          if (selectedItemRect.bottom > popoverRect.bottom) {
-            listBox.scrollTop = Math.abs(
-              selectedItem.offsetTop -
-                popoverRect.height +
-                selectedItemRect.height
-            );
-          }
-        }
-      }
-    }, [state.isOpen]);
+    useScrollSelectFocus({
+      isOpen: state.isOpen,
+      popoverRef,
+      listBoxRef,
+      triggerRef,
+    });
 
     function handleClear() {
       state.setSelectedKey("");
@@ -208,8 +193,26 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       );
     };
 
+    function renderInput() {
+      const isActive = state.isOpen || isFocusVisible;
+      const value = state.selectedItem?.rendered?.toString() || "";
+
+      return (
+        <Input
+          placeholder={placeholder}
+          readOnly
+          {...(focusProps as any)}
+          disabled={disabled}
+          error={!!error}
+          value={value}
+          active={isActive}
+          suffix={renderInputSufix()}
+        />
+      );
+    }
+
     return (
-      <div ref={ref} className={cn(styles["select"], className)} {...props}>
+      <div ref={selectRef} className={cn(styles["select"], className)} {...props}>
         <HiddenSelect
           state={state}
           triggerRef={triggerRef}
@@ -223,16 +226,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             [styles["select__button_disabled"]]: disabled,
           })}
         >
-          <Input
-            placeholder={placeholder}
-            readOnly
-            {...(focusProps as any)}
-            disabled={disabled}
-            error={!!error}
-            value={state.selectedItem?.rendered?.toString() || ""}
-            active={state.isOpen || isFocusVisible}
-            suffix={renderInputSufix()}
-          />
+          {renderInput()}
         </div>
         {state.isOpen && (
           <Popover
@@ -240,6 +234,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             triggerRef={triggerRef}
             state={state}
             ref={popoverRef}
+            fullWidth
           >
             {renderItems()}
           </Popover>

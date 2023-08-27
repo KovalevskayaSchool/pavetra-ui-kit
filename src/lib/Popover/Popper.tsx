@@ -13,11 +13,12 @@ interface PopoverProps
   children: React.ReactNode;
   className?: string;
   state: OverlayTriggerState;
+  fullWidth?: boolean;
 }
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   (
-    { children, className, state, isNonModal, ...props },
+    { children, className, state, isNonModal, fullWidth, ...props },
     refForwarded
   ) => {
     const popoverRef = useDOMRef(refForwarded);
@@ -26,13 +27,18 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       {
         ...props,
         popoverRef,
-        placement: 'bottom start',
-        offset: 5 
+        placement: "bottom start",
+        offset: 5,
       },
       state
     );
 
-    const width = props.triggerRef.current?.getBoundingClientRect().width || 0;
+    const width = fullWidth
+      ? {
+          minWidth:
+            props.triggerRef.current?.getBoundingClientRect().width || 0,
+        }
+      : {};
 
     return (
       <Overlay>
@@ -42,7 +48,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
           {...popoverProps}
           style={{
             ...popoverProps.style,
-            minWidth: width,
+            ...width,
             width: "fit-content",
           }}
         >

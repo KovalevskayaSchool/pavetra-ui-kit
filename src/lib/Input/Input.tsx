@@ -2,6 +2,7 @@ import { cloneElement, isValidElement, forwardRef, ReactNode } from "react";
 import cn from "classnames";
 import { AriaTextFieldProps, mergeProps, useFocusRing } from "react-aria";
 import { useTextField } from "react-aria";
+
 import { useDOMRef } from "../../utils/useDomRef";
 
 import styles from "./Input.module.css";
@@ -74,17 +75,26 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       onTextFieldChange?.(e);
     };
 
+    const inputClasses = cn(styles["input__control"], {
+      [styles["input__control_space_r"]]: !!prefix,
+      [styles["input__control_space_l"]]: !!suffix,
+
+      [styles["input__control_size_medium"]]: size === "medium",
+      [styles["input__control_size_large"]]: size === "large",
+      [styles["input__control_size_small"]]: size === "small",
+      [styles["input__control_readonly"]]: readOnly,
+      [styles["input__control_disabled"]]: disabled,
+    });
+
     const renderInputOverlay = () => {
       const propsOverlay = {
         value,
         prefix,
         suffix,
         disabled,
+        size,
         onChange: handleChange,
-        className: cn(styles["input__control"], {
-          ["pd-r"]: !!prefix,
-          ["pd-l"]: !!suffix,
-        }),
+        className: inputClasses,
         ...focusProps,
         ...props,
         ref,
@@ -106,6 +116,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div
+        ref={ref}
         className={cn(
           styles["input"],
           {
@@ -128,17 +139,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             {...props}
             readOnly={readOnly}
             onChange={handleChange}
-            className={cn(styles["input__control"], {
-              [styles["input__control_space_r"]]: !!prefix,
-              [styles["input__control_space_l"]]: !!suffix,
-
-              [styles["input__control_size_medium"]]: size === "medium",
-              [styles["input__control_size_large"]]: size === "large",
-              [styles["input__control_size_small"]]: size === "small",
-              [styles["input__control_readonly"]]: readOnly,
-              [styles["input__control_disabled"]]: disabled,
-            })}
-            ref={ref}
+            className={inputClasses}
             disabled={disabled}
           />
         ) : (

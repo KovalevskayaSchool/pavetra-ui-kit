@@ -44,6 +44,8 @@ import {
   CheckVerifiedOutline,
   ChevronLeftDoubleOutline,
   ChevronRightDoubleOutline,
+  ChartOutline,
+  ClockOutline,
 } from "@kovalevskayaschool/pavetra-icons";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -57,6 +59,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const icons = [
+  ChartOutline,
+  ClockOutline,
   Whatsapp,
   EditOutline,
   EyeOffOutline,

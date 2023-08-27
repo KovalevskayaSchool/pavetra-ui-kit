@@ -59,7 +59,7 @@ export const Item: FC<MenuItemProps> = ({
 
   return (
     <li
-      {...optionProps}
+      {...mergeProps(optionProps, pressProps)}
       ref={ref}
       className={classNames}
     >

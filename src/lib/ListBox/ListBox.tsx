@@ -3,7 +3,6 @@ import { forwardRef } from "react";
 import cn from "classnames";
 import { SelectState } from "react-stately";
 import { useListBox, AriaListBoxOptions } from "react-aria";
-
 import { Item } from "./Item";
 import { SeperatorItem } from "./SeperatorItem";
 import { type MenuItemProps } from "./Menu";

@@ -94,10 +94,6 @@ export const Dropdown = forwardRef<
     );
     const { focusProps } = useFocusRing();
 
-    function handleClose() {
-      onClose?.();
-      state.close();
-    }
 
     const renderChildren = () => {
       if (children && isValidElement(children)) {

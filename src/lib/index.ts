@@ -48,3 +48,5 @@ export { confirmDialog, ConfirmProvider, useConfirm } from "./Confirm";
 export type { ConfirmFuncProps } from "./Confirm";
 export { Grid } from "./Grid";
 export type { RowProps, ColProps } from "./Grid";
+export { TimeField } from "./TimeField";
+export type { TimeFieldProps } from "./TimeField";

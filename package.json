@@ -1,6 +1,6 @@
 {
   "name": "@kovalevskayaschool/pavetra",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "ui kit for school",
   "private": true,
   "type": "module",
@@ -48,6 +48,7 @@
     "react-dom": ">=18.2.0"
   },
   "dependencies": {
+    "@internationalized/date": "^3.4.0",
     "@kovalevskayaschool/pavetra-icons": "github:KovalevskayaSchool/pavetra-icons",
     "@popperjs/core": "^2.11.8",
     "classnames": "^2.3.2",

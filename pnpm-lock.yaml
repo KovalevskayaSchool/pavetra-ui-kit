@@ -5,9 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@internationalized/date':
+    specifier: ^3.4.0
+    version: 3.4.0
   '@kovalevskayaschool/pavetra-icons':
     specifier: github:KovalevskayaSchool/pavetra-icons
-    version: git@github.com+KovalevskayaSchool/pavetra-icons/3c9fb7eef2bb96a6f5766d299cc6d8a54be38fe6(react-dom@18.2.0)(react@18.2.0)
+    version: git@github.com+KovalevskayaSchool/pavetra-icons/c0cba729481c610ce45c5a26fd12db2cac8bbcf9(react-dom@18.2.0)(react@18.2.0)
   '@popperjs/core':
     specifier: ^2.11.8
     version: 2.11.8
@@ -11248,11 +11251,11 @@ packages:
       commander: 9.5.0
     dev: true
 
-  git@github.com+KovalevskayaSchool/pavetra-icons/3c9fb7eef2bb96a6f5766d299cc6d8a54be38fe6(react-dom@18.2.0)(react@18.2.0):
-    resolution: {commit: 3c9fb7eef2bb96a6f5766d299cc6d8a54be38fe6, repo: git@github.com:KovalevskayaSchool/pavetra-icons.git, type: git}
-    id: git@github.com+KovalevskayaSchool/pavetra-icons/3c9fb7eef2bb96a6f5766d299cc6d8a54be38fe6
+  git@github.com+KovalevskayaSchool/pavetra-icons/c0cba729481c610ce45c5a26fd12db2cac8bbcf9(react-dom@18.2.0)(react@18.2.0):
+    resolution: {commit: c0cba729481c610ce45c5a26fd12db2cac8bbcf9, repo: git@github.com:KovalevskayaSchool/pavetra-icons.git, type: git}
+    id: git@github.com+KovalevskayaSchool/pavetra-icons/c0cba729481c610ce45c5a26fd12db2cac8bbcf9
     name: '@kovalevskayaschool/pavetra-icons'
-    version: 0.0.12
+    version: 0.0.14
     peerDependencies:
       react: '>=18.2.0'
       react-dom: '>=18.2.0'
