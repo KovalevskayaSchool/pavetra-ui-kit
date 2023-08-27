@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Select } from "..";
+import { BellOutline } from "@kovalevskayaschool/pavetra-icons";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {
@@ -13,6 +14,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const arrayOfObjects = Array.from({ length: 30 }, (_, index) => ({
+  id: `test-${index + 1}`,
+  label: `Test - ${index + 1}`
+}));
+
 const ControlledComponent = () => {
   const [value, setValue] = useState("test-2");
 
@@ -20,6 +26,8 @@ const ControlledComponent = () => {
     console.log("change", { value, item });
     setValue(value);
   }
+
+
 
   return (
     <div
@@ -37,12 +45,7 @@ const ControlledComponent = () => {
           value={value}
           onOpenChange={(isOpen) => console.log("onOpenChange", isOpen)}
           onChange={handleChange}
-          menu={[
-            { id: "test-1", label: "Test 1" },
-            { id: "test-2", label: "Test 2" },
-            { id: "test-3", label: "Test 3", disabled: true },
-            { id: "test-4", label: "Test 4" },
-          ]}
+          menu={arrayOfObjects}
         />
       </div>
     </div>

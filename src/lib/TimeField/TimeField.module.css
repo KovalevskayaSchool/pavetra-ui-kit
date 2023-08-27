@@ -1,0 +1,14 @@
+.time-picker {
+  width: fit-content;
+  box-sizing: border-box;
+}
+
+.time-picker__input {
+  display: flex;
+  align-items: center;
+}
+
+.time-picker__segment {
+  display: flex;
+  color: inherit;
+}

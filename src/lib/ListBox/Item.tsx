@@ -1,6 +1,7 @@
 import { cloneElement, FC, isValidElement, useRef } from "react";
 import cn from "classnames";
 import type { Node } from "@react-types/shared";
+import { CheckmarkOutline } from "@kovalevskayaschool/pavetra-icons";
 import type { ListState } from "react-stately";
 import { useFocusRing, useOption, mergeProps, usePress } from "react-aria";
 
@@ -17,14 +18,11 @@ export const Item: FC<MenuItemProps> = ({
   className,
   state,
   item,
-  ...props
 }) => {
-  state.collection.getItem(item.key);
   const ref = useRef<HTMLLIElement | null>(null);
   const refLink = useRef<HTMLLinkElement | null>(null);
-  const { isFocusVisible, focusProps } = useFocusRing();
   const label = !isValidElement(item.rendered) ? item.rendered?.toString() : "";
-  const { optionProps, isDisabled, isSelected } = useOption(
+  const { optionProps, isDisabled, isSelected, isFocused } = useOption(
     {
       key: item.key,
     },
@@ -46,7 +44,7 @@ export const Item: FC<MenuItemProps> = ({
 
   const classNames = cn(className, styles["listbox__item"], {
     [styles["listbox__item_selected"]]: isSelected,
-    [styles["listbox__item_active"]]: isFocusVisible,
+    [styles["listbox__item_focused"]]: isFocused,
     [styles["listbox__item_disabled"]]: isDisabled,
   });
 
@@ -61,11 +59,9 @@ export const Item: FC<MenuItemProps> = ({
 
   return (
     <li
+      {...mergeProps(optionProps, pressProps)}
       ref={ref}
-      {...props}
-      {...mergeProps(optionProps, pressProps, focusProps)}
       className={classNames}
-      title={label}
     >
       <div className={styles["listbox__item-content"]}>
         {item.props.icon && (
@@ -73,9 +69,12 @@ export const Item: FC<MenuItemProps> = ({
             {item.props.icon}
           </span>
         )}
-        <span className={styles["listbox__label-item"]}>
-          {renderChildren()}
-        </span>
+        <div className={styles["listbox__label-container"]}>
+          <span className={styles["listbox__label-item"]}>
+            {renderChildren()}
+          </span>
+          {isSelected ? <CheckmarkOutline /> : null}
+        </div>
       </div>
     </li>
   );

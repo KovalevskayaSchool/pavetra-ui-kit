@@ -35,6 +35,7 @@
   border-color: var(--input-active-border-color);
 }
 .input:focus-within {
+  border-color: var(--input-active-border-color);
   background-color: var(--input-background-color);
 }
 

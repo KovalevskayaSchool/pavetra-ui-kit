@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { ReactNode, forwardRef, useRef } from "react";
 import cn from "classnames";
 import { useSelectState, SelectProps as SelectBaseProps } from "react-stately";
 import {
@@ -16,13 +16,16 @@ import {
 import { Input } from "../Input/Input";
 import { Spin } from "../Spin";
 import { Box } from "../Box";
+import { Button } from "../Button";
+import { Popover } from "../Popover";
 import { ListBox, type MenuItemProps } from "../ListBox";
+import { mapToAriaProps } from "../ListBox/map";
+
+import { useDOMRef } from "../../utils/useDomRef";
+import { useScrollSelectFocus } from "../../utils/useScrollSelectFocus";
 
 import { type Placement } from "./Select.d";
-import { mapToAriaProps } from "../ListBox/map";
-import { Popover } from "../Popover";
-import { Button } from "../Button";
-import { useDOMRef } from "../../utils/useDomRef";
+
 import styles from "./Select.module.css";
 
 export interface SelectProps
@@ -48,6 +51,7 @@ export interface SelectProps
   name?: string;
   label?: string;
   error?: boolean | string | null;
+  dropdownChildren?: () => ReactNode;
 }
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(
@@ -68,6 +72,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       allowClear,
       error,
       onClick,
+      dropdownChildren,
       ...props
     },
     ref
@@ -81,9 +86,11 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     const childrenMenu = menu.length > 0 ? menu : defaultMenu;
 
     const propsWithChildren = mapToAriaProps(childrenMenu, ariaLabel || "");
-    const state = useSelectState<MenuItemProps>({
+    let state = useSelectState<MenuItemProps>({
       ...propsWithChildren,
+      autoFocus: true,
       defaultSelectedKey: defaultValue,
+      isDisabled: disabled,
       selectedKey: value,
       disabledKeys: menu
         .filter((item) => item.disabled)
@@ -95,29 +102,30 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       },
       onOpenChange,
     });
-
-    const triggerRef = useDOMRef(ref);
-    const { triggerProps, menuProps } = useSelect(
+    const selectRef = useDOMRef(ref)
+    const popoverRef = useRef<HTMLDivElement>(null);
+    const listBoxRef = useRef<HTMLUListElement>(null);
+    const triggerRef = useRef(null);
+    let { triggerProps, menuProps } = useSelect(
       {
         ...props,
-        ...propsWithChildren,
-        defaultSelectedKey: defaultValue,
-        selectedKey: value,
         isDisabled: disabled,
-        items: menu,
         "aria-label": ariaLabel || "select",
+        autoFocus: true,
       },
       state,
       triggerRef
     );
 
-    const { buttonProps } = useButton(triggerProps, triggerRef);
+    let { buttonProps } = useButton(triggerProps, triggerRef);
     const { isFocusVisible, focusProps } = useFocusRing();
 
-    function handleClose() {
-      onClose?.();
-      state.close();
-    }
+    useScrollSelectFocus({
+      isOpen: state.isOpen,
+      popoverRef,
+      listBoxRef,
+      triggerRef,
+    });
 
     function handleClear() {
       state.setSelectedKey("");
@@ -143,9 +151,12 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       }
 
       return (
-        <Box className={styles["select__poppover"]}>
-          <ListBox {...menuProps} state={state} />
-        </Box>
+        <ListBox
+          className={styles["select__poppover"]}
+          state={state}
+          ref={listBoxRef}
+          {...menuProps}
+        />
       );
     };
 
@@ -182,8 +193,26 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       );
     };
 
+    function renderInput() {
+      const isActive = state.isOpen || isFocusVisible;
+      const value = state.selectedItem?.rendered?.toString() || "";
+
+      return (
+        <Input
+          placeholder={placeholder}
+          readOnly
+          {...(focusProps as any)}
+          disabled={disabled}
+          error={!!error}
+          value={value}
+          active={isActive}
+          suffix={renderInputSufix()}
+        />
+      );
+    }
+
     return (
-      <div className={cn(styles["select"], className)} {...props}>
+      <div ref={selectRef} className={cn(styles["select"], className)} {...props}>
         <HiddenSelect
           state={state}
           triggerRef={triggerRef}
@@ -191,29 +220,21 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
           name={props.name}
         />
         <div
-          {...(mergeProps(buttonProps) as any)}
+          ref={triggerRef}
+          {...mergeProps(buttonProps)}
           className={cn(styles["select__button"], {
             [styles["select__button_disabled"]]: disabled,
           })}
-          ref={triggerRef}
         >
-          <Input
-            placeholder={placeholder}
-            readOnly
-            {...(focusProps as any)}
-            disabled={disabled}
-            error={!!error}
-            value={state.selectedItem?.rendered?.toString() || ""}
-            active={state.isOpen || isFocusVisible}
-            suffix={renderInputSufix()}
-            onClick={onClick}
-          />
+          {renderInput()}
         </div>
         {state.isOpen && (
           <Popover
-            onClose={handleClose}
             isOpen={state.isOpen}
             triggerRef={triggerRef}
+            state={state}
+            ref={popoverRef}
+            fullWidth
           >
             {renderItems()}
           </Popover>

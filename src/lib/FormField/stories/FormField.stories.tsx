@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { FormField } from "..";
@@ -7,7 +8,7 @@ import { Radio, RadioGroup } from "../../Radio";
 import { Checkbox } from "../../Checkbox";
 import { Select } from "../../Select";
 import { DatePicker } from "../../Datepicker";
-import { useState } from "react";
+import { TimeField } from "../../TimeField";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {
@@ -106,6 +107,16 @@ const ControlledComponent = () => {
         error="required"
       >
         <DatePicker />
+      </FormField>
+
+      <FormField
+        onChange={(value) => console.log(value, "DatePicker")}
+        value={new Date()}
+        name="TimeField"
+        label="TimeField"
+        error="required"
+      >
+        <TimeField />
       </FormField>
     </form>
   );
