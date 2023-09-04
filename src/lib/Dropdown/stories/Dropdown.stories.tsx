@@ -93,3 +93,55 @@ export const Disabled: Story = {
     children: <Button>Click on me!</Button>,
   },
 };
+
+const CustomComponent = () => {
+  return (
+    <div
+      style={{
+        height: 400,
+        width: 200,
+      }}
+    >
+      <div
+        style={{
+          marginTop: 50,
+        }}
+      >
+        <Dropdown
+          label="Controlled"
+          menu={[
+            { id: "test-1", label: "1st element of menu" },
+            { id: "test-2", label: "2st element of menu" },
+            { id: "test-3", label: "3st element of menu", disabled: true },
+            { type: "divider" },
+            {
+              id: "test-x",
+              label: "4st element of menu with icon",
+              icon: <BookOutline />,
+            },
+            { type: "divider" },
+            { id: "test-4", label: "5st element of menu" },
+            {
+              id: "test-5",
+              label: (
+                <a href="https://chat.openai.com">6st link element of menu</a>
+              ),
+            },
+          ]}
+          dropdownRender={(menu) => (
+            <div>
+              <div>header</div>
+              {menu}
+            </div>
+          )}
+        >
+          <Button>Click on me!</Button>
+        </Dropdown>
+      </div>
+    </div>
+  );
+};
+
+export const customRenderDropdown: Story = {
+  render: CustomComponent,
+};

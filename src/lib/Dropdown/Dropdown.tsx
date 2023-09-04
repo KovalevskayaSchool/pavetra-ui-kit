@@ -4,6 +4,7 @@ import {
   isValidElement,
   cloneElement,
   PropsWithChildren,
+  ReactNode,
 } from "react";
 import { useSelectState, SelectProps as SelectBaseProps } from "react-stately";
 import { HiddenSelect, useButton, useFocusRing, useSelect } from "react-aria";
@@ -36,6 +37,7 @@ export interface DropdownProps
   disabled?: boolean;
   name?: string;
   label?: string;
+  dropdownRender?: (menu: ReactNode) => ReactNode;
 }
 
 export const Dropdown = forwardRef<
@@ -45,6 +47,7 @@ export const Dropdown = forwardRef<
   (
     {
       children,
+      dropdownRender,
       menu = [],
       defaultValue,
       onChange,
@@ -94,7 +97,6 @@ export const Dropdown = forwardRef<
     );
     const { focusProps } = useFocusRing();
 
-
     const renderChildren = () => {
       if (children && isValidElement(children)) {
         return cloneElement(children as React.ReactElement<any>, {
@@ -108,15 +110,13 @@ export const Dropdown = forwardRef<
 
     const renderItems = () => {
       return (
-        <Box className={styles["dropdown__poppover"]}>
-          <ListBox
-            ref={listboxRef}
-            {...menuProps}
-            disallowEmptySelection={true}
-            shouldSelectOnPressUp={true}
-            state={state}
-          />
-        </Box>
+        <ListBox
+          ref={listboxRef}
+          {...menuProps}
+          disallowEmptySelection={true}
+          shouldSelectOnPressUp={true}
+          state={state}
+        />
       );
     };
 
@@ -132,7 +132,9 @@ export const Dropdown = forwardRef<
           className={className}
           state={state}
         >
-          {renderItems()}
+          <Box className={styles["dropdown__poppover"]}>
+            {dropdownRender ? dropdownRender(renderItems()) : renderItems()}
+          </Box>
         </Popover>
       );
     };
