@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { ReactNode, forwardRef } from "react";
 
 import cn from "classnames";
 import { useListState } from "react-stately";
@@ -24,6 +24,7 @@ export interface MenuProps
   onChange?: (key: string) => void;
   mode?: "horizontal" | "vertical";
   type?: "listbox" | "menu";
+  itemRender?: (item: ReactNode) => ReactNode;
 }
 
 export const Menu = forwardRef<HTMLUListElement, MenuProps>(
@@ -34,6 +35,7 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
       shouldSelectOnPressUp,
       menu = [],
       defaultSelectedKey,
+      itemRender,
       selectedKey,
       onChange,
       mode = "vertical",
@@ -73,23 +75,26 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
     );
 
     const renderItems = () =>
-      [...Array.from(state.collection)]?.map((item) =>
-        item.props.type === "divider" ? (
-          <SeperatorItem key={item.key} />
-        ) : (
-          <Item
-            state={state}
-            key={item.key}
-            item={item}
-            className={cn({
-              [styles["menu__item_mode_horizontal"]]:
-                mode === "horizontal" && type !== "listbox",
-              [styles["menu__item_mode_vertical"]]:
-                mode === "vertical" && type !== "listbox",
-            })}
-          />
-        )
-      );
+      [...Array.from(state.collection)]?.map((item) => {
+        const ItemComponent =
+          item.props.type === "divider" ? (
+            <SeperatorItem key={item.key} />
+          ) : (
+            <Item
+              state={state}
+              key={item.key}
+              item={item}
+              className={cn({
+                [styles["menu__item_mode_horizontal"]]:
+                  mode === "horizontal" && type !== "listbox",
+                [styles["menu__item_mode_vertical"]]:
+                  mode === "vertical" && type !== "listbox",
+              })}
+            />
+          );
+
+        return itemRender ? itemRender(ItemComponent) : ItemComponent;
+      });
 
     return (
       <ul
@@ -101,7 +106,7 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
             [styles["menu_mode_horizontal"]]: mode === "horizontal",
             [styles["menu_mode_vertical"]]: mode === "vertical",
           },
-          className,
+          className
         )}
       >
         {renderItems()}

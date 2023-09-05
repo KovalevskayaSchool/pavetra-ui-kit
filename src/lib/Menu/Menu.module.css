@@ -46,7 +46,6 @@
 }
 
 .menu__item_selected {
-  background-color: var(--menu-item-selected-bg-color);
   color: var(--color-primary);
 }
 
@@ -56,9 +55,9 @@
   height: 2rem;
   background-color: var(--menu-divider-bg-color);
   border-radius: 0.6rem;
-  transform: translate(-6px);
+  transform: translate(-0.2rem);
   visibility: hidden;
-  inset-inline-start: 0.6rem;
+  inset-inline-start: 0.25rem;
   position: absolute;
 }
 
@@ -86,7 +85,6 @@
 .menu__item-content {
   position: relative;
   border: 2px solid transparent;
-  padding-inline: 0.8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
