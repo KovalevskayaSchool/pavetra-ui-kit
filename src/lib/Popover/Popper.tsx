@@ -46,6 +46,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         <div
           ref={popoverRef}
           {...popoverProps}
+          className={className}
           style={{
             ...popoverProps.style,
             ...width,

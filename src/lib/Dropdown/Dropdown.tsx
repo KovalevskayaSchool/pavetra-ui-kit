@@ -8,6 +8,7 @@ import {
 } from "react";
 import { useSelectState, SelectProps as SelectBaseProps } from "react-stately";
 import { HiddenSelect, useButton, useFocusRing, useSelect } from "react-aria";
+import cn from 'classnames'
 
 import { ListBox, type MenuItemProps } from "../ListBox";
 
@@ -129,10 +130,9 @@ export const Dropdown = forwardRef<
         <Popover
           isOpen={state.isOpen}
           triggerRef={triggerRef}
-          className={className}
           state={state}
         >
-          <Box className={styles["dropdown__poppover"]}>
+          <Box className={cn(styles["dropdown__poppover"], className)}>
             {dropdownRender ? dropdownRender(renderItems()) : renderItems()}
           </Box>
         </Popover>
