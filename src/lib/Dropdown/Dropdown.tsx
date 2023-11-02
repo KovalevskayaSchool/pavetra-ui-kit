@@ -7,7 +7,7 @@ import {
   ReactNode,
 } from "react";
 import { useSelectState, SelectProps as SelectBaseProps } from "react-stately";
-import { HiddenSelect, useButton, useFocusRing, useSelect } from "react-aria";
+import { HiddenSelect, Placement, useButton, useFocusRing, useSelect } from "react-aria";
 import cn from 'classnames'
 
 import { ListBox, type MenuItemProps } from "../ListBox";
@@ -16,8 +16,6 @@ import { Popover } from "../Popover";
 import { mapToAriaProps } from "../ListBox/map";
 import { Box } from "../Box";
 import { useDOMRef } from "../../utils/useDomRef";
-
-import { type Placement } from "./Dropdown.d";
 
 import styles from "./Dropdown.module.css";
 
@@ -59,6 +57,7 @@ export const Dropdown = forwardRef<
       ariaLabel,
       disabled,
       isOpen,
+      placement,
       ...props
     },
     ref
@@ -133,6 +132,7 @@ export const Dropdown = forwardRef<
           isOpen={state.isOpen}
           triggerRef={triggerRef}
           state={state}
+          placement={placement}
         >
           <Box className={cn(styles["dropdown__poppover"], className)}>
             {dropdownRender ? dropdownRender(renderItems()) : renderItems()}
