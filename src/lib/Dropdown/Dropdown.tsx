@@ -58,6 +58,7 @@ export const Dropdown = forwardRef<
       value,
       ariaLabel,
       disabled,
+      isOpen,
       ...props
     },
     ref
@@ -66,6 +67,7 @@ export const Dropdown = forwardRef<
     const propsWithChildren = mapToAriaProps(menu, ariaLabel || "");
     const state = useSelectState<MenuItemProps>({
       ...propsWithChildren,
+      isOpen,
       defaultSelectedKey: defaultValue,
       selectedKey: value,
       disabledKeys: menu

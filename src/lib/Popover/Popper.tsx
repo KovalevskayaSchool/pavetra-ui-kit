@@ -18,7 +18,7 @@ interface PopoverProps
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   (
-    { children, className, state, isNonModal, fullWidth, ...props },
+    { children, className, state, placement = "bottom start", isNonModal, fullWidth, ...props },
     refForwarded
   ) => {
     const popoverRef = useDOMRef(refForwarded);
@@ -27,7 +27,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       {
         ...props,
         popoverRef,
-        placement: "bottom start",
+        placement,
         offset: 5,
       },
       state
@@ -42,7 +42,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
     return (
       <Overlay>
-        {!isNonModal && <div {...underlayProps} className="fixed inset-0" />}
+        {!isNonModal && <div {...underlayProps} />}
         <div
           ref={popoverRef}
           {...popoverProps}
