@@ -1,5 +1,5 @@
 {
-  "name": "@kovalevskayaschool/pavetra",
+  "name": "@kovalevskaya/pavetra",
   "version": "0.0.38",
   "description": "ui kit for school",
   "private": true,
@@ -23,6 +23,7 @@
     "prepare": "husky install"
   },
   "repository": {
+    "type": "git",
     "url": "git://github.com/KovalevskayaSchool/pavetra-ui.git"
   },
   "author": "Aleksei <symblight@gmail.com>",
@@ -110,5 +111,9 @@
     "typescript": "^5.1.6",
     "vite": "^4.4.7",
     "vite-plugin-dts": "^3.3.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/KovalevskayaSchool/pavetra-ui/issues"
+  },
+  "homepage": "https://github.com/KovalevskayaSchool/pavetra-ui#readme"
 }
