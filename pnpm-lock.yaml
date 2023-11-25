@@ -9,7 +9,7 @@ dependencies:
     specifier: ^3.4.0
     version: 3.4.0
   '@kovalevskayaschool/pavetra-icons':
-    specifier: github:KovalevskayaSchool/pavetra-icons
+    specifier: git+https://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:x-oauth-basic@github.com/KovalevskayaSchool/pavetra-icons#main
     version: git@github.com+KovalevskayaSchool/pavetra-icons/7994a0c1bf4ce6a10478311098b0171b2f1b2ecc(react-dom@18.2.0)(react@18.2.0)
   '@popperjs/core':
     specifier: ^2.11.8
