@@ -7,7 +7,7 @@ import {
 } from "react-aria";
 import { OverlayTriggerState } from "react-stately";
 import cn from "classnames";
-import { CloseOutline } from "@kovalevskayaschool/pavetra-icons";
+import { CloseOutline } from "@symblight/pavetra-icons";
 import { OverlayTriggerStateModal } from "./useModal";
 
 import { Portal } from "../Portal";

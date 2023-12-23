@@ -2,7 +2,6 @@ import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Select } from "..";
-import { BellOutline } from "@kovalevskayaschool/pavetra-icons";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {

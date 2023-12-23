@@ -8,7 +8,7 @@ import format from "date-fns/format";
 import {
   ChevronLeftOutline,
   ChevronRightOutline,
-} from "@kovalevskayaschool/pavetra-icons";
+} from "@symblight/pavetra-icons";
 
 import { useDatePickerCtx } from "../useDatePickerCtx";
 import { DatePickerTemplate } from "../DatePickerTemplate";

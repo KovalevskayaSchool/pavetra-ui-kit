@@ -50,8 +50,8 @@
   },
   "dependencies": {
     "@internationalized/date": "^3.4.0",
-    "@kovalevskayaschool/pavetra-icons": "git+https://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:x-oauth-basic@github.com/KovalevskayaSchool/pavetra-icons#main",
     "@popperjs/core": "^2.11.8",
+    "@symblight/pavetra-icons": "^0.0.15",
     "classnames": "^2.3.2",
     "react-aria": "^3.27.0",
     "react-popper": "^2.3.0",

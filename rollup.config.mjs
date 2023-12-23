@@ -75,7 +75,7 @@ const config = {
     "classnames",
     "react-aria",
     "react-stately",
-    "@kovalevskayaschool/pavetra-icons",
+    "@symblight/pavetra-icons",
     "date-fns/*",
     "react-popper",
   ],

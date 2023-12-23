@@ -1,5 +1,5 @@
 import { forwardRef, useState } from "react";
-import { EyeOutline, EyeOffOutline } from "@kovalevskayaschool/pavetra-icons";
+import { EyeOutline, EyeOffOutline } from "@symblight/pavetra-icons";
 
 import { Button } from "../Button";
 import { Input, type InputProps } from "./Input";

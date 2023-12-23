@@ -11,7 +11,7 @@ import {
 import {
   ChevronDownOutline,
   CloseOutline,
-} from "@kovalevskayaschool/pavetra-icons";
+} from "@symblight/pavetra-icons";
 
 import { Input } from "../Input/Input";
 import { Spin } from "../Spin";
