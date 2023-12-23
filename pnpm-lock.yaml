@@ -8,12 +8,12 @@ dependencies:
   '@internationalized/date':
     specifier: ^3.4.0
     version: 3.4.0
-  '@kovalevskayaschool/pavetra-icons':
-    specifier: git+https://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:x-oauth-basic@github.com/KovalevskayaSchool/pavetra-icons#main
-    version: git@github.com+KovalevskayaSchool/pavetra-icons/7994a0c1bf4ce6a10478311098b0171b2f1b2ecc(react-dom@18.2.0)(react@18.2.0)
   '@popperjs/core':
     specifier: ^2.11.8
     version: 2.11.8
+  '@symblight/pavetra-icons':
+    specifier: ^0.0.15
+    version: 0.0.15(react-dom@18.2.0)(react@18.2.0)
   classnames:
     specifier: ^2.3.2
     version: 2.3.2
@@ -4509,6 +4509,16 @@ packages:
     resolution: {integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==}
     dependencies:
       tslib: 2.6.1
+    dev: false
+
+  /@symblight/pavetra-icons@0.0.15(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-6nK8cSdi4fcU+9aBDMHfRVLo1jSejmBIcX1L5DIa5htcdNJU/CpZxGg/wSJMu4bEtbYMJUwhioVTnZIe0oNpjw==}
+    peerDependencies:
+      react: '>=18.2.0'
+      react-dom: '>=18.2.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@testing-library/dom@9.3.1:
@@ -11267,16 +11277,3 @@ packages:
     optionalDependencies:
       commander: 9.5.0
     dev: true
-
-  git@github.com+KovalevskayaSchool/pavetra-icons/7994a0c1bf4ce6a10478311098b0171b2f1b2ecc(react-dom@18.2.0)(react@18.2.0):
-    resolution: {commit: 7994a0c1bf4ce6a10478311098b0171b2f1b2ecc, repo: git@github.com:KovalevskayaSchool/pavetra-icons.git, type: git}
-    id: git@github.com+KovalevskayaSchool/pavetra-icons/7994a0c1bf4ce6a10478311098b0171b2f1b2ecc
-    name: '@kovalevskayaschool/pavetra-icons'
-    version: 0.0.15
-    peerDependencies:
-      react: '>=18.2.0'
-      react-dom: '>=18.2.0'
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false

@@ -3,7 +3,7 @@ import {
   SunOutline,
   CalendarOutline,
   CloseOutline,
-} from "@kovalevskayaschool/pavetra-icons";
+} from "@symblight/pavetra-icons";
 
 import { Button } from "..";
 

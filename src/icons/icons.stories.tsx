@@ -46,7 +46,7 @@ import {
   ChevronRightDoubleOutline,
   ChartOutline,
   ClockOutline,
-} from "@kovalevskayaschool/pavetra-icons";
+} from "@symblight/pavetra-icons";
 
 import type { Meta, StoryObj } from "@storybook/react";
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction

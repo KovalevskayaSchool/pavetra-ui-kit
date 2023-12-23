@@ -4,7 +4,7 @@ import { usePagination } from "./usePagination";
 import {
   ChevronLeftOutline,
   ChevronRightOutline,
-} from "@kovalevskayaschool/pavetra-icons";
+} from "@symblight/pavetra-icons";
 import { Button } from "../Button";
 
 import { useControlled } from "../../utils/useControlled";

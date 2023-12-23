@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { CalendarOutline, SunOutline } from "@kovalevskayaschool/pavetra-icons";
+import { CalendarOutline, SunOutline } from "@symblight/pavetra-icons";
 
 import { Menu } from "..";
 

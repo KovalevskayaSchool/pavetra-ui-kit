@@ -1,7 +1,7 @@
 import { cloneElement, FC, isValidElement, useRef } from "react";
 import cn from "classnames";
 import type { Node } from "@react-types/shared";
-import { CheckmarkOutline } from "@kovalevskayaschool/pavetra-icons";
+import { CheckmarkOutline } from "@symblight/pavetra-icons";
 import type { ListState } from "react-stately";
 import { useFocusRing, useOption, mergeProps, usePress } from "react-aria";
 

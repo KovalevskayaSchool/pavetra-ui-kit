@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { CalendarOutline } from "@kovalevskayaschool/pavetra-icons";
+import { CalendarOutline } from "@symblight/pavetra-icons";
 
 import { Card } from "..";
 import { Avatar, Button } from "../..";

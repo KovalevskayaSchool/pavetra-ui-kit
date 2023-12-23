@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { TrashOutline } from "@kovalevskayaschool/pavetra-icons";
+import { TrashOutline } from "@symblight/pavetra-icons";
 
 import { Table, Selection } from "..";
 import { Typography } from "../../Typography";

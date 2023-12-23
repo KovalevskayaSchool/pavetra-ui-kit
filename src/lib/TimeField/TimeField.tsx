@@ -3,7 +3,7 @@ import cn from "classnames";
 import { Time } from "@internationalized/date";
 import {  useTimeFieldState } from "react-stately";
 import { AriaTimeFieldProps,  useTimeField } from "react-aria";
-import { ClockOutline } from "@kovalevskayaschool/pavetra-icons";
+import { ClockOutline } from "@symblight/pavetra-icons";
 import ru from "date-fns/locale/ru";
 import { Locale } from "date-fns";
 import { Input } from "../Input/Input";

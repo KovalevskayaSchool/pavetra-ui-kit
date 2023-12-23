@@ -7,7 +7,7 @@ import format from "date-fns/format";
 import {
   ChevronDownOutline,
   CloseOutline,
-} from "@kovalevskayaschool/pavetra-icons";
+} from "@symblight/pavetra-icons";
 
 import type { PickerType, DatePickerEvent, PickerDay } from "./DatePicker.d";
 import { Input } from "../Input";
