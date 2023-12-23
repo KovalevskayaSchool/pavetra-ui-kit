@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar should render component 1`] = `
+<div>
+  <svg
+    aria-hidden="true"
+    class="avatar"
+    data-visualcompletion="ignore-dynamic"
+    role="none"
+    style="height: 52px; width: 52px;"
+  >
+    <mask
+      id=":r0:"
+    >
+      <circle
+        cx="26"
+        cy="26"
+        fill="white"
+        r="26"
+      />
+    </mask>
+    <g
+      mask="url(#:r0:)"
+    >
+      <circle
+        class="avatar__circle"
+        cx="26"
+        cy="26"
+        data-fill="true"
+        fill="gray"
+        r="26"
+      />
+      <g>
+        <text
+          dy=".3em"
+          fill="white"
+          stroke="white"
+          stroke-width="1"
+          style="font-size: 24px;"
+          text-anchor="middle"
+          x="50%"
+          y="52%"
+        />
+      </g>
+    </g>
+  </svg>
+</div>
+`;
