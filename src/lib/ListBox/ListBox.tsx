@@ -17,21 +17,14 @@ export interface MenuProps extends AriaListBoxOptions<MenuItemProps> {
 }
 
 export const ListBox = forwardRef<HTMLUListElement, MenuProps>(
-  (
-    {
-      className,
-      state,
-      ...props
-    },
-    refForwarded
-  ) => {
+  ({ className, state, ...props }, refForwarded) => {
     const listBoxRef = useDOMRef(refForwarded);
 
     const { listBoxProps } = useListBox(
       {
         ...props,
         autoFocus: state.focusStrategy || true,
-        disallowEmptySelection: true
+        disallowEmptySelection: true,
       },
       state,
       listBoxRef

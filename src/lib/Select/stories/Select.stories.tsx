@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 const arrayOfObjects = Array.from({ length: 30 }, (_, index) => ({
   id: `test-${index + 1}`,
-  label: `Test - ${index + 1}`
+  label: `Test - ${index + 1}`,
 }));
 
 const ControlledComponent = () => {
@@ -25,8 +25,6 @@ const ControlledComponent = () => {
     console.log("change", { value, item });
     setValue(value);
   }
-
-
 
   return (
     <div

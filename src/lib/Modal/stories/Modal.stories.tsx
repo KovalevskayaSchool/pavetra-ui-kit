@@ -62,7 +62,6 @@ export const Default: Story = {
   render: ControlledComponent,
 };
 
-
 const FullComponent = () => {
   const modal = useModal({
     onOpenChange(isOpen) {
@@ -106,7 +105,6 @@ const FullComponent = () => {
     </>
   );
 };
-
 
 export const Full: Story = {
   render: FullComponent,

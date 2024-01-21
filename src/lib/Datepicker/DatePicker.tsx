@@ -4,10 +4,7 @@ import { useDatePickerState } from "react-stately";
 import cn from "classnames";
 import { Locale } from "date-fns/types";
 import format from "date-fns/format";
-import {
-  ChevronDownOutline,
-  CloseOutline,
-} from "@symblight/pavetra-icons";
+import { ChevronDownOutline, CloseOutline } from "@symblight/pavetra-icons";
 
 import type { PickerType, DatePickerEvent, PickerDay } from "./DatePicker.d";
 import { Input } from "../Input";

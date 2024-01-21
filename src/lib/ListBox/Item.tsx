@@ -14,11 +14,7 @@ export interface MenuItemProps {
   item: Node<MenuItemElProps>;
 }
 
-export const Item: FC<MenuItemProps> = ({
-  className,
-  state,
-  item,
-}) => {
+export const Item: FC<MenuItemProps> = ({ className, state, item }) => {
   const ref = useRef<HTMLLIElement | null>(null);
   const refLink = useRef<HTMLLinkElement | null>(null);
   const label = !isValidElement(item.rendered) ? item.rendered?.toString() : "";

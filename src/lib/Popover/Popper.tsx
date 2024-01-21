@@ -18,7 +18,15 @@ interface PopoverProps
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   (
-    { children, className, state, placement = "bottom start", isNonModal, fullWidth, ...props },
+    {
+      children,
+      className,
+      state,
+      placement = "bottom start",
+      isNonModal,
+      fullWidth,
+      ...props
+    },
     refForwarded
   ) => {
     const popoverRef = useDOMRef(refForwarded);
