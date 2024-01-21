@@ -7,20 +7,49 @@ import {
 
 import { Button } from "..";
 
-// More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {
   title: "Controls/Button",
   component: Button,
   tags: ["autodocs"],
+  argTypes: {
+    variant: {
+      options: ["primary", "secondary", "inline", "ghost", "link"],
+      control: { type: "select" },
+    },
+    danger: {
+      control: { type: "boolean" },
+    },
+    disabled: {
+      control: { type: "boolean" },
+    },
+    rounded: {
+      control: { type: "boolean" },
+    },
+    loading: {
+      control: { type: "boolean" },
+    },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Regular: Story = {
+  args: {
+    variant: "primary",
+  },
+  render: (props) => {
+    return (
+      <>
+        <Button {...props}>Primary button</Button>
+      </>
+    );
+  },
+};
+
 // More on writing stories with args: https://storybook.js.org/docs/7.0/react/writing-stories/args
 export const Variants: Story = {
   args: {},
-
   render: () => {
     function handleClick() {
       console.log(111, "onClick");

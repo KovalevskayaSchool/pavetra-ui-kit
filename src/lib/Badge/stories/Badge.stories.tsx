@@ -8,6 +8,11 @@ const meta = {
   title: "Views/Badge",
   component: Badge,
   tags: ["autodocs"],
+  argTypes: {
+    count: {
+      control: { type: "number" },
+    },
+  },
 } satisfies Meta<typeof Badge>;
 
 export default meta;
@@ -18,8 +23,11 @@ const imageSrc =
 
 // More on writing stories with args: https://storybook.js.org/docs/7.0/react/writing-stories/args
 export const Default: Story = {
-  render: () => (
-    <Badge count={5}>
+  args: {
+    count: 5,
+  },
+  render: ({ count }) => (
+    <Badge count={count}>
       <Avatar imageSrc={imageSrc} size={35} />
     </Badge>
   ),

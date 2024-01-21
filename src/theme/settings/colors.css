@@ -8,7 +8,7 @@
 
   --color-secondary: oklch(66.7% 0.031 248.3);
   --color-secondary-dark: oklch(62.41% 0.036 248.4);
-  --color-secondary-light: oklch(70.93% 0.027 248.21)
+  --color-secondary-light: oklch(70.93% 0.027 248.21);
 
   --color-warning: oklch(84.32% 0.172 84.73);
   --color-danger: oklch(59.39% 0.2 20.68);
@@ -26,7 +26,6 @@
 
   --color-gray: oklch(66.7% 0.031 248.3);
   --color-light-gray: oklch(94.51% 0.005 247.88);
-
 
   --color-opac-w-1: hsla(0, 0%, 100%, 0.05);
   --color-opac-w-2: hsla(0, 0%, 100%, 0.1);

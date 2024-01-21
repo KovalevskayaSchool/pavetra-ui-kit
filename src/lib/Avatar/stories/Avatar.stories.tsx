@@ -7,6 +7,19 @@ const meta = {
   title: "Views/Avatar",
   component: Avatar,
   tags: ["autodocs"],
+  argTypes: {
+    size: {
+      options: ["small", "medium", "large"],
+      control: { type: "select" },
+    },
+    imageSrc: {
+      control: { type: "text" },
+    },
+    shape: {
+      options: ["circle", "rect"],
+      control: { type: "select" },
+    },
+  },
 } satisfies Meta<typeof Avatar>;
 
 export default meta;
