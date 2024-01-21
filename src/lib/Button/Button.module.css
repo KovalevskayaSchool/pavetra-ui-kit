@@ -1,40 +1,40 @@
 .button {
-  --button-inline-hover-background-color: var(--color-opac-b-2);
-  --button-inline-active-background-color: var(--color-opac-b-1);
-  --button-inline-disabled-background-color: var(--color-opac-b-5);
-  --button-inline-foreground-color: var(--color-black);
+  --button-inline-hover-background-color: var(--pv-color-opac-b-2);
+  --button-inline-active-background-color: var(--pv-color-opac-b-1);
+  --button-inline-disabled-background-color: var(--pv-color-opac-b-5);
+  --button-inline-foreground-color: var(--pv-color-black);
 
-  --button-primary-background-color: var(--color-primary);
-  --button-primary-foreground-color: var(--color-white);
-  --button-primary-disabled-background-color: var(--color-opac-p-10);
-  --button-primary-hover-background-color: var(--color-primary-dark);
-  --button-primary-active-background-color: var(--color-primary-light);
+  --button-primary-background-color: var(--pv-color-primary);
+  --button-primary-foreground-color: var(--pv-color-white);
+  --button-primary-disabled-background-color: var(--pv-color-opac-p-10);
+  --button-primary-hover-background-color: var(--pv-color-primary-dark);
+  --button-primary-active-background-color: var(--pv-color-primary-light);
 
-  --button-danger-background-color: var(--color-danger);
-  --button-danger-hover-background-color: var(--color-pink);
-  --button-danger-active-background-color: var(--color-danger);
-  --button-danger-foreground-color: var(--color-danger);
+  --button-danger-background-color: var(--pv-color-danger);
+  --button-danger-hover-background-color: var(--pv-color-pink);
+  --button-danger-active-background-color: var(--pv-color-danger);
+  --button-danger-foreground-color: var(--pv-color-danger);
 
-  --button-secondary-background-color: var(--color-opac-b-2);
-  --button-secondary-hover-background-color: var(--color-opac-b-3);
-  --button-secondary-active-background-color: var(--color-opac-b-2);
-  --button-secondary-disabled-background-color: var(--color-opac-b-1);
-  --button-secondary-disabled-foreground-color: var(--color-opac-b-10);
+  --button-secondary-background-color: var(--pv-color-opac-b-2);
+  --button-secondary-hover-background-color: var(--pv-color-opac-b-3);
+  --button-secondary-active-background-color: var(--pv-color-opac-b-2);
+  --button-secondary-disabled-background-color: var(--pv-color-opac-b-1);
+  --button-secondary-disabled-foreground-color: var(--pv-color-opac-b-10);
 
   --button-ghost-background-color: transparent;
-  --button-ghost-foreground-color: var(--color-primary);
-  --button-ghost-hover-foreground-color: var(--color-primary-dark);
-  --button-ghost-active-foreground-color: var(--color-primary-light);
-  --button-ghost-disabled-foreground-color: var(--color-opac-p-10);
+  --button-ghost-foreground-color: var(--pv-color-primary);
+  --button-ghost-hover-foreground-color: var(--pv-color-primary-dark);
+  --button-ghost-active-foreground-color: var(--pv-color-primary-light);
+  --button-ghost-disabled-foreground-color: var(--pv-color-opac-p-10);
 
-  --button-link-hover-foreground-color: var(--color-opac-p-13);
-  --button-link-active-foreground-color: var(--color-opac-p-10);
-  --button-link-disabled-foreground-color: var(--color-opac-p-8);
-  --button-link-foreground-color: var(--color-primary);
+  --button-link-hover-foreground-color: var(--pv-color-opac-p-13);
+  --button-link-active-foreground-color: var(--pv-color-opac-p-10);
+  --button-link-disabled-foreground-color: var(--pv-color-opac-p-8);
+  --button-link-foreground-color: var(--pv-color-primary);
 
   --button-rounded-border-radius: 2rem;
 
-  --button-border-color: var(--color-blue);
+  --button-border-color: var(--pv-color-blue);
 
   display: inline-flex;
   position: relative;
@@ -51,9 +51,9 @@
   color: inherit;
   background-color: transparent;
 
-  transition: all var(--transition-duration) ease-out;
+  transition: all var(--pv-transition-duration) ease-out;
 
-  border-radius: var(--border-radius-base);
+  border-radius: var(--pv-border-radius-base);
   font-size: 0.8rem;
   outline: none;
   border: none;

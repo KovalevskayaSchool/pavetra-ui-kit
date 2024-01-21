@@ -1,6 +1,6 @@
 .card {
-  --card-bg-color: var(--color-white);
-  --card-border-radius:  var(--border-radius-l);
+  --card-bg-color: var(--pv-color-white);
+  --card-border-radius: var(--pv-border-radius-l);
 
   display: flex;
   flex-direction: column;
@@ -8,15 +8,15 @@
   background-color: var(--card-bg-color);
   width: 100%;
   box-sizing: border-box;
-  border: 0.063rem solid var(--border-separator);
-  padding: var(--space-1);
+  border: 0.063rem solid var(--pv-border-separator);
+  padding: var(--pv-space-1);
   gap: 1rem;
 }
 
 .card__header {
   display: flex;
-  border-block-end: 0.063rem solid var(--border-separator);
-  padding-block-end: var(--space-1);
+  border-block-end: 0.063rem solid var(--pv-border-separator);
+  padding-block-end: var(--pv-space-1);
   justify-content: space-between;
 }
 

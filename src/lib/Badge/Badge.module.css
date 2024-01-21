@@ -4,8 +4,8 @@
   display: inline-block;
   width: fit-content;
 
-  --badge-fg-color: var(--color-white);
-  --badge-bg-color: var(--color-danger);
+  --badge-fg-color: var(--pv-color-white);
+  --badge-bg-color: var(--pv-color-danger);
 }
 
 .badge__counter {
@@ -21,9 +21,9 @@
   transform-origin: 100% 0%;
 
   background-color: var(--badge-bg-color);
-  border-radius: var(--border-radius-rounded);
+  border-radius: var(--pv-border-radius-rounded);
   box-shadow: 0 0 0 1px var(--badge-fg-color);
-  transition: all var(--transition-duration) ease-out;
+  transition: all var(--pv-transition-duration) ease-out;
 
   white-space: nowrap;
   text-align: center;

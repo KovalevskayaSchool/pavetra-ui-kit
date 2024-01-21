@@ -1,7 +1,7 @@
 .radio__container {
-  --radio-checked-background-color: var(--color-primary);
-  --radio-background-color: var(--color-white);
-  --radio-border-color: var(--border-separator-color);
+  --radio-checked-background-color: var(--pv-color-primary);
+  --radio-background-color: var(--pv-color-white);
+  --radio-border-color: var(--pv-border-separator-color);
 
   display: inline-flex;
   align-items: center;
@@ -38,7 +38,7 @@
   transition: all 0s, outline 0s;
 }
 .radio_focus {
-  outline: 2px solid var(--color-blue);
+  outline: 2px solid var(--pv-color-blue);
   outline-offset: 1px;
   transition: outline-offset 0s, outline 0s;
 }
