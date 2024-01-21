@@ -1,6 +1,6 @@
 .box {
-  --bg-color-box: var(--color-white);
-  border-radius: var(--border-radius-l);
+  --bg-color-box: var(--pv-color-white);
+  border-radius: var(--pv-border-radius-l);
   background-color: var(--bg-color-box);
   box-sizing: border-box;
 }

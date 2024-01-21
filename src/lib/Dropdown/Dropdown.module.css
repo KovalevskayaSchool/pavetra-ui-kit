@@ -14,15 +14,15 @@
   position: relative;
   cursor: pointer;
 
-  --ks-dropdown-background-color: var(--color-white);
-  --ks-dropdown-border-color: var(--color-light-gray);
+  --ks-dropdown-background-color: var(--pv-color-white);
+  --ks-dropdown-border-color: var(--pv-color-light-gray);
 
   position: relative;
-  box-shadow: var(--shadow-elevation);
+  box-shadow: var(--pv-shadow-elevation);
   z-index: 50;
   background-color: var(--ks-dropdown-background-color);
 
-  border-radius: var(--border-radius-base);
+  border-radius: var(--pv-border-radius-base);
 
   width: 100%;
 

@@ -1,7 +1,7 @@
 .checkbox {
-  --checkbox-background-checked-color: var(--color-primary);
-  --checkbox-color: var(--color-white);
-  --checkbox-fg-color-disabled: var(--color-opac-b-10);
+  --checkbox-background-checked-color: var(--pv-color-primary);
+  --checkbox-color: var(--pv-color-white);
+  --checkbox-fg-color-disabled: var(--pv-color-opac-b-10);
 
   display: inline-flex;
   align-items: flex-end;

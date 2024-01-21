@@ -32,7 +32,7 @@ function getRootCSSVariables() {
           for (let i = 0; i < declarations.length; i++) {
             const propertyName = declarations[i];
 
-            if (propertyName.startsWith("--color")) {
+            if (propertyName.startsWith("--pv-color")) {
               const propertyValue = declarations.getPropertyValue(propertyName);
               // @ts-ignore
               rootVariables.push({ name: propertyName, value: propertyValue });

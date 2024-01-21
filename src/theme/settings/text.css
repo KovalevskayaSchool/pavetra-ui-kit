@@ -1,12 +1,12 @@
 :root {
-  --root-font-size: 15px;
-  --font-size-xxl: 1.5rem;
-  --font-size-xl: 1.25rem;
-  --font-size-l: 1.125rem;
-  --font-size-m: 1rem;
-  --font-size-s: 0.875rem;
-  --font-size-xs: 0.75rem;
-  --font-size-xxs: 0.625rem;
-  --font-size: var(--font-size-m);
-  --font-weight-normal: 400;
+  --pv-root-font-size: 15px;
+  --pv-font-size-xxl: 1.5rem;
+  --pv-font-size-xl: 1.25rem;
+  --pv-font-size-l: 1.125rem;
+  --pv-font-size-m: 1rem;
+  --pv-font-size-s: 0.875rem;
+  --pv-font-size-xs: 0.75rem;
+  --pv-font-size-xxs: 0.625rem;
+  --pv-font-size: var(--pv-font-size-m);
+  --pv-font-weight-normal: 400;
 }

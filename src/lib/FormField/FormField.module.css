@@ -1,5 +1,5 @@
 .form-field {
-  --form-field-color-danger: var(--color-danger);
+  --form-field-color-danger: var(--pv-color-danger);
   position: relative;
   width: 100%;
   gap: 0.1rem;

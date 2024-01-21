@@ -27,15 +27,15 @@
 }
 
 :where(.caption) {
-  --caption-foreground-color: var(--color-opac-b-8);
+  --caption-foreground-color: var(--pv-color-opac-b-8);
 
-  font-size: var(--font-size-m);
-  font-weight: var(--font-weight-normal);
+  font-size: var(--pv-font-size-m);
+  font-weight: var(--pv-font-weight-normal);
   color: var(--caption-foreground-color);
 }
 
 .paragraph {
   color: inherit;
-  font-size: var(--font-size-s);
-  font-weight: var(--font-weight-normal);
+  font-size: var(--pv-font-size-s);
+  font-weight: var(--pv-font-weight-normal);
 }

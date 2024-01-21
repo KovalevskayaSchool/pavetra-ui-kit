@@ -5,10 +5,10 @@
 }
 
 .spin {
-  --color-spin: var(--color-primary);
+  --pv-color-spin: var(--pv-color-primary);
   display: flex;
   align-items: center;
-  color: var(--color-spin);
+  color: var(--pv-color-spin);
   animation: fade-in 1s infinite linear;
 }
 

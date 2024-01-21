@@ -1,29 +1,27 @@
 :root {
-  --space-s: 0.5rem;
-  --space-1: 1rem;
-  --space-2: 2rem;
-  --space-3: 3rem;
-  --space-4: 4rem;
-  --space-5: 5rem;
-  --space-6: 6rem;
-  --space-7: 7rem;
-  --space-8: 8rem;
-  --space-9: 9rem;
-  --border-radius-rounded: 9000px;
-  --border-radius-s: 0.385rem;
-  --border-radius-base: 0.475rem;
-  --border-radius-l: 0.75rem;
-  --padding-inline: 1.4rem;
-  --shadow-elevation: 0 2px 6px var(--color-opac-b-2),
-    0 0 4px var(--color-opac-b-1);
+  --pv-space-s: 0.5rem;
+  --pv-space-1: 1rem;
+  --pv-space-2: 2rem;
+  --pv-space-3: 3rem;
+  --pv-space-4: 4rem;
+  --pv-space-5: 5rem;
+  --pv-space-6: 6rem;
+  --pv-space-7: 7rem;
+  --pv-space-8: 8rem;
+  --pv-space-9: 9rem;
+  --pv-border-radius-rounded: 9000px;
+  --pv-border-radius-s: 0.385rem;
+  --pv-border-radius-base: 0.475rem;
+  --pv-border-radius-l: 0.75rem;
+  --pv-shadow-elevation: 0 2px 6px var(--pv-color-opac-b-2),
+    0 0 4px var(--pv-color-opac-b-1);
   --popover-available-height: 14rem;
-  --transition: all 0.2s ease-in-out;
-  --transition-duration: 0.2s;
-  --transition-parameters: 0.2s ease-in-out;
-  --hidden-z-index: -1;
-  --z-index-header: 10;
-  --z-index-overlay: 3000;
+  --pv-transition: all 0.2s ease-in-out;
+  --pv-transition-duration: 0.2s;
+  --pv-transition-parameters: 0.2s ease-in-out;
+  --pv-hidden-z-index: -1;
+  --pv-z-index-overlay: 3000;
 
-  --border-separator-color: var(--color-opac-b-3);
-  --border-separator: var(--color-opac-b-3);
+  --pv-border-separator-color: var(--pv-color-opac-b-3);
+  --pv-border-separator: var(--pv-color-opac-b-3);
 }

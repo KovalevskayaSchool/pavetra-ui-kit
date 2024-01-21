@@ -3,7 +3,7 @@
   vertical-align: bottom;
   overflow: hidden;
   user-select: none;
-  --avatar-stroke-color: var(--color-opac-w-4);
+  --avatar-stroke-color: var(--pv-color-opac-w-4);
 }
 
 .avatar__image {

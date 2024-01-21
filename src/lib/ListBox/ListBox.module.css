@@ -1,6 +1,6 @@
 :root {
-  --listbox-item-hover-background-color: var(--color-opac-b-1);
-  --listbox-item-selected-background-color: var(--color-primary);
+  --listbox-item-hover-background-color: var(--pv-color-opac-b-1);
+  --listbox-item-selected-background-color: var(--pv-color-primary);
 }
 
 .listbox {
@@ -14,7 +14,7 @@
 
 .listbox__item {
   position: relative;
-  transition: all var(--transition-duration) ease-out;
+  transition: all var(--pv-transition-duration) ease-out;
   text-align: left;
   justify-content: flex-start;
   border: 0;
@@ -22,7 +22,7 @@
   font-size: 100%;
   background: transparent;
   color: inherit;
-  border-radius: var(--border-radius-base);
+  border-radius: var(--pv-border-radius-base);
 
   padding: 0.6rem 0.8rem;
   cursor: pointer;
@@ -38,13 +38,13 @@
 
 .listbox__item_focused {
   background-color: var(--listbox-item-selected-background-color);
-  color: var(--color-white);
+  color: var(--pv-color-white);
 }
 
 .listbox__item:active,
 .listbox__item_active {
   background-color: var(--listbox-item-selected-background-color);
-  color: var(--color-white);
+  color: var(--pv-color-white);
 }
 .listbox__item_selected {
   color: var(--listbox-item-selected-background-color);
@@ -52,12 +52,12 @@
 
 .listbox__item_disabled {
   cursor: not-allowed;
-  color: var(--color-opac-b-5);
+  color: var(--pv-color-opac-b-5);
 }
 
 .listbox__item_disabled.listbox__item:hover {
   cursor: not-allowed;
-  color: var(--color-opac-b-5);
+  color: var(--pv-color-opac-b-5);
 }
 
 .listbox__item-content {
@@ -99,5 +99,5 @@
   content: "";
   width: 100%;
   height: 1px;
-  background-color: var(--border-separator-color);
+  background-color: var(--pv-border-separator-color);
 }

@@ -3,18 +3,18 @@
   --input-size-large: 2.375rem;
   --input-size-small: 1.875rem;
 
-  --input-not-active-background-color: var(--color-white);
-  --input-foreground-color: var(--global-foreground);
-  --input-disabled-foreground-color: var(--color-opac-b-5);
-  --input-disabled-background-color: var(--color-light-gray);
-  --input-background-color: var(--color-white);
-  --input-disabled-foreground-color: var(--color-gray);
+  --input-not-active-background-color: var(--pv-color-white);
+  --input-foreground-color: var(--pv-global-foreground);
+  --input-disabled-foreground-color: var(--pv-color-opac-b-5);
+  --input-disabled-background-color: var(--pv-color-light-gray);
+  --input-background-color: var(--pv-color-white);
+  --input-disabled-foreground-color: var(--pv-color-gray);
 
-  --input-border-color: var(--border-separator-color);
-  --input-active-border-color: var(--color-primary);
-  --input-color-placeholder: var(--color-gray);
-  --input-border-radius: var(--border-radius-base);
-  --input-border-color-danger: var(--color-danger);
+  --input-border-color: var(--pv-border-separator-color);
+  --input-active-border-color: var(--pv-color-primary);
+  --input-color-placeholder: var(--pv-color-gray);
+  --input-border-radius: var(--pv-border-radius-base);
+  --input-border-color-danger: var(--pv-color-danger);
 
   position: relative;
   display: flex;
@@ -24,7 +24,7 @@
   outline: none;
   border-radius: var(--input-border-radius);
   background-color: var(--input-not-active-background-color);
-  transition: all var(--transition-duration) ease-out;
+  transition: all var(--pv-transition-duration) ease-out;
 }
 
 .input_error {
