@@ -5,10 +5,7 @@ import getYear from "date-fns/getYear";
 import subYears from "date-fns/subYears";
 import addYears from "date-fns/addYears";
 import isSameMonth from "date-fns/isSameMonth";
-import {
-  ChevronDownOutline,
-  ChevronUpOutline,
-} from "@symblight/pavetra-icons";
+import { ChevronDownOutline, ChevronUpOutline } from "@symblight/pavetra-icons";
 
 import { useDatePickerCtx } from "../useDatePickerCtx";
 import { DatePickerTemplate } from "../DatePickerTemplate";

@@ -1,8 +1,8 @@
 import { forwardRef, useRef } from "react";
 import cn from "classnames";
 import { Time } from "@internationalized/date";
-import {  useTimeFieldState } from "react-stately";
-import { AriaTimeFieldProps,  useTimeField } from "react-aria";
+import { useTimeFieldState } from "react-stately";
+import { AriaTimeFieldProps, useTimeField } from "react-aria";
 import { ClockOutline } from "@symblight/pavetra-icons";
 import ru from "date-fns/locale/ru";
 import { Locale } from "date-fns";
@@ -15,7 +15,8 @@ import styles from "./TimeField.module.css";
 
 type TSize = "medium" | "large" | "small";
 
-export interface TimeFieldProps extends Omit<AriaTimeFieldProps<Time>, "locale"> {
+export interface TimeFieldProps
+  extends Omit<AriaTimeFieldProps<Time>, "locale"> {
   className?: string;
   error?: string | boolean;
   locale?: Locale;

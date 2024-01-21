@@ -6,9 +6,19 @@ import {
   PropsWithChildren,
   ReactNode,
 } from "react";
-import { useSelectState, SelectProps as SelectBaseProps, SelectState } from "react-stately";
-import { HiddenSelect, Placement, useButton, useFocusRing, useSelect } from "react-aria";
-import cn from 'classnames'
+import {
+  useSelectState,
+  SelectProps as SelectBaseProps,
+  SelectState,
+} from "react-stately";
+import {
+  HiddenSelect,
+  Placement,
+  useButton,
+  useFocusRing,
+  useSelect,
+} from "react-aria";
+import cn from "classnames";
 
 import { ListBox, type MenuItemProps } from "../ListBox";
 
@@ -36,7 +46,10 @@ export interface DropdownProps
   disabled?: boolean;
   name?: string;
   label?: string;
-  dropdownRender?: (menu: ReactNode, state: SelectState<MenuItemProps>) => ReactNode;
+  dropdownRender?: (
+    menu: ReactNode,
+    state: SelectState<MenuItemProps>
+  ) => ReactNode;
 }
 
 export const Dropdown = forwardRef<
@@ -135,7 +148,9 @@ export const Dropdown = forwardRef<
           placement={placement}
         >
           <Box className={cn(styles["dropdown__poppover"], className)}>
-            {dropdownRender ? dropdownRender(renderItems(), state) : renderItems()}
+            {dropdownRender
+              ? dropdownRender(renderItems(), state)
+              : renderItems()}
           </Box>
         </Popover>
       );

@@ -8,10 +8,7 @@ import {
   mergeProps,
   useFocusRing,
 } from "react-aria";
-import {
-  ChevronDownOutline,
-  CloseOutline,
-} from "@symblight/pavetra-icons";
+import { ChevronDownOutline, CloseOutline } from "@symblight/pavetra-icons";
 
 import { Input } from "../Input/Input";
 import { Spin } from "../Spin";
@@ -102,7 +99,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       },
       onOpenChange,
     });
-    const selectRef = useDOMRef(ref)
+    const selectRef = useDOMRef(ref);
     const popoverRef = useRef<HTMLDivElement>(null);
     const listBoxRef = useRef<HTMLUListElement>(null);
     const triggerRef = useRef(null);
@@ -212,7 +209,11 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     }
 
     return (
-      <div ref={selectRef} className={cn(styles["select"], className)} {...props}>
+      <div
+        ref={selectRef}
+        className={cn(styles["select"], className)}
+        {...props}
+      >
         <HiddenSelect
           state={state}
           triggerRef={triggerRef}
