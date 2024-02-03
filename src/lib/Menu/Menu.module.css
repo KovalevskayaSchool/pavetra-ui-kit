@@ -33,7 +33,6 @@
   background-color: var(--menu-item-bg-color);
   border-radius: var(--pv-border-radius-base);
 
-  color: oklch(0.45 0 0);
   outline: none;
 }
 
