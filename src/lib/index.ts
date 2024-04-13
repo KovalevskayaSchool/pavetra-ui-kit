@@ -41,7 +41,7 @@ export type { SelectProps } from "./Select";
 export { Pagination } from "./Pagination";
 export type { PaginationProps } from "./Pagination";
 export { Table } from "./Table";
-export type { TableProps } from "./Table";
+export type { TableProps, TableColumnDef } from "./Table";
 export { Box } from "./Box";
 export type { BoxProps } from "./Box";
 export { confirmDialog, ConfirmProvider, useConfirm } from "./Confirm";

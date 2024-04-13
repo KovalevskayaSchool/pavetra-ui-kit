@@ -14,6 +14,7 @@ import { DatePickerBase } from "./DatePickerBase";
 import { useDOMRef } from "../../utils/useDomRef";
 import { useControlled } from "../../utils/useControlled";
 import { DatePickerContext as DatePickerCtx } from "./useDatePickerCtx";
+
 import styles from "./DatePicker.module.css";
 
 export interface DatePickerProps {
@@ -54,7 +55,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       error,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [type, setType] = useState<PickerType>("week");
     const [date, setDate] = useState<Date>(new Date());
@@ -71,7 +72,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
         "aria-label": a11yLabel || "Datepicker",
       },
       state,
-      triggerRef
+      triggerRef,
     );
     const { buttonProps: pressProps } = useButton(
       {
@@ -79,7 +80,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
         "aria-label": a11yLabel || "Datepicker",
         isDisabled: disabled,
       },
-      triggerRef
+      triggerRef,
     );
 
     useEffect(() => {
@@ -199,9 +200,9 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       () =>
         events.reduce(
           (map, event) => map.set(format(event.date, "yyyy-MM-dd"), event),
-          new Map<string, DatePickerEvent>()
+          new Map<string, DatePickerEvent>(),
         ),
-      [events]
+      [events],
     );
 
     return (
@@ -209,7 +210,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
         value={{
           ...props,
           inline,
-          locale: locale,
+          locale,
           type,
           selectedValue: valueDate,
           date,
@@ -227,5 +228,5 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
         {renderContent()}
       </DatePickerCtx.Provider>
     );
-  }
+  },
 );

@@ -5,12 +5,12 @@ import {
   ButtonHTMLAttributes,
   isValidElement,
 } from "react";
-
 import { AriaButtonProps } from "react-aria";
 import cn from "classnames";
-import { Spin } from "../Spin";
 
 import { useDOMRef } from "../../utils/useDomRef";
+import { Spin } from "../Spin";
+
 import styles from "./Button.module.css";
 
 interface BaseProps extends AriaButtonProps {
@@ -43,7 +43,7 @@ export const Button = forwardRef<
       loading,
       ...props
     },
-    refButton
+    refButton,
   ) => {
     const ref = useDOMRef(refButton);
 
@@ -86,7 +86,7 @@ export const Button = forwardRef<
         /* DANGER */
         [styles["button_danger"]]: danger,
       },
-      className
+      className,
     );
 
     // const { onClick: onButtonClick, ...restButtonProps } = buttonProps;
@@ -137,7 +137,7 @@ export const Button = forwardRef<
         {renderContent()}
       </button>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";

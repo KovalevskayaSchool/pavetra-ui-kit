@@ -20,6 +20,7 @@ import {
   YEAR_QUARTER_LENGTH,
   YEAR_RANGE_LENGTH,
 } from "../util";
+
 import styles from "../DatePicker.module.css";
 
 export interface YearViewProps {}
@@ -75,7 +76,7 @@ export const YearView: FC<YearViewProps> = () => {
                 className={cn(styles["datepicker__cell"], {
                   [styles["datepicker__cell_today"]]: isSameYear(
                     year.date,
-                    new Date()
+                    new Date(),
                   ),
                   [styles["datepicker__cell_selected"]]: isDate(state.value)
                     ? isSameYear(year.date, selected)

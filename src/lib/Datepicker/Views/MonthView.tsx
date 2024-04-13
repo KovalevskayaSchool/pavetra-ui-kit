@@ -10,8 +10,10 @@ import { ChevronDownOutline, ChevronUpOutline } from "@symblight/pavetra-icons";
 import { useDatePickerCtx } from "../useDatePickerCtx";
 import { DatePickerTemplate } from "../DatePickerTemplate";
 import { Button } from "../../Button";
-import type { PickerMonth } from "../DatePicker.d";
 import { getGroupedBy, getMonths, MONTHS_QUARTER_LENGTH } from "../util";
+
+import type { PickerMonth } from "../DatePicker.d";
+
 import styles from "../DatePicker.module.css";
 
 export interface MonthViewProps {}
@@ -66,7 +68,7 @@ export const MonthView: FC<MonthViewProps> = () => {
                 className={cn(styles["datepicker__cell"], {
                   [styles["datepicker__cell_today"]]: isSameMonth(
                     month.date,
-                    new Date()
+                    new Date(),
                   ),
                   [styles["datepicker__cell_selected"]]: isDate(state.value)
                     ? isSameMonth(month.date, selected)

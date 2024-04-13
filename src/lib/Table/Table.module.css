@@ -1,10 +1,11 @@
 .table {
-  width: 100%;
+  min-width: 100%;
   border-collapse: collapse;
 }
 
-.table__row {
-  border-block-end: 1px solid rgb(216, 222, 228);
+.table__row:not(:first-child) {
+  border-block-start: 1px solid
+    color-mix(in srgb, var(--pv-color-opac-p-2) 80%, var(--pv-color-opac-p-10));
 }
 
 .table__row_selected {
@@ -13,8 +14,14 @@
 
 .table__table-data {
   position: relative;
-  padding: 16px;
-  overflow-wrap: break-word;
+}
+
+.table__cell {
+  padding: 1rem 1rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .table__checkbox {
@@ -23,21 +30,27 @@
 
 .table__header-row {
   background-color: var(--pv-color-opac-b-1);
-  border-block-end: 1px solid var(--pv-border-separator);
-  padding: 16px;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
   text-align: start;
 }
 
 .table__thead > tr:first-child > *:first-child {
   border-start-start-radius: 8px;
+  border-end-start-radius: 8px;
 }
 
 .table__thead > tr:first-child > *:last-child {
   border-start-end-radius: 8px;
+  border-end-end-radius: 8px;
 }
 
 .table__header-text {
   display: flex;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .table__header-sort {
@@ -52,9 +65,17 @@
 .table__header-row-inner {
   display: flex;
   align-items: center;
-  width: 100%;
+  justify-content: space-between;
 }
 
 .table__header-row:not(:last-child) > .table__header-row-inner {
   border-inline-end: 1px solid var(--pv-border-separator);
+}
+
+.table__resizer {
+  display: flex;
+  background-color: red;
+  height: 0.75rem;
+  width: 4px;
+  cursor: pointer;
 }

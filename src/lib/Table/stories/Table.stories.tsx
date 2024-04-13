@@ -229,6 +229,7 @@ const ActionsComponent = () => {
     <div style={{ display: "flex" }}>
       <div>
         <Table
+          resize
           dataSource={actionRows}
           columns={actionColumns}
           onSelectionChange={setSelectedKeys}

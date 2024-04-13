@@ -1,7 +1,19 @@
-import { PropsWithChildren, forwardRef } from "react";
+import {
+  PropsWithChildren,
+  forwardRef,
+  useCallback,
+  useLayoutEffect,
+  useState,
+} from "react";
 import { useTable } from "react-aria";
-import { TableStateProps, useTableState } from "react-stately";
+import {
+  TableStateProps,
+  useTableColumnResizeState,
+  useTableState,
+} from "react-stately";
 import { CollectionChildren } from "@react-types/shared";
+import { useResizeObserver } from "@react-aria/utils";
+
 import cn from "classnames";
 
 import { useDOMRef } from "../../utils/useDomRef";
@@ -16,9 +28,12 @@ import { TableCheckboxCell } from "./TableCheckboxCell";
 
 import styles from "./Table.module.css";
 
+type GridNode<T> = any;
+
 export interface TableProps extends TableStateProps<object> {
   a11yLabel?: string;
   className?: string;
+  resize?: boolean;
 }
 
 export const TableBase = forwardRef<
@@ -32,16 +47,18 @@ export const TableBase = forwardRef<
       selectionMode,
       a11yLabel,
       className,
+      resize,
       ...props
     },
-    refForwarded
+    refForwarded,
   ) => {
     const ref = useDOMRef(refForwarded);
+    let [tableWidth, setTableWidth] = useState(0);
     const state = useTableState({
       ...props,
       selectionMode,
       selectionBehavior,
-      children: children as CollectionChildren<object>,
+      children: children as TableStateProps<object>["children"],
       showSelectionCheckboxes:
         selectionMode === "multiple" && selectionBehavior !== "replace",
     });
@@ -50,8 +67,43 @@ export const TableBase = forwardRef<
     const { gridProps } = useTable(
       { ...props, "aria-label": a11yLabel || "table" },
       state,
-      ref
+      ref,
     );
+
+    // resize
+    let getDefaultWidth = useCallback((node: GridNode<object>) => {
+      if (node.props.isSelectionCell) {
+        return 20;
+      }
+      return undefined;
+    }, []);
+
+    let getDefaultMinWidth = useCallback((node: GridNode<object>) => {
+      if (node.props.isSelectionCell) {
+        return 20;
+      }
+      return 75;
+    }, []);
+
+    let layoutState = useTableColumnResizeState(
+      {
+        getDefaultWidth,
+        getDefaultMinWidth,
+        tableWidth: tableWidth,
+      },
+      state,
+    );
+
+    useLayoutEffect(() => {
+      if (ref && ref.current) {
+        setTableWidth(ref.current.clientWidth);
+      }
+    }, []);
+
+    useResizeObserver({
+      ref,
+      onResize: () => setTableWidth(ref.current ? ref.current.clientWidth : 0),
+    });
 
     return (
       <table
@@ -81,8 +133,10 @@ export const TableBase = forwardRef<
                       key={column.key}
                       column={column}
                       state={state}
+                      layoutState={layoutState}
+                      resize={resize}
                     />
-                  )
+                  ),
                 )}
               </TableHeaderRow>
             );
@@ -104,7 +158,7 @@ export const TableBase = forwardRef<
                     />
                   ) : (
                     <TableCell key={cell.key} cell={cell} state={state} />
-                  )
+                  ),
                 )}
               </TableRow>
             );
@@ -112,5 +166,5 @@ export const TableBase = forwardRef<
         </TableRowGroup>
       </table>
     );
-  }
+  },
 );

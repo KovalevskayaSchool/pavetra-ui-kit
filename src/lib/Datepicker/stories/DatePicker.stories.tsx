@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { addDays } from "date-fns";
 import type { Meta, StoryObj } from "@storybook/react";
+import isToday from "date-fns/isToday";
 
 import { DatePicker, PickerDay } from "..";
 import { Button } from "../../Button";
-import isToday from "date-fns/isToday";
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
 const meta = {

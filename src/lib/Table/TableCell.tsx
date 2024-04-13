@@ -22,8 +22,8 @@ export const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
         className={styles["table__table-data"]}
         ref={ref}
       >
-        {cell.rendered}
+        <div className={styles["table__cell"]}>{cell.rendered}</div>
       </td>
     );
-  }
+  },
 );

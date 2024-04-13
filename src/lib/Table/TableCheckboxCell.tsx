@@ -10,7 +10,7 @@ export const TableCheckboxCell = ({ cell, state }) => {
   const { gridCellProps } = useTableCell({ node: cell }, state, ref);
   const { checkboxProps } = useTableSelectionCheckbox(
     { key: cell.parentKey },
-    state
+    state,
   );
   return (
     <td
@@ -18,11 +18,13 @@ export const TableCheckboxCell = ({ cell, state }) => {
       className={styles["table__table-data"]}
       ref={ref as any}
     >
-      <Checkbox
-        {...checkboxProps}
-        aria-label="checkbox"
-        className={styles["table__checkbox"]}
-      />
+      <div>
+        <Checkbox
+          {...checkboxProps}
+          aria-label="checkbox"
+          className={styles["table__checkbox"]}
+        />
+      </div>
     </td>
   );
 };
