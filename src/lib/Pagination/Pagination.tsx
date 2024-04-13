@@ -34,7 +34,7 @@ export const Pagination: FC<PaginationProps> = ({
 }) => {
   const [currentPage, setCurrentPage, isControlled] = useControlled(
     current,
-    defaultCurrent
+    defaultCurrent,
   );
   const paginationRange = usePagination({
     currentPage,
@@ -87,7 +87,7 @@ export const Pagination: FC<PaginationProps> = ({
             <li
               className={cn(
                 styles["pagination__item"],
-                styles["pagination__item_dots"]
+                styles["pagination__item_dots"],
               )}
               key={`pag-dots-${pageNumber + i}`}
             >

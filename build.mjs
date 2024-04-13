@@ -64,7 +64,7 @@ async function build() {
         target: ["esnext"],
         // treeShaking: true,
         external: Object.keys(packageJson.dependencies).concat(
-          Object.keys(packageJson.peerDependencies)
+          Object.keys(packageJson.peerDependencies),
         ),
         plugins: [cssModulesPlugin()],
       })

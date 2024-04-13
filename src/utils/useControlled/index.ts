@@ -3,7 +3,7 @@ import { useCallback, useRef, useState } from "react";
 export function useControlled<T = any, P = any>(
   controlledValue: T,
   defaultValue: T,
-  formatValue?: (value: T) => T
+  formatValue?: (value: T) => T,
 ): [T, (value: React.SetStateAction<T>) => void, boolean] {
   const { current: isControlled } = useRef(controlledValue !== undefined);
   const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue);
@@ -18,7 +18,7 @@ export function useControlled<T = any, P = any>(
         setUncontrolledValue(nextValue);
       }
     },
-    [isControlled]
+    [isControlled],
   );
 
   return [value, setValue, isControlled];

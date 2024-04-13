@@ -13,7 +13,7 @@ export const TableSelectAllCell = ({ column, state }) => {
   const { columnHeaderProps } = useTableColumnHeader(
     { node: column },
     state,
-    ref
+    ref,
   );
   const { checkboxProps } = useTableSelectAllCheckbox(state);
 

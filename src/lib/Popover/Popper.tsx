@@ -27,7 +27,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       fullWidth,
       ...props
     },
-    refForwarded
+    refForwarded,
   ) => {
     const popoverRef = useDOMRef(refForwarded);
 
@@ -38,7 +38,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         placement,
         offset: 5,
       },
-      state
+      state,
     );
 
     const width = fullWidth
@@ -67,5 +67,5 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         </div>
       </Overlay>
     );
-  }
+  },
 );

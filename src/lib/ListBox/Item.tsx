@@ -23,7 +23,7 @@ export const Item: FC<MenuItemProps> = ({ className, state, item }) => {
       key: item.key,
     },
     state,
-    ref
+    ref,
   );
 
   const { pressProps } = usePress({

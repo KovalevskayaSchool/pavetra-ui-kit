@@ -22,7 +22,7 @@ export function Caption({
       ...rest,
       className: cn(styles["caption"], className),
     },
-    children
+    children,
   );
 }
 

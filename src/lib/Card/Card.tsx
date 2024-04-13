@@ -24,7 +24,7 @@ export const Card = forwardRef<HTMLDivElement, PropsWithChildren<CardProps>>(
       )}
       <div className={styles["card__body"]}>{children}</div>
     </div>
-  )
+  ),
 );
 
 Card.displayName = "Card";

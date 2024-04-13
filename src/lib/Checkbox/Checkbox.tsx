@@ -38,7 +38,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           (!isValidElement(label) ? label?.toString() : ""),
       },
       state,
-      ref
+      ref,
     );
 
     return (
@@ -48,7 +48,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           {
             [styles["checkbox_disabled"]]: disabled,
           },
-          className
+          className,
         )}
         {...focusProps}
       >
@@ -65,7 +65,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         <span className={styles["checkbox__label"]}>{label}</span>
       </label>
     );
-  }
+  },
 );
 
 Checkbox.displayName = "Checkbox";

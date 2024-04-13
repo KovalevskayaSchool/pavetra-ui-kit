@@ -52,14 +52,14 @@ export const Modal: FC<PropsWithChildren<DialogProps>> = ({
       ...props,
     },
     state as OverlayTriggerState,
-    ref
+    ref,
   );
   const { dialogProps, titleProps } = useDialog(
     {
       id,
       ...props,
     },
-    ref
+    ref,
   );
 
   return (

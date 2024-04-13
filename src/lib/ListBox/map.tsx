@@ -21,7 +21,7 @@ export function getTextValue(item: MenuItemProps) {
 
 export const mapToAriaSectionProps = (
   menuBlocks: any[],
-  ariaLabel: string
+  ariaLabel: string,
 ) => ({
   "aria-label": ariaLabel,
   children: menuBlocks.map(({ id, ariaLabel: sectionLabel, menuItems }) => (
@@ -35,7 +35,7 @@ export const mapToAriaSectionProps = (
 
 export const mapToAriaProps = (
   menuItems: MenuItemProps[],
-  ariaLabel: string
+  ariaLabel: string,
 ) => ({
   "aria-label": ariaLabel,
   children: menuItems.map((props) => {

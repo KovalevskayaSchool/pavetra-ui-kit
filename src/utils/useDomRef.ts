@@ -13,13 +13,13 @@ export interface DOMRefValue<T extends HTMLElement = HTMLElement> {
 }
 
 export function createDOMRef<T extends HTMLElement = HTMLElement>(
-  ref: RefObject<T>
+  ref: RefObject<T>,
 ): T {
   return ref.current as T;
 }
 
 export function useDOMRef<T extends HTMLElement = HTMLElement>(
-  ref: ForwardedRef<T>
+  ref: ForwardedRef<T>,
 ): RefObject<T> {
   const domRef = useRef<T | null>(null);
   useImperativeHandle(ref, () => createDOMRef(domRef));

@@ -52,7 +52,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       readOnly,
       ...props
     },
-    refForwarded
+    refForwarded,
   ) => {
     const ref = useDOMRef(refForwarded);
     const {
@@ -66,7 +66,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         isRequired: required,
         "aria-label": label,
       },
-      ref
+      ref,
     );
 
     const { focusProps, isFocusVisible } = useFocusRing();
@@ -124,7 +124,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             [styles["input_disabled"]]: disabled,
             [styles["input_focus"]]: isFocusVisible || active,
           },
-          className
+          className,
         )}
         aria-disabled={disabled}
       >
@@ -153,7 +153,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 Input.displayName = "Input";

@@ -24,7 +24,7 @@ const Row = forwardRef<HTMLDivElement, PropsWithChildren<RowProps>>(
         {children}
       </div>
     );
-  }
+  },
 );
 
 const Col = forwardRef<HTMLDivElement, PropsWithChildren<ColProps>>(
@@ -36,7 +36,7 @@ const Col = forwardRef<HTMLDivElement, PropsWithChildren<ColProps>>(
         {children}
       </div>
     );
-  }
+  },
 );
 
 export const Grid = {

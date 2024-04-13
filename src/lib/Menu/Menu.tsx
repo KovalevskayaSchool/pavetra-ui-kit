@@ -42,7 +42,7 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
       type = "menu",
       ...props
     },
-    refForwarded
+    refForwarded,
   ) => {
     const listBoxRef = useDOMRef(refForwarded);
 
@@ -71,7 +71,7 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
         shouldSelectOnPressUp,
       },
       state,
-      listBoxRef
+      listBoxRef,
     );
 
     const renderItems = () =>
@@ -106,11 +106,11 @@ export const Menu = forwardRef<HTMLUListElement, MenuProps>(
             [styles["menu_mode_horizontal"]]: mode === "horizontal",
             [styles["menu_mode_vertical"]]: mode === "vertical",
           },
-          className
+          className,
         )}
       >
         {renderItems()}
       </ul>
     );
-  }
+  },
 );

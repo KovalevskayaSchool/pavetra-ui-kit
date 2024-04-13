@@ -23,5 +23,5 @@ export const Control: FC<PropsWithChildren<OriginTypography>> = forwardRef(
         {children}
       </Component>
     );
-  }
+  },
 );

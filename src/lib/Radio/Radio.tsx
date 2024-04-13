@@ -32,7 +32,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         "aria-label": !isValidElement(label) ? label?.toString() : "Radio",
       },
       groupContext as RadioGroupState,
-      ref
+      ref,
     );
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,7 +86,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         </span>
       </label>
     );
-  }
+  },
 );
 
 Radio.displayName = "Radio";

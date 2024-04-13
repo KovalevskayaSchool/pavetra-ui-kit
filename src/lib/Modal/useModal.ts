@@ -27,7 +27,7 @@ export const useModal = (props?: UseModalProps): UseModalResponse => {
   const stateModal = useOverlayTriggerState(props || {});
   const { triggerProps: triggerStateProps, overlayProps } = useOverlayTrigger(
     { type: "dialog" },
-    stateModal
+    stateModal,
   );
 
   const { onPress, ...restTriggerProps } = triggerStateProps;

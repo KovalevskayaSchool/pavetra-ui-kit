@@ -19,7 +19,7 @@ export interface ConfirmFuncProps {
 }
 
 const ConfirmContext = createContext<(props: ConfirmFuncProps) => void>(
-  (props: ConfirmFuncProps) => null
+  (props: ConfirmFuncProps) => null,
 );
 
 export const useConfirm = () => useContext(ConfirmContext);
@@ -87,7 +87,7 @@ export const Confirm = ({
         (e: Error) => {
           setIsLoading(false);
           return Promise.reject(e);
-        }
+        },
       );
     } else {
       onInternalClose();

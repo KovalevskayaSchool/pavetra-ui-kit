@@ -35,12 +35,16 @@
 
 .radio_active {
   border-color: var(--radio-checked-background-color);
-  transition: all 0s, outline 0s;
+  transition:
+    all 0s,
+    outline 0s;
 }
 .radio_focus {
   outline: 2px solid var(--pv-color-blue);
   outline-offset: 1px;
-  transition: outline-offset 0s, outline 0s;
+  transition:
+    outline-offset 0s,
+    outline 0s;
 }
 .radio_checked {
   border-color: var(--radio-checked-background-color);

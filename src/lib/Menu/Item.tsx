@@ -29,7 +29,7 @@ export const Item: FC<MenuItemProps> = ({
       key: item.key,
     },
     state,
-    ref
+    ref,
   );
 
   const classNames = cn(className, styles["menu__item"], {

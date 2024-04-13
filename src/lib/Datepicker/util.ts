@@ -28,13 +28,13 @@ export function getWeekNameLabels(locale: Locale) {
   return [...new Array(DAYS_OF_WEEK_LENGTH)].map((day, index) =>
     format(addDays(startOfWeek(new Date(), { weekStartsOn: 1 }), index), "EE", {
       locale,
-    })
+    }),
   );
 }
 
 export function getMonths(
   start: Date = new Date(),
-  locale: Locale
+  locale: Locale,
 ): PickerMonth[] {
   const startRange = startOfYear(start);
   return [...new Array(MONTHS_LENGTH)].map((_, index) => ({

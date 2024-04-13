@@ -22,7 +22,7 @@ export const TableRow = forwardRef<
       node: item,
     },
     state,
-    ref
+    ref,
   );
   const { isFocusVisible, focusProps } = useFocusRing();
 

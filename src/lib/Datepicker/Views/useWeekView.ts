@@ -44,7 +44,7 @@ export const useWeekView = (state: DatePickerContext) => {
     const previousMonthDays = createDaysForPreviousMonth(
       year,
       month - 1,
-      currentMonthDays[0].date
+      currentMonthDays[0].date,
     );
 
     const nextMonthDays = createDaysForNextMonth(year, month);
@@ -95,7 +95,7 @@ export const useWeekView = (state: DatePickerContext) => {
   function createDaysForPreviousMonth(
     year: number,
     month: number,
-    firstDayOfMonth: Date
+    firstDayOfMonth: Date,
   ) {
     const firstDayOfTheMonthWeekday = firstDayOfMonth.getDay();
 
@@ -108,7 +108,7 @@ export const useWeekView = (state: DatePickerContext) => {
 
     const previousMonthLastMondayDayOfMonth = subDays(
       new Date(firstDayOfMonth),
-      visibleNumberOfDaysFromPreviousMonth
+      visibleNumberOfDaysFromPreviousMonth,
     ).getDate();
 
     return [...Array(visibleNumberOfDaysFromPreviousMonth)].map(
@@ -120,13 +120,13 @@ export const useWeekView = (state: DatePickerContext) => {
           isCurrentMonth: false,
           dayNumber: previousMonthLastMondayDayOfMonth + index,
         });
-      }
+      },
     );
   }
 
   function createDaysForNextMonth(year: number, month: number) {
     const lastDayOfTheMonthWeekday = lastDayOfMonth(
-      new Date(year, month)
+      new Date(year, month),
     ).getDay();
 
     const nextMonth = addMonths(new Date(year, month), 1);

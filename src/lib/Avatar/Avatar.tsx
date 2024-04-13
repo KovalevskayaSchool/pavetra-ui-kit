@@ -28,7 +28,7 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
       shape = "circle",
       ...props
     },
-    ref
+    ref,
   ) => {
     const getName = (value: string | undefined): string[] => {
       if (!value || value.trim() === "") {
@@ -186,7 +186,7 @@ export const Avatar = forwardRef<SVGSVGElement, AvatarProps>(
         </g>
       </svg>
     );
-  }
+  },
 );
 
 Avatar.displayName = "Avatar";

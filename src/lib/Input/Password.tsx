@@ -27,7 +27,7 @@ export const Password = forwardRef<HTMLInputElement, InputProps>(
         }
       />
     );
-  }
+  },
 );
 
 Password.displayName = "Password";

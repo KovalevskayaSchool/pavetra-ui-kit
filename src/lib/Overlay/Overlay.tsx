@@ -20,7 +20,7 @@ export const Overlay = forwardRef<
       shouldCloseOnBlur: true,
       isDismissable: true,
     },
-    overlayRef
+    overlayRef,
   );
 
   return (

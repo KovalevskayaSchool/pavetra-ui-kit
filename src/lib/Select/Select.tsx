@@ -72,7 +72,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       dropdownChildren,
       ...props
     },
-    ref
+    ref,
   ) => {
     const defaultMenu = [
       {
@@ -111,7 +111,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         autoFocus: true,
       },
       state,
-      triggerRef
+      triggerRef,
     );
 
     let { buttonProps } = useButton(triggerProps, triggerRef);
@@ -242,7 +242,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 Select.displayName = "Select";

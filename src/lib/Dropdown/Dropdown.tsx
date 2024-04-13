@@ -48,7 +48,7 @@ export interface DropdownProps
   label?: string;
   dropdownRender?: (
     menu: ReactNode,
-    state: SelectState<MenuItemProps>
+    state: SelectState<MenuItemProps>,
   ) => ReactNode;
 }
 
@@ -73,7 +73,7 @@ export const Dropdown = forwardRef<
       placement,
       ...props
     },
-    ref
+    ref,
   ) => {
     const triggerRef = useDOMRef(ref);
     const propsWithChildren = mapToAriaProps(menu, ariaLabel || "");
@@ -103,12 +103,12 @@ export const Dropdown = forwardRef<
         "aria-label": ariaLabel || "select",
       },
       state,
-      triggerRef
+      triggerRef,
     );
 
     const { buttonProps } = useButton(
       { ...triggerProps, isDisabled: disabled },
-      triggerRef
+      triggerRef,
     );
     const { focusProps } = useFocusRing();
 
@@ -168,7 +168,7 @@ export const Dropdown = forwardRef<
         {renderPopover()}
       </>
     );
-  }
+  },
 );
 
 Dropdown.defaultProps = {};

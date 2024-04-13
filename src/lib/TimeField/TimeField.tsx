@@ -36,7 +36,7 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(
     let { fieldProps, inputProps } = useTimeField(
       { ...props },
       timeFieldState,
-      pickerRef
+      pickerRef,
     );
 
     return (
@@ -71,7 +71,7 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(
         />
       </div>
     );
-  }
+  },
 );
 
 TimeField.displayName = "TimeField";

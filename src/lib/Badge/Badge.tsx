@@ -19,5 +19,5 @@ export const Badge = forwardRef<HTMLSpanElement, PropsWithChildren<BadgeProps>>(
         {children}
       </span>
     );
-  }
+  },
 );

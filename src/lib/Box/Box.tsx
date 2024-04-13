@@ -22,7 +22,7 @@ export const Box = forwardRef<HTMLElement, PropsWithChildren<BoxProps>>(
         {children}
       </Component>
     );
-  }
+  },
 );
 
 Box.displayName = "Box";

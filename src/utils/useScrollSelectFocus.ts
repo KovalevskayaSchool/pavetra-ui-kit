@@ -16,7 +16,7 @@ export function useScrollSelectFocus({
       let listBox = listBoxRef.current;
       let popoverNode = popoverRef.current;
       let selectedItem = listBox.querySelector(
-        "[aria-selected=true]"
+        "[aria-selected=true]",
       ) as HTMLElement;
       let popoverRect = popoverNode.getBoundingClientRect();
       if (selectedItem) {
@@ -25,7 +25,7 @@ export function useScrollSelectFocus({
           listBox.scrollTop = Math.abs(
             selectedItem.offsetTop -
               popoverRect.height +
-              selectedItemRect.height
+              selectedItemRect.height,
           );
         }
       }

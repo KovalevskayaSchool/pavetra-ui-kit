@@ -29,7 +29,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = ({
     {
       ...props,
     },
-    state
+    state,
   );
 
   return (

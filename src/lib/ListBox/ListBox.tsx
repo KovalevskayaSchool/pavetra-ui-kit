@@ -27,7 +27,7 @@ export const ListBox = forwardRef<HTMLUListElement, MenuProps>(
         disallowEmptySelection: true,
       },
       state,
-      listBoxRef
+      listBoxRef,
     );
     const renderItems = () =>
       [...state.collection]?.map((item) =>
@@ -35,7 +35,7 @@ export const ListBox = forwardRef<HTMLUListElement, MenuProps>(
           <SeperatorItem key={item.key} />
         ) : (
           <Item key={item.key} state={state} item={item} />
-        )
+        ),
       );
 
     return (
@@ -47,5 +47,5 @@ export const ListBox = forwardRef<HTMLUListElement, MenuProps>(
         {renderItems()}
       </ul>
     );
-  }
+  },
 );

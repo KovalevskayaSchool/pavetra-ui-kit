@@ -27,7 +27,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
       isLoading,
       ...props
     },
-    refForwarded
+    refForwarded,
   ) => {
     const state = useToggleState({
       ...props,
@@ -42,7 +42,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         isDisabled: disabled,
       },
       state,
-      ref
+      ref,
     );
     const { focusProps } = useFocusRing();
 
@@ -68,7 +68,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           {
             [styles["switch_disabled"]]: isDisabled,
           },
-          className
+          className,
         )}
       >
         <div
@@ -112,7 +112,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         </div>
       </div>
     );
-  }
+  },
 );
 
 Switch.displayName = "Switch";

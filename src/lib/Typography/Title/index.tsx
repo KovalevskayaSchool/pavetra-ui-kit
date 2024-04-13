@@ -57,7 +57,7 @@ export const Title: FC<PropsWithChildren<TTitle>> = forwardRef(
         id,
         ...rest,
       },
-      children
+      children,
     );
-  }
+  },
 );
