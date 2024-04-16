@@ -12,8 +12,8 @@ dependencies:
     specifier: ^3.23.2
     version: 3.23.2(react@18.2.0)
   '@symblight/pavetra-icons':
-    specifier: ^0.0.15
-    version: 0.0.15(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.0.17
+    version: 0.0.17(react-dom@18.2.0)(react@18.2.0)
   classnames:
     specifier: ^2.5.1
     version: 2.5.1
@@ -4822,8 +4822,8 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@symblight/pavetra-icons@0.0.15(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-6nK8cSdi4fcU+9aBDMHfRVLo1jSejmBIcX1L5DIa5htcdNJU/CpZxGg/wSJMu4bEtbYMJUwhioVTnZIe0oNpjw==}
+  /@symblight/pavetra-icons@0.0.17(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-ZnhZZr/DCB2MsqVfQUa6eWCiqQ3/VyTlyqgnbTzVmPLgwhEt7E6oZURDWRpHMVSWK9PvMh14I2ZsrBChliwYaQ==}
     peerDependencies:
       react: '>=18.2.0'
       react-dom: '>=18.2.0'

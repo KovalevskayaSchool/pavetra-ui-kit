@@ -1,3 +1,13 @@
+.table__container {
+  position: relative;
+}
+
+.table__spinner {
+  position: absolute;
+  inset: 50%;
+  z-index: 10;
+}
+
 .table {
   min-width: 100%;
   border-collapse: collapse;
@@ -17,7 +27,7 @@
 }
 
 .table__cell {
-  padding: 1rem 1rem;
+  padding: 0.5rem;
   font-size: 0.75rem;
   white-space: nowrap;
   overflow: hidden;

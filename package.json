@@ -1,6 +1,6 @@
 {
   "name": "@symblight/pavetra",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "ui kit for school",
   "private": false,
   "type": "module",
@@ -52,7 +52,7 @@
   "dependencies": {
     "@internationalized/date": "^3.5.2",
     "@react-aria/utils": "^3.23.2",
-    "@symblight/pavetra-icons": "^0.0.15",
+    "@symblight/pavetra-icons": "^0.0.17",
     "classnames": "^2.5.1",
     "react-aria": "^3.32.1",
     "react-popper": "^2.3.0",

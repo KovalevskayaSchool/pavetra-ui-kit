@@ -46,7 +46,10 @@ import {
   ChevronRightDoubleOutline,
   ChartOutline,
   ClockOutline,
+  CopyOutline,
 } from "@symblight/pavetra-icons";
+
+import styles from "./styles.module.css";
 
 import type { Meta, StoryObj } from "@storybook/react";
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/react/writing-stories/introduction
@@ -106,12 +109,16 @@ const icons = [
   CheckVerifiedOutline,
   ChevronLeftDoubleOutline,
   ChevronRightDoubleOutline,
+  CopyOutline,
 ];
 export const Default: Story = {
   render: () => (
-    <div style={{ fontSize: "2rem" }}>
+    <div style={{ fontSize: "2rem" }} className={styles["icons"]}>
       {icons.map((Icon) => (
-        <Icon key={Icon.name} title={Icon.name} />
+        <div className={styles["icon"]} key={Icon.name}>
+          <Icon title={Icon.name} />
+          <span className={styles["icon__label"]}>{`<${Icon.name} />`}</span>
+        </div>
       ))}
     </div>
   ),

@@ -11,12 +11,17 @@ import { useDOMRef } from "../../utils/useDomRef";
 
 import { TableBase } from "./TableBase";
 import { Box } from "../Box";
+import { Spin } from "../Spin";
+
+import styles from "./Table.module.css";
 
 export interface TableColumnDef {
   name: string;
   key: string;
   allowsSorting?: boolean;
   render?: (value: unknown, key: string) => ReactNode;
+  width?: number | `${number}` | `${number}%` | null | undefined;
+  allowsResizing?: boolean;
 }
 
 export interface TableProps extends TableStateProps<object> {
@@ -24,10 +29,14 @@ export interface TableProps extends TableStateProps<object> {
   columns: TableColumnDef[];
   pagination?: boolean;
   resize?: boolean;
+  isLoading?: boolean;
 }
 
 export const Table = forwardRef<HTMLTableElement, TableProps>(
-  ({ dataSource, columns, pagination, resize, ...props }, refForwarded) => {
+  (
+    { dataSource, columns, pagination, resize, isLoading, ...props },
+    refForwarded,
+  ) => {
     const ref = useDOMRef(refForwarded);
 
     const mapColumn = useMemo(
@@ -36,11 +45,15 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
     );
 
     return (
-      <Box>
+      <Box className={styles["table__container"]}>
         <TableBase ref={ref} resize={resize} {...props}>
           <TableHeader columns={columns}>
             {(column) => (
-              <Column allowsSorting={column.allowsSorting}>
+              <Column
+                allowsSorting={column.allowsSorting}
+                allowsResizing={column.allowsResizing && resize}
+                defaultWidth={column.width}
+              >
                 {column.name}
               </Column>
             )}
@@ -59,6 +72,11 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
             )}
           </TableBody>
         </TableBase>
+        {isLoading && (
+          <div className={styles["table__spinner"]}>
+            <Spin size="large" />
+          </div>
+        )}
       </Box>
     );
   },

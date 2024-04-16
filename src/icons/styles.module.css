@@ -1,0 +1,15 @@
+.icon {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 0.5rem;
+}
+.icon__label {
+  font-size: 0.65rem;
+}
+
+.icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 14rem));
+  gap: 1rem;
+}

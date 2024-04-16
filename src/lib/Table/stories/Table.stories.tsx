@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { TrashOutline } from "@symblight/pavetra-icons";
 
-import { Table, Selection } from "..";
+import { Table, Selection, TableColumnDef } from "..";
 import { Typography } from "../../Typography";
 import { Button } from "../../Button";
 import { Avatar } from "../../Avatar";
@@ -162,13 +162,14 @@ export const Sort: Story = {
 
 // RESIZE
 
-let actionColumns = [
-  { name: "Name", key: "name" },
+let actionColumns: TableColumnDef[] = [
+  { name: "Name", key: "name", width: "20%" },
   { name: "Type", key: "type" },
-  { name: "Date Modified", key: "date" },
+  { name: "Date Modified", key: "date", width: "20%" },
   {
     name: "Actions",
     key: "actions",
+    width: "10%",
     render: (item, columnKey) => {
       return (
         <Button
